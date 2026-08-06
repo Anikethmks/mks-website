@@ -181,11 +181,17 @@
         </div>
         <div class="hero__controls">
           <div class="hero__divider"></div>
-          <div class="hero__dots" role="tablist" aria-label="Hero slides">
-            <button type="button" class="hero__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
-            <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
-            <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
-            <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+          <div class="hero__nav">
+            <div class="hero__dots" role="tablist" aria-label="Hero slides">
+              <button type="button" class="hero__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+              <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+              <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+              <button type="button" class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            </div>
+            <button type="button" class="hero__playpause" aria-label="Pause slideshow" aria-pressed="false">
+              <svg class="hero__playpause-icon hero__playpause-icon--pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+              <svg class="hero__playpause-icon hero__playpause-icon--play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.3v11.4a1 1 0 0 0 1.53.85l9-5.7a1 1 0 0 0 0-1.7l-9-5.7A1 1 0 0 0 4 2.3z"/></svg>
+            </button>
           </div>
         </div>
       </div>

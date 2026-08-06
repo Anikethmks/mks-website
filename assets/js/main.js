@@ -67,15 +67,18 @@
 
   // Hero slider with auto-play
   function initHeroSlider() {
+    var hero = document.querySelector('.hero');
     var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
     var dots = Array.from(document.querySelectorAll('.hero__dot'));
-    if (!bgs.length || !contents.length) return;
+    if (!hero || !bgs.length || !contents.length) return;
 
     var current = 0;
     var total = bgs.length;
-    var interval = 5000;
+    var interval = 6500;
     var timer = null;
+    var userPaused = false;
+    var hovering = false;
 
     // Restarts the background's slow zoom and the title/subtitle's fade-up
     // rise for the given slide. Kept separate from the opacity crossfade
@@ -127,19 +130,55 @@
       if (timer) { clearInterval(timer); timer = null; }
     }
 
+    // Restarts the active dot's progress-fill from empty, same reflow trick
+    // as triggerEntrance — used whenever a pause ends so the reading window
+    // that follows is always a full interval, not whatever was left over.
+    function restartDotProgress() {
+      var activeDot = dots[current];
+      if (!activeDot) return;
+      activeDot.classList.remove('is-active');
+      void activeDot.offsetWidth;
+      activeDot.classList.add('is-active');
+    }
+
+    // Single source of truth for whether autoplay should be running: the
+    // explicit pause button, the cursor resting anywhere on the hero (so
+    // reading the headline never gets cut off), and the tab being
+    // backgrounded all feed into it independently.
+    function syncPausedState() {
+      var shouldPause = userPaused || hovering || document.hidden;
+      hero.classList.toggle('is-paused', shouldPause);
+      if (shouldPause) {
+        stopAutoPlay();
+      } else {
+        restartDotProgress();
+        startAutoPlay();
+      }
+    }
+
     dots.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
         goToSlide(i);
-        startAutoPlay();
+        if (!userPaused && !hovering) startAutoPlay();
       });
     });
 
-    // Pause auto-advance while hovering the dots, so it doesn't advance out
-    // from under the cursor right as you're about to click one.
-    var dotsContainer = document.querySelector('.hero__dots');
-    if (dotsContainer) {
-      dotsContainer.addEventListener('mouseenter', stopAutoPlay);
-      dotsContainer.addEventListener('mouseleave', startAutoPlay);
+    hero.addEventListener('mouseenter', function () { hovering = true; syncPausedState(); });
+    hero.addEventListener('mouseleave', function () { hovering = false; syncPausedState(); });
+    hero.addEventListener('focusin', function () { hovering = true; syncPausedState(); });
+    hero.addEventListener('focusout', function () { hovering = false; syncPausedState(); });
+
+    document.addEventListener('visibilitychange', syncPausedState);
+
+    var playPauseBtn = document.querySelector('.hero__playpause');
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', function () {
+        userPaused = !userPaused;
+        playPauseBtn.classList.toggle('is-paused', userPaused);
+        playPauseBtn.setAttribute('aria-pressed', String(userPaused));
+        playPauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+        syncPausedState();
+      });
     }
 
     startAutoPlay();
