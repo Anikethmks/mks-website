@@ -169,4 +169,5 @@
   .retail-platforms__card { flex-basis: 100%; }
   .retail-platforms__title { font-size: 28px; line-height: 36px; }
   .retail-platforms__group-header { flex-wrap: wrap; }
+  .retail-platforms__group-name { white-space: normal; }
 }
