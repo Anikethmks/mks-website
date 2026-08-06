@@ -378,6 +378,14 @@
       return best;
     }
 
+    // Mirrors goToPage's last-page clamp: a leftmost card at or past
+    // cards.length - PAGE_SIZE means the final (clamped) page is showing,
+    // not whatever a plain floor(index / PAGE_SIZE) would compute.
+    function indexToPage(index) {
+      if (index >= cards.length - PAGE_SIZE) return totalPages - 1;
+      return Math.floor(index / PAGE_SIZE);
+    }
+
     function setActiveDot(page) {
       dots.forEach(function (dot, i) {
         dot.classList.toggle('is-active', i === page);
@@ -387,7 +395,12 @@
 
     function goToPage(page) {
       currentPage = (page + totalPages) % totalPages;
-      var card = cards[currentPage * PAGE_SIZE];
+      // The last page's anchor is clamped so it always lands on the final
+      // complete set of PAGE_SIZE cards (e.g. cards 6-7-8 of 8) instead of
+      // starting a page that only has 1-2 cards left with empty space
+      // trailing it.
+      var anchor = Math.min(currentPage * PAGE_SIZE, Math.max(cards.length - PAGE_SIZE, 0));
+      var card = cards[anchor];
       var target = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
       track.scrollTo({ left: target, behavior: 'smooth' });
       setActiveDot(currentPage);
@@ -419,7 +432,7 @@
     track.addEventListener('scroll', function () {
       clearTimeout(scrollSyncTimer);
       scrollSyncTimer = setTimeout(function () {
-        currentPage = Math.floor(nearestCardIndex() / PAGE_SIZE);
+        currentPage = indexToPage(nearestCardIndex());
         setActiveDot(currentPage);
       }, 120);
     });

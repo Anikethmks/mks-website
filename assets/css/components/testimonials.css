@@ -89,7 +89,11 @@
 }
 
 .testimonial-card {
-  width: 400px;
+  /* Sized to fit exactly 3 per view (2 gaps of 24px between them) rather
+     than a fixed pixel width, so there's never a partial card peeking at
+     either edge — at any viewport width, or at the very end of a drag. */
+  width: calc((100% - 48px) / 3);
+  min-width: 280px;
   flex-shrink: 0;
   scroll-snap-align: start;
   background: #FFFFFF;
@@ -167,9 +171,11 @@
 
 @media (max-width: 1024px) {
   .testimonials { padding: 48px 24px; }
-  .testimonial-card { width: 320px; }
+  /* 2 per view below desktop — 3 full cards no longer fit comfortably once
+     the section's own side padding eats into the available width. */
+  .testimonial-card { width: calc((100% - 24px) / 2); min-width: 260px; }
 }
 @media (max-width: 640px) {
-  .testimonial-card { width: 260px; padding: 14px; }
+  .testimonial-card { width: 100%; min-width: 0; padding: 14px; }
   .testimonials__track { gap: 16px; }
 }
