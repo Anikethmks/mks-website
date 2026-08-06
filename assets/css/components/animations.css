@@ -193,39 +193,39 @@ body { opacity: 1; transition: opacity 0.6s ease; }
     to { transform: scale(1.12) translateY(3%); }
   }
 
-  /* Healthcare/Fintech cards + hero images settle in place while fully on
-     screen, and drift toward whichever side they already sit on as they
-     scroll toward either edge of the viewport — purely a position shift,
-     opacity untouched, so nothing ever disappears. Tied directly to
-     scroll position (not a one-shot trigger), so it runs the same whether
-     scrolling down into the section or back up out of it.
+  /* Healthcare/Fintech cards + hero images slide in and settle entirely
+     during the moment the section is ENTERING the screen (the "entry"
+     named range — from first pixel visible to fully visible), instead of
+     being spread thin across the section's whole multi-hundred-pixel
+     scroll journey. That made it barely perceptible; confining it to just
+     the entry crossing plus a bigger offset makes it read as a real,
+     felt slide instead of a nudge. animation-fill: both holds the
+     settled translateX(0) for the rest of the time the section is on
+     screen (and afterwards), so it never re-triggers or drifts again on
+     the way back out — purely a position shift, opacity untouched.
      Applied to the card GRID/image containers rather than the individual
      .feature-card/.fintech-service elements — those already own their
      own transform for the hover-tilt and hover-lift effects, and a CSS
      animation on the same property would silently win over both. */
   .healthcare-features__cards,
   .fintech-features__image {
-    animation: section-parallax-left linear both;
+    animation: section-parallax-left cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-timeline: --section-scroll;
-    animation-range: cover 0% cover 100%;
+    animation-range: entry 0% entry 100%;
   }
   .healthcare-features__image,
   .fintech-features__services {
-    animation: section-parallax-right linear both;
+    animation: section-parallax-right cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-timeline: --section-scroll;
-    animation-range: cover 0% cover 100%;
+    animation-range: entry 0% entry 100%;
   }
   @keyframes section-parallax-left {
-    0%   { transform: translateX(-32px); }
-    25%  { transform: translateX(0); }
-    75%  { transform: translateX(0); }
-    100% { transform: translateX(-32px); }
+    from { transform: translateX(-120px); }
+    to   { transform: translateX(0); }
   }
   @keyframes section-parallax-right {
-    0%   { transform: translateX(32px); }
-    25%  { transform: translateX(0); }
-    75%  { transform: translateX(0); }
-    100% { transform: translateX(32px); }
+    from { transform: translateX(120px); }
+    to   { transform: translateX(0); }
   }
 }
 
