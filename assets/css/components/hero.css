@@ -31,9 +31,9 @@
   to   { transform: scale(1.06) translate(-1.5%, -1%); }
 }
 
-.hero__bg[data-slide="0"] { background-image: url('../../images/content/hero-slide-1-ai-laptop.jpg'); }
+.hero__bg[data-slide="0"] { background-image: url('../../images/content/hero-slide-1-bg.png'); }
 .hero__bg[data-slide="1"] { background-image: url('../../images/content/fig-hero2-bg.png'); }
-.hero__bg[data-slide="2"] { background-image: url('../../images/content/fig-hero3-bg.png'); }
+.hero__bg[data-slide="2"] { background-image: url('../../images/content/hero-slide-3-bg.png'); }
 .hero__bg[data-slide="3"] { background-image: url('../../images/content/fig-hero4-bg.png'); }
 
 .hero__bg::after {
@@ -41,9 +41,9 @@
   position: absolute;
   inset: 0;
 }
-.hero__bg[data-slide="0"]::after { background: rgba(10, 10, 10, 0.75); }
-.hero__bg[data-slide="1"]::after { background: rgba(2, 2, 2, 0.5); }
-.hero__bg[data-slide="2"]::after { background: rgba(2, 2, 2, 0.75); }
+.hero__bg[data-slide="0"]::after { background: rgba(0, 0, 0, 0.55); }
+.hero__bg[data-slide="1"]::after { background: rgba(2, 2, 2, 0.52); }
+.hero__bg[data-slide="2"]::after { background: rgba(2, 1, 36, 0.5); }
 
 .hero__inner {
   position: relative;
@@ -62,7 +62,7 @@
   max-width: 709px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
   position: absolute;
   opacity: 0;
   pointer-events: none;
@@ -105,26 +105,26 @@
 }
 
 .hero__title-gradient {
-  background: var(--grad-number);
+  background: linear-gradient(-10.667deg, #8465FF 17.033%, #FFA980 70.59%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .hero__title-gradient--gold {
-  background: linear-gradient(90deg, #FFCD29 0%, #D0640C 100%);
+  background: linear-gradient(-13.591deg, #D7D542 17.033%, #EFE703 70.59%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
 .hero__title-gradient--green {
-  background: linear-gradient(-9deg, #088A08 34%, #E8FD73 100%);
+  background: linear-gradient(-13.591deg, #B0E76C 17.033%, #5AD42A 70.59%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
 .hero__title-gradient--soft {
-  background: var(--grad-soft);
+  background: linear-gradient(119.883deg, #CABEFA 9.1235%, #FFD2BD 89.436%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -137,6 +137,44 @@
   letter-spacing: 0;
   color: #FFFFFF;
   max-width: 709px;
+}
+
+/* CTA row — two buttons per slide, label text changes with the slide */
+.hero__cta-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.hero__cta--primary {
+  background: linear-gradient(101deg, #1A70B2 3.897%, #4C3C89 92.225%);
+  color: #FFFFFF;
+}
+
+.hero__cta--secondary {
+  background: #FFFFFF;
+  filter: drop-shadow(2px 4px 2px rgba(76, 60, 137, 0.2));
+}
+.hero__cta--secondary span {
+  background: linear-gradient(50deg, #2784C5 23.887%, #4D4FA4 89.218%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero__controls {
@@ -154,43 +192,81 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Figma-exact divider (node 437:404): full-width 10%-white rule above the nav row. */
+/* Figma-exact divider (node 437:404): full-width 30%-white rule above the tab row. */
 .hero__divider {
   align-self: stretch;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Nav row — arrow / segmented rail / arrow, the pattern Apple, Sony and
-   Microsoft all converge on for multi-slide hero banners: thin progress
-   segments for position + explicit arrows for manual browsing, rather than
-   a separate play/pause toggle. */
+/* Tab row — arrow / labeled tabs / arrow. Each tab shows the slide's name
+   with a thin progress bar above it; the active one fills as the autoplay
+   interval elapses. Arrows give explicit manual control (the pattern Apple,
+   Sony and Microsoft converge on for multi-slide hero banners) on top of
+   Figma's plain labeled-tab design. */
 .hero__nav {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   padding: 10px;
   margin: -10px;
 }
 
-.hero__rail {
+.hero__tabs {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 25px;
 }
 
-.hero__segment {
-  position: relative;
-  width: 20px;
-  height: 4px;
-  padding: 0;
+.hero__tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  width: 80px;
+  flex-shrink: 0;
+  background: none;
   border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hero__tab-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 4px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
   overflow: hidden;
 }
-.hero__segment.is-viewed { background: rgba(255, 255, 255, 0.75); }
+.hero__tab.is-viewed .hero__tab-bar { background: rgba(255, 255, 255, 0.75); }
+
+.hero__tab-bar-fill {
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.hero__tab.is-active .hero__tab-bar-fill {
+  animation: hero-tab-progress 6.5s linear forwards;
+}
+@keyframes hero-tab-progress { to { transform: scaleX(1); } }
+
+.hero__tab-label {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+/* Freezes the progress fill while reading is paused (hover, keyboard focus,
+   or the tab being backgrounded) — it resumes from wherever it left off. */
+.hero.is-paused .hero__tab.is-active .hero__tab-bar-fill { animation-play-state: paused; }
 
 .hero__arrow {
   display: inline-flex;
@@ -213,18 +289,19 @@
   .hero__bg.is-zooming { animation: none; }
   .hero__title.is-active,
   .hero__subtitle.is-active { animation: none; transform: translateY(0); }
+  .hero__tab.is-active .hero__tab-bar-fill { animation: none; transform: scaleX(1); }
   .hero__controls { animation: none; opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 900px) {
-  .hero { height: 460px; }
+  .hero { height: 520px; }
   .hero__inner { padding: 80px 24px 0; }
   .hero__title { font-size: 36px; line-height: 44px; }
 }
 @media (max-width: 480px) {
-  .hero { height: 420px; }
+  .hero { height: 540px; }
   .hero__inner { padding: 72px 16px 0; }
   .hero__title { font-size: 28px; line-height: 36px; }
   .hero__subtitle { font-size: 15px; line-height: 24px; }
-  .hero__controls { margin-top: 4px; }
+  .hero__tab { width: 64px; }
 }

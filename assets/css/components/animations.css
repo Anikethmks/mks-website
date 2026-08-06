@@ -30,29 +30,6 @@
 .navbar { transition: box-shadow 0.3s ease; }
 .navbar.is-scrolled { box-shadow: 0 4px 24px rgba(2, 2, 2, 0.08); }
 
-/* Hero nav rail — the active segment fills left-to-right as the autoplay
-   interval elapses; segments already passed stay solid (base styling for
-   the rail/segments/arrows themselves lives in hero.css). */
-.hero__segment-fill {
-  position: absolute;
-  inset: 0;
-  background: #FFFFFF;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-.hero__segment.is-active .hero__segment-fill {
-  animation: hero-segment-progress 6.5s linear forwards;
-}
-@keyframes hero-segment-progress { to { transform: scaleX(1); } }
-
-/* Freezes the progress fill while reading is paused (hover, keyboard focus,
-   or the tab being backgrounded) — it resumes from wherever it left off. */
-.hero.is-paused .hero__segment.is-active .hero__segment-fill { animation-play-state: paused; }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__segment.is-active .hero__segment-fill { animation: none; transform: scaleX(1); }
-}
-
 /* Outcomes cards */
 .outcome-card {
   transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;

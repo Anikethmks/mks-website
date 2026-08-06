@@ -70,7 +70,7 @@
     var hero = document.querySelector('.hero');
     var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
-    var segments = Array.from(document.querySelectorAll('.hero__segment'));
+    var segments = Array.from(document.querySelectorAll('.hero__tab'));
     var prevBtn = document.querySelector('.hero__arrow--prev');
     var nextBtn = document.querySelector('.hero__arrow--next');
     if (!hero || !bgs.length || !contents.length) return;
