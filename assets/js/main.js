@@ -326,15 +326,14 @@
     });
   }
 
-  // Testimonials — auto-advances one page (3 cards) every 4s via native CSS
-  // scroll-snap (smooth, GPU-accelerated, browser-handled momentum rather
-  // than a hand-rolled transform animation). Pauses on hover, and while
-  // hovered the row is directly click-and-drag ("grab") scrollable. Dots
-  // are generated per page (ceil(cards / 3), so 7 cards → 3 dots) and
-  // reflect whichever page is nearest the scroll position regardless of
-  // how it got there — auto-advance, a dot click, or a manual drag.
-  // Auto-advance only starts once the section first scrolls into view,
-  // so it isn't silently cycling somewhere off-screen before that.
+  // Testimonials — manual paging only (no auto-advance: an in-background
+  // timer firing its smooth horizontal scroll at the same moment the user
+  // was scrolling the page past this section caused a visibly torn/cut
+  // frame, since both scrolls animated at once). Navigate via dot click or
+  // click-and-drag ("grab") on the row; one page is 3 cards via native CSS
+  // scroll-snap. Dots are generated per page (ceil(cards / 3), so 7 cards
+  // → 3 dots) and reflect whichever page is nearest the scroll position
+  // regardless of how it got there — a dot click or a manual drag.
   function initTestimonialsCarousel() {
     var section = document.querySelector('.testimonials');
     var row = document.querySelector('.testimonials__row');
@@ -344,12 +343,8 @@
     if (!section || !row || !track || !cards.length) return;
 
     var PAGE_SIZE = 3;
-    var AUTO_INTERVAL = 4000;
     var totalPages = Math.ceil(cards.length / PAGE_SIZE);
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var currentPage = 0;
-    var timer = null;
-    var hovering = false;
     var dragging = false;
     var dragged = false;
     var dots = [];
@@ -406,26 +401,6 @@
       setActiveDot(currentPage);
     }
 
-    function startAuto() {
-      if (reduceMotion) return;
-      stopAuto();
-      timer = setInterval(function () { goToPage(currentPage + 1); }, AUTO_INTERVAL);
-    }
-    function stopAuto() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    // Once the section is first visible, kick off auto-advance — not
-    // before, so it's never cycling somewhere off-screen unseen.
-    var startObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        if (!hovering) startAuto();
-        startObserver.disconnect();
-      });
-    }, { threshold: 0.2 });
-    startObserver.observe(section);
-
     // Debounced so it settles once a scroll (of any origin) finishes,
     // rather than fighting the in-flight smooth-scroll animation.
     var scrollSyncTimer = null;
@@ -438,25 +413,15 @@
     });
 
     dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        goToPage(i);
-        if (!hovering) startAuto();
-      });
+      dot.addEventListener('click', function () { goToPage(i); });
     });
 
-    row.addEventListener('mouseenter', function () { hovering = true; stopAuto(); });
-    row.addEventListener('mouseleave', function () {
-      hovering = false;
-      if (!dragging) startAuto();
-    });
-
-    // Click-and-drag ("grab") scrolling while hovered
+    // Click-and-drag ("grab") scrolling
     var startX = 0;
     var startScroll = 0;
     track.addEventListener('mousedown', function (e) {
       dragging = true;
       dragged = false;
-      stopAuto();
       track.classList.add('is-dragging');
       startX = e.pageX;
       startScroll = track.scrollLeft;
@@ -471,7 +436,6 @@
       if (!dragging) return;
       dragging = false;
       track.classList.remove('is-dragging');
-      if (!hovering) startAuto();
     });
     // A drag shouldn't also register as a click on whatever's underneath the cursor
     track.addEventListener('click', function (e) {
