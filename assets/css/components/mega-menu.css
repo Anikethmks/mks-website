@@ -150,6 +150,34 @@
   color: #4D3D8A;
 }
 
+/* Desktop-only fade/rise entrance instead of the plain display toggle above.
+   Scoped to >1024px because on mobile the menu is position:static (part of
+   the accordion flow) — leaving it as a display toggle there avoids an
+   invisible-but-still-occupying-space gap that opacity/visibility would
+   otherwise leave in the stacked mobile nav. */
+@media (min-width: 1025px) {
+  .mega-menu {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.25s;
+  }
+  .navbar__item--dropdown.is-open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega-menu { transition: opacity 0.15s ease, visibility 0s linear 0.15s; transform: none; }
+  .navbar__item--dropdown.is-open .mega-menu { transition: opacity 0.15s ease; transform: none; }
+}
+
 @media (max-width: 1200px) {
   .mega-menu { left: auto; right: 0; }
 }

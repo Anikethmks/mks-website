@@ -49,13 +49,35 @@
   background: none;
   cursor: pointer;
   border: none;
-  border-bottom: 2px solid transparent;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
-.navbar__link.is-active {
-  border-bottom: 2px solid;
-  border-image-source: linear-gradient(304.99deg, #8465FF 17.03%, #FFA980 70.59%);
-  border-image-slice: 1;
+/* Gradient underline draws in from the left on hover; the active page's
+   link keeps it permanently shown (no draw-in — it should just already be
+   there on load, not compete with the page's own entrance animation). */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(304.99deg, #8465FF 17.03%, #FFA980 70.59%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.navbar__link:hover::after {
+  transform: scaleX(1);
+}
+.navbar__link.is-active::after {
+  transform: scaleX(1);
+  transition: none;
+}
+.navbar__link:hover {
+  color: #4D3D8A;
 }
 
 .navbar__chevron {
