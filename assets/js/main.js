@@ -68,28 +68,22 @@
   // Hero slider with auto-play
   function initHeroSlider() {
     var hero = document.querySelector('.hero');
-    var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
     var segments = Array.from(document.querySelectorAll('.hero__segment'));
     var prevBtn = document.querySelector('.hero__arrow--prev');
     var nextBtn = document.querySelector('.hero__arrow--next');
-    if (!hero || !bgs.length || !contents.length) return;
+    if (!hero || !contents.length) return;
 
     var current = 0;
-    var total = bgs.length;
+    var total = contents.length;
     var interval = 6500;
     var timer = null;
     var hovering = false;
 
-    // Restarts the background's slow zoom and the title/subtitle's fade-up
-    // rise for the given slide. Kept separate from the opacity crossfade
-    // below so a mid-fade restart never snaps anything's position.
+    // Restarts the title/subtitle's blur-and-rise entrance for the given
+    // slide. Kept separate from the parent's opacity crossfade below so a
+    // mid-fade restart never snaps anything's position.
     function triggerEntrance(index) {
-      var bg = bgs[index];
-      bg.classList.remove('is-zooming');
-      void bg.offsetWidth;
-      bg.classList.add('is-zooming');
-
       var content = contents[index];
       [content.querySelector('.hero__title'), content.querySelector('.hero__subtitle')].forEach(function (el) {
         if (!el) return;
@@ -100,7 +94,6 @@
     }
 
     function goToSlide(index) {
-      bgs.forEach(function (bg) { bg.classList.remove('is-active'); });
       contents.forEach(function (c) { c.classList.remove('is-active'); });
       // Segments before the new index read as "already seen" (solid), the
       // active one gets the animated fill, later ones stay dim — resets
@@ -111,7 +104,6 @@
         if (i < index) seg.classList.add('is-viewed');
       });
 
-      bgs[index].classList.add('is-active');
       contents[index].classList.add('is-active');
       if (segments[index]) {
         segments[index].classList.add('is-active');
