@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Agentic AI Development — Hero + sub-nav tabs
+   Source Figma frame: 1054:9440 (hero section + tabs row)
+   ========================================================================== */
+
+.agentic-hero {
+  position: relative;
+  background: #020202;
+  padding: 120px 64px 64px;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  overflow: hidden;
+  min-height: 545px;
+}
+
+.agentic-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 0 1 608px;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.agentic-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.agentic-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.agentic-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.agentic-hero__breadcrumb svg { flex-shrink: 0; }
+
+.agentic-hero__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.agentic-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  margin: 0;
+  background: linear-gradient(-17.23deg, #8465FF 17.03%, #FFA980 70.59%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.agentic-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Bleeds flush to the section's top/right/bottom edges — see the identical
+   technique (and the reasoning behind it) on Physical & Vision AI's hero. */
+.agentic-hero__media {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: -120px -64px -64px 0;
+}
+.agentic-hero__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Sub-nav tabs — identical pattern to Physical & Vision AI's. */
+.agentic-tabs {
+  background: #FCFCFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.agentic-tabs__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.agentic-tabs__link--active {
+  font-weight: 600;
+  background: #FFFFFF;
+  border-bottom: 2px solid #8465FF;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+@media (max-width: 1100px) {
+  .agentic-hero { flex-direction: column; min-height: 0; padding: 96px 24px 0; }
+  .agentic-hero__content { flex-basis: auto; }
+  .agentic-hero__title { font-size: 28px; line-height: 36px; }
+  .agentic-hero__media { flex-basis: 280px; margin: 0 -24px 0; }
+}
+@media (max-width: 600px) {
+  .agentic-tabs { flex-wrap: wrap; padding-inline: 12px; }
+}

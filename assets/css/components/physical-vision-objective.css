@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Physical & Vision AI — The Objective
+   Source Figma frame: 702:17340
+   ========================================================================== */
+
+.pva-objective {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--frame-max);
+  margin-inline: auto;
+}
+
+.pva-objective__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+}
+.pva-objective__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.pva-objective__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  margin: 0;
+}
+
+.pva-objective__intro {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+  width: 100%;
+}
+
+.pva-objective__row {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  width: 100%;
+}
+
+.pva-objective__grid {
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  filter: drop-shadow(2px 3px 3px rgba(222, 222, 222, 0.35));
+}
+
+.pva-objective-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #CABEFA;
+  border-radius: 8px;
+  background: linear-gradient(98deg, rgba(202, 190, 250, 0.7) 9.12%, rgba(255, 210, 189, 0.7) 89.44%);
+  padding: 16px;
+  min-height: 163px;
+  display: flex;
+  align-items: center;
+}
+
+.pva-objective-card__text {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.pva-objective-card__icon {
+  position: absolute;
+  right: -12px;
+  bottom: -12px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.9;
+}
+.pva-objective-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pva-objective__media {
+  flex: 0 0 auto;
+  width: 43%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+.pva-objective__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .pva-objective { padding: 48px 24px; }
+  .pva-objective__row { flex-direction: column; }
+  .pva-objective__media { width: 100%; aspect-ratio: 900 / 600; }
+  .pva-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .pva-objective__grid { grid-template-columns: 1fr; }
+}

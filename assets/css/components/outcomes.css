@@ -1,0 +1,213 @@
+.outcomes {
+  background: linear-gradient(103deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%), #FFFFFF;
+  padding: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Runs from the very top of the section down to the top of the card row —
+   NOT behind the cards, since they're translucent and would let it show
+   through. Height = section's 64px top padding + header content (38px
+   title + 16px gap + 26px lead = 80px) + the 64px gap before the grid. */
+.outcomes__stars {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 208px;
+  background: url('../../images/content/fig-be5a1e3429a2.png') repeat;
+  background-size: 18px 20px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.outcomes__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.outcomes__header { display: flex; flex-direction: column; gap: 16px; }
+
+.outcomes__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+}
+
+.outcomes__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+}
+
+.outcomes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.outcome-card {
+  position: relative;
+  min-height: 185px;
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.outcome-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.outcome-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  background: var(--grad-vivid);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+/* The "Products & Platform" card carries a longer title than the other
+   three, so Figma steps its size down a notch to keep it from crowding
+   the icon — a deliberate size step, not a mistake to normalize. */
+.outcome-card--sm .outcome-card__title {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.outcome-card__icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.outcome-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+  margin: 0;
+}
+
+/* Delivering Impact marquee row — label chip stays fixed, pills scroll
+   infinitely. The scrolling mechanics (viewport mask, track, group,
+   pill/dot markup, and main.js's clone-for-seamless-loop logic) are
+   unchanged — only the fixed label chip and separator dot are restyled. */
+.outcomes__impact {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.outcomes__impact-fixed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 12px 24px;
+  background: linear-gradient(109deg, rgba(202, 190, 250, 0.29) 9.12%, rgba(255, 210, 189, 0.29) 89.44%);
+  white-space: nowrap;
+}
+
+.outcomes__impact-viewport {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+}
+
+.outcomes__impact-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: outcomes-marquee var(--marquee-duration, 20s) linear infinite;
+}
+
+.outcomes__impact-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+@keyframes outcomes-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 12px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outcomes__impact-track { animation: none; }
+}
+
+.outcomes__impact-lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.outcomes__impact-sub {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #58595B;
+}
+
+.outcomes__dot {
+  width: 4px;
+  height: 4px;
+  background: var(--grad-cta);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.outcomes__pill {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .outcomes { padding: 48px 24px; }
+  .outcomes__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 480px) {
+  .outcomes { padding: 40px 16px; }
+  .outcomes__title { font-size: 28px; line-height: 36px; }
+  .outcomes__grid { grid-template-columns: 1fr; }
+}

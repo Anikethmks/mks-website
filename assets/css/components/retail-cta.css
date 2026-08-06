@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Retail — Closing CTA (audit / design / build / support)
+   Source Figma frame: results-section #1610:27453
+   ========================================================================== */
+
+.retail-cta {
+  background: var(--grad-soft);
+  padding: 64px;
+}
+
+.retail-cta__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.retail-cta__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 589px;
+}
+
+.retail-cta__eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: var(--color-heading-purple);
+  margin: 0;
+}
+
+.retail-cta__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  color: #020202;
+  margin: 0;
+}
+
+.retail-cta__lead {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+.retail-cta__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #8ACFFF;
+  background: var(--grad-trust-label);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.retail-cta__right {
+  flex: 1;
+  min-width: 320px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.retail-cta__right-heading {
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+.retail-cta__right-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text-muted);
+}
+.retail-cta__right-title {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  color: #020202;
+}
+
+.retail-cta__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.retail-cta__card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.retail-cta__card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+.retail-cta__card-desc {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 26px;
+  color: #1F2937;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .retail-cta { padding: 48px 24px; }
+  .retail-cta__title { font-size: 28px; line-height: 36px; }
+  .retail-cta__grid { grid-template-columns: 1fr; }
+}

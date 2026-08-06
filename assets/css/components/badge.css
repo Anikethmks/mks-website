@@ -1,0 +1,19 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grad-blue-a);
+  background: rgba(39, 132, 197, 0.10);
+}
+
+.badge--purple { color: #6B4EFF; background: rgba(107, 78, 255, 0.10); }
+.badge--orange { color: #E27B4F; background: rgba(226, 123, 79, 0.10); }
+.badge--teal   { color: #1F9E8A; background: rgba(31, 158, 138, 0.10); }
+.badge--pink   { color: #C64B7E; background: rgba(198, 75, 126, 0.10); }

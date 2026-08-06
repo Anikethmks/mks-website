@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Capabilities page hero — static breadcrumb hero (no slider)
+   Source Figma frame: hero #572:6408
+   ========================================================================== */
+
+.capabilities-hero {
+  position: relative;
+  padding: 120px 64px 64px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-image: linear-gradient(135deg, rgba(49, 49, 49, 0.65) 0%, rgba(77, 19, 127, 0.65) 100%),
+    url('../../images/content/capabilities-hero-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.capabilities-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* "Home" and the current page ("Capabilities") share Typography/Label;
+   the middle crumb ("Who We Are") is set in Typography/Body/Regular in
+   the Figma file — a deliberate size step, not a mistake to normalize. */
+.capabilities-hero__breadcrumb a,
+.capabilities-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #FFFFFF;
+  opacity: 0.6;
+  text-decoration: none;
+}
+.capabilities-hero__breadcrumb span:not([aria-current]) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: normal;
+}
+.capabilities-hero__breadcrumb span[aria-current="page"] {
+  font-weight: 500;
+  opacity: 1;
+}
+.capabilities-hero__breadcrumb svg { flex-shrink: 0; }
+
+.capabilities-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.capabilities-hero__eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: #F5F9FF;
+}
+
+.capabilities-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  background: var(--grad-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.capabilities-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+
+.capabilities-hero__underline {
+  width: 224px;
+  height: 0.5px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-icon-soft);
+  box-shadow: 0 0 18px rgba(0, 102, 255, 0.4), 0 0 32px rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 900px) {
+  .capabilities-hero { padding: 96px 24px 48px; }
+  .capabilities-hero__title { font-size: 36px; line-height: 44px; }
+  .capabilities-hero__lead { font-size: 16px; line-height: 26px; }
+}
+@media (max-width: 480px) {
+  .capabilities-hero { padding: 88px 16px 40px; }
+  .capabilities-hero__title { font-size: 28px; line-height: 36px; }
+}

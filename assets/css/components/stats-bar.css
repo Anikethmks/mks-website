@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Capabilities page — Stats bar
+   Source Figma frame: stats-bar #572:6716
+   ========================================================================== */
+
+.stats-bar {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 4px -1px 8px 0 rgba(225, 228, 255, 1);
+  padding: 24px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stats-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 220px;
+}
+
+.stats-bar__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  background: var(--grad-vivid);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stats-bar__label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  text-align: center;
+}
+
+.stats-bar__divider {
+  width: 1px;
+  height: 56px;
+  background: var(--grad-cta);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .stats-bar { padding: 24px; flex-wrap: wrap; gap: 24px; }
+  .stats-bar__divider { display: none; }
+  .stats-bar__item { width: auto; flex: 1 1 30%; }
+}

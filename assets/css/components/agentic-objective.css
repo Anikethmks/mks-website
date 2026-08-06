@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Agentic AI Development — The Objective
+   Source Figma frame: 1054:9534
+   ========================================================================== */
+
+.agentic-objective {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--frame-max);
+  margin-inline: auto;
+}
+
+.agentic-objective__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+}
+.agentic-objective__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.agentic-objective__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  margin: 0;
+}
+
+.agentic-objective__intro {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+  width: 100%;
+}
+
+.agentic-objective__row {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  width: 100%;
+}
+
+.agentic-objective__media {
+  flex: 0 0 546px;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.agentic-objective__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.agentic-objective__grid {
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  filter: drop-shadow(2px 3px 3px rgba(222, 222, 222, 0.35));
+}
+
+.agentic-objective-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--grad-trust-label);
+  padding: 16px;
+  min-height: 163px;
+  display: flex;
+  align-items: center;
+}
+
+.agentic-objective-card__text {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.agentic-objective-card__icon {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 56px;
+  height: 56px;
+  color: #FFFFFF;
+}
+.agentic-objective-card__icon svg { width: 100%; height: 100%; }
+
+@media (max-width: 1100px) {
+  .agentic-objective { padding: 48px 24px; }
+  .agentic-objective__row { flex-direction: column; }
+  .agentic-objective__media { width: 100%; height: 300px; }
+  .agentic-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .agentic-objective__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,71 @@
+:root {
+  /* Text */
+  --color-text: #020202;
+  --color-text-muted: #58595B;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-on-dark-muted: #C0C0C0;
+
+  /* Surfaces */
+  --color-bg: #FFFFFF;
+  --color-surface: #FFFEFE;
+  --color-surface-alt: #F8F9F9;
+  --color-surface-tint: #F9FCFD;
+  --color-cta-dark: #58595B;
+  --color-trust-dark: #373737;
+  --color-footer-dark: #0D1B2A;
+
+  /* Brand accents */
+  --color-eyebrow-blue: #1F73B4;
+  --color-heading-purple: #4D3D8A;
+  --color-badge-bg: #F0EDFF;
+
+  /* Gradients (Figma exact) */
+  --grad-soft: linear-gradient(141deg, #CABEFA 2%, #FFD2BD 100%);
+  --grad-cta: linear-gradient(90deg, #2784C5 18%, #4D4FA4 98%);
+  --grad-vivid: linear-gradient(-66deg, #8667FF 4%, #2986C5 97%);
+  --grad-number: linear-gradient(-9deg, #8465FF 0%, #FFA980 100%);
+  --grad-icon-soft: linear-gradient(141deg, #CABCFF 0%, #C5E3F7 94%);
+  --grad-trust-label: linear-gradient(-62deg, #2784C5 17%, #4D4FA4 100%);
+  --grad-card-border: linear-gradient(146deg, #AF9AFF 0%, #CBEAFF 97%);
+  --grad-services: linear-gradient(180deg, #8ACFFF 5%, #2986C5 100%);
+  --grad-form-submit: linear-gradient(-66deg, #644DBF 4%, #1A70B2 97%);
+
+  /* Fonts */
+  --font-primary: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-display: 'Montserrat', 'Poppins', system-ui, sans-serif;
+
+  /* Type scale (Figma exact) */
+  --fs-h1-big: 48px;      /* Trust stat numbers, hero */
+  --fs-h1: 36px;          /* Healthcare / Fintech titles */
+  --fs-h2: 28px;          /* Section headings */
+  --fs-h3: 18px;          /* Card titles */
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-eyebrow: 14px;
+  --fs-mini: 12px;
+
+  --lh-h1-big: 60px;
+  --lh-h1: 44px;
+  --lh-h2: 38px;
+  --lh-h3: 28px;
+  --lh-body: 26px;
+  --lh-small: 22px;
+  --lh-eyebrow: 20px;
+
+  /* Layout (Figma exact 1440 canvas → 1312 content) */
+  --frame-max: 1440px;
+  --content-max: 1312px;
+  --section-py: 64px;
+  --section-px: 64px;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-card: 0 4px 12px rgba(8, 17, 31, 0.06);
+  --shadow-lift: 0 12px 28px rgba(8, 17, 31, 0.10);
+}

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Retail — Applications for the retail floor and the back office
+   Source Figma frame: #1606:26206
+   ========================================================================== */
+
+.retail-applications {
+  position: relative;
+  padding: 64px;
+  overflow: hidden;
+}
+
+.retail-applications__dots {
+  position: absolute;
+  background-image: url('../../images/content/fig-be5a1e3429a2.png');
+  background-repeat: repeat;
+  background-size: 18px 20px;
+  pointer-events: none;
+}
+.retail-applications__dots--tl {
+  top: 0;
+  left: 64px;
+  width: 498px;
+  height: 298px;
+  opacity: 0.04;
+}
+.retail-applications__dots--br {
+  top: 193px;
+  bottom: 0;
+  right: 0;
+  width: 247px;
+  opacity: 0.08;
+}
+
+.retail-applications__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  position: relative;
+}
+
+.retail-applications__row {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.retail-applications__img {
+  width: 593px;
+  max-width: 44%;
+  flex-shrink: 0;
+  border-radius: 16px;
+  aspect-ratio: 593 / 334;
+  object-fit: cover;
+}
+
+.retail-applications__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 1;
+  min-width: 0;
+}
+
+.retail-applications__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.retail-applications__title em {
+  font-style: normal;
+  color: var(--color-eyebrow-blue);
+}
+
+.retail-applications__eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-heading-purple);
+  margin: 16px 0 0;
+}
+
+.retail-applications__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.retail-applications__list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+.retail-applications__list img { width: 16px; height: 16px; flex-shrink: 0; }
+
+.retail-applications__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.retail-applications__pill {
+  background: rgba(170, 195, 212, 0.15);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-heading-purple);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .retail-applications__row { flex-direction: column; }
+  .retail-applications__img { max-width: 100%; width: 100%; }
+}
+@media (max-width: 720px) {
+  .retail-applications { padding: 48px 24px; }
+  .retail-applications__title { font-size: 28px; line-height: 36px; }
+}

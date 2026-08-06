@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Industries — Hero
+   Source Figma frame: hero #671:452
+   ========================================================================== */
+
+.industries-hero {
+  position: relative;
+  padding: 120px 64px 64px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.industries-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(90deg, #0B0B0B 0%, #1969A6 100%);
+}
+
+.industries-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('../../images/content/industries-hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+}
+
+.industries-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.industries-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #AFAFAF;
+  opacity: 0.6;
+  text-decoration: none;
+}
+.industries-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #FFFFFF;
+}
+.industries-hero__breadcrumb svg { flex-shrink: 0; }
+
+.industries-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.industries-hero__eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: #F5F9FF;
+  margin: 0;
+}
+
+.industries-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  max-width: 824px;
+  margin: 0;
+  background: var(--grad-icon-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.industries-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #FFFFFF;
+  max-width: 795px;
+  margin: 0;
+}
+
+.industries-hero__accent {
+  width: 224px;
+  height: 0.5px;
+  border-radius: 999px;
+  background: var(--grad-icon-soft);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.2), 0 0 18px rgba(0, 102, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+  .industries-hero { padding: 96px 24px 48px; }
+  .industries-hero__title { font-size: 36px; line-height: 44px; }
+}
+@media (max-width: 480px) {
+  .industries-hero { padding: 88px 16px 40px; }
+  .industries-hero__title { font-size: 28px; line-height: 36px; }
+}

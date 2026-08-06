@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Physical & Vision AI — The Impact
+   Source Figma frame: 702:17936
+   ========================================================================== */
+
+.pva-impact {
+  background: #F3F0FF;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.pva-impact__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pva-impact__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.pva-impact__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  margin: 0;
+}
+
+.pva-impact__intro {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+.pva-impact__grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  filter: drop-shadow(0px 4px 2px #ECE7FD);
+}
+
+.pva-impact-card {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.pva-impact-card__label {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  white-space: nowrap;
+}
+.pva-impact-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .pva-impact { padding: 48px 24px; }
+  .pva-impact__grid { flex-wrap: wrap; }
+  .pva-impact-card { flex-basis: calc(50% - 8px); }
+}
+@media (max-width: 600px) {
+  .pva-impact-card { flex-basis: 100%; }
+}

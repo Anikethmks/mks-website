@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Retail — The way we think about retail engagements
+   Source Figma frame: #1606:26528
+   ========================================================================== */
+
+.retail-engagement {
+  padding: 64px;
+}
+
+.retail-engagement__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.retail-engagement__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.retail-engagement__img {
+  width: 47%;
+  max-width: 612px;
+  border-radius: 16px;
+  aspect-ratio: 612 / 344;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.retail-engagement__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+}
+
+.retail-engagement__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #212121;
+  margin: 0;
+}
+.retail-engagement__title em {
+  font-style: normal;
+  color: var(--color-eyebrow-blue);
+}
+
+.retail-engagement__quote {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #11162A;
+  margin: 0;
+}
+
+.retail-engagement__desc {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1F2937;
+  margin: 0;
+}
+
+.retail-engagement__strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 0;
+  gap: 16px;
+}
+.retail-engagement__strip span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: #11162A;
+  white-space: nowrap;
+}
+.retail-engagement__strip span:not(:last-child) {
+  padding-right: 16px;
+  border-right: 1px solid #D9DCE3;
+}
+
+@media (max-width: 1024px) {
+  .retail-engagement__row { flex-direction: column; }
+  .retail-engagement__img { width: 100%; max-width: 100%; }
+  .retail-engagement__content { padding: 0; }
+}
+@media (max-width: 720px) {
+  .retail-engagement { padding: 48px 24px; }
+  .retail-engagement__title { font-size: 28px; line-height: 36px; }
+  .retail-engagement__strip { justify-content: flex-start; }
+  .retail-engagement__strip span:not(:last-child) { border-right: none; padding-right: 0; }
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physical AI on the Shop Floor: Automated Pallet Dimensioning — MKS Vision</title>
+  <meta name="description"
+    content="MKS deployed an edge computer vision system on existing packaging equipment, eliminating manual pallet measurement, reducing freight disputes, and ensuring compliance documentation on every outbound shipment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (657:673) -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="MKS Vision — Home">
+        <img class="navbar__logo-img" src="assets/images/logos/mks-logo-dark.svg" alt="MKS Vision" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__list">
+          <li class="navbar__item navbar__item--dropdown" data-mega-menu>
+            <button type="button" class="navbar__link" aria-expanded="false" aria-haspopup="true">
+              What We Do <span class="navbar__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="mega-menu">
+              <div class="mega-menu__rail" role="tablist">
+                <button type="button" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" />
+                    <span class="mega-menu__tab-label">AI Solutions</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="it-services" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-digital-services.svg" alt="" />
+                    <span class="mega-menu__tab-label">IT Services</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="engineering" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-engineering.svg" alt="" />
+                    <span class="mega-menu__tab-label">Engineering</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" />
+                    <span class="mega-menu__tab-label">Products and Platform</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+              </div>
+              <div class="mega-menu__panels">
+                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
+                    <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
+                    <a class="mega-menu__link" href="#">Conversational AI</a>
+                    <a class="mega-menu__link" href="#">Multimodal RAG Development</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ML / LLM Ops</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="it-services">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Custom Software Development</a>
+                    <a class="mega-menu__link" href="#">Cloud - AWS/ Azure / GCP</a>
+                    <a class="mega-menu__link" href="#">RPA / Digital Workforce</a>
+                    <a class="mega-menu__link" href="#">Mobile Application</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ERP Implementation</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">CRM &amp; Salesforce</a>
+                    <a class="mega-menu__link" href="#">IT Service Management (ITSM)</a>
+                    <a class="mega-menu__link" href="#">24*7 Application Support</a>
+                    <a class="mega-menu__link" href="#">Desktop Management</a>
+                    <a class="mega-menu__link" href="#">Network &amp; Security Center</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Micro services</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="engineering">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">New Product Development</a>
+                    <a class="mega-menu__link" href="#">Product Sustenance</a>
+                    <a class="mega-menu__link" href="#">Predictive Engineering</a>
+                    <a class="mega-menu__link" href="#">Digital Scanning</a>
+                    <a class="mega-menu__link" href="#">Warranty Data Analytics</a>
+                    <a class="mega-menu__link" href="#">Asset Tracking &amp; MTTR</a>
+                    <a class="mega-menu__link" href="#">Supplier Quality Engineering</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="products-platform">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Medical Health Care Product</a>
+                    <a class="mega-menu__link" href="#">Blue222 - Real Estate</a>
+                    <a class="mega-menu__link" href="#">eCommerce &amp; Shopify</a>
+                    <a class="mega-menu__link" href="#">Data Engineering &amp; Pipelines</a>
+                    <a class="mega-menu__link" href="#">SaaS Customization</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Microservices</a>
+                    <a class="mega-menu__link" href="#">SEO &amp; Digital Analytics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item"><a href="who-we-are.html" class="navbar__link">Who We Are</a></li>
+          <li class="navbar__item"><a href="industries.html" class="navbar__link">Industries</a></li>
+          <li class="navbar__item"><a href="capabilities.html" class="navbar__link">Capabilities</a></li>
+          <li class="navbar__item"><a href="careers.html" class="navbar__link">Careers</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a href="contact.html" class="btn btn--gradient">
+          Get In Touch
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero (702:17328) -->
+    <section class="pva-hero">
+      <div class="pva-hero__content">
+        <div class="pva-hero__breadcrumb">
+          <a href="index.html">Home</a>
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="#">What we do</a>
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span aria-current="page">Physical &amp; Vision AI</span>
+        </div>
+        <div class="pva-hero__body">
+          <h1 class="pva-hero__title">Physical AI on the Shop Floor : Automated Pallet Dimensioning for Freight Compliance</h1>
+          <p class="pva-hero__lead">MKS deployed an edge computer vision system on existing packaging equipment eliminating manual pallet measurement, reducing freight disputes, and ensuring compliance documentation on every outbound shipment.</p>
+        </div>
+      </div>
+      <div class="pva-hero__media">
+        <img src="assets/images/content/physical-vision-hero.png" alt="" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Sub-nav tabs (707:18181) -->
+    <nav class="pva-tabs" aria-label="Case study sections">
+      <a href="#overview" class="pva-tabs__link pva-tabs__link--active">Overview</a>
+      <a href="#challenge" class="pva-tabs__link">The Challenge</a>
+      <a href="#objective" class="pva-tabs__link">The Objective</a>
+      <a href="#solution" class="pva-tabs__link">The Solution</a>
+      <a href="#impact" class="pva-tabs__link">The Impact</a>
+    </nav>
+
+    <!-- Overview (702:17902) -->
+    <section class="pva-overview" id="overview">
+      <h2 class="pva-overview__title">Overview</h2>
+      <div class="pva-overview__row">
+        <div class="pva-overview__text">
+          <p>Every outbound pallet needs accurate dimensions and weight it's how freight gets classified correctly and carriers get billed right. For our client, a manufacturer and packager dealing with growing SKU volumes and shipment rates, this was still a manual job. Teams measured pallets by hand, jotted down numbers on paper or typed them into a terminal, and moved on. The result was predictable: measurement errors, disputed freight bills, and documentation that kept falling short.</p>
+          <p>MKS built a Physical AI solution that fits right into the existing stretch-wrap machine. Now every pallet gets measured automatically as it moves through the packaging line no extra hardware, no cloud required. Freight disputes are down, documentation is right the first time, and the bottleneck that slowed everything down is gone.</p>
+        </div>
+        <div class="pva-overview__media">
+          <img src="assets/images/content/physical-vision-overview.png" alt="" loading="lazy" />
+        </div>
+      </div>
+      <div class="pva-overview__stats">
+        <img class="pva-overview__stats-icon" src="assets/images/icons/physical-vision-icon-industry.svg" alt="" />
+        <div class="pva-overview__stat">
+          <p class="pva-overview__stat-label">Industry</p>
+          <p class="pva-overview__stat-value">Industrial Manufacturing</p>
+        </div>
+        <img class="pva-overview__stats-icon" src="assets/images/icons/physical-vision-icon-service-line.svg" alt="" />
+        <div class="pva-overview__stat">
+          <p class="pva-overview__stat-label">Service Line</p>
+          <p class="pva-overview__stat-value">Physical AI</p>
+        </div>
+        <img class="pva-overview__stats-icon" src="assets/images/icons/physical-vision-icon-duration.svg" alt="" />
+        <div class="pva-overview__stat">
+          <p class="pva-overview__stat-label">Duration</p>
+          <p class="pva-overview__stat-value">Production · Shop Floor</p>
+        </div>
+        <img class="pva-overview__stats-icon" src="assets/images/icons/physical-vision-icon-delivery.svg" alt="" />
+        <div class="pva-overview__stat">
+          <p class="pva-overview__stat-label">Delivery</p>
+          <p class="pva-overview__stat-value">Edge-Native · No Cloud Dependency</p>
+        </div>
+        <img class="pva-overview__stats-icon" src="assets/images/icons/physical-vision-icon-end.svg" alt="" />
+      </div>
+    </section>
+
+    <!-- The Challenge (702:17922) -->
+    <section class="pva-challenge" id="challenge">
+      <div class="pva-challenge__header">
+        <h2 class="pva-challenge__title">The Challenge</h2>
+        <p class="pva-challenge__subtitle">Manual pallet dimensioning created compliance risk, billing errors, and a throughput bottleneck at the end of every packaging line</p>
+      </div>
+      <div class="pva-challenge__row">
+        <div class="pva-challenge__col">
+          <div class="pva-challenge__photo">
+            <img src="assets/images/content/physical-vision-challenge.png" alt="" loading="lazy" />
+          </div>
+          <div class="pva-challenge__caption">
+            <p>As shipment volumes and SKU complexity grew, the limitations of manual measurement became increasingly costly. Every inaccurate measurement translated directly into either overpayment to carriers or compliance risk with freight classification authorities.</p>
+          </div>
+        </div>
+        <div class="pva-challenge__card">
+          <span class="pva-challenge__badge">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <ul class="pva-challenge__list">
+            <li>Operators measuring stacked pallets by hand introduced systematic measurement variance and human error at scale</li>
+            <li>Manual dimension recording led to frequent freight-fee disputes with carriers, creating invoice reconciliation overhead</li>
+            <li>Shipment documentation regularly failed freight classification requirements, creating compliance exposure on outbound loads</li>
+            <li>The measurement step was a cycle-time bottleneck at the end of the packaging line a manual sub-process inserting delays into an otherwise automated workflow</li>
+            <li>As SKU mix and volume grew, the manual approach simply could not keep pace without proportional headcount increases</li>
+            <li>No consistent audit trail existed linking physical pallet dimensions to shipment records or freight calculations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Objective (702:17340) -->
+    <section class="pva-objective" id="objective">
+      <div class="pva-objective__header">
+        <h2 class="pva-objective__title">The Objective</h2>
+        <p class="pva-objective__subtitle">Automate pallet dimensioning inline with the packaging workflow without new infrastructure or cloud dependency</p>
+      </div>
+      <p class="pva-objective__intro">The client needed a solution that worked with what was already on the shop floor. The target was real-time, inline dimension capture with zero manual intervention deployed on existing hardware, running without a network connection, and feeding validated data directly into shipment documentation and freight billing systems.</p>
+      <div class="pva-objective__row">
+        <div class="pva-objective__grid">
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Capture X, Y, Z pallet dimensions in real time during the wrap cycle</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="1" stroke="url(#pvaG1)" stroke-width="2"/><path d="M6 7v4M10 7v4M14 7v4M18 7v4" stroke="url(#pvaG1)" stroke-width="2"/><defs><linearGradient id="pvaG1" x1="2" y1="7" x2="22" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Run AI inference on existing edge hardware no GPU server or cloud pipeline</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 000-9 6 6 0 00-11.4 1.5A4 4 0 007 19h10.5z" stroke="url(#pvaG2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="pvaG2" x1="2" y1="7" x2="20" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Integrate with freight classification and billing systems automatically</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="3" stroke="url(#pvaG3)" stroke-width="2"/><circle cx="18" cy="18" r="3" stroke="url(#pvaG3)" stroke-width="2"/><circle cx="6" cy="18" r="3" stroke="url(#pvaG3)" stroke-width="2"/><path d="M9 6h7a3 3 0 013 3v6M9 18h3" stroke="url(#pvaG3)" stroke-width="2"/><defs><linearGradient id="pvaG3" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Eliminate manual data entry and associated measurement errors entirely</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M2 5c3-1.5 6-1.5 9 0v14c-3-1.5-6-1.5-9 0V5zM20 5c-3-1.5-6-1.5-9 0v14c3-1.5 6-1.5 9 0V5z" stroke="url(#pvaG4)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="pvaG4" x1="2" y1="4" x2="20" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Produce a compliant, logged record for every outbound pallet</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="url(#pvaG5)" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="url(#pvaG5)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="pvaG5" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+          <article class="pva-objective-card">
+            <p class="pva-objective-card__text">Deploy across distributed manufacturing sites with no network constraints</p>
+            <span class="pva-objective-card__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="10" r="7" stroke="url(#pvaG6)" stroke-width="2"/><path d="M5 10h14M12 3a15 15 0 010 14M12 3a15 15 0 000 14" stroke="url(#pvaG6)" stroke-width="1.5"/><path d="M12 21l3-5H9z" stroke="url(#pvaG6)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="pvaG6" x1="2" y1="3" x2="19" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#8465FF"/><stop offset="1" stop-color="#FFA980"/></linearGradient></defs></svg>
+            </span>
+          </article>
+        </div>
+        <div class="pva-objective__media">
+          <img src="assets/images/content/physical-vision-objective.png" alt="" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution (702:17368) -->
+    <section class="pva-solution" id="solution">
+      <div class="pva-solution__header">
+        <h2 class="pva-solution__title">The Solution</h2>
+        <p class="pva-solution__subtitle">Edge AI mounted on existing packaging equipment - measuring every pallet automatically, inline, with no additional infrastructure</p>
+      </div>
+      <div class="pva-solution__row">
+        <div class="pva-solution__col">
+          <div class="pva-solution__photo">
+            <img src="assets/images/content/physical-vision-solution.png" alt="" loading="lazy" />
+          </div>
+          <p class="pva-solution__caption">MKS deployed a camera hardware on the stretch-wrap machine that every pallet already passes through. A YOLOv8 object detection model runs on-device using the vision processing inference unit - eliminating the need for a separate GPU server on the shop floor. The system captures dimensions in millimetres, streams results to the host device, and pushes validated data directly into downstream freight systems.</p>
+        </div>
+        <div class="pva-solution__col">
+          <ul class="pva-solution__list">
+            <li>Every 10 seconds during the wrap cycle, the host triggers the camera to capture a high-resolution image of the stacked pallet</li>
+            <li>A YOLOv8 detection model runs on the on-device - resizing the image to 512×288 for the neural network and returning pallet detections with real-world X, Y, Z coordinates in millimetres via stereo depth estimation</li>
+            <li>Dimension data and RGB metadata stream to the host device; the host renders overlays with OpenCV and converts values to inches for operator familiarity</li>
+            <li>Validated dimensions are logged to local storage and pushed automatically into shipment documentation and the freight-fee calculation engine - closing the loop from physical pallet to compliant paperwork with no manual input</li>
+            <li>The entire solution runs edge-native - no cloud dependency, no external GPU, fully operational on existing hardware across distributed sites</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Impact (702:17936) -->
+    <section class="pva-impact" id="impact">
+      <div class="pva-impact__header">
+        <h2 class="pva-impact__title">The Impact</h2>
+        <p class="pva-impact__subtitle">Automated measurement, eliminated disputes, and compliance by default - on every outbound pallet</p>
+      </div>
+      <p class="pva-impact__intro">The Physical AI solution transformed pallet dimensioning from a manual, error-prone bottleneck into a real-time, inline operation that operators simply read and confirm. The downstream effects on billing accuracy and compliance were immediate and measurable.</p>
+      <div class="pva-impact__grid">
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">Automated</p>
+          <p class="pva-impact-card__desc">Manual pallet dimensioning fully eliminated at the end of the packaging line</p>
+        </div>
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">Disputes</p>
+          <p class="pva-impact-card__desc">Freight-fee disputes and carrier overpayments reduced through consistent, objective measurement</p>
+        </div>
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">100%</p>
+          <p class="pva-impact-card__desc">Compliance - dimensions captured and logged per freight classification on every pallet</p>
+        </div>
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">Inline</p>
+          <p class="pva-impact-card__desc">Measurement compressed from a manual sub-process to a real-time capture during the wrap cycle</p>
+        </div>
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">Edge</p>
+          <p class="pva-impact-card__desc">Runs on 2–4 GB existing hardware - no cloud, no GPU server, no network dependency</p>
+        </div>
+        <div class="pva-impact-card">
+          <p class="pva-impact-card__label">Scalable</p>
+          <p class="pva-impact-card__desc">Deployable across distributed manufacturing sites without infrastructure investment</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prev / Next (702:17442) -->
+    <section class="pva-cta">
+      <div class="pva-cta__row">
+        <a href="#" class="pva-cta__side">
+          <svg class="pva-cta__arrow" viewBox="0 0 24 18" fill="none" style="transform:rotate(180deg)"><path d="M0 9h20M13 2l7 7-7 7" stroke="#020202" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="pva-cta__side-text">
+            <span class="pva-cta__side-label">Previous</span>
+            <span class="pva-cta__side-title">AI-Driven Document Auditing for NSF Compliance</span>
+          </span>
+        </a>
+        <a href="industries.html#projects" class="pva-cta__center">View All Case Studies</a>
+        <a href="#" class="pva-cta__side pva-cta__side--next">
+          <span class="pva-cta__side-text">
+            <span class="pva-cta__side-label">Next</span>
+            <span class="pva-cta__side-title">Automating Supplier Material Certification with RPA</span>
+          </span>
+          <svg class="pva-cta__arrow" viewBox="0 0 24 18" fill="none"><path d="M0 9h20M13 2l7 7-7 7" stroke="#020202" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (828:563) -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision" />
+        <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--services">
+        <h4 class="footer__col-title">What we do</h4>
+        <ul class="footer__list footer__list--wrap">
+          <li><a href="#" class="footer__link-dot">AI First</a></li>
+          <li><a href="#" class="footer__link-dot">Cloud</a></li>
+          <li><a href="#" class="footer__link-dot">Data &amp; Analytics</a></li>
+          <li><a href="#" class="footer__link-dot">Digital Services</a></li>
+          <li><a href="#" class="footer__link-dot">Engineering Services</a></li>
+          <li><a href="#" class="footer__link-dot">Managed Services</a></li>
+          <li><a href="#" class="footer__link-dot">Industries</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--about">
+        <h4 class="footer__col-title">Who we are</h4>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">About us</a></li>
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">Leadership</a></li>
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">CSR &amp; Ethics</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--contact">
+        <h4 class="footer__col-title">Contact Us</h4>
+        <ul class="footer__list">
+          <li>
+            <a href="tel:+15027499992" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (502) 749-9992
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hr@mksvision.com" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hr@mksvision.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 MKS Vision. All rights reserved.</span>
+      <nav class="footer__legal" aria-label="Legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

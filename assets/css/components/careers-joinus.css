@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Careers — Join Us
+   Source Figma frame: 882:4915
+   ========================================================================== */
+
+.careers-joinus {
+  padding: 64px;
+  background: #FFFFFF;
+}
+
+.careers-joinus__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.careers-joinus__content {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.careers-joinus__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #0F172A;
+  margin: 0;
+}
+
+.careers-joinus__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.careers-joinus__subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.careers-joinus__desc {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #475569;
+  margin: 0;
+}
+
+.careers-joinus__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.careers-joinus__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.careers-joinus__check {
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.careers-joinus__check svg {
+  width: 12px;
+  height: 12px;
+}
+
+.careers-joinus__item-text {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #0F172A;
+}
+
+.careers-joinus__media {
+  flex: 0 0 626px;
+  max-width: 100%;
+}
+.careers-joinus__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+@media (max-width: 1100px) {
+  .careers-joinus__inner { flex-direction: column; }
+  .careers-joinus__media { flex-basis: auto; width: 100%; }
+}
+@media (max-width: 600px) {
+  .careers-joinus { padding: 48px 24px; }
+  .careers-joinus__inner { gap: 32px; }
+  .careers-joinus__title { font-size: 24px; line-height: 32px; }
+}

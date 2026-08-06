@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Retail — One catalog, listed everywhere (omnichannel sync)
+   Source Figma frame: Channel Sync Section #1610:27277
+   ========================================================================== */
+
+.retail-sync {
+  background: #F9F9F9;
+  padding: 64px;
+}
+
+.retail-sync__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.retail-sync__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-eyebrow-blue);
+  margin-bottom: 16px;
+}
+.retail-sync__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-eyebrow-blue);
+}
+
+.retail-sync__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #11162A;
+  margin: 0;
+}
+.retail-sync__title em {
+  font-style: normal;
+  color: var(--color-eyebrow-blue);
+}
+
+.retail-sync__diagram {
+  background: #F3F2ED;
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.retail-sync__col {
+  flex: 1;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.retail-sync__col-label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 12px;
+  color: #6B7280;
+}
+.retail-sync__node {
+  background: #FFFFFF;
+  border: 1px solid rgba(27, 35, 64, 0.16);
+  border-radius: 8px;
+  padding: 20px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  color: #11162A;
+}
+
+.retail-sync__connector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.retail-sync__connector-line {
+  width: 64px;
+  height: 0;
+  border-top: 2px dashed rgba(31, 115, 180, 0.45);
+}
+.retail-sync__connector svg { flex-shrink: 0; color: var(--color-eyebrow-blue); }
+
+.retail-sync__hub {
+  background: #020202;
+  border-radius: 12px;
+  padding: 32px;
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.retail-sync__hub img { width: 34px; height: 38px; }
+.retail-sync__hub-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.retail-sync__hub-tag {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  background: var(--grad-services);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.retail-sync__features {
+  display: flex;
+  gap: 24px;
+}
+.retail-sync__feature {
+  flex: 1;
+  min-width: 0;
+  background: #FFFFFF;
+  border: 1px solid #F3F2ED;
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.retail-sync__feature-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: #11162A;
+  margin: 0;
+}
+.retail-sync__feature-desc {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1F2937;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .retail-sync__diagram { flex-direction: column; }
+  .retail-sync__connector { transform: rotate(90deg); }
+  .retail-sync__features { flex-wrap: wrap; }
+  .retail-sync__feature { min-width: 220px; }
+}
+@media (max-width: 720px) {
+  .retail-sync { padding: 48px 24px; }
+  .retail-sync__title { font-size: 28px; line-height: 36px; }
+  .retail-sync__diagram { padding: 24px; }
+}

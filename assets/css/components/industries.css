@@ -1,0 +1,92 @@
+.industries {
+  background: linear-gradient(102deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%), #FFFFFF;
+  padding: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.industries__dots {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 279px;
+  height: 100%;
+  background: url('../../images/content/fig-be5a1e3429a2.png') repeat;
+  background-size: 18px 20px;
+  opacity: 0.20;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.industries__logo-deco {
+  /* The SVG already bakes in its own 9% opacity — do not also apply opacity
+     here, or the two compound to ~0.8% and the mark disappears. */
+  position: absolute;
+  right: 6.5%;
+  top: 11px;
+  width: 94px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.industries__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.industries__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.industries__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+}
+
+.industries__description {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  max-width: 1248px;
+}
+
+.industries__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 64px;
+  row-gap: 48px;
+}
+/* Grid items default to an "auto" minimum size floored at their content's
+   min-content width, which — combined with .industry-card's explicit
+   280px width — was forcing each track (and the whole row) wider than the
+   container on any viewport narrower than the 1312px design width. This
+   overrides that floor so cards can actually shrink to fit. */
+.industries__grid > li {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .industries { padding: 48px 32px; }
+  .industries__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+@media (max-width: 720px) {
+  .industries { padding: 40px 20px; }
+  .industries__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 420px) {
+  .industries__grid { grid-template-columns: 1fr; }
+}

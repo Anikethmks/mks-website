@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Capabilities page — Trust section
+   Source Figma frame: trust-section #572:6736
+   ========================================================================== */
+
+.capabilities-trust {
+  background: #FFFFFF;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.capabilities-trust__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.capabilities-trust__eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.capabilities-trust__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+}
+
+.capabilities-trust__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+}
+
+.capabilities-trust__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.trust-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #F9FAFF;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+.trust-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--grad-icon-soft);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.trust-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #DBDFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.trust-card__icon svg { width: 22px; height: 22px; color: #4D4FA4; }
+
+.trust-card__title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #111827;
+}
+
+.trust-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+}
+
+@media (max-width: 1024px) {
+  .capabilities-trust { padding: 48px 24px; }
+  .capabilities-trust__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .capabilities-trust__grid { grid-template-columns: 1fr; }
+}

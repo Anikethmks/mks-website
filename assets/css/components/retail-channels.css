@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Retail — Future Commerce Channels (agentic / AI shopping)
+   Source Figma frame: 3steps #1606:26477
+   ========================================================================== */
+
+.retail-channels {
+  background: #F9F9F9;
+  padding: 64px;
+}
+
+.retail-channels__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.retail-channels__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.retail-channels__title em {
+  font-style: normal;
+  color: var(--color-eyebrow-blue);
+}
+
+.retail-channels__lead {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #212121;
+  max-width: 977px;
+  margin: 0;
+}
+
+.retail-channels__row {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.retail-channels__img {
+  width: 45%;
+  max-width: 614px;
+  border-radius: 4px;
+  aspect-ratio: 614 / 420;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.retail-channels__panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.retail-channels__panel-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-heading-purple);
+  margin: 0;
+}
+
+.retail-channels__cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+
+.retail-channels__col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.00);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+.retail-channels__col-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  color: #0D4A8A;
+  margin: 0;
+}
+.retail-channels__col-title--grad {
+  background: var(--grad-services);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.retail-channels__col-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.retail-channels__col-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #020202;
+  white-space: nowrap;
+}
+.retail-channels__col-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background: var(--color-eyebrow-blue);
+}
+
+@media (max-width: 1024px) {
+  .retail-channels__row { flex-direction: column; }
+  .retail-channels__img { width: 100%; max-width: 100%; }
+}
+@media (max-width: 720px) {
+  .retail-channels { padding: 48px 24px; }
+  .retail-channels__title { font-size: 28px; line-height: 36px; }
+  .retail-channels__col-list li { white-space: normal; }
+}

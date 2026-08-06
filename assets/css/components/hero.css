@@ -1,0 +1,205 @@
+.hero {
+  position: relative;
+  height: 575px;
+  overflow: hidden;
+  background: #0F0F0F;
+  color: #FFFFFF;
+  isolation: isolate;
+}
+
+/* Slide backgrounds — stacked, fade in/out */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(1) translate(0, 0);
+  transition: opacity 0.8s ease;
+}
+.hero__bg.is-active { opacity: 1; }
+
+/* Slow continuous zoom + drift while a slide is showing (Ken Burns effect) —
+   separate from the opacity crossfade above, so it never fights the fade. */
+.hero__bg.is-zooming {
+  animation: hero-bg-kenburns 7s ease-out forwards;
+}
+@keyframes hero-bg-kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.06) translate(-1.5%, -1%); }
+}
+
+.hero__bg[data-slide="0"] { background-image: url('../../images/content/hero-slide-1-ai-laptop.jpg'); }
+.hero__bg[data-slide="1"] { background-image: url('../../images/content/fig-hero2-bg.png'); }
+.hero__bg[data-slide="2"] { background-image: url('../../images/content/fig-hero3-bg.png'); }
+.hero__bg[data-slide="3"] { background-image: url('../../images/content/fig-hero4-bg.png'); }
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.hero__bg[data-slide="0"]::after { background: rgba(10, 10, 10, 0.75); }
+.hero__bg[data-slide="1"]::after { background: rgba(2, 2, 2, 0.5); }
+.hero__bg[data-slide="2"]::after { background: rgba(2, 2, 2, 0.75); }
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--frame-max);
+  height: 100%;
+  margin-inline: auto;
+  padding: 120px 64px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Slide content panels — stacked, fade in/out */
+.hero__content {
+  max-width: 709px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+.hero__content.is-active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Title/subtitle rise independently of the parent's opacity crossfade, so
+   removing the parent's "is-active" (fading it out) never snaps their
+   position back mid-fade — only ever restarted by JS re-adding "is-active"
+   here directly on the elements themselves. */
+.hero__title,
+.hero__subtitle {
+  transform: translateY(18px);
+}
+.hero__title.is-active {
+  animation: hero-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero__subtitle.is-active {
+  animation: hero-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+}
+@keyframes hero-rise {
+  from { transform: translateY(18px); }
+  to   { transform: translateY(0); }
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__title-gradient {
+  background: var(--grad-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__title-gradient--gold {
+  background: linear-gradient(90deg, #FFCD29 0%, #D0640C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero__title-gradient--green {
+  background: linear-gradient(-9deg, #088A08 34%, #E8FD73 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero__title-gradient--soft {
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  max-width: 709px;
+}
+
+.hero__controls {
+  max-width: 709px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: hero-rise-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+@keyframes hero-rise-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Figma-exact nav (node 437:404): a full-width 10%-white divider, then a row
+   of four 20x4px rounded segments — the active one solid white, the rest at
+   50% opacity. */
+.hero__divider {
+  align-self: stretch;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hero__dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin: -10px;
+}
+
+.hero__dot {
+  width: 20px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+.hero__dot:hover { background: rgba(255, 255, 255, 0.75); }
+.hero__dot.is-active { background: #FFFFFF; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg.is-zooming { animation: none; }
+  .hero__title.is-active,
+  .hero__subtitle.is-active { animation: none; transform: translateY(0); }
+  .hero__controls { animation: none; opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .hero { height: 460px; }
+  .hero__inner { padding: 80px 24px 0; }
+  .hero__title { font-size: 36px; line-height: 44px; }
+}
+@media (max-width: 480px) {
+  .hero { height: 420px; }
+  .hero__inner { padding: 72px 16px 0; }
+  .hero__title { font-size: 28px; line-height: 36px; }
+  .hero__subtitle { font-size: 15px; line-height: 24px; }
+  .hero__controls { margin-top: 4px; }
+}

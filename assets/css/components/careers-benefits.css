@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Careers — Employee benefits
+   Source Figma frame: 907:5199
+   ========================================================================== */
+
+.careers-benefits {
+  padding: 48px 64px;
+  background: linear-gradient(55deg, rgba(39, 132, 197, 0.3) 24%, rgba(77, 79, 164, 0.3) 89%);
+}
+
+.careers-benefits__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.careers-benefits__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+  text-align: center;
+}
+
+.careers-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.benefit-card {
+  align-self: stretch;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 24px;
+  background: #F8F8F8;
+}
+.benefit-card--white { background: #FFFFFF; }
+
+.benefit-card__icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.benefit-card__label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.benefit-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .careers-benefits__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .careers-benefits { padding: 48px 24px; }
+  .careers-benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .careers-benefits__grid { grid-template-columns: 1fr; }
+}

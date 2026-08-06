@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Who We Are — Hero
+   Source Figma frame: hero section #694:1041
+   ========================================================================== */
+
+.wwa-hero {
+  position: relative;
+  padding: 120px 64px 64px;
+  background: #644DBF;
+  color: #FFFFFF;
+  overflow: hidden;
+  isolation: isolate;
+}
+.wwa-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 480px;
+  z-index: -1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../images/content/wwa-hero-bg-wwahero.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.wwa-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 740px;
+  max-width: 100%;
+}
+
+.wwa-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.wwa-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.wwa-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.wwa-hero__breadcrumb svg { flex-shrink: 0; }
+
+.wwa-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wwa-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  background: var(--grad-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wwa-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 900px) {
+  .wwa-hero { padding: 96px 24px 48px; }
+  .wwa-hero__title { font-size: 36px; line-height: 44px; }
+}

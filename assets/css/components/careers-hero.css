@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Careers — Hero
+   Source Figma frame: Frame 4914 #665:5205
+   ========================================================================== */
+
+/* Figma measures this frame from the very top of the page, so its image
+   (which starts 72px down, i.e. exactly where the navbar ends) reads as
+   flush with the navbar once the navbar is its own element before this
+   section — do NOT add another 72px on top of that or it doubles the gap. */
+.careers-hero {
+  position: relative;
+  height: 468px;
+  overflow: hidden;
+}
+
+/* Figma's own fill stack is a 20%-black rect UNDER a fully-opaque photo —
+   the black is completely hidden behind it, so the rendered result has no
+   visible dark scrim at all. Match that exactly: plain video/poster, no
+   overlay. Uses the <video> element's own `poster` as the still fallback
+   until the MP4 loads (or if it 404s). */
+.careers-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.careers-hero__inner {
+  padding-left: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 911px;
+  max-width: calc(100% - 64px);
+  margin-top: 99px;
+  color: #FFFFFF;
+}
+
+.careers-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.careers-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.careers-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.careers-hero__breadcrumb svg { flex-shrink: 0; }
+
+.careers-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.careers-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  width: 611px;
+  max-width: 100%;
+  margin: 0;
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.careers-hero__lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .careers-hero { height: auto; }
+  .careers-hero__inner { margin-top: 40px; padding-bottom: 40px; }
+  .careers-hero__title { font-size: 36px; line-height: 44px; }
+}
+@media (max-width: 600px) {
+  .careers-hero__inner { padding-left: 24px; max-width: calc(100% - 24px); margin-top: 32px; padding-bottom: 32px; }
+  .careers-hero__title { font-size: 28px; line-height: 36px; }
+}

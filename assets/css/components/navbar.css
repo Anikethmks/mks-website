@@ -1,0 +1,115 @@
+.navbar {
+  background: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.navbar__inner {
+  max-width: var(--frame-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  gap: 32px;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.navbar__nav { display: flex; }
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 6px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  background: none;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar__link.is-active {
+  border-bottom: 2px solid;
+  border-image-source: linear-gradient(304.99deg, #8465FF 17.03%, #FFA980 70.59%);
+  border-image-slice: 1;
+}
+
+.navbar__chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #020202;
+  border-bottom: 1.5px solid #020202;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.18s ease;
+}
+
+.navbar__item--dropdown.is-open .navbar__chevron {
+  transform: rotate(225deg);
+  margin-top: 3px;
+}
+
+.navbar__actions { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+
+.navbar .btn--gradient {
+  padding: 8px 24px;
+  border-radius: var(--radius-sm);
+  height: 40px;
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.navbar__toggle span {
+  width: 22px;
+  height: 2px;
+  background: #020202;
+  border-radius: 2px;
+}
+
+@media (max-width: 1024px) {
+  .navbar__inner { padding: 12px 20px; }
+  .navbar__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: #FFFFFF;
+    padding: 12px 20px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+  .navbar__nav.is-open { display: block; }
+  .navbar__list { flex-direction: column; align-items: stretch; gap: 4px; }
+  .navbar__link { width: 100%; justify-content: space-between; }
+  .navbar__toggle { display: flex; }
+}

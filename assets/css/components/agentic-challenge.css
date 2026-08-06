@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Agentic AI Development — The Challenge
+   Source Figma frame: 1054:9513
+   ========================================================================== */
+
+.agentic-challenge {
+  background: #FAFAFA;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+
+.agentic-challenge__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: var(--content-max);
+  width: 100%;
+  text-align: left;
+}
+.agentic-challenge__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.agentic-challenge__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  margin: 0;
+}
+
+.agentic-challenge__row {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  max-width: var(--content-max);
+  width: 100%;
+}
+
+.agentic-challenge__col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.agentic-challenge__card {
+  background: #FFFFFF;
+  box-shadow: 0 4px 2px rgba(218, 218, 218, 0.15);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  height: 100%;
+}
+
+.agentic-challenge__badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 39px;
+  background: linear-gradient(173.5deg, #85FF67 12.72%, #19B03C 79.33%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.agentic-challenge__badge svg { width: 24px; height: 24px; }
+
+.agentic-challenge__list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.agentic-challenge__list li {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+}
+
+.agentic-challenge__photo {
+  background: #FFFFFF;
+  padding: 24px;
+  box-shadow: 0 4px 2px rgba(218, 218, 218, 0.15);
+}
+.agentic-challenge__photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.agentic-challenge__caption {
+  background: #FFFFFF;
+  padding: 24px;
+  box-shadow: 0 4px 2px rgba(218, 218, 218, 0.16);
+}
+.agentic-challenge__caption p {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .agentic-challenge { padding: 48px 24px; }
+  .agentic-challenge__row { flex-direction: column; }
+}

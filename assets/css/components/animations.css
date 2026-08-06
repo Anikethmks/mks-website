@@ -1,0 +1,110 @@
+/* Scroll-reveal, hover micro-interactions, and ambient motion layered on
+   top of existing components. `.is-visible` is toggled by main.js via
+   IntersectionObserver; --reveal-delay is set inline per element for stagger. */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+[data-reveal="left"] { transform: translateX(-32px); }
+[data-reveal="right"] { transform: translateX(32px); }
+[data-reveal="zoom"] { transform: scale(0.94); }
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Navbar gains a shadow once the page scrolls past the top */
+.navbar { transition: box-shadow 0.3s ease; }
+.navbar.is-scrolled { box-shadow: 0 4px 24px rgba(2, 2, 2, 0.08); }
+
+/* Hero slide dots — active dot fills as a progress bar over the autoplay interval */
+.hero__dot { position: relative; overflow: hidden; }
+.hero__dot.is-active { background: rgba(255, 255, 255, 0.35); }
+.hero__dot.is-active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: hero-dot-progress 5s linear forwards;
+}
+@keyframes hero-dot-progress { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__dot.is-active::after { animation: none; transform: scaleX(1); }
+}
+
+/* Outcomes cards */
+.outcome-card {
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.outcome-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 16px 32px rgba(132, 101, 255, 0.16);
+}
+
+/* Trust stats — bento image zoom */
+.stat-card__img { transition: transform 0.7s ease; }
+.stat-card:hover .stat-card__img { transform: scale(1.08); }
+
+/* Testimonials */
+.testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px rgba(31, 115, 180, 0.18);
+}
+
+/* Healthcare feature cards */
+.feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(148, 163, 184, 0.35);
+}
+.feature-card__icon { transition: transform 0.3s ease; }
+.feature-card:hover .feature-card__icon { transform: scale(1.1) rotate(-4deg); }
+
+.healthcare-features__glow { animation: healthcare-glow-float 8s ease-in-out infinite; }
+@keyframes healthcare-glow-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-10px, 12px) scale(1.06); }
+}
+
+/* Fintech services */
+.fintech-service {
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.fintech-service:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+}
+.fintech-service__icon { transition: transform 0.3s ease; }
+.fintech-service:hover .fintech-service__icon { transform: scale(1.1); }
+
+.fintech-features__glow { animation: fintech-glow-float 9s ease-in-out infinite; }
+.fintech-features__glow--b { animation-duration: 11s; animation-delay: -3s; }
+.fintech-features__glow--c { animation-duration: 7s; animation-delay: -1.5s; }
+.fintech-features__glow--d { animation-duration: 10s; animation-delay: -5s; }
+@keyframes fintech-glow-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-16px, 14px) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .healthcare-features__glow,
+  .fintech-features__glow { animation: none; }
+}

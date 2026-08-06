@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Physical & Vision AI — Prev / Next case-study strip
+   Source Figma frame: 702:17442
+   ========================================================================== */
+
+.pva-cta {
+  position: relative;
+  padding: 32px 64px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.pva-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(33, 33, 33, 0.75), rgba(33, 33, 33, 0.75)), var(--pva-cta-bg, url('../../images/content/physical-vision-cta-bg.png'));
+  background-size: cover;
+  background-position: center;
+}
+
+/* Grid (not flex justify-between) so the center button lands exactly in
+   the middle regardless of how wide the Previous/Next pills happen to be —
+   with space-between, differently-sized side content drags it off-center. */
+.pva-cta__row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+.pva-cta__side {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  justify-self: start;
+  min-width: 0;
+}
+.pva-cta__side--next { background: rgba(255, 255, 255, 0.8); justify-self: end; }
+
+.pva-cta__arrow { flex-shrink: 0; width: 24px; height: 18px; }
+
+.pva-cta__side-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.pva-cta__side--next .pva-cta__side-text { align-items: flex-end; text-align: right; }
+
+.pva-cta__side-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #020202;
+  margin: 0;
+}
+.pva-cta__side-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.pva-cta__center {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background: linear-gradient(100.35deg, #1A70B2 3.9%, #4C3C89 92.23%);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .pva-cta__row { grid-template-columns: 1fr; justify-items: stretch; }
+  .pva-cta__side, .pva-cta__center { justify-self: stretch; justify-content: center; }
+  .pva-cta__side-title { white-space: normal; }
+}

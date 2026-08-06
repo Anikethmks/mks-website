@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Physical & Vision AI — The Solution
+   Source Figma frame: 702:17368
+   ========================================================================== */
+
+.pva-solution {
+  background: #FFEDE7;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.pva-solution__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pva-solution__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.pva-solution__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  margin: 0;
+  max-width: 1096px;
+}
+
+.pva-solution__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.pva-solution__col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.pva-solution__photo {
+  background: #FFFFFF;
+  padding: 24px;
+}
+.pva-solution__photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+  object-fit: cover;
+}
+
+.pva-solution__caption {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+.pva-solution__list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pva-solution__list li {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+}
+
+@media (max-width: 1000px) {
+  .pva-solution { padding: 48px 24px; }
+  .pva-solution__row { flex-direction: column; }
+}

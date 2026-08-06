@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Industries — "Let's Looks Our Global Projects" tabbed case-study grid
+   Source Figma frame: 02-case-studies #699:17234
+   ========================================================================== */
+
+.industries-projects {
+  background: #FFFFFF;
+}
+
+.industries-projects__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 0;
+}
+
+.industries-projects__title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  max-width: 1320px;
+  padding-inline: 24px;
+}
+
+.industries-projects__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+
+.industries-projects__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.industries-projects__tabs-wrap {
+  width: 100%;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.industries-projects__tabs {
+  max-width: 1320px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 24px;
+}
+
+.industries-projects__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #4C4C4C;
+  cursor: pointer;
+}
+.industries-projects__tab--active {
+  border-radius: 8px;
+  background: var(--grad-trust-label);
+  color: #FFFFFF;
+}
+.industries-projects__tab svg { flex-shrink: 0; width: 14px; height: 14px; }
+
+.industries-projects__grid-section {
+  padding: 48px 64px 64px;
+}
+
+.industries-projects__grid {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 64px;
+  row-gap: 32px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #020202;
+  margin: 0;
+}
+
+.project-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card__divider {
+  height: 1px;
+  background: #E5E5E5;
+}
+
+.project-card__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-card__date {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4C4C4C;
+  white-space: nowrap;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.project-card__link-text {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: var(--color-eyebrow-blue);
+  white-space: nowrap;
+}
+
+.project-card__link-arrow {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .industries-projects__grid { grid-template-columns: 1fr; }
+  .industries-projects__grid-section { padding: 40px 24px 48px; }
+}

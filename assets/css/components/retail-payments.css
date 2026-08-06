@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Retail — Payment rails, wallets, and BNPL
+   Source Figma frame: Payments Section #1610:27212
+   ========================================================================== */
+
+.retail-payments {
+  position: relative;
+  background: #FFFFFF;
+  padding: 64px;
+  overflow: hidden;
+}
+
+.retail-payments__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.retail-payments__content {
+  flex: 0 1 964px;
+  max-width: 964px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+}
+
+.retail-payments__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-eyebrow-blue);
+}
+.retail-payments__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-eyebrow-blue);
+}
+
+.retail-payments__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #11162A;
+  margin: 0;
+}
+
+.retail-payments__table {
+  display: flex;
+  flex-direction: column;
+}
+.retail-payments__row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #F1F1F1;
+  flex-wrap: wrap;
+}
+.retail-payments__row:last-child { border-bottom: none; }
+
+.retail-payments__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: #11162A;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.retail-payments__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+.retail-payments__tag {
+  background: #F3F3F3;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: #1F2937;
+  white-space: nowrap;
+}
+
+.retail-payments__img {
+  /* Bleeds past the section's own right padding to the true edge, same
+     technique as .retail-stack__image — 964px content column subtracted
+     from the row's own width, minus the 64px it reclaims via the negative
+     margin below. */
+  flex: 0 0 calc(100% - 900px);
+  min-width: 200px;
+  margin-right: -64px;
+  align-self: stretch;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .retail-payments__inner { flex-direction: column; }
+  .retail-payments__img { flex: none; margin-right: 0; width: 100%; max-width: 100%; align-self: auto; aspect-ratio: 16/9; }
+}
+@media (max-width: 720px) {
+  .retail-payments { padding: 48px 24px; }
+  .retail-payments__title { font-size: 28px; line-height: 36px; }
+  .retail-payments__label { width: 100%; }
+}

@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Retail — Hero
+   Source Figma frame: Hero Section #1606:26174
+   ========================================================================== */
+
+.retail-hero {
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 86px 64px 64px;
+  color: #FFFFFF;
+  overflow: hidden;
+  isolation: isolate;
+}
+.retail-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(2, 2, 2, 0.65), rgba(2, 2, 2, 0.65)), var(--hero-bg-image, url('../../images/content/retail-hero-bg.jpg'));
+  background-size: cover;
+  background-position: center 77%;
+}
+
+.retail-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 740px;
+  max-width: 100%;
+}
+
+.retail-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.retail-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.retail-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.retail-hero__breadcrumb svg { flex-shrink: 0; }
+
+.retail-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 64px;
+  letter-spacing: -1px;
+  width: 721px;
+  max-width: 100%;
+  margin: 0;
+  color: #FFFFFF;
+}
+.retail-hero__title-gradient,
+.retail-hero__title em {
+  font-style: normal;
+  background: var(--grad-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.retail-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 900px) {
+  .retail-hero { min-height: 0; padding: 96px 24px 48px; }
+  .retail-hero__title { font-size: 36px; line-height: 44px; letter-spacing: -0.5px; }
+}
+@media (max-width: 480px) {
+  .retail-hero { padding: 88px 16px 40px; }
+  .retail-hero__title { font-size: 28px; line-height: 36px; }
+}

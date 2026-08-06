@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retail — MKS Vision</title>
+  <meta name="description"
+    content="High-scale commerce infrastructure for retail — POS integration, inventory and fulfillment pipelines, payment rails, and omnichannel catalog sync built by MKS Vision." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (657:673) -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="MKS Vision — Home">
+        <img class="navbar__logo-img" src="assets/images/logos/mks-logo-dark.svg" alt="MKS Vision" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__list">
+          <li class="navbar__item navbar__item--dropdown" data-mega-menu>
+            <button type="button" class="navbar__link" aria-expanded="false" aria-haspopup="true">
+              What We Do <span class="navbar__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="mega-menu">
+              <div class="mega-menu__rail" role="tablist">
+                <button type="button" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" />
+                    <span class="mega-menu__tab-label">AI Solutions</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="it-services" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-digital-services.svg" alt="" />
+                    <span class="mega-menu__tab-label">IT Services</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="engineering" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-engineering.svg" alt="" />
+                    <span class="mega-menu__tab-label">Engineering</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" />
+                    <span class="mega-menu__tab-label">Products and Platform</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+              </div>
+              <div class="mega-menu__panels">
+                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
+                    <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
+                    <a class="mega-menu__link" href="#">Conversational AI</a>
+                    <a class="mega-menu__link" href="#">Multimodal RAG Development</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ML / LLM Ops</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="it-services">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Custom Software Development</a>
+                    <a class="mega-menu__link" href="#">Cloud - AWS/ Azure / GCP</a>
+                    <a class="mega-menu__link" href="#">RPA / Digital Workforce</a>
+                    <a class="mega-menu__link" href="#">Mobile Application</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ERP Implementation</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">CRM &amp; Salesforce</a>
+                    <a class="mega-menu__link" href="#">IT Service Management (ITSM)</a>
+                    <a class="mega-menu__link" href="#">24*7 Application Support</a>
+                    <a class="mega-menu__link" href="#">Desktop Management</a>
+                    <a class="mega-menu__link" href="#">Network &amp; Security Center</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Micro services</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="engineering">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">New Product Development</a>
+                    <a class="mega-menu__link" href="#">Product Sustenance</a>
+                    <a class="mega-menu__link" href="#">Predictive Engineering</a>
+                    <a class="mega-menu__link" href="#">Digital Scanning</a>
+                    <a class="mega-menu__link" href="#">Warranty Data Analytics</a>
+                    <a class="mega-menu__link" href="#">Asset Tracking &amp; MTTR</a>
+                    <a class="mega-menu__link" href="#">Supplier Quality Engineering</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="products-platform">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Medical Health Care Product</a>
+                    <a class="mega-menu__link" href="#">Blue222 - Real Estate</a>
+                    <a class="mega-menu__link" href="#">eCommerce &amp; Shopify</a>
+                    <a class="mega-menu__link" href="#">Data Engineering &amp; Pipelines</a>
+                    <a class="mega-menu__link" href="#">SaaS Customization</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Microservices</a>
+                    <a class="mega-menu__link" href="#">SEO &amp; Digital Analytics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item"><a href="who-we-are.html" class="navbar__link">Who We Are</a></li>
+          <li class="navbar__item"><a href="industries.html" class="navbar__link">Industries</a></li>
+          <li class="navbar__item"><a href="capabilities.html" class="navbar__link">Capabilities</a></li>
+          <li class="navbar__item"><a href="careers.html" class="navbar__link">Careers</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a href="contact.html" class="btn btn--gradient">
+          Get In Touch
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero (1606:26174) -->
+    <section class="retail-hero">
+      <div class="retail-hero__inner">
+        <div class="retail-hero__breadcrumb">
+          <a href="index.html">Home</a>
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span aria-current="page">Retail</span>
+        </div>
+        <h1 class="retail-hero__title">Retail runs on <span class="retail-hero__title-gradient">systems that</span> talk to each other</h1>
+        <p class="retail-hero__lead">We build, integrate, and maintain high-scale commerce infrastructure. From point-of-sale systems on the store floor to headless APIs powering global traffic, we synchronize your data.</p>
+      </div>
+    </section>
+
+    <!-- Applications for the retail floor and back office (1606:26206) -->
+    <section class="retail-applications">
+      <div class="retail-applications__dots retail-applications__dots--tl" aria-hidden="true"></div>
+      <div class="retail-applications__dots retail-applications__dots--br" aria-hidden="true"></div>
+      <div class="retail-applications__inner">
+        <div class="retail-applications__row">
+          <img class="retail-applications__img" src="assets/images/content/retail-applications-photo.png" alt="" loading="lazy" />
+          <div class="retail-applications__content">
+            <h2 class="retail-applications__title">Applications for the <em>retail floor and the back office</em></h2>
+            <p class="retail-applications__eyebrow">Where we work</p>
+            <ul class="retail-applications__list">
+              <li><img src="assets/images/content/retail-check-bullet.svg" alt="" />Storefront &amp; POS Integration</li>
+              <li><img src="assets/images/content/retail-check-bullet.svg" alt="" />Inventory &amp; Fulfillment Pipelines</li>
+              <li><img src="assets/images/content/retail-check-bullet.svg" alt="" />ERP, Logistics &amp; Financial Rails</li>
+              <li><img src="assets/images/content/retail-check-bullet.svg" alt="" />Omnichannel Payments &amp; Checkout</li>
+            </ul>
+          </div>
+        </div>
+        <div class="retail-applications__grid">
+          <span class="retail-applications__pill">Field Service &amp; Delivery</span>
+          <span class="retail-applications__pill">CRM &amp; Loyalty Programs</span>
+          <span class="retail-applications__pill">Order Management</span>
+          <span class="retail-applications__pill">E-commerce Storefronts</span>
+          <span class="retail-applications__pill">Trade &amp; Wholesale Portals</span>
+          <span class="retail-applications__pill">Inventory &amp; Warehouse</span>
+          <span class="retail-applications__pill">Point of Sale</span>
+          <span class="retail-applications__pill">ERP &amp; Finance Integration</span>
+          <span class="retail-applications__pill">Analytics &amp; Reporting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- A stack chosen for retail moving parts (1606:26299) -->
+    <section class="retail-stack">
+      <div class="retail-stack__inner">
+        <div class="retail-stack__content">
+          <h2 class="retail-stack__title">A stack chosen for <em>retail moving parts</em></h2>
+          <div class="retail-stack__grid">
+            <div class="retail-stack__layer retail-stack__layer--sm">
+              <span class="retail-stack__layer-label">LAYER 01</span>
+              <h3 class="retail-stack__layer-name">Storefront &amp; Frontend</h3>
+              <ul class="retail-stack__layer-list">
+                <li>React / Next.js</li>
+                <li>Vue / Nuxt.js</li>
+                <li>Tailwind CSS</li>
+                <li>GraphQL / REST APIs</li>
+                <li>Web Assembly Optimization</li>
+              </ul>
+            </div>
+            <div class="retail-stack__layer">
+              <span class="retail-stack__layer-label">LAYER 02</span>
+              <h3 class="retail-stack__layer-name">Backend &amp; APIs</h3>
+              <ul class="retail-stack__layer-list">
+                <li>Node.js microservices</li>
+                <li>Go Engine</li>
+                <li>Python FastAPI</li>
+                <li>Kafka Event Pipelines</li>
+                <li>GraphQL Federation</li>
+              </ul>
+            </div>
+            <div class="retail-stack__layer">
+              <span class="retail-stack__layer-label">LAYER 03</span>
+              <h3 class="retail-stack__layer-name">Data &amp; ERP</h3>
+              <ul class="retail-stack__layer-list">
+                <li>PostgreSQL</li>
+                <li>Redis Cache Clusters</li>
+                <li>ElasticSearch Engines</li>
+                <li>Apache Spark Data Lake</li>
+                <li>SAP / Oracle NetSuite Bridges</li>
+              </ul>
+            </div>
+            <div class="retail-stack__layer">
+              <span class="retail-stack__layer-label">LAYER 04</span>
+              <h3 class="retail-stack__layer-name">Payments / Logistics / Cloud</h3>
+              <ul class="retail-stack__layer-list">
+                <li>Stripe Core Engine</li>
+                <li>AWS Global Serverless</li>
+                <li>Docker Containers / Kubernetes</li>
+                <li>Terraform Infra Code</li>
+                <li>Cloudflare CDN Edge</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <img class="retail-stack__image" src="assets/images/content/retail-stack-photo-righthalf.png" alt="" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Every major commerce platform, one team (1610:27114) -->
+    <section class="retail-platforms">
+      <div class="retail-platforms__inner">
+        <div class="retail-platforms__header">
+          <div class="retail-platforms__eyebrow">
+            <span class="retail-platforms__eyebrow-dot"></span>
+            <span>Platform Capabilities</span>
+          </div>
+          <h2 class="retail-platforms__title">Every major commerce platform, one team</h2>
+          <p class="retail-platforms__subhead">We bring deep expertise across enterprise, composable, and headless commerce platforms.</p>
+        </div>
+
+        <div class="retail-platforms__group">
+          <div class="retail-platforms__group-header">
+            <h3 class="retail-platforms__group-name">Enterprise Platforms &amp; ERPs</h3>
+            <span class="retail-platforms__group-divider"></span>
+          </div>
+          <div class="retail-platforms__grid">
+            <article class="retail-platforms__card retail-platforms__card--featured-dark">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Shopify Plus</h4>
+                <span class="retail-platforms__card-badge">Expert</span>
+              </div>
+              <p class="retail-platforms__card-subtitle">High-growth Enterprise</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Salesforce Commerce</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Multi-Cloud Unified</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Adobe Commerce</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Customizable Core</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">SAP Commerce</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Global Complex Supply</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">BigCommerce Enterprise</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Flexible SaaS Backbone</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">VTEX Cloud Engine</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Composable SaaS</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Oracle NetSuite Suite</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">ERP-Driven Retail</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Shopware Corporate</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Open Enterprise</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="retail-platforms__group">
+          <div class="retail-platforms__group-header">
+            <h3 class="retail-platforms__group-name">Composable &amp; Headless Commerce</h3>
+            <span class="retail-platforms__group-divider"></span>
+          </div>
+          <div class="retail-platforms__grid">
+            <article class="retail-platforms__card retail-platforms__card--featured-light">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">commercetools</h4>
+                <span class="retail-platforms__card-badge">Expert</span>
+              </div>
+              <p class="retail-platforms__card-subtitle">Pure-Play Headless</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Elastic Path</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">API-First Merchandising</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Saleor Engine</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">GraphQL Native</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Medusa Core</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Javascript-First</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">WooCommerce Custom</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Tailored Headless</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Spryker Platform</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Transactional B2B/B2C</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Strapi Headless API</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Content-Led API</p>
+            </article>
+            <article class="retail-platforms__card">
+              <div class="retail-platforms__card-head">
+                <h4 class="retail-platforms__card-name">Contentful Commerce API</h4>
+              </div>
+              <p class="retail-platforms__card-subtitle">Modern Content Grid</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Commerce Channels (1606:26477) -->
+    <section class="retail-channels">
+      <div class="retail-channels__inner">
+        <h2 class="retail-channels__title">Future <em>Commerce</em> Channels</h2>
+        <p class="retail-channels__lead">LLMs and context agents will soon decide where orders land. We structure schemas, APIs, and product inventories to ensure AI models can seamlessly discover, buy, and execute checkouts on behalf of human users.</p>
+        <div class="retail-channels__row">
+          <img class="retail-channels__img" src="assets/images/content/retail-ai-insight-photo.png" alt="" loading="lazy" />
+          <div class="retail-channels__panel">
+            <h3 class="retail-channels__panel-title">Getting a store ready to sell inside AI conversations</h3>
+            <div class="retail-channels__cols">
+              <div class="retail-channels__col">
+                <h4 class="retail-channels__col-title">Protocols</h4>
+                <ul class="retail-channels__col-list">
+                  <li>JSON-LD Schemas</li>
+                  <li>Model Context Protocol</li>
+                  <li>Agentic Handshakes</li>
+                  <li>Realtime SSE Streams</li>
+                </ul>
+              </div>
+              <div class="retail-channels__col">
+                <h4 class="retail-channels__col-title retail-channels__col-title--grad">AI Shopping Surfaces</h4>
+                <ul class="retail-channels__col-list">
+                  <li>ChatGPT Search Agents</li>
+                  <li>Claude Tool Plugins</li>
+                  <li>Google Gemini Shopping</li>
+                  <li>Custom Agentic Buyers</li>
+                </ul>
+              </div>
+              <div class="retail-channels__col">
+                <h4 class="retail-channels__col-title retail-channels__col-title--grad">What We Work On</h4>
+                <ul class="retail-channels__col-list">
+                  <li>Contextual Inventories</li>
+                  <li>Dynamic Agent Pricing</li>
+                  <li>Secure API Checkout Rails</li>
+                  <li>Realtime Auth Validation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment rails, wallets, and BNPL (1610:27212) -->
+    <section class="retail-payments">
+      <div class="retail-payments__inner">
+        <div class="retail-payments__content">
+          <div class="retail-payments__eyebrow">
+            <span class="retail-payments__eyebrow-dot"></span>
+            Transaction Architecture
+          </div>
+          <h2 class="retail-payments__title">Payment rails, wallets, and BNPL</h2>
+          <div class="retail-payments__table">
+            <div class="retail-payments__row">
+              <span class="retail-payments__label">Global Processors</span>
+              <div class="retail-payments__tags">
+                <span class="retail-payments__tag">Stripe Checkout</span>
+                <span class="retail-payments__tag">Adyen Rails</span>
+                <span class="retail-payments__tag">Braintree API</span>
+                <span class="retail-payments__tag">Chase Merchant</span>
+              </div>
+            </div>
+            <div class="retail-payments__row">
+              <span class="retail-payments__label">Digital Wallets</span>
+              <div class="retail-payments__tags">
+                <span class="retail-payments__tag">Apple Pay Integrations</span>
+                <span class="retail-payments__tag">Google Pay Checkout</span>
+                <span class="retail-payments__tag">PayPal Commerce</span>
+                <span class="retail-payments__tag">Shop Pay One-Click</span>
+              </div>
+            </div>
+            <div class="retail-payments__row">
+              <span class="retail-payments__label">BNPL / Installments</span>
+              <div class="retail-payments__tags">
+                <span class="retail-payments__tag">Klarna APIs</span>
+                <span class="retail-payments__tag">Affirm Installments</span>
+                <span class="retail-payments__tag">Afterpay Gateway</span>
+              </div>
+            </div>
+            <div class="retail-payments__row">
+              <span class="retail-payments__label">Regional Rails</span>
+              <div class="retail-payments__tags">
+                <span class="retail-payments__tag">ACH Processing</span>
+                <span class="retail-payments__tag">iDEAL Integration</span>
+                <span class="retail-payments__tag">Pix Real-time</span>
+                <span class="retail-payments__tag">SEPA Direct Debit</span>
+              </div>
+            </div>
+            <div class="retail-payments__row">
+              <span class="retail-payments__label">In-Store &amp; POS Terminal</span>
+              <div class="retail-payments__tags">
+                <span class="retail-payments__tag">Stripe Terminal SDKs</span>
+                <span class="retail-payments__tag">Adyen POS Hardware</span>
+                <span class="retail-payments__tag">Verifone SDK</span>
+                <span class="retail-payments__tag">Custom Hardware APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="retail-payments__img" src="assets/images/content/retail-payments-photo.png" alt="" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- One catalog, listed everywhere (1610:27277) -->
+    <section class="retail-sync">
+      <div class="retail-sync__inner">
+        <div>
+          <div class="retail-sync__eyebrow">
+            <span class="retail-sync__eyebrow-dot"></span>
+            Omnichannel Synchronization
+          </div>
+          <h2 class="retail-sync__title">One catalog, <em>listed everywhere</em></h2>
+        </div>
+        <div class="retail-sync__diagram">
+          <div class="retail-sync__col">
+            <span class="retail-sync__col-label">INVENTORY SOURCES</span>
+            <div class="retail-sync__node">Enterprise ERP Catalog</div>
+            <div class="retail-sync__node">Master Product Database</div>
+            <div class="retail-sync__node">PIM Feed Engine</div>
+          </div>
+          <div class="retail-sync__connector">
+            <span class="retail-sync__connector-line"></span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="retail-sync__hub">
+            <img src="assets/images/content/retail-sync-hub-icon.svg" alt="" />
+            <div>
+              <p class="retail-sync__hub-name">MKS Sync Hub</p>
+              <p class="retail-sync__hub-tag">Real-time event agent</p>
+            </div>
+          </div>
+          <div class="retail-sync__connector">
+            <span class="retail-sync__connector-line"></span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="retail-sync__col">
+            <span class="retail-sync__col-label">LIVE MARKETS</span>
+            <div class="retail-sync__node">Amazon Direct Merchant API</div>
+            <div class="retail-sync__node">Shopify Global Storefront</div>
+            <div class="retail-sync__node">TikTok Shopping Engine</div>
+          </div>
+        </div>
+        <div class="retail-sync__features">
+          <div class="retail-sync__feature">
+            <h3 class="retail-sync__feature-title">Universal Integrator</h3>
+            <p class="retail-sync__feature-desc">Maps inventory records to any format requirement on external marketplaces.</p>
+          </div>
+          <div class="retail-sync__feature">
+            <h3 class="retail-sync__feature-title">Dynamic Sync Engine</h3>
+            <p class="retail-sync__feature-desc">Pushes stock updates instantly inside 12-millisecond intervals to avoid out-of-stock orders.</p>
+          </div>
+          <div class="retail-sync__feature">
+            <h3 class="retail-sync__feature-title">Price Modulator</h3>
+            <p class="retail-sync__feature-desc">Automates multi-tier pricing strategies depending on distinct seller platform margins.</p>
+          </div>
+          <div class="retail-sync__feature">
+            <h3 class="retail-sync__feature-title">Conflict Resolver</h3>
+            <p class="retail-sync__feature-desc">Centralizes identical orders from multiple channels into a single fulfillment priority queue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The way we think about retail engagements (1606:26528) -->
+    <section class="retail-engagement">
+      <div class="retail-engagement__inner">
+        <div class="retail-engagement__row">
+          <img class="retail-engagement__img" src="assets/images/content/retail-engagement-photo.png" alt="" loading="lazy" />
+          <div class="retail-engagement__content">
+            <h2 class="retail-engagement__title">The way we think about <em>retail engagements</em></h2>
+            <p class="retail-engagement__quote">&ldquo;Every component is disposable, but the network must be unbreakable.&rdquo;</p>
+            <p class="retail-engagement__desc">We design modular, loosely-coupled infrastructures. If you need to swap Shopify for commercetools, or SAP for NetSuite tomorrow, our orchestrators prevent system lock-in.</p>
+          </div>
+        </div>
+        <div class="retail-engagement__strip">
+          <span>Stateless Processing</span>
+          <span>No Double Ledger Entries</span>
+          <span>Asynchronous Pipelines</span>
+          <span>Idempotent API Hooks</span>
+          <span>Edge Security Handshakes</span>
+          <span>Audit Trail Ledger</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA (1610:27453) -->
+    <section class="retail-cta">
+      <div class="retail-cta__inner">
+        <div class="retail-cta__left">
+          <p class="retail-cta__eyebrow">Secure your commerce rails</p>
+          <h2 class="retail-cta__title">Have a retail system that needs to talk to itself?</h2>
+          <p class="retail-cta__lead">Connect with our integration specialists today. We will audit your current technical landscape, identify immediate failure risks, and provide a concrete migration path.</p>
+          <a href="contact.html" class="retail-cta__button">Schedule Architecture Session</a>
+        </div>
+        <div class="retail-cta__right">
+          <p class="retail-cta__right-heading"><span class="retail-cta__right-eyebrow">From audit to a system that stays in sync</span><span class="retail-cta__right-title">Delivery path</span></p>
+          <div class="retail-cta__grid">
+            <div class="retail-cta__card">
+              <h3 class="retail-cta__card-title">Audit</h3>
+              <p class="retail-cta__card-desc">Map POS registers, ERP workflows, and payment contracts to expose data leaks.</p>
+            </div>
+            <div class="retail-cta__card">
+              <h3 class="retail-cta__card-title">Design</h3>
+              <p class="retail-cta__card-desc">Draft architecture diagrams with event paths, failover protocols, and integration schemas.</p>
+            </div>
+            <div class="retail-cta__card">
+              <h3 class="retail-cta__card-title">Build</h3>
+              <p class="retail-cta__card-desc">Write backend logic, define APIs, build storefront templates, and run simulations.</p>
+            </div>
+            <div class="retail-cta__card">
+              <h3 class="retail-cta__card-title">Support</h3>
+              <p class="retail-cta__card-desc">Hand over to 24/7 monitoring with incident response and gateway health audits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (828:563) -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision" />
+        <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--services">
+        <h4 class="footer__col-title">What we do</h4>
+        <ul class="footer__list footer__list--wrap">
+          <li><a href="#" class="footer__link-dot">AI First</a></li>
+          <li><a href="#" class="footer__link-dot">Cloud</a></li>
+          <li><a href="#" class="footer__link-dot">Data &amp; Analytics</a></li>
+          <li><a href="#" class="footer__link-dot">Digital Services</a></li>
+          <li><a href="#" class="footer__link-dot">Engineering Services</a></li>
+          <li><a href="#" class="footer__link-dot">Managed Services</a></li>
+          <li><a href="#" class="footer__link-dot">Industries</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--about">
+        <h4 class="footer__col-title">Who we are</h4>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">About us</a></li>
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">Leadership</a></li>
+          <li><a href="#" class="footer__link-dot footer__link-dot--leading">CSR &amp; Ethics</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--contact">
+        <h4 class="footer__col-title">Contact Us</h4>
+        <ul class="footer__list">
+          <li>
+            <a href="tel:+15027499992" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (502) 749-9992
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hr@mksvision.com" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hr@mksvision.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 MKS Vision. All rights reserved.</span>
+      <nav class="footer__legal" aria-label="Legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

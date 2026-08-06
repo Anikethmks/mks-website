@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Who We Are — Ethics, Responsibility & Inclusion
+   Source Figma frame: "3steps" #882:4801
+   ========================================================================== */
+
+.wwa-ethics {
+  position: relative;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--grad-cta);
+}
+.wwa-ethics::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    linear-gradient(180deg, rgba(134, 114, 220, 0.14) 0%, rgba(93, 158, 205, 0.14) 100%),
+    url('../../images/content/wwa-ethics-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.wwa-ethics__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.wwa-ethics__grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.wwa-ethics-card {
+  width: 309px;
+  max-width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 12px;
+  background: linear-gradient(-66deg, rgba(134, 103, 255, 0.75) 4%, rgba(41, 134, 197, 0.75) 97%);
+}
+.wwa-ethics-card svg { width: 32px; height: 32px; color: #FFFFFF; }
+
+.wwa-ethics-card__title,
+.wwa-ethics-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .wwa-ethics { padding: 48px 24px; }
+}

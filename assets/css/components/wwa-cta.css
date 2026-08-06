@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Who We Are — Final CTA
+   Source Figma frame: "3steps" #694:696
+   ========================================================================== */
+
+.wwa-cta {
+  background: #FFFFFF;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.wwa-cta__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  text-align: center;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wwa-cta__lead {
+  width: 752px;
+  max-width: 100%;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #58595B;
+}
+
+.wwa-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.wwa-cta__actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+  position: relative;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #4C3C89;
+  text-decoration: none;
+}
+.wwa-cta__actions a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 0.5px;
+  border-radius: inherit;
+  background: var(--grad-cta);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .wwa-cta { padding: 48px 24px; }
+}

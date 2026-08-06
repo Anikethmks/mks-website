@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Industries — Industry case-study sections (Banking, Healthcare, eCommerce,
+   Manufacturing, Automotive)
+   Source Figma frames: #687:448, #674:1427 (671:673 subtree)
+   ========================================================================== */
+
+.industries-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.industries-row__col {
+  flex: 1 1 50%;
+  min-width: 360px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: rgba(247, 247, 247, 0.2);
+}
+.industries-row__col--plain { background: #FFFFFF; gap: 40px; }
+
+.industries-row__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+
+/* Shared case-study card, used across every industry section. Modifiers
+   account for the small padding/border/tag-color variance Figma has between
+   the Banking/Healthcare pair and the eCommerce/Manufacturing/Automotive
+   ones — not a mistake to normalize, preserved as-is. */
+.industry-case-card {
+  background: #FFFFFF;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.industry-case-card--roomy {
+  padding: 32px;
+  gap: 28px;
+}
+.industry-case-card--bordered {
+  border: 1px solid #E2E8F0;
+}
+
+.industry-case-card__image {
+  width: 100%;
+  height: 244px;
+  object-fit: cover;
+  display: block;
+}
+
+.industry-case-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.industry-case-card__eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.industry-case-card__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.industry-case-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #0F172A;
+  margin: 0;
+}
+
+.industry-case-card__meta {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: #58595B;
+  margin: 0;
+}
+
+.industry-case-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+  margin: 0;
+}
+
+.industry-case-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.industry-case-card__stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.industry-case-card__check {
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.industry-case-card__check svg { width: 12px; height: 12px; }
+
+.industry-case-card__stat-text {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #0F172A;
+}
+
+.industry-case-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.industry-case-card__tag {
+  background: #F6F6F6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.3px;
+  color: #58595B;
+  white-space: nowrap;
+}
+.industry-case-card--tinted-tags .industry-case-card__tag {
+  background: #F0F6FA;
+}
+
+/* Automotive (Industry_Section_5) — asymmetric row: text column + card on
+   the left, one large photo panel on the right. */
+.industries-automotive {
+  background: #FBFBFB;
+  padding: 64px;
+}
+.industries-automotive__inner {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+.industries-automotive__col {
+  flex: 0 0 636px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.industries-automotive__media {
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.industries-automotive__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .industries-automotive__inner { flex-direction: column; }
+  .industries-automotive__col { flex-basis: auto; width: 100%; }
+  .industries-automotive__media { width: 100%; height: 400px; }
+}
+@media (max-width: 900px) {
+  .industries-row__col { flex-basis: 100%; padding: 48px 24px; }
+  .industries-automotive { padding: 48px 24px; }
+}
+@media (max-width: 600px) {
+  .industries-row__heading,
+  .industries-automotive__col p:first-child { font-size: 24px; line-height: 32px; }
+}

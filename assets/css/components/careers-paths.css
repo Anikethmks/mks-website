@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Careers — Hiring paths row (Entry Level & Internships / Lateral Hiring)
+   Source Figma frame: 882:4979
+   ========================================================================== */
+
+.careers-paths {
+  background: #F3F3F3;
+  padding: 32px 64px;
+}
+
+.careers-paths__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.careers-paths__col {
+  flex: 0 0 auto;
+  width: 520px;
+  max-width: 46%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.careers-paths__divider {
+  width: 2px;
+  height: 48px;
+  background: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
+  flex-shrink: 0;
+}
+
+.careers-paths__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #111827;
+  margin: 0;
+}
+
+.careers-paths__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4B5563;
+  margin: 0;
+}
+
+.careers-paths__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  background: #FFFFFF;
+  border: 1px solid #2784C5;
+  text-decoration: none;
+}
+
+.careers-paths__cta-text {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.careers-paths__cta-arrow {
+  width: 16px;
+  height: 12px;
+  background: var(--grad-cta);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6h13M9 1l5 5-5 5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6h13M9 1l5 5-5 5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .careers-paths__inner { flex-direction: column; gap: 32px; }
+  .careers-paths__col { padding: 0; }
+  .careers-paths__divider { width: 100%; height: 1px; align-self: auto; }
+}
+@media (max-width: 600px) {
+  .careers-paths { padding: 48px 24px; }
+}

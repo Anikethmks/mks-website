@@ -1,0 +1,290 @@
+.trust-stats {
+  background: #373737;
+  padding: 64px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-stats__pinstripe {
+  position: absolute;
+  right: 63px;
+  top: 0;
+  width: 434px;
+  height: 885px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.trust-stats__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-stats__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.trust-stats__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #FFFFFF;
+}
+
+.trust-stats__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  max-width: 1312px;
+}
+
+/* Bento layout — two flex rows with asymmetric card sizes */
+.trust-stats__grid {
+  position: relative;
+  height: 492px;
+  overflow: hidden;
+}
+
+.trust-stats__grid .stat-card {
+  position: absolute;
+}
+
+.trust-stats__row {
+  display: contents;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #1a2038;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  border-radius: 0;
+  background: linear-gradient(-66deg, rgba(134, 103, 255, 0.5) 4%, rgba(41, 134, 197, 0.5) 97%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.stat-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--card-overlay, 0.41));
+  z-index: 1;
+}
+
+.stat-card__body {
+  position: absolute;
+  inset: auto;
+  z-index: 2;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-card__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  background: var(--grad-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-card__number--soft {
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.stat-card__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #FFFFFF;
+}
+
+/* Certified strip */
+.trust-stats__certified {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.trust-stats__certified-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.trust-stats__certified-label svg {
+  width: 24px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.trust-stats__logos {
+  display: flex;
+  align-items: center;
+  gap: 112px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trust-stats__logo-tile {
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-stats__logo {
+  height: auto;
+  object-fit: contain;
+}
+
+.trust-stats__logo-tile:nth-child(1) .trust-stats__logo { max-height: 110px; }
+.trust-stats__logo-tile:nth-child(2) .trust-stats__logo { max-height: 93px; }
+.trust-stats__logo-tile:nth-child(3) .trust-stats__logo { max-width: 287px; max-height: 40px; }
+
+/* Exact desktop positions from the Figma bento frame. */
+.trust-stats__row:first-child .stat-card:nth-child(1) {
+  left: 0;
+  top: -26px;
+  width: 375px;
+  height: 250px;
+  --card-overlay: 0.41;
+}
+.trust-stats__row:first-child .stat-card:nth-child(1) .stat-card__body,
+.trust-stats__row:last-child .stat-card:nth-child(3) .stat-card__body {
+  left: 13px;
+  top: 51px;
+  width: 350px;
+}
+
+.trust-stats__row:first-child .stat-card:nth-child(2) {
+  left: 421px;
+  top: 0;
+  width: 456px;
+  height: 250px;
+  --card-overlay: 0;
+}
+.trust-stats__row:first-child .stat-card:nth-child(2) .stat-card__body {
+  inset: 12px;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.trust-stats__row:first-child .stat-card:nth-child(3) {
+  left: 922px;
+  top: 3px;
+  width: 390px;
+  height: 235px;
+  --card-overlay: 0.5;
+}
+.trust-stats__row:first-child .stat-card:nth-child(3) .stat-card__body {
+  left: 12px;
+  top: 12px;
+  width: 367px;
+  height: 210px;
+  gap: 16px;
+  background: rgba(3, 3, 3, 0.6);
+}
+
+.trust-stats__row:last-child .stat-card:nth-child(1) {
+  left: 29px;
+  top: 297px;
+  width: 466px;
+  height: 226px;
+  --card-overlay: 0;
+}
+.trust-stats__row:last-child .stat-card:nth-child(1) .stat-card__body {
+  inset: 12px;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.trust-stats__row:last-child .stat-card:nth-child(2) {
+  left: 547px;
+  top: 297px;
+  width: 375px;
+  height: 250px;
+  --card-overlay: 0.71;
+}
+.trust-stats__row:last-child .stat-card:nth-child(2) .stat-card__body {
+  left: 12px;
+  top: 12px;
+  width: 350px;
+  gap: 16px;
+}
+
+.trust-stats__row:last-child .stat-card:nth-child(3) {
+  left: 966px;
+  top: 272px;
+  width: 375px;
+  height: 250px;
+  --card-overlay: 0.41;
+}
+
+@media (max-width: 1024px) {
+  .trust-stats { padding: 48px 24px; }
+  .trust-stats__grid { height: auto; overflow: visible; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .trust-stats__row { display: contents; }
+  .stat-card,
+  .trust-stats__row:first-child .stat-card:nth-child(n),
+  .trust-stats__row:last-child .stat-card:nth-child(n) {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: 250px;
+  }
+  .stat-card .stat-card__body { inset: auto; left: 0; top: 0; width: auto; height: auto; background: rgba(0, 0, 0, 0.55); justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .trust-stats__grid { grid-template-columns: 1fr; }
+  .trust-stats__logos { gap: 32px; }
+}

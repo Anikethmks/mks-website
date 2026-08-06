@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Retail — A stack chosen for retail moving parts
+   Source Figma frame: Features #1606:26299
+   ========================================================================== */
+
+.retail-stack {
+  position: relative;
+  background: var(--grad-soft);
+  padding: 64px;
+  overflow: hidden;
+}
+
+.retail-stack__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: stretch;
+  gap: 69px;
+}
+
+.retail-stack__content {
+  flex: 0 1 865px;
+  max-width: 865px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+}
+
+.retail-stack__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.retail-stack__title em {
+  font-style: normal;
+  color: var(--color-heading-purple);
+}
+
+.retail-stack__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.retail-stack__layer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.retail-stack__layer-label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--color-heading-purple);
+}
+.retail-stack__layer-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 8px;
+}
+.retail-stack__layer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.retail-stack__layer-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #020202;
+}
+.retail-stack__layer-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  flex-shrink: 0;
+  background: var(--grad-vivid);
+}
+/* Layer 01 ("Storefront & Frontend") uses a visibly smaller bullet than the
+   other three layers in the design — a deliberate size step, not a mistake
+   to normalize. */
+.retail-stack__layer--sm .retail-stack__layer-list li::before {
+  width: 4px;
+  height: 4px;
+}
+
+.retail-stack__image {
+  /* Figma's photo bleeds into the section's own right padding, so its true
+     rendered width is (remaining row space) + (the 64px padding it reclaims
+     via the negative margin below) — 865px content + 69px gap - 64px reclaim
+     = 870px subtracted from the row's own width. */
+  flex: 0 0 calc(100% - 870px);
+  min-width: 200px;
+  margin-right: -64px;
+  align-self: stretch;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: left center;
+}
+
+@media (max-width: 1024px) {
+  .retail-stack__inner { flex-direction: column; }
+  .retail-stack__image { margin-right: 0; width: 100%; max-width: 100%; min-width: 0; aspect-ratio: 4/3; flex: none; }
+}
+@media (max-width: 720px) {
+  .retail-stack { padding: 48px 24px; }
+  .retail-stack__grid { grid-template-columns: 1fr; }
+  .retail-stack__title { font-size: 28px; line-height: 36px; }
+}

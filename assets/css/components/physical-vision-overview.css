@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Physical & Vision AI — Overview
+   Source Figma frame: 702:17902
+   ========================================================================== */
+
+.pva-overview {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--frame-max);
+  margin-inline: auto;
+}
+
+.pva-overview__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+  width: 100%;
+}
+
+.pva-overview__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.pva-overview__text {
+  background: #F9FBFB;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.pva-overview__text p {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+.pva-overview__media {
+  flex: 0 0 489px;
+  max-width: 100%;
+}
+.pva-overview__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.pva-overview__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 24px;
+  width: 100%;
+}
+
+.pva-overview__stats-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.pva-overview__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  white-space: nowrap;
+}
+.pva-overview__stat-label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #020202;
+  margin: 0;
+}
+.pva-overview__stat-value {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .pva-overview { padding: 48px 24px; }
+  .pva-overview__row { flex-direction: column; }
+  .pva-overview__media { flex-basis: auto; width: 100%; }
+  .pva-overview__stats { flex-wrap: wrap; justify-content: flex-start; }
+}

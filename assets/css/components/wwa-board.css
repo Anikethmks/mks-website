@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Who We Are — Board of Directors
+   Source Figma frame: "3steps" #694:623
+   ========================================================================== */
+
+.wwa-board {
+  position: relative;
+  background: #F9FAFC;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+}
+
+.wwa-board__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.wwa-board__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+}
+
+.wwa-board__lead {
+  width: 1096px;
+  max-width: 100%;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #5C5C5C;
+}
+
+.wwa-board__grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 48px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.wwa-director-card {
+  width: 321px;
+  max-width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  border-radius: 16px;
+  box-shadow: inset 1px 1px 4px 3px #f0f3f7;
+}
+
+.wwa-director-card__photo {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.wwa-director-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wwa-director-card__photo--tinted {
+  background: linear-gradient(180deg, #707070 0%, #727273 100%);
+}
+
+.wwa-director-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.wwa-director-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.wwa-director-card__name-role {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wwa-director-card__name {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wwa-director-card__role {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+}
+
+.wwa-director-card__linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: #5C5C5C;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.wwa-director-card__linkedin svg { width: 18px; height: 18px; }
+
+.wwa-director-card__bio {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #3D3D3D;
+  text-align: left;
+}
+
+/* Decorative background elements — watermark + dot-grid tiles, both purely
+   ornamental and sitting behind the content. */
+.wwa-board__watermark {
+  position: absolute;
+  left: 64px;
+  top: 46px;
+  width: 205px;
+  height: 71px;
+  z-index: 0;
+  pointer-events: none;
+}
+.wwa-board__dots {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('../../images/content/wwa-board-dots-tile.png');
+  background-repeat: repeat;
+  background-size: 20px 20px;
+}
+.wwa-board__dots--tl {
+  left: 95px;
+  top: 0;
+  width: 139px;
+  height: 171px;
+}
+.wwa-board__dots--br {
+  left: 303px;
+  top: 482px;
+  width: 104px;
+  height: 156px;
+}
+
+.wwa-board__header,
+.wwa-board__grid {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .wwa-board { padding: 48px 24px; }
+  .wwa-board__watermark,
+  .wwa-board__dots { display: none; }
+}

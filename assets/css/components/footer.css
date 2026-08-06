@@ -1,0 +1,187 @@
+.footer {
+  background: #0D1B2A;
+  padding: 64px 64px 24px;
+  color: #C0C0C0;
+}
+
+.footer__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.footer__logo-img { height: 48px; width: auto; }
+
+.footer__tagline {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #C0C0C0;
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+.footer__social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.063);
+  transition: color 0.18s ease, background 0.18s ease;
+}
+.footer__social a:hover {
+  background: var(--grad-cta);
+}
+.footer__social svg { width: 16px; height: 16px; }
+
+.footer__col { display: flex; flex-direction: column; gap: 32px; flex-shrink: 0; }
+.footer__col--services { width: 379px; }
+.footer__col--about { width: 170px; }
+.footer__col--contact { width: 233px; }
+
+.footer__col-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  background: linear-gradient(141deg, #CABEFA 2%, #FFD2BD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer__list { display: flex; flex-direction: column; gap: 24px; }
+
+.footer__list--wrap {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer__list a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  transition: color 0.18s ease;
+}
+.footer__list a:hover { color: #C0C0C0; }
+
+.footer__link-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: #152A41;
+}
+.footer__link-dot::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: linear-gradient(141deg, #CABEFA 2%, #FFD2BD 100%);
+  flex-shrink: 0;
+}
+
+.footer__link-dot--leading { padding: 0; background: none; border-radius: 0; }
+.footer__link-dot--leading::before { background: #FFFFFF; }
+
+.footer__col--contact .footer__col-title {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+.footer__contact-item svg {
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+.footer__contact-item[href^="mailto:"] {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.footer__bottom {
+  max-width: var(--content-max);
+  margin: 32px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 22px;
+  color: #C0C0C0;
+}
+
+.footer__legal { display: flex; gap: 24px; align-items: center; }
+
+.footer__legal a {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 22px;
+  color: #C0C0C0;
+  transition: color 0.18s ease;
+}
+.footer__legal a:first-child,
+.footer__legal a:last-child {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+}
+.footer__legal a:hover { color: #FFFFFF; }
+
+@media (max-width: 1200px) {
+  .footer__inner { flex-wrap: wrap; }
+  .footer__brand { width: 100%; }
+}
+@media (max-width: 640px) {
+  .footer { padding: 48px 16px 20px; }
+  .footer__inner { flex-direction: column; gap: 40px; }
+  .footer__col--services,
+  .footer__col--about,
+  .footer__col--contact { width: 100%; }
+  .footer__bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+}
