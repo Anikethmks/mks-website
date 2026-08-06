@@ -326,23 +326,39 @@
     });
   }
 
-  // Testimonials wall — two counter-scrolling rows, each row's card group
-  // cloned once for a seamless loop (same idea as the outcomes/trust-stats
-  // marquees). Runs before initTiltCards() so the clones also get the tilt
-  // hover effect, not just the originals.
-  function initTestimonialsMarquee() {
-    var PX_PER_SECOND = 45;
-    document.querySelectorAll('.testimonials__track').forEach(function (track) {
-      var group = track.querySelector('.testimonials__group');
-      if (!group) return;
+  // Testimonials — arrow-controlled carousel. Native CSS scroll-snap does
+  // the actual sliding (smooth, GPU-accelerated, browser-handled momentum)
+  // rather than a hand-rolled transform animation; the arrows just scroll
+  // the track by one card width at a time and disable themselves at the ends.
+  function initTestimonialsCarousel() {
+    var track = document.querySelector('.testimonials__track');
+    var prevBtn = document.querySelector('.testimonials__arrow--prev');
+    var nextBtn = document.querySelector('.testimonials__arrow--next');
+    if (!track || !prevBtn || !nextBtn) return;
 
-      var clone = group.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
+    function step() {
+      var card = track.querySelector('.testimonial-card');
+      if (!card) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 24;
+      return card.getBoundingClientRect().width + gap;
+    }
 
-      var duration = (group.getBoundingClientRect().width + 24) / PX_PER_SECOND;
-      track.style.setProperty('--marquee-h-duration', duration + 's');
+    function updateArrows() {
+      var maxScroll = track.scrollWidth - track.clientWidth - 1;
+      prevBtn.disabled = track.scrollLeft <= 0;
+      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
     });
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
   }
 
   // Outcomes "Delivering Impact" marquee — duplicate the pill group for a seamless infinite scroll
@@ -413,7 +429,7 @@
     initNavbarScroll();
     initMegaMenu();
     initHeroSlider();
-    initTestimonialsMarquee();
+    initTestimonialsCarousel();
     initOutcomesMarquee();
     initVerticalMarquee();
     initImageFallback();

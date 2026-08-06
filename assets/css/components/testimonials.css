@@ -14,6 +14,14 @@
 
 .testimonials__header {
   display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.testimonials__header-text {
+  display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
@@ -37,18 +45,38 @@
   max-width: 664px;
 }
 
-/* Two-row counter-scrolling wall — top row drifts left, bottom row drifts
-   right, each an independent seamless loop (main.js clones each row's
-   group once). Hovering either row pauses just that row so a card can be
-   read without losing your place. */
-.testimonials__wall {
+/* Arrow-controlled carousel — native scroll-snap does the sliding (smooth,
+   GPU-accelerated, momentum handled by the browser) rather than a hand-
+   rolled transform animation; the arrows just call scrollBy() by one card. */
+.testimonials__arrows {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
+.testimonials__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 2, 2, 0.1);
+  background: #FFFFFF;
+  color: #020202;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+.testimonials__arrow svg { width: 18px; height: 18px; }
+.testimonials__arrow:hover:not(:disabled) {
+  background: var(--grad-cta);
+  border-color: transparent;
+  color: #FFFFFF;
+}
+.testimonials__arrow:active:not(:disabled) { transform: scale(0.9); }
+.testimonials__arrow:disabled { opacity: 0.35; cursor: default; }
+
 .testimonials__row {
-  overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
 }
@@ -56,31 +84,18 @@
 .testimonials__track {
   display: flex;
   gap: 24px;
-  width: max-content;
-  animation: testimonials-scroll-h var(--marquee-h-duration, 45s) linear infinite;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.testimonials__track[data-direction="right"] { animation-direction: reverse; }
-
-.testimonials__row:hover .testimonials__track { animation-play-state: paused; }
-
-.testimonials__group {
-  display: flex;
-  gap: 24px;
-  flex-shrink: 0;
-}
-
-@keyframes testimonials-scroll-h {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonials__track { animation: none; }
-}
+.testimonials__track::-webkit-scrollbar { display: none; }
 
 .testimonial-card {
   width: 400px;
   flex-shrink: 0;
+  scroll-snap-align: start;
   background: #FFFFFF;
   border-radius: var(--radius-md);
   padding: 16px;
@@ -163,8 +178,7 @@
   }
 }
 @media (max-width: 640px) {
+  .testimonials__header { flex-direction: column; align-items: flex-start; }
   .testimonial-card { width: 260px; padding: 14px; }
-  .testimonials__wall { gap: 16px; }
   .testimonials__track { gap: 16px; }
-  .testimonials__group { gap: 16px; }
 }
