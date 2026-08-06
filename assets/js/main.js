@@ -245,7 +245,7 @@
       if (!match) return;
       var target = parseInt(match[1], 10);
       var suffix = match[2] || '';
-      var duration = 1200;
+      var duration = 1800;
       var start = null;
 
       function step(timestamp) {
@@ -286,7 +286,7 @@
         var inner = document.createElement('span');
         inner.className = 'split-word__inner';
         inner.textContent = word;
-        inner.style.transitionDelay = (i * 0.04) + 's';
+        inner.style.transitionDelay = (i * 0.07) + 's';
         outer.appendChild(inner);
         el.appendChild(outer);
         if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
