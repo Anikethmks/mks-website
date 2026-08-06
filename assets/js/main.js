@@ -374,9 +374,11 @@
   }
 
   // Outcomes — a numbered list on the left drives which outcome's card is
-  // in front of a 3D depth stack on the right. No auto-advance (unlike the
-  // industries accordion): purely driven by the list, prev/next arrows,
-  // clicking the front card, or dragging it left/right.
+  // in front of a 3D depth stack on the right. Auto-advances every 6s
+  // (matched against the reference), pausing on hover and restarting
+  // fresh after any manual interaction (list click, prev/next, card
+  // click, or drag) so the timer never immediately overrides a choice
+  // the user just made.
   function initOutcomesStack() {
     var root = document.querySelector('[data-outcomes]');
     if (!root) return;
@@ -390,6 +392,19 @@
 
     var total = cards.length;
     var active = 0;
+    var AUTO_INTERVAL = 6000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    var hovering = false;
+
+    function startAuto() {
+      if (reduceMotion || hovering) return;
+      stopAuto();
+      timer = setInterval(function () { setActive(active + 1); }, AUTO_INTERVAL);
+    }
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
 
     var STACK_STATES = [
       { transform: 'none', opacity: '1', zIndex: '40', pointerEvents: 'auto' },
@@ -420,10 +435,13 @@
     }
 
     listItems.forEach(function (item, i) {
-      item.addEventListener('click', function () { setActive(i); });
+      item.addEventListener('click', function () { setActive(i); startAuto(); });
     });
-    if (prevBtn) prevBtn.addEventListener('click', function () { setActive(active - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { setActive(active + 1); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { setActive(active - 1); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { setActive(active + 1); startAuto(); });
+
+    stack.addEventListener('mouseenter', function () { hovering = true; stopAuto(); });
+    stack.addEventListener('mouseleave', function () { hovering = false; startAuto(); });
 
     // Click the front card to advance; drag it left/right to go next/prev.
     // Cards behind the front one are pointer-events:none, so any click or
@@ -449,14 +467,16 @@
       var dx = e.pageX - startX;
       if (Math.abs(dx) < 40) return;
       setActive(dx < 0 ? active + 1 : active - 1);
+      startAuto();
     });
     stack.addEventListener('click', function (e) {
       if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; return; }
       if (e.target.closest('.outcome-card__cta')) return;
-      if (e.target.closest('.outcome-card.is-active')) setActive(active + 1);
+      if (e.target.closest('.outcome-card.is-active')) { setActive(active + 1); startAuto(); }
     });
 
     setActive(0);
+    startAuto();
   }
 
   // 3D tilt on cards — rotation follows the cursor across the card face
