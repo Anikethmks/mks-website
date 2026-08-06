@@ -233,11 +233,11 @@ body { opacity: 1; transition: opacity 0.6s ease; }
     animation-range: entry 0% entry 100%;
   }
   @keyframes section-parallax-left {
-    from { transform: translateX(-120px); }
+    from { transform: translateX(-240px); }
     to   { transform: translateX(0); }
   }
   @keyframes section-parallax-right {
-    from { transform: translateX(120px); }
+    from { transform: translateX(240px); }
     to   { transform: translateX(0); }
   }
 }

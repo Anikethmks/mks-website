@@ -3,6 +3,12 @@
   padding: 64px;
   position: relative;
   overflow: hidden;
+  /* The parallax cards/image travel further than the 64px padding at
+     common laptop widths (1366-1440px, where content-max leaves no extra
+     breathing room) — extend the clip boundary so they don't get chopped
+     off mid-animation. The glow decorations only bleed ~26px past the
+     edge at most, well inside this, so nothing new becomes visible. */
+  overflow-clip-margin: 300px;
 }
 
 .healthcare-features__glow {

@@ -3,6 +3,9 @@
   padding: 64px;
   position: relative;
   overflow: hidden;
+  /* See .healthcare-features — extends the clip boundary so the parallax
+     cards/image aren't chopped off mid-animation at narrower widths. */
+  overflow-clip-margin: 300px;
 }
 
 .fintech-features__glow {
