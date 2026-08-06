@@ -326,39 +326,115 @@
     });
   }
 
-  // Testimonials — arrow-controlled carousel. Native CSS scroll-snap does
-  // the actual sliding (smooth, GPU-accelerated, browser-handled momentum)
-  // rather than a hand-rolled transform animation; the arrows just scroll
-  // the track by one card width at a time and disable themselves at the ends.
+  // Testimonials — auto-advances one card every 2.5s via native CSS
+  // scroll-snap (smooth, GPU-accelerated, browser-handled momentum rather
+  // than a hand-rolled transform animation). Pauses on hover, and while
+  // hovered the row is directly click-and-drag ("grab") scrollable. Dots
+  // reflect whichever card is nearest the scroll position regardless of
+  // how it got there — auto-advance, a dot click, or a manual drag.
   function initTestimonialsCarousel() {
+    var row = document.querySelector('.testimonials__row');
     var track = document.querySelector('.testimonials__track');
-    var prevBtn = document.querySelector('.testimonials__arrow--prev');
-    var nextBtn = document.querySelector('.testimonials__arrow--next');
-    if (!track || !prevBtn || !nextBtn) return;
+    var cards = Array.from(document.querySelectorAll('.testimonial-card'));
+    var dots = Array.from(document.querySelectorAll('.testimonials__dot'));
+    if (!row || !track || !cards.length) return;
 
-    function step() {
-      var card = track.querySelector('.testimonial-card');
-      if (!card) return track.clientWidth;
-      var gap = parseFloat(getComputedStyle(track).columnGap) || 24;
-      return card.getBoundingClientRect().width + gap;
+    var AUTO_INTERVAL = 2500;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = 0;
+    var timer = null;
+    var hovering = false;
+    var dragging = false;
+    var dragged = false;
+
+    function nearestIndex() {
+      var trackLeft = track.getBoundingClientRect().left;
+      var best = 0;
+      var bestDist = Infinity;
+      cards.forEach(function (card, i) {
+        var dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      return best;
     }
 
-    function updateArrows() {
-      var maxScroll = track.scrollWidth - track.clientWidth - 1;
-      prevBtn.disabled = track.scrollLeft <= 0;
-      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    function setActiveDot(index) {
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === index);
+        dot.setAttribute('aria-selected', String(i === index));
+      });
     }
 
-    prevBtn.addEventListener('click', function () {
-      track.scrollBy({ left: -step(), behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', function () {
-      track.scrollBy({ left: step(), behavior: 'smooth' });
+    function goTo(index) {
+      current = (index + cards.length) % cards.length;
+      var card = cards[current];
+      var target = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      track.scrollTo({ left: target, behavior: 'smooth' });
+      setActiveDot(current);
+    }
+
+    function startAuto() {
+      if (reduceMotion) return;
+      stopAuto();
+      timer = setInterval(function () { goTo(current + 1); }, AUTO_INTERVAL);
+    }
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    // Debounced so it settles once a scroll (of any origin) finishes,
+    // rather than fighting the in-flight smooth-scroll animation.
+    var scrollSyncTimer = null;
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrollSyncTimer);
+      scrollSyncTimer = setTimeout(function () {
+        current = nearestIndex();
+        setActiveDot(current);
+      }, 120);
     });
 
-    track.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goTo(i);
+        if (!hovering) startAuto();
+      });
+    });
+
+    row.addEventListener('mouseenter', function () { hovering = true; stopAuto(); });
+    row.addEventListener('mouseleave', function () {
+      hovering = false;
+      if (!dragging) startAuto();
+    });
+
+    // Click-and-drag ("grab") scrolling while hovered
+    var startX = 0;
+    var startScroll = 0;
+    track.addEventListener('mousedown', function (e) {
+      dragging = true;
+      dragged = false;
+      stopAuto();
+      track.classList.add('is-dragging');
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!dragging) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) dragged = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('mouseup', function () {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      if (!hovering) startAuto();
+    });
+    // A drag shouldn't also register as a click on whatever's underneath the cursor
+    track.addEventListener('click', function (e) {
+      if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; }
+    }, true);
+
+    startAuto();
   }
 
   // Outcomes "Delivering Impact" marquee — duplicate the pill group for a seamless infinite scroll

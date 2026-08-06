@@ -37,50 +37,19 @@
   max-width: 664px;
 }
 
-/* Arrow-controlled carousel — native scroll-snap does the sliding (smooth,
-   GPU-accelerated, momentum handled by the browser) rather than a hand-
-   rolled transform animation; the arrows just call scrollBy() by one card.
-   Floating over the row's own faded edges, left and right, vertically
-   centered on the card height. */
+.testimonials__wall {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Auto-advancing carousel (every 2.5s) — pauses on hover, and while hovered
+   the row can be click-and-dragged directly ("grab" cursor). Native
+   scroll-snap handles the actual sliding physics either way. */
 .testimonials__row {
-  position: relative;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
 }
-
-/* Same line-and-arrowhead icon language as the CTA buttons elsewhere on the
-   site (navbar, hero), not a generic chevron — and a permanent soft-gradient
-   fill rather than plain white, so these read as a branded control instead
-   of stock carousel chrome. Wakes up to the vivid CTA gradient on hover. */
-.testimonials__arrow {
-  position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background: var(--grad-soft);
-  color: #020202;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(2, 2, 2, 0.12);
-  transition: background 0.25s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-.testimonials__arrow--prev { left: 8px; }
-.testimonials__arrow--next { right: 8px; }
-.testimonials__arrow svg { width: 20px; height: 20px; }
-.testimonials__arrow:hover:not(:disabled) {
-  background: var(--grad-cta);
-  color: #FFFFFF;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(77, 79, 164, 0.35);
-}
-.testimonials__arrow:active:not(:disabled) { transform: scale(0.9); }
-.testimonials__arrow:disabled { opacity: 0.35; cursor: default; }
 
 .testimonials__track {
   display: flex;
@@ -90,8 +59,39 @@
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
 }
 .testimonials__track::-webkit-scrollbar { display: none; }
+.testimonials__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.testimonials__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonials__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(2, 2, 2, 0.15);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.testimonials__dot:hover { border-color: rgba(2, 2, 2, 0.3); }
+.testimonials__dot.is-active {
+  background: var(--grad-cta);
+  border-color: transparent;
+  transform: scale(1.2);
+}
 
 .testimonial-card {
   width: 400px;
@@ -181,8 +181,4 @@
 @media (max-width: 640px) {
   .testimonial-card { width: 260px; padding: 14px; }
   .testimonials__track { gap: 16px; }
-  .testimonials__arrow { width: 36px; height: 36px; margin-top: -18px; }
-  .testimonials__arrow svg { width: 15px; height: 15px; }
-  .testimonials__arrow--prev { left: 4px; }
-  .testimonials__arrow--next { right: 4px; }
 }
