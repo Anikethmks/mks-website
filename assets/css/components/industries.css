@@ -3,10 +3,6 @@
   padding: 64px;
   position: relative;
   overflow: hidden;
-  /* See .healthcare-features/.fintech-features in animations.css — the
-     scroll-linked card parallax travels further than the 64px padding at
-     narrower widths, so this extends the clip boundary to fit it. */
-  overflow-clip-margin: 300px;
 }
 
 .industries__dots {
@@ -68,29 +64,9 @@
   max-width: 1248px;
 }
 
-.industries__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 64px;
-  row-gap: 48px;
-}
-/* Grid items default to an "auto" minimum size floored at their content's
-   min-content width, which — combined with .industry-card's explicit
-   280px width — was forcing each track (and the whole row) wider than the
-   container on any viewport narrower than the 1312px design width. This
-   overrides that floor so cards can actually shrink to fit. */
-.industries__grid > li {
-  min-width: 0;
-}
-
 @media (max-width: 1024px) {
   .industries { padding: 48px 32px; }
-  .industries__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 @media (max-width: 720px) {
   .industries { padding: 40px 20px; }
-  .industries__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-}
-@media (max-width: 420px) {
-  .industries__grid { grid-template-columns: 1fr; }
 }

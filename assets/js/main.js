@@ -301,6 +301,78 @@
     });
   }
 
+  // Industries We Serve — horizontal accordion. One panel expands at a
+  // time on an auto-advance timer; hovering, clicking, or focusing a
+  // panel jumps to it and pauses the timer until the pointer leaves the
+  // whole accordion. The progress bar's width transition is what actually
+  // drives the auto-advance timing visually — its duration matches
+  // INTERVAL so it fills exactly as the active panel's turn ends.
+  function initIndustriesAccordion() {
+    var root = document.querySelector('[data-accordion]');
+    if (!root) return;
+    var panels = Array.from(root.querySelectorAll('.industry-panel'));
+    if (!panels.length) return;
+
+    var INTERVAL = 5000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var active = 0;
+    var timer = null;
+
+    function setActive(index) {
+      active = (index + panels.length) % panels.length;
+      panels.forEach(function (panel, i) {
+        var isActive = i === active;
+        panel.classList.toggle('is-active', isActive);
+        panel.setAttribute('aria-expanded', String(isActive));
+        var bar = panel.querySelector('.industry-panel__progress');
+        if (!bar) return;
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+        if (isActive && !reduceMotion) {
+          void bar.offsetWidth; // force reflow so the transition below restarts cleanly
+          bar.style.transition = 'width ' + INTERVAL + 'ms linear';
+          bar.style.width = '100%';
+        }
+      });
+    }
+
+    function startAuto() {
+      if (reduceMotion) return;
+      stopAuto();
+      timer = setInterval(function () { setActive(active + 1); }, INTERVAL);
+    }
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    panels.forEach(function (panel, i) {
+      panel.addEventListener('mouseenter', function () {
+        setActive(i);
+        stopAuto();
+      });
+      panel.addEventListener('focus', function () {
+        setActive(i);
+        stopAuto();
+      });
+      panel.addEventListener('click', function (e) {
+        if (e.target.closest('.industry-panel__cta')) return;
+        setActive(i);
+        stopAuto();
+      });
+      panel.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        setActive(i);
+        stopAuto();
+      });
+    });
+
+    root.addEventListener('mouseleave', startAuto);
+
+    setActive(0);
+    startAuto();
+  }
+
   // 3D tilt on cards — rotation follows the cursor across the card face
   function initTiltCards() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -520,5 +592,6 @@
     initCountUp();
     initMagneticButtons();
     initTiltCards();
+    initIndustriesAccordion();
   });
 })();
