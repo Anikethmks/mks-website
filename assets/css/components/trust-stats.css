@@ -200,7 +200,12 @@
   color: #1F73B4;
 }
 
-@media (max-width: 1100px) {
+/* The side-by-side layout needs the left column (611px) + right ticker
+   block (677px) + section padding (128px) = 1440px to fit without
+   overflowing — anything narrower (this used to kick in only below 1100px,
+   silently overflowing at very common laptop widths like 1280-1400px in
+   between) switches to the stacked layout instead. */
+@media (max-width: 1440px) {
   .trust-stats__inner { flex-direction: column; gap: 48px; }
   .trust-stats__left { width: 100%; }
   .trust-stats__right { width: 100%; justify-content: center; padding-right: 0; }
