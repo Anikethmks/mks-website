@@ -60,15 +60,9 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 .navbar { transition: box-shadow 0.3s ease; }
 .navbar.is-scrolled { box-shadow: 0 4px 24px rgba(2, 2, 2, 0.08); }
 
-/* Outcomes cards */
-.outcome-card {
-  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
-}
-.outcome-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 16px 32px rgba(132, 101, 255, 0.16);
-}
+/* Outcomes cards now own their transitions/hover-equivalent states in
+   outcomes.css (the card stack drives transform via JS, tied to which
+   outcome is active — a competing hover rule here would fight it). */
 
 /* Testimonials */
 .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -127,8 +121,8 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 
 /* 3D tilt cards — rotation applied via inline transform in JS; the CSS
    transition below only smooths it. Faster than the lift/shadow transition
-   below it so tilt tracks the cursor closely. */
-.outcome-card,
+   below it so tilt tracks the cursor closely. .outcome-card is excluded —
+   its transform is owned by the card stack in outcomes.css/main.js. */
 .feature-card,
 .fintech-service,
 .testimonial-card {

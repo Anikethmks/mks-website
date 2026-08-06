@@ -447,35 +447,103 @@
           <h2 class="outcomes__title" data-split>Outcomes</h2>
           <p class="outcomes__lead">Secure, Scalable, Future-Ready. Delivering digital outcomes that drive real business value.</p>
         </div>
-        <div class="outcomes__grid">
-          <article class="outcome-card" data-reveal style="--reveal-delay: 0s">
-            <div class="outcome-card__head">
+        <div class="outcomes__body" data-outcomes>
+          <div class="outcomes__nav">
+            <div class="outcomes__counter">
+              <span class="outcomes__counter-current" data-outcomes-counter>01</span>
+              <span class="outcomes__counter-total">/ 04</span>
+            </div>
+            <div class="outcomes__list" role="tablist">
+              <button type="button" class="outcomes__list-item is-active" data-outcomes-index="0" role="tab" aria-selected="true">
+                <span class="outcomes__list-num">01</span>
+                <span class="outcomes__list-label">AI First Solutions</span>
+                <span class="outcomes__list-arrow" aria-hidden="true">→</span>
+              </button>
+              <button type="button" class="outcomes__list-item" data-outcomes-index="1" role="tab" aria-selected="false">
+                <span class="outcomes__list-num">02</span>
+                <span class="outcomes__list-label">IT Services</span>
+                <span class="outcomes__list-arrow" aria-hidden="true">→</span>
+              </button>
+              <button type="button" class="outcomes__list-item" data-outcomes-index="2" role="tab" aria-selected="false">
+                <span class="outcomes__list-num">03</span>
+                <span class="outcomes__list-label">Engineering</span>
+                <span class="outcomes__list-arrow" aria-hidden="true">→</span>
+              </button>
+              <button type="button" class="outcomes__list-item" data-outcomes-index="3" role="tab" aria-selected="false">
+                <span class="outcomes__list-num">04</span>
+                <span class="outcomes__list-label">Products &amp; Platform</span>
+                <span class="outcomes__list-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div class="outcomes__controls">
+              <button type="button" class="outcomes__control" data-outcomes-prev aria-label="Previous outcome">←</button>
+              <button type="button" class="outcomes__control" data-outcomes-next aria-label="Next outcome">→</button>
+              <span class="outcomes__hint">Drag or click the card</span>
+            </div>
+          </div>
+
+          <div class="outcomes__stack" data-outcomes-stack>
+            <article class="outcome-card" data-outcomes-index="0">
+              <div class="outcome-card__glow" aria-hidden="true"></div>
+              <div class="outcome-card__head">
+                <span class="outcome-card__badge"><img class="outcome-card__icon" src="assets/images/content/outcomes-icon-ai.svg" alt="" loading="lazy" /></span>
+                <span class="outcome-card__num">01</span>
+              </div>
               <h3 class="outcome-card__title">AI First Solutions</h3>
-              <img class="outcome-card__icon" src="assets/images/content/outcomes-icon-ai.svg" alt="" loading="lazy" />
-            </div>
-            <p class="outcome-card__desc">We build production-grade AI systems that deliver measurable outcomes across industries.</p>
-          </article>
-          <article class="outcome-card" data-reveal style="--reveal-delay: 0.12s">
-            <div class="outcome-card__head">
+              <p class="outcome-card__desc">We build production-grade AI systems that deliver measurable outcomes across industries.</p>
+              <div class="outcome-card__checklist">
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Computer vision, forecasting, and agentic workflows</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Built for measurable business outcomes, not demos</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Deployed across manufacturing, healthcare, and retail</div>
+              </div>
+              <a href="contact.html" class="outcome-card__cta">Explore<span class="outcome-card__cta-arrow" aria-hidden="true"></span></a>
+            </article>
+            <article class="outcome-card" data-outcomes-index="1">
+              <div class="outcome-card__glow" aria-hidden="true"></div>
+              <div class="outcome-card__head">
+                <span class="outcome-card__badge"><img class="outcome-card__icon" src="assets/images/content/outcomes-icon-it.svg" alt="" loading="lazy" /></span>
+                <span class="outcome-card__num">02</span>
+              </div>
               <h3 class="outcome-card__title">IT Services</h3>
-              <img class="outcome-card__icon" src="assets/images/content/outcomes-icon-it.svg" alt="" loading="lazy" />
-            </div>
-            <p class="outcome-card__desc">Custom software, mobile apps, data analytics, and cloud solutions on AWS &amp; Azure.</p>
-          </article>
-          <article class="outcome-card" data-reveal style="--reveal-delay: 0.24s">
-            <div class="outcome-card__head">
+              <p class="outcome-card__desc">Custom software, mobile apps, data analytics, and cloud solutions on AWS &amp; Azure.</p>
+              <div class="outcome-card__checklist">
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Cloud-native architecture on AWS and Azure</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Data pipelines and BI that scale with you</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Round-the-clock managed support</div>
+              </div>
+              <a href="contact.html" class="outcome-card__cta">Explore<span class="outcome-card__cta-arrow" aria-hidden="true"></span></a>
+            </article>
+            <article class="outcome-card" data-outcomes-index="2">
+              <div class="outcome-card__glow" aria-hidden="true"></div>
+              <div class="outcome-card__head">
+                <span class="outcome-card__badge"><img class="outcome-card__icon" src="assets/images/content/outcomes-icon-engineering.svg" alt="" loading="lazy" /></span>
+                <span class="outcome-card__num">03</span>
+              </div>
               <h3 class="outcome-card__title">Engineering</h3>
-              <img class="outcome-card__icon" src="assets/images/content/outcomes-icon-engineering.svg" alt="" loading="lazy" />
-            </div>
-            <p class="outcome-card__desc">50+ years of Engg. expertise across mechanical, electrical &amp; software full lifecycle delivery.</p>
-          </article>
-          <article class="outcome-card outcome-card--sm" data-reveal style="--reveal-delay: 0.36s">
-            <div class="outcome-card__head">
+              <p class="outcome-card__desc">50+ years of Engg. expertise across mechanical, electrical &amp; software full lifecycle delivery.</p>
+              <div class="outcome-card__checklist">
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Mechanical, electrical, and embedded software</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Full lifecycle delivery from concept to production</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Compliance-ready for regulated industries</div>
+              </div>
+              <a href="contact.html" class="outcome-card__cta">Explore<span class="outcome-card__cta-arrow" aria-hidden="true"></span></a>
+            </article>
+            <article class="outcome-card" data-outcomes-index="3">
+              <div class="outcome-card__glow" aria-hidden="true"></div>
+              <div class="outcome-card__head">
+                <span class="outcome-card__badge"><img class="outcome-card__icon" src="assets/images/content/outcomes-icon-products.svg" alt="" loading="lazy" /></span>
+                <span class="outcome-card__num">04</span>
+              </div>
               <h3 class="outcome-card__title">Products &amp; Platform</h3>
-              <img class="outcome-card__icon" src="assets/images/content/outcomes-icon-products.svg" alt="" loading="lazy" />
-            </div>
-            <p class="outcome-card__desc">Discover our solutions. Learn about our software. Thrive digitally.</p>
-          </article>
+              <p class="outcome-card__desc">Discover our solutions. Learn about our software. Thrive digitally.</p>
+              <div class="outcome-card__checklist">
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Ready-made accelerators for faster launches</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>White-label modules you can brand as your own</div>
+                <div class="outcome-card__check"><span class="outcome-card__check-mark" aria-hidden="true">✓</span>Live in weeks, not quarters</div>
+              </div>
+              <a href="contact.html" class="outcome-card__cta">Explore<span class="outcome-card__cta-arrow" aria-hidden="true"></span></a>
+            </article>
+          </div>
         </div>
         <div class="outcomes__impact">
           <div class="outcomes__impact-fixed">

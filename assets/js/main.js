@@ -373,12 +373,101 @@
     startAuto();
   }
 
+  // Outcomes — a numbered list on the left drives which outcome's card is
+  // in front of a 3D depth stack on the right. No auto-advance (unlike the
+  // industries accordion): purely driven by the list, prev/next arrows,
+  // clicking the front card, or dragging it left/right.
+  function initOutcomesStack() {
+    var root = document.querySelector('[data-outcomes]');
+    if (!root) return;
+    var stack = root.querySelector('[data-outcomes-stack]');
+    var counter = root.querySelector('[data-outcomes-counter]');
+    var listItems = Array.from(root.querySelectorAll('.outcomes__list-item'));
+    var cards = Array.from(stack.querySelectorAll('.outcome-card'));
+    var prevBtn = root.querySelector('[data-outcomes-prev]');
+    var nextBtn = root.querySelector('[data-outcomes-next]');
+    if (!stack || !listItems.length || !cards.length) return;
+
+    var total = cards.length;
+    var active = 0;
+
+    var STACK_STATES = [
+      { transform: 'none', opacity: '1', zIndex: '40', pointerEvents: 'auto' },
+      { transform: 'translateY(20px) scale(0.955) rotateX(2deg)', opacity: '0.5', zIndex: '39', pointerEvents: 'none' },
+      { transform: 'translateY(40px) scale(0.91) rotateX(4deg)', opacity: '0.22', zIndex: '38', pointerEvents: 'none' },
+      { transform: 'translateX(72%) rotate(7deg) scale(0.94)', opacity: '0', zIndex: '37', pointerEvents: 'none' }
+    ];
+
+    function setActive(index) {
+      active = (index + total) % total;
+
+      listItems.forEach(function (item, i) {
+        var isActive = i === active;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', String(isActive));
+      });
+      if (counter) counter.textContent = String(active + 1).padStart(2, '0');
+
+      cards.forEach(function (card, i) {
+        var distance = (i - active + total) % total;
+        var state = STACK_STATES[Math.min(distance, STACK_STATES.length - 1)];
+        card.classList.toggle('is-active', distance === 0);
+        card.style.transform = state.transform;
+        card.style.opacity = state.opacity;
+        card.style.zIndex = state.zIndex;
+        card.style.pointerEvents = state.pointerEvents;
+      });
+    }
+
+    listItems.forEach(function (item, i) {
+      item.addEventListener('click', function () { setActive(i); });
+    });
+    if (prevBtn) prevBtn.addEventListener('click', function () { setActive(active - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { setActive(active + 1); });
+
+    // Click the front card to advance; drag it left/right to go next/prev.
+    // Cards behind the front one are pointer-events:none, so any click or
+    // drag that reaches the stack always originates from the active card.
+    var dragging = false;
+    var dragged = false;
+    var startX = 0;
+    stack.addEventListener('mousedown', function (e) {
+      dragging = true;
+      dragged = false;
+      startX = e.pageX;
+      stack.classList.add('is-dragging');
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!dragging) return;
+      if (Math.abs(e.pageX - startX) > 6) dragged = true;
+    });
+    window.addEventListener('mouseup', function (e) {
+      if (!dragging) return;
+      dragging = false;
+      stack.classList.remove('is-dragging');
+      if (!dragged) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) < 40) return;
+      setActive(dx < 0 ? active + 1 : active - 1);
+    });
+    stack.addEventListener('click', function (e) {
+      if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; return; }
+      if (e.target.closest('.outcome-card__cta')) return;
+      if (e.target.closest('.outcome-card.is-active')) setActive(active + 1);
+    });
+
+    setActive(0);
+  }
+
   // 3D tilt on cards — rotation follows the cursor across the card face
   function initTiltCards() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!window.matchMedia('(pointer: fine)').matches) return;
 
-    var els = Array.from(document.querySelectorAll('.outcome-card, .feature-card, .fintech-service, .testimonial-card'));
+    // .outcome-card is excluded — initOutcomesStack already drives its
+    // transform (stack depth/position), and tilt's own transform writes
+    // would silently fight with it on hover.
+    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .testimonial-card'));
     if (!els.length) return;
 
     var MAX_TILT = 6;
@@ -593,5 +682,6 @@
     initMagneticButtons();
     initTiltCards();
     initIndustriesAccordion();
+    initOutcomesStack();
   });
 })();

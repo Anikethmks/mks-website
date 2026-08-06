@@ -50,64 +50,298 @@
   color: #58595B;
 }
 
-.outcomes__grid {
+/* Outcomes body — a left-hand numbered list drives which outcome is
+   active; the right-hand stack shows that outcome's full card in front,
+   with the others fanned out behind it in decreasing depth. */
+.outcomes__body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 48px;
+  align-items: center;
 }
 
-.outcome-card {
-  position: relative;
-  min-height: 185px;
-  border-radius: var(--radius-sm);
-  padding: 24px;
+.outcomes__nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  gap: 26px;
 }
 
-.outcome-card__head {
+.outcomes__counter {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+  align-items: baseline;
+  gap: 10px;
 }
-
-.outcome-card__title {
+.outcomes__counter-current {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
   background: var(--grad-vivid);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin: 0;
 }
-/* The "Products & Platform" card carries a longer title than the other
-   three, so Figma steps its size down a notch to keep it from crowding
-   the icon — a deliberate size step, not a mistake to normalize. */
-.outcome-card--sm .outcome-card__title {
+.outcomes__counter-total {
+  font-family: var(--font-display);
   font-size: 18px;
-  line-height: 28px;
+  font-weight: 700;
+  color: rgba(2, 2, 2, 0.28);
 }
 
+.outcomes__list {
+  display: grid;
+  gap: 2px;
+}
+
+.outcomes__list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(2, 2, 2, 0.08);
+  background: none;
+  padding: 13px 4px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: padding 0.4s ease;
+}
+.outcomes__list-item.is-active { padding-left: 14px; }
+
+.outcomes__list-num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(2, 2, 2, 0.25);
+  transition: color 0.35s ease;
+}
+.outcomes__list-item.is-active .outcomes__list-num { color: #1F73B4; }
+
+.outcomes__list-label {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #8A88A8;
+  transition: color 0.35s ease;
+}
+.outcomes__list-item.is-active .outcomes__list-label { color: #020202; }
+
+.outcomes__list-arrow {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  background: rgba(2, 2, 2, 0.05);
+  color: rgba(2, 2, 2, 0.35);
+  transform: translateX(-6px);
+  transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease;
+}
+.outcomes__list-item.is-active .outcomes__list-arrow {
+  background: var(--grad-cta);
+  color: #FFFFFF;
+  transform: translateX(0);
+}
+
+.outcomes__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.outcomes__control {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 2, 2, 0.12);
+  background: #FFFFFF;
+  font-size: 16px;
+  color: #020202;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.outcomes__control:hover { border-color: rgba(2, 2, 2, 0.28); transform: translateY(-1px); }
+
+.outcomes__hint {
+  margin-left: 8px;
+  font-family: var(--font-primary);
+  font-size: 12.5px;
+  color: #58595B;
+}
+
+/* Card stack — one card per outcome, absolutely stacked and repositioned
+   via inline transform/opacity/z-index set in JS based on each card's
+   distance from the active index. */
+.outcomes__stack {
+  position: relative;
+  height: 430px;
+  cursor: grab;
+  perspective: 1400px;
+}
+.outcomes__stack.is-dragging { cursor: grabbing; }
+
+.outcome-card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  background: #FFFFFF;
+  border: 1px solid rgba(2, 2, 2, 0.07);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 0.84, 0.24, 1), opacity 0.6s ease, box-shadow 0.6s ease;
+}
+.outcome-card.is-active {
+  box-shadow: var(--shadow-lift);
+  cursor: pointer;
+}
+
+.outcome-card__glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(132, 101, 255, 0.16), transparent 68%);
+  pointer-events: none;
+}
+
+.outcome-card__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.outcome-card__badge { display: inline-flex; }
 .outcome-card__icon {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   object-fit: contain;
 }
 
+.outcome-card__num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(2, 2, 2, 0.3);
+}
+
+.outcome-card__title {
+  position: relative;
+  margin: 24px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #020202;
+}
+
 .outcome-card__desc {
+  position: relative;
+  margin: 12px 0 0;
+  max-width: 48ch;
   font-family: var(--font-primary);
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 1.6;
   color: #58595B;
-  margin: 0;
+}
+
+.outcome-card__checklist {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(132, 101, 255, 0.28);
+}
+
+.outcome-card__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-family: var(--font-primary);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #3C3B5C;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.6s ease;
+}
+.outcome-card.is-active .outcome-card__check {
+  opacity: 1;
+  transform: translateY(0);
+}
+.outcome-card.is-active .outcome-card__check:nth-child(1) { transition-delay: 0.15s; }
+.outcome-card.is-active .outcome-card__check:nth-child(2) { transition-delay: 0.25s; }
+.outcome-card.is-active .outcome-card__check:nth-child(3) { transition-delay: 0.35s; }
+
+.outcome-card__check-mark {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-badge-bg);
+  color: #1F73B4;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.outcome-card__cta {
+  position: relative;
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-cta);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.outcome-card__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.outcome-card__cta-arrow {
+  width: 14px;
+  height: 12px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6H14M9.5 1.5L14 6L9.5 10.5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6H14M9.5 1.5L14 6L9.5 10.5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outcomes__list-item,
+  .outcomes__list-num,
+  .outcomes__list-label,
+  .outcomes__list-arrow,
+  .outcome-card,
+  .outcome-card__check { transition: none; }
 }
 
 /* Delivering Impact marquee row — label chip stays fixed, pills scroll
@@ -204,10 +438,13 @@
 
 @media (max-width: 900px) {
   .outcomes { padding: 48px 24px; }
-  .outcomes__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .outcomes__body { grid-template-columns: 1fr; gap: 32px; }
+  .outcomes__stack { height: 480px; }
 }
 @media (max-width: 480px) {
   .outcomes { padding: 40px 16px; }
   .outcomes__title { font-size: 28px; line-height: 36px; }
-  .outcomes__grid { grid-template-columns: 1fr; }
+  .outcomes__stack { height: 560px; }
+  .outcome-card { padding: 24px; }
+  .outcomes__counter-current { font-size: 44px; }
 }
