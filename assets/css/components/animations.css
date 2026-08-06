@@ -198,24 +198,37 @@ body { opacity: 1; transition: opacity 0.6s ease; }
      named range — from first pixel visible to fully visible), instead of
      being spread thin across the section's whole multi-hundred-pixel
      scroll journey. That made it barely perceptible; confining it to just
-     the entry crossing plus a bigger offset makes it read as a real,
-     felt slide instead of a nudge. animation-fill: both holds the
-     settled translateX(0) for the rest of the time the section is on
-     screen (and afterwards), so it never re-triggers or drifts again on
-     the way back out — purely a position shift, opacity untouched.
+     the entry crossing plus a bigger offset was meant to make it read as
+     a real, felt slide instead of a nudge.
+     Must stay LINEAR, not eased: this timeline is driven by scroll
+     position, not time, so an ease-out curve (which front-loads nearly
+     all its visual progress into the first ~20-30% of input) front-loads
+     the motion into the least-visible part of the crossing — the element
+     is still mostly below the viewport, barely peeking in, right when the
+     eased curve has already rushed it ~90% of the way to settled. By the
+     time it's actually on screen there's nothing left to see move.
+     Confirmed via a scripted scroll+screenshot check: with the eased
+     curve, transform was already down to -10px by the time even a sliver
+     of the grid was visible. Linear keeps the offset proportional to how
+     much of the element has actually scrolled into view, so it stays
+     visibly in motion for the whole time it's on screen.
+     animation-fill: both holds the settled translateX(0) for the rest of
+     the time the section is on screen (and afterwards), so it never
+     re-triggers or drifts again on the way back out — purely a position
+     shift, opacity untouched.
      Applied to the card GRID/image containers rather than the individual
      .feature-card/.fintech-service elements — those already own their
      own transform for the hover-tilt and hover-lift effects, and a CSS
      animation on the same property would silently win over both. */
   .healthcare-features__cards,
   .fintech-features__image {
-    animation: section-parallax-left cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: section-parallax-left linear both;
     animation-timeline: --section-scroll;
     animation-range: entry 0% entry 100%;
   }
   .healthcare-features__image,
   .fintech-features__services {
-    animation: section-parallax-right cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: section-parallax-right linear both;
     animation-timeline: --section-scroll;
     animation-range: entry 0% entry 100%;
   }
