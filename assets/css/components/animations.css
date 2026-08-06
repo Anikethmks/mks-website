@@ -18,6 +18,14 @@
   transform: none;
 }
 
+/* Testimonial cards get a slower, more visible entrance than the site-wide
+   default, plus a left-then-center-then-right stagger matching their
+   directional entrance, so the choreography actually reads instead of
+   flashing in all at once. */
+.testimonial-card[data-reveal] {
+  transition-duration: 1.8s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
     opacity: 1;
