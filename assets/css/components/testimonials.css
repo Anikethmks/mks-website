@@ -50,6 +50,12 @@
   display: flex;
   gap: 24px;
   overflow-x: auto;
+  /* Explicit — leaving overflow-y unset lets it compute to auto too (the
+     spec forces the other axis off "visible" whenever one axis is
+     non-visible), silently turning the row into its own vertical scroll
+     container. That let a mouse wheel over the cards scroll *inside* them
+     instead of the page, clipping the top of the cards mid-scroll. */
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
