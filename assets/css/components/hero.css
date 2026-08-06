@@ -154,35 +154,60 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Figma-exact nav (node 437:404): a full-width 10%-white divider, then a row
-   of four 20x4px rounded segments — the active one solid white, the rest at
-   50% opacity. */
+/* Figma-exact divider (node 437:404): full-width 10%-white rule above the nav row. */
 .hero__divider {
   align-self: stretch;
   height: 1px;
   background: rgba(255, 255, 255, 0.1);
 }
 
-.hero__dots {
+/* Nav row — arrow / segmented rail / arrow, the pattern Apple, Sony and
+   Microsoft all converge on for multi-slide hero banners: thin progress
+   segments for position + explicit arrows for manual browsing, rather than
+   a separate play/pause toggle. */
+.hero__nav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   padding: 10px;
   margin: -10px;
 }
 
-.hero__dot {
+.hero__rail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__segment {
+  position: relative;
   width: 20px;
   height: 4px;
   padding: 0;
   border: none;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: background 0.18s ease;
+  overflow: hidden;
 }
-.hero__dot:hover { background: rgba(255, 255, 255, 0.75); }
-.hero__dot.is-active { background: #FFFFFF; }
+.hero__segment.is-viewed { background: rgba(255, 255, 255, 0.75); }
+
+.hero__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hero__arrow:hover { background: rgba(255, 255, 255, 0.14); color: #FFFFFF; }
+.hero__arrow svg { width: 15px; height: 15px; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__bg.is-zooming { animation: none; }

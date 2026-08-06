@@ -30,49 +30,28 @@
 .navbar { transition: box-shadow 0.3s ease; }
 .navbar.is-scrolled { box-shadow: 0 4px 24px rgba(2, 2, 2, 0.08); }
 
-/* Hero slide dots — active dot fills as a progress bar over the autoplay interval */
-.hero__dot { position: relative; overflow: hidden; }
-.hero__dot.is-active { background: rgba(255, 255, 255, 0.35); }
-.hero__dot.is-active::after {
-  content: '';
+/* Hero nav rail — the active segment fills left-to-right as the autoplay
+   interval elapses; segments already passed stay solid (base styling for
+   the rail/segments/arrows themselves lives in hero.css). */
+.hero__segment-fill {
   position: absolute;
   inset: 0;
   background: #FFFFFF;
   transform: scaleX(0);
   transform-origin: left;
-  animation: hero-dot-progress 6.5s linear forwards;
 }
-@keyframes hero-dot-progress { to { transform: scaleX(1); } }
+.hero__segment.is-active .hero__segment-fill {
+  animation: hero-segment-progress 6.5s linear forwards;
+}
+@keyframes hero-segment-progress { to { transform: scaleX(1); } }
+
+/* Freezes the progress fill while reading is paused (hover, keyboard focus,
+   or the tab being backgrounded) — it resumes from wherever it left off. */
+.hero.is-paused .hero__segment.is-active .hero__segment-fill { animation-play-state: paused; }
+
 @media (prefers-reduced-motion: reduce) {
-  .hero__dot.is-active::after { animation: none; transform: scaleX(1); }
+  .hero__segment.is-active .hero__segment-fill { animation: none; transform: scaleX(1); }
 }
-
-/* Freezes the progress fill while reading is paused (hover, focus, the
-   explicit pause button, or the tab being backgrounded) — it resumes from
-   wherever it left off rather than jumping. */
-.hero.is-paused .hero__dot.is-active::after { animation-play-state: paused; }
-
-.hero__nav { display: flex; align-items: center; gap: 16px; }
-
-.hero__playpause {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  color: #FFFFFF;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.hero__playpause:hover { background: rgba(255, 255, 255, 0.24); }
-.hero__playpause-icon { width: 12px; height: 12px; fill: currentColor; }
-.hero__playpause-icon--play { display: none; }
-.hero__playpause.is-paused .hero__playpause-icon--pause { display: none; }
-.hero__playpause.is-paused .hero__playpause-icon--play { display: block; }
 
 /* Outcomes cards */
 .outcome-card {

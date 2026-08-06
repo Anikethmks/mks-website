@@ -70,14 +70,15 @@
     var hero = document.querySelector('.hero');
     var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
-    var dots = Array.from(document.querySelectorAll('.hero__dot'));
+    var segments = Array.from(document.querySelectorAll('.hero__segment'));
+    var prevBtn = document.querySelector('.hero__arrow--prev');
+    var nextBtn = document.querySelector('.hero__arrow--next');
     if (!hero || !bgs.length || !contents.length) return;
 
     var current = 0;
     var total = bgs.length;
     var interval = 6500;
     var timer = null;
-    var userPaused = false;
     var hovering = false;
 
     // Restarts the background's slow zoom and the title/subtitle's fade-up
@@ -101,16 +102,20 @@
     function goToSlide(index) {
       bgs.forEach(function (bg) { bg.classList.remove('is-active'); });
       contents.forEach(function (c) { c.classList.remove('is-active'); });
-      dots.forEach(function (d) {
-        d.classList.remove('is-active');
-        d.setAttribute('aria-selected', 'false');
+      // Segments before the new index read as "already seen" (solid), the
+      // active one gets the animated fill, later ones stay dim — resets
+      // each time the rail loops back to the first slide.
+      segments.forEach(function (seg, i) {
+        seg.classList.remove('is-active', 'is-viewed');
+        seg.setAttribute('aria-selected', 'false');
+        if (i < index) seg.classList.add('is-viewed');
       });
 
       bgs[index].classList.add('is-active');
       contents[index].classList.add('is-active');
-      if (dots[index]) {
-        dots[index].classList.add('is-active');
-        dots[index].setAttribute('aria-selected', 'true');
+      if (segments[index]) {
+        segments[index].classList.add('is-active');
+        segments[index].setAttribute('aria-selected', 'true');
       }
       current = index;
 
@@ -119,6 +124,10 @@
 
     function nextSlide() {
       goToSlide((current + 1) % total);
+    }
+
+    function prevSlide() {
+      goToSlide((current - 1 + total) % total);
     }
 
     function startAutoPlay() {
@@ -130,38 +139,50 @@
       if (timer) { clearInterval(timer); timer = null; }
     }
 
-    // Restarts the active dot's progress-fill from empty, same reflow trick
-    // as triggerEntrance — used whenever a pause ends so the reading window
-    // that follows is always a full interval, not whatever was left over.
-    function restartDotProgress() {
-      var activeDot = dots[current];
-      if (!activeDot) return;
-      activeDot.classList.remove('is-active');
-      void activeDot.offsetWidth;
-      activeDot.classList.add('is-active');
+    // Restarts the active segment's progress-fill from empty, same reflow
+    // trick as triggerEntrance — used whenever autoplay resumes so the
+    // reading window that follows is always a full interval.
+    function restartSegmentProgress() {
+      var activeSegment = segments[current];
+      if (!activeSegment) return;
+      activeSegment.classList.remove('is-active');
+      void activeSegment.offsetWidth;
+      activeSegment.classList.add('is-active');
     }
 
-    // Single source of truth for whether autoplay should be running: the
-    // explicit pause button, the cursor resting anywhere on the hero (so
-    // reading the headline never gets cut off), and the tab being
-    // backgrounded all feed into it independently.
+    // Autoplay pauses whenever the cursor or keyboard focus is anywhere on
+    // the hero (so reading the headline never gets cut off) or the tab is
+    // backgrounded, and resumes with a fresh full interval afterward.
     function syncPausedState() {
-      var shouldPause = userPaused || hovering || document.hidden;
+      var shouldPause = hovering || document.hidden;
       hero.classList.toggle('is-paused', shouldPause);
       if (shouldPause) {
         stopAutoPlay();
       } else {
-        restartDotProgress();
+        restartSegmentProgress();
         startAutoPlay();
       }
     }
 
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
+    segments.forEach(function (seg, i) {
+      seg.addEventListener('click', function () {
         goToSlide(i);
-        if (!userPaused && !hovering) startAutoPlay();
+        if (!hovering) startAutoPlay();
       });
     });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        prevSlide();
+        if (!hovering) startAutoPlay();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        nextSlide();
+        if (!hovering) startAutoPlay();
+      });
+    }
 
     hero.addEventListener('mouseenter', function () { hovering = true; syncPausedState(); });
     hero.addEventListener('mouseleave', function () { hovering = false; syncPausedState(); });
@@ -169,17 +190,6 @@
     hero.addEventListener('focusout', function () { hovering = false; syncPausedState(); });
 
     document.addEventListener('visibilitychange', syncPausedState);
-
-    var playPauseBtn = document.querySelector('.hero__playpause');
-    if (playPauseBtn) {
-      playPauseBtn.addEventListener('click', function () {
-        userPaused = !userPaused;
-        playPauseBtn.classList.toggle('is-paused', userPaused);
-        playPauseBtn.setAttribute('aria-pressed', String(userPaused));
-        playPauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
-        syncPausedState();
-      });
-    }
 
     startAutoPlay();
   }
