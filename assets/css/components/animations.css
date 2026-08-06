@@ -63,10 +63,6 @@
   box-shadow: 0 16px 32px rgba(132, 101, 255, 0.16);
 }
 
-/* Trust stats — bento image zoom */
-.stat-card__img { transition: transform 0.7s ease; }
-.stat-card:hover .stat-card__img { transform: scale(1.08); }
-
 /* Testimonials */
 .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .testimonial-card:hover {

@@ -278,6 +278,10 @@
     if (!els.length || reduceMotion) return;
 
     els.forEach(function (el) {
+      // Flattening to textContent would silently drop any nested element
+      // (e.g. a colored accent <span>) — skip rather than mangle those.
+      if (el.querySelector('*')) return;
+
       var words = el.textContent.trim().split(/\s+/);
       el.textContent = '';
       words.forEach(function (word, i) {
@@ -373,6 +377,26 @@
     track.style.setProperty('--marquee-duration', duration + 's');
   }
 
+  // Trust-stats vertical tickers — same duplicate-for-seamless-loop idea as
+  // the outcomes marquee, but per column and top-to-bottom. The "down"
+  // column reuses the same up-scrolling keyframe with animation-direction
+  // reversed (see trust-stats.css), so both columns share one duration
+  // formula and only differ in which way they play.
+  function initVerticalMarquee() {
+    var PX_PER_SECOND = 22;
+    document.querySelectorAll('[data-marquee-v]').forEach(function (track) {
+      var group = track.querySelector('.trust-stats__group');
+      if (!group) return;
+
+      var clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+
+      var duration = group.getBoundingClientRect().height / PX_PER_SECOND;
+      track.style.setProperty('--marquee-v-duration', duration + 's');
+    });
+  }
+
   // Image fallback gradients
   var FALLBACK_PALETTE = [
     ['#2A2D57', '#4C3F82'],
@@ -407,6 +431,7 @@
     initHeroSlider();
     initTestimonialSlider();
     initOutcomesMarquee();
+    initVerticalMarquee();
     initImageFallback();
     initSplitText();
     initScrollReveal();
