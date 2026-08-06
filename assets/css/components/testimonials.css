@@ -1,6 +1,7 @@
 .testimonials {
   background: #F8F9F9;
   padding: 64px;
+  overflow: hidden;
 }
 
 .testimonials__inner {
@@ -36,13 +37,50 @@
   max-width: 664px;
 }
 
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
+/* Two-row counter-scrolling wall — top row drifts left, bottom row drifts
+   right, each an independent seamless loop (main.js clones each row's
+   group once). Hovering either row pauses just that row so a card can be
+   read without losing your place. */
+.testimonials__wall {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonials__row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+}
+
+.testimonials__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: testimonials-scroll-h var(--marquee-h-duration, 45s) linear infinite;
+}
+.testimonials__track[data-direction="right"] { animation-direction: reverse; }
+
+.testimonials__row:hover .testimonials__track { animation-play-state: paused; }
+
+.testimonials__group {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+@keyframes testimonials-scroll-h {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials__track { animation: none; }
 }
 
 .testimonial-card {
+  width: 400px;
+  flex-shrink: 0;
   background: #FFFFFF;
   border-radius: var(--radius-md);
   padding: 16px;
@@ -116,28 +154,17 @@
   flex: 1;
 }
 
-.testimonials__dots {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-}
-
-.testimonials__dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.18s ease;
-}
-.testimonials__dot.is-active {
-  background: var(--grad-cta);
-  border-color: transparent;
-}
-
 @media (max-width: 1024px) {
   .testimonials { padding: 48px 24px; }
-  .testimonials__grid { grid-template-columns: 1fr; }
+  .testimonial-card { width: 320px; }
+  .testimonials__row {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+  }
+}
+@media (max-width: 640px) {
+  .testimonial-card { width: 260px; padding: 14px; }
+  .testimonials__wall { gap: 16px; }
+  .testimonials__track { gap: 16px; }
+  .testimonials__group { gap: 16px; }
 }

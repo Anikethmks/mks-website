@@ -326,20 +326,22 @@
     });
   }
 
-  // Testimonial dot navigation
-  function initTestimonialSlider() {
-    var dots = Array.from(document.querySelectorAll('.testimonials__dot'));
-    if (!dots.length) return;
+  // Testimonials wall — two counter-scrolling rows, each row's card group
+  // cloned once for a seamless loop (same idea as the outcomes/trust-stats
+  // marquees). Runs before initTiltCards() so the clones also get the tilt
+  // hover effect, not just the originals.
+  function initTestimonialsMarquee() {
+    var PX_PER_SECOND = 45;
+    document.querySelectorAll('.testimonials__track').forEach(function (track) {
+      var group = track.querySelector('.testimonials__group');
+      if (!group) return;
 
-    dots.forEach(function (dot) {
-      dot.addEventListener('click', function () {
-        dots.forEach(function (d) {
-          d.classList.remove('is-active');
-          d.setAttribute('aria-selected', 'false');
-        });
-        dot.classList.add('is-active');
-        dot.setAttribute('aria-selected', 'true');
-      });
+      var clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+
+      var duration = (group.getBoundingClientRect().width + 24) / PX_PER_SECOND;
+      track.style.setProperty('--marquee-h-duration', duration + 's');
     });
   }
 
@@ -411,7 +413,7 @@
     initNavbarScroll();
     initMegaMenu();
     initHeroSlider();
-    initTestimonialSlider();
+    initTestimonialsMarquee();
     initOutcomesMarquee();
     initVerticalMarquee();
     initImageFallback();
