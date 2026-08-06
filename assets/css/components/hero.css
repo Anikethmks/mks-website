@@ -179,7 +179,7 @@
 
 .hero__controls {
   max-width: 709px;
-  margin-top: 8px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
