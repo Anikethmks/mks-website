@@ -43,9 +43,9 @@
 .industry-panel__bg {
   position: absolute;
   inset: 0;
-  /* Same gradient as the hero's "AI-Driven Strategy" title text — shows
-     through in place of the image while a panel is collapsed. */
-  background: linear-gradient(-10.667deg, #8465FF 17.033%, #FFA980 70.59%);
+  /* Reversed direction of the hero's "AI-Driven Strategy" title gradient —
+     shows through in place of the image while a panel is collapsed. */
+  background: linear-gradient(-10.667deg, #FFA980 17.033%, #8465FF 70.59%);
 }
 .industry-panel__img {
   width: 100%;
