@@ -69,14 +69,16 @@
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.navbar__link:hover::after {
+.navbar__link:hover::after,
+.navbar__item--dropdown.is-open .navbar__link::after {
   transform: scaleX(1);
 }
 .navbar__link.is-active::after {
   transform: scaleX(1);
   transition: none;
 }
-.navbar__link:hover {
+.navbar__link:hover,
+.navbar__item--dropdown.is-open .navbar__link {
   color: #4D3D8A;
 }
 
