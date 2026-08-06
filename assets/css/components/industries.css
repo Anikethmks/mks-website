@@ -3,6 +3,10 @@
   padding: 64px;
   position: relative;
   overflow: hidden;
+  /* See .healthcare-features/.fintech-features in animations.css — the
+     scroll-linked card parallax travels further than the 64px padding at
+     narrower widths, so this extends the clip boundary to fit it. */
+  overflow-clip-margin: 300px;
 }
 
 .industries__dots {

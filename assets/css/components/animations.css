@@ -178,8 +178,24 @@ body { opacity: 1; transition: opacity 0.6s ease; }
    test pages before applying here. */
 @supports (animation-timeline: scroll()) {
   .healthcare-features,
-  .fintech-features {
+  .fintech-features,
+  .industries {
     view-timeline-name: --section-scroll;
+  }
+
+  /* Industries We Serve — same mechanism as the Healthcare/Fintech cards
+     below: all 8 cards share the section's single named timeline (a
+     per-card timeline isn't possible here without the same overflow:hidden
+     freeze bug, since each card would need to anchor past .industries
+     itself), so the whole grid slides in from the left as one
+     synchronized block rather than staggering card-by-card. Unlike
+     .feature-card/.fintech-service, .industry-card has no hover-tilt or
+     hover-lift transform of its own (its hover states only touch the
+     child image/title/arrow), so animating it directly is safe. */
+  .industry-card {
+    animation: section-parallax-left linear both;
+    animation-timeline: --section-scroll;
+    animation-range: entry 0% entry 100%;
   }
 
   .healthcare-features__image img,
@@ -251,5 +267,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   .healthcare-features__cards,
   .fintech-features__image,
   .healthcare-features__image,
-  .fintech-features__services { animation: none; }
+  .fintech-features__services,
+  .industry-card { animation: none; }
 }
