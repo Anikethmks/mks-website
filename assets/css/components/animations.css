@@ -184,16 +184,32 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   }
 
   /* Industries We Serve — same mechanism as the Healthcare/Fintech cards
-     below: all 8 cards share the section's single named timeline (a
+     below: all cards share the section's single named timeline (a
      per-card timeline isn't possible here without the same overflow:hidden
      freeze bug, since each card would need to anchor past .industries
-     itself), so the whole grid slides in from the left as one
-     synchronized block rather than staggering card-by-card. Unlike
-     .feature-card/.fintech-service, .industry-card has no hover-tilt or
-     hover-lift transform of its own (its hover states only touch the
-     child image/title/arrow), so animating it directly is safe. */
-  .industry-card {
+     itself), so each half of the grid slides in as one synchronized block
+     rather than staggering card-by-card. Left two columns (1st/2nd of
+     every row of 4) enter from the left, right two columns (3rd/4th)
+     enter from the right, converging toward center — matched via the
+     grid <li>'s position since one card (Retail) wraps its
+     .industry-card in a plain <li> rather than being the <li> itself.
+     Unlike .feature-card/.fintech-service, .industry-card has no
+     hover-tilt or hover-lift transform of its own (its hover states only
+     touch the child image/title/arrow), so animating it directly is
+     safe. */
+  .industries__grid > li:nth-child(4n+1).industry-card,
+  .industries__grid > li:nth-child(4n+1) .industry-card,
+  .industries__grid > li:nth-child(4n+2).industry-card,
+  .industries__grid > li:nth-child(4n+2) .industry-card {
     animation: section-parallax-left linear both;
+    animation-timeline: --section-scroll;
+    animation-range: entry 0% entry 100%;
+  }
+  .industries__grid > li:nth-child(4n+3).industry-card,
+  .industries__grid > li:nth-child(4n+3) .industry-card,
+  .industries__grid > li:nth-child(4n).industry-card,
+  .industries__grid > li:nth-child(4n) .industry-card {
+    animation: section-parallax-right linear both;
     animation-timeline: --section-scroll;
     animation-range: entry 0% entry 100%;
   }
