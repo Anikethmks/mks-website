@@ -18,6 +18,16 @@
   transform: none;
 }
 
+/* Healthcare/Fintech cards + images (see initBidirectionalReveal in
+   main.js): scrolling back up past them exits to the right rather than
+   retreating back through their own entrance (left). Higher specificity
+   than [data-reveal="left"]/"right" via the extra class, so it always wins
+   regardless of which direction the element entered from. */
+[data-reveal].is-exiting-right {
+  opacity: 0;
+  transform: translateX(32px);
+}
+
 /* Testimonial cards get a slower, more visible entrance than the site-wide
    default, plus a left-then-center-then-right stagger matching their
    directional entrance, so the choreography actually reads instead of

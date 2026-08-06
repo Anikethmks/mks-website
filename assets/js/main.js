@@ -193,9 +193,17 @@
     update();
   }
 
+  // Healthcare/fintech cards + images use a bidirectional reveal (see
+  // initBidirectionalReveal below) instead of the one-shot reveal here.
+  var BIDIRECTIONAL_REVEAL_SELECTOR =
+    '.healthcare-features__cards .feature-card, .healthcare-features__image, ' +
+    '.fintech-features__services .fintech-service, .fintech-features__image';
+
   // Scroll-triggered reveal for [data-reveal] elements
   function initScrollReveal() {
-    var els = Array.from(document.querySelectorAll('[data-reveal]'));
+    var els = Array.from(document.querySelectorAll('[data-reveal]')).filter(function (el) {
+      return !el.matches(BIDIRECTIONAL_REVEAL_SELECTOR);
+    });
     if (!els.length) return;
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -209,6 +217,47 @@
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    els.forEach(function (el) { observer.observe(el); });
+  }
+
+  // Bidirectional reveal for the Healthcare and Fintech cards + hero
+  // images: scrolling down slides them in from the left as usual, but
+  // scrolling back up past them slides them OUT to the right instead of
+  // retreating back the way they came — reversing direction reads as the
+  // content moving on, not rewinding its own entrance.
+  function initBidirectionalReveal() {
+    var els = Array.from(document.querySelectorAll(BIDIRECTIONAL_REVEAL_SELECTOR));
+    if (!els.length) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+
+    var lastY = window.scrollY;
+    var direction = 'down';
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      direction = y > lastY ? 'down' : (y < lastY ? 'up' : direction);
+      lastY = y;
+    }, { passive: true });
+
+    var seen = new WeakSet();
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var el = entry.target;
+        if (entry.isIntersecting) {
+          el.classList.remove('is-exiting-right');
+          el.classList.add('is-visible');
+          seen.add(el);
+        } else if (seen.has(el) && direction === 'up') {
+          el.classList.remove('is-visible');
+          el.classList.add('is-exiting-right');
+        }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
@@ -517,6 +566,7 @@
     initImageFallback();
     initSplitText();
     initScrollReveal();
+    initBidirectionalReveal();
     initCountUp();
     initMagneticButtons();
     initTiltCards();
