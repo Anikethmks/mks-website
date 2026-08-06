@@ -108,3 +108,70 @@
   .healthcare-features__glow,
   .fintech-features__glow { animation: none; }
 }
+
+/* === Version 2 additions ================================================ */
+
+/* Magnetic buttons — pulled toward the cursor via inline transform in JS */
+[data-magnetic] {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 3D tilt cards — rotation applied via inline transform in JS; the CSS
+   transition below only smooths it. Faster than the lift/shadow transition
+   below it so tilt tracks the cursor closely. */
+.outcome-card,
+.feature-card,
+.fintech-service,
+.testimonial-card {
+  transition: transform 0.15s ease-out, background 0.35s ease, box-shadow 0.3s ease;
+}
+
+/* Kinetic split-text headings — each word clipped in its own box, sliding
+   up once the ancestor [data-reveal] block becomes visible. */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.split-word__inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible [data-split] .split-word__inner {
+  transform: none;
+}
+
+/* CTA banner — slow gradient drift instead of a flat fill */
+.cta-banner {
+  background: linear-gradient(120deg, #4B4C4E 0%, #58595B 25%, #3F3467 50%, #58595B 75%, #4B4C4E 100%);
+  background-size: 300% 300%;
+  animation: cta-gradient-shift 14s ease-in-out infinite;
+}
+@keyframes cta-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Native scroll-driven parallax on static feature images — Chromium-only,
+   no-op elsewhere via @supports. */
+@supports (animation-timeline: scroll()) {
+  .healthcare-features__image img,
+  .fintech-features__image img {
+    animation: image-parallax linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+  }
+  @keyframes image-parallax {
+    from { transform: scale(1.12) translateY(-3%); }
+    to { transform: scale(1.12) translateY(3%); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-magnetic] { transition: none; }
+  .split-word__inner { transition: none; }
+  .cta-banner { animation: none; }
+  .healthcare-features__image img,
+  .fintech-features__image img { animation: none; }
+}

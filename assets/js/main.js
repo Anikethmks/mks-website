@@ -220,6 +220,78 @@
     els.forEach(function (el) { observer.observe(el); });
   }
 
+  // Kinetic split-text — wraps each word of [data-split] headings in its own
+  // clipped box so it can slide in independently once the ancestor
+  // [data-reveal] block gets its "is-visible" class (see animations.css).
+  function initSplitText() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = Array.from(document.querySelectorAll('[data-split]'));
+    if (!els.length || reduceMotion) return;
+
+    els.forEach(function (el) {
+      var words = el.textContent.trim().split(/\s+/);
+      el.textContent = '';
+      words.forEach(function (word, i) {
+        var outer = document.createElement('span');
+        outer.className = 'split-word';
+        var inner = document.createElement('span');
+        inner.className = 'split-word__inner';
+        inner.textContent = word;
+        inner.style.transitionDelay = (i * 0.04) + 's';
+        outer.appendChild(inner);
+        el.appendChild(outer);
+        if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+      });
+    });
+  }
+
+  // Magnetic buttons — primary CTAs shift slightly toward the cursor
+  function initMagneticButtons() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    var els = Array.from(document.querySelectorAll('[data-magnetic]'));
+    if (!els.length) return;
+
+    var STRENGTH = 0.3;
+    els.forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var rect = el.getBoundingClientRect();
+        var x = (e.clientX - rect.left - rect.width / 2) * STRENGTH;
+        var y = (e.clientY - rect.top - rect.height / 2) * STRENGTH;
+        el.style.transform = 'translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  // 3D tilt on cards — rotation follows the cursor across the card face
+  function initTiltCards() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    var els = Array.from(document.querySelectorAll('.outcome-card, .feature-card, .fintech-service, .testimonial-card'));
+    if (!els.length) return;
+
+    var MAX_TILT = 6;
+    els.forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var rect = el.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;
+        var py = (e.clientY - rect.top) / rect.height;
+        var rotateY = (px - 0.5) * MAX_TILT * 2;
+        var rotateX = (0.5 - py) * MAX_TILT * 2;
+        el.style.transform = 'perspective(700px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' +
+          rotateY.toFixed(2) + 'deg) translateY(-6px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
   // Testimonial dot navigation
   function initTestimonialSlider() {
     var dots = Array.from(document.querySelectorAll('.testimonials__dot'));
@@ -287,7 +359,10 @@
     initTestimonialSlider();
     initOutcomesMarquee();
     initImageFallback();
+    initSplitText();
     initScrollReveal();
     initCountUp();
+    initMagneticButtons();
+    initTiltCards();
   });
 })();
