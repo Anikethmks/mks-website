@@ -406,6 +406,7 @@
 
   // Init all on DOM ready
   document.addEventListener('DOMContentLoaded', function () {
+    document.documentElement.classList.remove('preload');
     initNavbar();
     initNavbarScroll();
     initMegaMenu();
