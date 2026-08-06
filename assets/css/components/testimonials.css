@@ -12,14 +12,6 @@
   gap: 64px;
 }
 
-.testimonials__header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-}
-
 .testimonials__header-text {
   display: flex;
   flex-direction: column;
@@ -47,14 +39,20 @@
 
 /* Arrow-controlled carousel — native scroll-snap does the sliding (smooth,
    GPU-accelerated, momentum handled by the browser) rather than a hand-
-   rolled transform animation; the arrows just call scrollBy() by one card. */
-.testimonials__arrows {
-  display: flex;
-  gap: 12px;
-  flex-shrink: 0;
+   rolled transform animation; the arrows just call scrollBy() by one card.
+   Floating over the row's own faded edges, left and right, vertically
+   centered on the card height. */
+.testimonials__row {
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
 }
 
 .testimonials__arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -65,8 +63,11 @@
   background: #FFFFFF;
   color: #020202;
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(2, 2, 2, 0.1);
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
 }
+.testimonials__arrow--prev { left: 8px; }
+.testimonials__arrow--next { right: 8px; }
 .testimonials__arrow svg { width: 18px; height: 18px; }
 .testimonials__arrow:hover:not(:disabled) {
   background: var(--grad-cta);
@@ -75,11 +76,6 @@
 }
 .testimonials__arrow:active:not(:disabled) { transform: scale(0.9); }
 .testimonials__arrow:disabled { opacity: 0.35; cursor: default; }
-
-.testimonials__row {
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
-}
 
 .testimonials__track {
   display: flex;
@@ -178,7 +174,10 @@
   }
 }
 @media (max-width: 640px) {
-  .testimonials__header { flex-direction: column; align-items: flex-start; }
   .testimonial-card { width: 260px; padding: 14px; }
   .testimonials__track { gap: 16px; }
+  .testimonials__arrow { width: 36px; height: 36px; margin-top: -18px; }
+  .testimonials__arrow svg { width: 15px; height: 15px; }
+  .testimonials__arrow--prev { left: 4px; }
+  .testimonials__arrow--next { right: 4px; }
 }
