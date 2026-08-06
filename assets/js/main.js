@@ -326,28 +326,48 @@
     });
   }
 
-  // Testimonials — auto-advances one card every 2.5s via native CSS
+  // Testimonials — auto-advances one page (3 cards) every 4s via native CSS
   // scroll-snap (smooth, GPU-accelerated, browser-handled momentum rather
   // than a hand-rolled transform animation). Pauses on hover, and while
   // hovered the row is directly click-and-drag ("grab") scrollable. Dots
-  // reflect whichever card is nearest the scroll position regardless of
+  // are generated per page (ceil(cards / 3), so 7 cards → 3 dots) and
+  // reflect whichever page is nearest the scroll position regardless of
   // how it got there — auto-advance, a dot click, or a manual drag.
+  // Auto-advance only starts once the section first scrolls into view,
+  // so it isn't silently cycling somewhere off-screen before that.
   function initTestimonialsCarousel() {
+    var section = document.querySelector('.testimonials');
     var row = document.querySelector('.testimonials__row');
     var track = document.querySelector('.testimonials__track');
+    var dotsContainer = document.querySelector('.testimonials__dots');
     var cards = Array.from(document.querySelectorAll('.testimonial-card'));
-    var dots = Array.from(document.querySelectorAll('.testimonials__dot'));
-    if (!row || !track || !cards.length) return;
+    if (!section || !row || !track || !cards.length) return;
 
-    var AUTO_INTERVAL = 2500;
+    var PAGE_SIZE = 3;
+    var AUTO_INTERVAL = 4000;
+    var totalPages = Math.ceil(cards.length / PAGE_SIZE);
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var current = 0;
+    var currentPage = 0;
     var timer = null;
     var hovering = false;
     var dragging = false;
     var dragged = false;
+    var dots = [];
 
-    function nearestIndex() {
+    if (dotsContainer) {
+      for (var p = 0; p < totalPages; p++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'testimonials__dot' + (p === 0 ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', String(p === 0));
+        dot.setAttribute('aria-label', 'Testimonials page ' + (p + 1));
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      }
+    }
+
+    function nearestCardIndex() {
       var trackLeft = track.getBoundingClientRect().left;
       var best = 0;
       var bestDist = Infinity;
@@ -358,29 +378,40 @@
       return best;
     }
 
-    function setActiveDot(index) {
+    function setActiveDot(page) {
       dots.forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === index);
-        dot.setAttribute('aria-selected', String(i === index));
+        dot.classList.toggle('is-active', i === page);
+        dot.setAttribute('aria-selected', String(i === page));
       });
     }
 
-    function goTo(index) {
-      current = (index + cards.length) % cards.length;
-      var card = cards[current];
+    function goToPage(page) {
+      currentPage = (page + totalPages) % totalPages;
+      var card = cards[currentPage * PAGE_SIZE];
       var target = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
       track.scrollTo({ left: target, behavior: 'smooth' });
-      setActiveDot(current);
+      setActiveDot(currentPage);
     }
 
     function startAuto() {
       if (reduceMotion) return;
       stopAuto();
-      timer = setInterval(function () { goTo(current + 1); }, AUTO_INTERVAL);
+      timer = setInterval(function () { goToPage(currentPage + 1); }, AUTO_INTERVAL);
     }
     function stopAuto() {
       if (timer) { clearInterval(timer); timer = null; }
     }
+
+    // Once the section is first visible, kick off auto-advance — not
+    // before, so it's never cycling somewhere off-screen unseen.
+    var startObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        if (!hovering) startAuto();
+        startObserver.disconnect();
+      });
+    }, { threshold: 0.2 });
+    startObserver.observe(section);
 
     // Debounced so it settles once a scroll (of any origin) finishes,
     // rather than fighting the in-flight smooth-scroll animation.
@@ -388,14 +419,14 @@
     track.addEventListener('scroll', function () {
       clearTimeout(scrollSyncTimer);
       scrollSyncTimer = setTimeout(function () {
-        current = nearestIndex();
-        setActiveDot(current);
+        currentPage = Math.floor(nearestCardIndex() / PAGE_SIZE);
+        setActiveDot(currentPage);
       }, 120);
     });
 
     dots.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
-        goTo(i);
+        goToPage(i);
         if (!hovering) startAuto();
       });
     });
@@ -433,8 +464,6 @@
     track.addEventListener('click', function (e) {
       if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; }
     }, true);
-
-    startAuto();
   }
 
   // Outcomes "Delivering Impact" marquee — duplicate the pill group for a seamless infinite scroll
