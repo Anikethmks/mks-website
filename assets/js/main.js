@@ -71,8 +71,6 @@
     var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
     var segments = Array.from(document.querySelectorAll('.hero__tab'));
-    var prevBtn = document.querySelector('.hero__arrow--prev');
-    var nextBtn = document.querySelector('.hero__arrow--next');
     if (!hero || !bgs.length || !contents.length) return;
 
     var current = 0;
@@ -126,10 +124,6 @@
       goToSlide((current + 1) % total);
     }
 
-    function prevSlide() {
-      goToSlide((current - 1 + total) % total);
-    }
-
     function startAutoPlay() {
       stopAutoPlay();
       timer = setInterval(nextSlide, interval);
@@ -170,19 +164,6 @@
         if (!hovering) startAutoPlay();
       });
     });
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function () {
-        prevSlide();
-        if (!hovering) startAutoPlay();
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () {
-        nextSlide();
-        if (!hovering) startAutoPlay();
-      });
-    }
 
     hero.addEventListener('mouseenter', function () { hovering = true; syncPausedState(); });
     hero.addEventListener('mouseleave', function () { hovering = false; syncPausedState(); });

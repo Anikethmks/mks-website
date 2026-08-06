@@ -199,15 +199,12 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Tab row — arrow / labeled tabs / arrow. Each tab shows the slide's name
-   with a thin progress bar above it; the active one fills as the autoplay
-   interval elapses. Arrows give explicit manual control (the pattern Apple,
-   Sony and Microsoft converge on for multi-slide hero banners) on top of
-   Figma's plain labeled-tab design. */
+/* Tab row — each tab shows the slide's name with a thin progress bar above
+   it; the active one fills with the brand gradient as the autoplay interval
+   elapses. */
 .hero__nav {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
   padding: 10px;
   margin: -10px;
 }
@@ -240,12 +237,13 @@
   background: rgba(255, 255, 255, 0.3);
   overflow: hidden;
 }
-.hero__tab.is-viewed .hero__tab-bar { background: rgba(255, 255, 255, 0.75); }
+.hero__tab.is-viewed .hero__tab-bar,
+.hero__tab.is-active .hero__tab-bar { background: #FFFFFF; }
 
 .hero__tab-bar-fill {
   position: absolute;
   inset: 0;
-  background: #FFFFFF;
+  background: var(--grad-cta);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -267,23 +265,6 @@
 /* Freezes the progress fill while reading is paused (hover, keyboard focus,
    or the tab being backgrounded) — it resumes from wherever it left off. */
 .hero.is-paused .hero__tab.is-active .hero__tab-bar-fill { animation-play-state: paused; }
-
-.hero__arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.hero__arrow:hover { background: rgba(255, 255, 255, 0.14); color: #FFFFFF; }
-.hero__arrow svg { width: 15px; height: 15px; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__bg.is-zooming { animation: none; }
