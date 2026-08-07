@@ -15,7 +15,6 @@
   min-width: 0;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: var(--color-cta-dark);
   box-shadow: var(--shadow-card);
   cursor: pointer;
   transition: flex 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, transform 0.4s ease;
@@ -43,9 +42,6 @@
 .industry-panel__bg {
   position: absolute;
   inset: 0;
-  /* Reversed direction of the hero's "AI-Driven Strategy" title gradient —
-     shows through in place of the image while a panel is collapsed. */
-  background: linear-gradient(-10.667deg, #FFA980 17.033%, #8465FF 70.59%);
 }
 .industry-panel__img {
   width: 100%;
@@ -75,7 +71,11 @@
   opacity: 1;
 }
 
-/* Collapsed state — vertical rotated label, visible until the panel expands */
+/* Collapsed state — vertical rotated label, visible until the panel expands.
+   Its own soft gradient sits above the scrim/image (z-index 2) and fully
+   covers them while collapsed, fading away on activation to reveal the
+   real photo beneath — same soft purple-to-peach pairing (9.12%/89.44%
+   stops) used for section backgrounds elsewhere on the site. */
 .industry-panel__collapsed {
   position: absolute;
   inset: 0;
@@ -87,6 +87,7 @@
   padding: 20px 0;
   opacity: 1;
   transition: opacity 0.35s ease;
+  background: linear-gradient(36deg, #CABEFA 9.12%, #FFD2BD 89.44%);
 }
 .industry-panel.is-active .industry-panel__collapsed {
   opacity: 0;
@@ -97,7 +98,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(34, 34, 34, 0.55);
 }
 
 .industry-panel__vtext {
@@ -106,7 +107,7 @@
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #58595B;
   white-space: nowrap;
   max-height: 340px;
   overflow: hidden;
@@ -117,11 +118,11 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(92, 92, 92, 0.4);
   display: grid;
   place-items: center;
   font-size: 12px;
-  color: #FFFFFF;
+  color: #292929;
   flex-shrink: 0;
 }
 
