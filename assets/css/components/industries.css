@@ -49,9 +49,10 @@
 
 .industries__title {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 32px;
-  line-height: 38px;
+  line-height: 42px;
+  letter-spacing: -0.2px;
   color: #020202;
 }
 

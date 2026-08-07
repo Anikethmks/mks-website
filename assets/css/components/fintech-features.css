@@ -69,8 +69,9 @@
   font-size: 32px;
   line-height: 42px;
   letter-spacing: -0.2px;
-  color: #1F73B4;
+  color: #020202;
 }
+.fintech-features__title-accent { color: #1F73B4; }
 
 .fintech-features__lead {
   font-family: var(--font-primary);
@@ -104,21 +105,21 @@
 }
 
 .fintech-service {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-md);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .fintech-service__icon {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: var(--grad-number);
+  background: linear-gradient(-55.005deg, #8465FF 17.033%, #FFA980 70.59%);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -163,12 +164,12 @@
   padding: 6px 12px;
   border-radius: 8px;
   border: 1px solid #F7F7F7;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.08);
   font-family: var(--font-primary);
   font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
+  font-weight: 400;
+  line-height: normal;
   color: #4D3D8A;
 }
 

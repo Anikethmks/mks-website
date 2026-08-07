@@ -33,9 +33,10 @@
 
 .trust-stats__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.2px;
   color: #020202;
 }
 .trust-stats__title-accent { color: #1F73B4; }

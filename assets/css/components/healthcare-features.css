@@ -73,8 +73,9 @@
   font-size: 32px;
   line-height: 42px;
   letter-spacing: -0.2px;
-  color: #1F73B4;
+  color: #020202;
 }
+.healthcare-features__title-accent { color: #1F73B4; }
 
 .healthcare-features__lead {
   font-family: var(--font-primary);
