@@ -1,5 +1,6 @@
 .testimonials {
-  background: #F8F9F9;
+  /* Same soft gradient used on Outcomes / Why Businesses Trust MKS Vision */
+  background: linear-gradient(103deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%), #FFFFFF;
   padding: 64px;
   overflow: hidden;
 }
