@@ -145,17 +145,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   transform: none;
 }
 
-/* CTA banner — slow gradient drift instead of a flat fill */
-.cta-banner {
-  background: linear-gradient(120deg, #4B4C4E 0%, #58595B 25%, #3F3467 50%, #58595B 75%, #4B4C4E 100%);
-  background-size: 300% 300%;
-  animation: cta-gradient-shift 14s ease-in-out infinite;
-}
-@keyframes cta-gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
 /* Native scroll-driven parallax on static feature images — Chromium-only,
    no-op elsewhere via @supports.
 
@@ -239,7 +228,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 @media (prefers-reduced-motion: reduce) {
   [data-magnetic] { transition: none; }
   .split-word__inner { transition: none; }
-  .cta-banner { animation: none; }
   .healthcare-features__image img,
   .fintech-features__image img,
   .healthcare-features__cards,
