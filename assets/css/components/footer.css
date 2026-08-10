@@ -106,11 +106,12 @@
   .footer__list--bulleted, .footer__list--bulleted a { font-size: 13px; }
   .footer__list--bulleted.footer__list--inline { flex-direction: column; }
   .footer__col--company-contact { grid-column: auto; flex-direction: column; gap: 32px; }
-  .footer__contact-item { font-size: 13px; }
+  .footer__contact-item { font-size: 13px; white-space: normal; }
   .footer__contact-item > span { width: 15px; height: 15px; }
   .footer__contact-item--email { font-size: 13px; font-weight: 400; letter-spacing: normal; }
   .footer__bottom { flex-direction: column; gap: 12px; }
   .footer__copy { font-size: 11px; line-height: 18px; }
+  .footer__legal a { white-space: normal; }
   .footer__legal { flex-wrap: wrap; gap: 16px; }
   .footer__legal a, .footer__legal a:first-child, .footer__legal a:last-child { font-size: 11px; line-height: 18px; letter-spacing: normal; }
 }

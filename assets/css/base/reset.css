@@ -9,6 +9,11 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* Matches the footer (the last thing on every page) rather than
+     --color-bg (white) — on mobile, overscrolling past the bottom of the
+     page reveals the <html> background in that rubber-band gap, and a
+     white flash under a dark footer read as a layout bug. */
+  background: var(--color-footer-dark);
 }
 
 body {
