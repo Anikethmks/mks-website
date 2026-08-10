@@ -193,7 +193,9 @@
     update();
   }
 
-  // Scroll-triggered reveal for [data-reveal] elements
+  // Scroll-triggered reveal for [data-reveal] elements — replays every time
+  // an element crosses into or out of view, rather than firing once and
+  // disconnecting, so scrolling back up to a section plays it again.
   function initScrollReveal() {
     var els = Array.from(document.querySelectorAll('[data-reveal]'));
     if (!els.length) return;
@@ -206,9 +208,7 @@
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
@@ -488,7 +488,7 @@
     // .outcome-card is excluded — initOutcomesStack already drives its
     // transform (stack depth/position), and tilt's own transform writes
     // would silently fight with it on hover.
-    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .testimonial-card'));
+    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .testimonial-card, .wwa-director-card, .wwa-ethics-card, .wwa-office-card'));
     if (!els.length) return;
 
     var MAX_TILT = 6;
@@ -693,7 +693,7 @@
     if (!footer) return;
 
     footer.innerHTML = `
-      <div class="footer__inner">
+      <div class="footer__inner" data-reveal>
         <section class="footer__brand" aria-label="MKS Vision">
           <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision, a preferred technology partner">
           <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
@@ -703,7 +703,7 @@
         <nav class="footer__col footer__col--industries" aria-label="Industries"><h2 class="footer__col-title">Industries</h2><ul class="footer__list footer__list--bulleted"><li><a href="#">Banking &amp; Financial Institutions</a></li><li><a href="#">(BFI)NBFC &amp; Fintech</a></li><li><a href="#">Healthcare</a></li><li><a href="#">Retail</a></li><li><a href="#">Manufacturing</a></li><li><a href="#">Data Center Infrastructure</a></li></ul></nav>
         <div class="footer__col footer__col--company-contact"><nav class="footer__company" aria-label="Company"><h2 class="footer__col-title">Company</h2><ul class="footer__list footer__list--bulleted footer__list--inline"><li><a href="who-we-are.html">Who we are</a></li><li><a href="capabilities.html">Capabilities</a></li><li><a href="careers.html">Careers</a></li></ul></nav><address class="footer__contact"><h2 class="footer__col-title">Contact Us</h2><div class="footer__contact-list"><a href="tel:+15027499992" class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (502) 749-9992</a><a href="mailto:hr@mksvision.com" class="footer__contact-item footer__contact-item--email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>hr@mksvision.com</a></div></address></div>
       </div>
-      <div class="footer__bottom"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></nav></div>`;
+      <div class="footer__bottom" data-reveal style="--reveal-delay: 0.15s"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></nav></div>`;
   }
 
   // Init all on DOM ready
