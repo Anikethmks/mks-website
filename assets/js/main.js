@@ -307,6 +307,10 @@
   // whole accordion. The progress bar's width transition is what actually
   // drives the auto-advance timing visually — its duration matches
   // INTERVAL so it fills exactly as the active panel's turn ends.
+  // The timer only runs while the section is actually on screen — started
+  // via IntersectionObserver rather than at page load — so a reader who
+  // lingers on the hero above it doesn't scroll down to find it already
+  // several panels in.
   function initIndustriesAccordion() {
     var root = document.querySelector('[data-accordion]');
     if (!root) return;
@@ -317,6 +321,8 @@
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var active = 0;
     var timer = null;
+    var hovering = false;
+    var visible = false;
 
     function setActive(index) {
       active = (index + panels.length) % panels.length;
@@ -337,7 +343,7 @@
     }
 
     function startAuto() {
-      if (reduceMotion) return;
+      if (reduceMotion || hovering || !visible) return;
       stopAuto();
       timer = setInterval(function () { setActive(active + 1); }, INTERVAL);
     }
@@ -347,10 +353,12 @@
 
     panels.forEach(function (panel, i) {
       panel.addEventListener('mouseenter', function () {
+        hovering = true;
         setActive(i);
         stopAuto();
       });
       panel.addEventListener('focus', function () {
+        hovering = true;
         setActive(i);
         stopAuto();
       });
@@ -367,10 +375,27 @@
       });
     });
 
-    root.addEventListener('mouseleave', startAuto);
+    root.addEventListener('mouseleave', function () {
+      hovering = false;
+      startAuto();
+    });
 
     setActive(0);
-    startAuto();
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          visible = entry.isIntersecting;
+          if (visible) startAuto();
+          else stopAuto();
+        });
+      }, { threshold: 0.4 });
+      observer.observe(root);
+    } else {
+      // No IntersectionObserver support — fall back to the old always-on timer.
+      visible = true;
+      startAuto();
+    }
   }
 
   // Outcomes — a numbered list on the left drives which outcome's card is

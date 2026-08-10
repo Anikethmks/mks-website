@@ -3,6 +3,7 @@
 .trust-stats {
   background: linear-gradient(101.54deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%);
   padding: 64px 64px 99px;
+  overflow: hidden;
 }
 
 .trust-stats__inner {
@@ -217,7 +218,7 @@
   .trust-stats { padding: 48px 32px 64px; }
   .trust-stats__inner { flex-direction: column; gap: 48px; }
   .trust-stats__left { width: 100%; max-width: 100%; }
-  .trust-stats__right { width: 100%; max-width: 100%; justify-content: center; }
+  .trust-stats__right { width: 100%; max-width: 100%; min-width: 0; justify-content: center; }
 }
 
 /* Mobile (Figma node 1936:7611, 390px frame) — same auto-scrolling vertical

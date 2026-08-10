@@ -4,12 +4,18 @@
   padding: 64px;
   position: relative;
   overflow: hidden;
-  /* The parallax cards/image travel further than the 64px padding at
-     common laptop widths (1366-1440px, where content-max leaves no extra
-     breathing room) — extend the clip boundary so they don't get chopped
-     off mid-animation. The glow decorations only bleed ~26px past the
-     edge at most, well inside this, so nothing new becomes visible. */
-  overflow-clip-margin: 300px;
+}
+
+/* The parallax cards/image travel further than the 64px padding at common
+   desktop/laptop widths (1366-1440px, where content-max leaves no extra
+   breathing room) — extend the clip boundary so they don't get chopped off
+   mid-animation. Scoped to ≥1280px (where that parallax actually runs;
+   see animations.css's @supports block) instead of a global default that
+   then needs resetting back down per breakpoint — a wide clip margin left
+   active below this can let content paint (and count toward scrollable
+   width) far outside the section on narrower screens. */
+@media (min-width: 1280px) {
+  .healthcare-features { overflow-clip-margin: 300px; }
 }
 
 .healthcare-features__glow {
