@@ -220,39 +220,62 @@
   .trust-stats__right { width: 100%; max-width: 100%; justify-content: center; }
 }
 
-/* Mobile (Figma node 1936:7611, 390px frame) — the auto-scrolling vertical
-   tickers become a static 2-column grid: freeze the marquee animation and
-   hide the cloned duplicate group (main.js's initVerticalMarquee always
-   clones for the seamless-loop effect, which desktop needs and mobile
-   doesn't), so each column shows its real 3 cards once, no scroll. */
+/* Mobile (Figma node 1936:7611, 390px frame) — same auto-scrolling vertical
+   ticker mechanism as desktop (see the note further down), just resized;
+   Figma's frame is a static snapshot and can't show that motion, but the
+   scroll/fade should still run at every width. */
 @media (max-width: 767px) {
   .trust-stats { padding: 32px 16px; }
   .trust-stats__inner { flex-direction: column; gap: 32px; }
   .trust-stats__left { width: 100%; max-width: 100%; gap: 32px; }
   .trust-stats__header { gap: 16px; }
-  .trust-stats__title { font-size: 28px; line-height: 38px; }
+  .trust-stats__title { font-weight: 600; font-size: 28px; line-height: 38px; }
   .trust-stats__lead { font-size: 16px; line-height: 26px; max-width: none; }
   .trust-stats__certified { gap: 16px; align-items: center; }
   .trust-stats__certified-label { justify-content: center; }
-  .trust-stats__logos { justify-content: center; flex-wrap: wrap; gap: 16px; width: auto; }
+  .trust-stats__logos { justify-content: center; flex-wrap: nowrap; gap: 12px; width: 100%; min-height: 132px; }
+  /* Exact measured Figma dimensions — logos were rendering at desktop's
+     110/93/40px sizes without these, badly oversized for mobile. */
+  .trust-stats__logo-tile:nth-child(1) .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
+  .trust-stats__logo-tile:nth-child(2) .trust-stats__logo { width: 67px; height: 53px; max-width: none; max-height: none; }
+  .trust-stats__logo-tile:nth-child(3) .trust-stats__logo { width: 166px; height: 23px; max-width: none; max-height: none; }
 
-  .trust-stats__right { width: 100%; max-width: 100%; height: auto; align-items: stretch; gap: 24px; }
-  .trust-stats__col {
-    flex: 1 1 0;
-    width: auto;
-    height: auto;
-    mask-image: none;
-    -webkit-mask-image: none;
-    overflow: visible;
+  /* Keep the auto-scrolling ticker running at mobile too — Figma's static
+     frame can't depict motion, so the mobile mockup necessarily shows a
+     frozen snapshot, but the actual scroll/fade mechanism carries over
+     unchanged (mask, overflow:hidden, cloned group for the seamless loop)
+     from desktop, just resized. */
+  /* Figma's own mobile layout (node 1936:7632) is NOT an even 50/50 split —
+     measured directly from its metadata: left column 163px, right column
+     147px, out of a 358px content width (390px frame minus 16px padding
+     each side), with an exact 24px gap on both sides of the divider.
+     Two rounds of flex (grow-ratio, then hard percentages) both still
+     left the right column short of the section's own right padding —
+     switching to CSS Grid, which is a more deterministic tool for
+     "divide a row into exact proportional tracks with gaps" than flex,
+     free of flex's content-driven min-width interactions. */
+  .trust-stats__right {
+    display: grid;
+    grid-template-columns: 163fr 1px 147fr;
+    column-gap: 24px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    overflow: hidden;
   }
-  .trust-stats__track { animation: none !important; }
-  .trust-stats__group + .trust-stats__group { display: none; }
-  .trust-stats__group > .trust-stats__divider:last-child { display: none; }
+  .trust-stats__col {
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+  .trust-stats__rule { width: 1px; min-width: 1px; }
   .trust-stats__col--left .trust-stats__track,
   .trust-stats__col--left .trust-stats__group,
   .trust-stats__col--right .trust-stats__track,
-  .trust-stats__col--right .trust-stats__group { gap: 16px; }
-  .stat-card { background: rgba(255, 255, 255, 0.5); padding: 16px; gap: 8px; }
-  .stat-card__number { font-size: 24px; line-height: 34px; }
-  .stat-card__label { font-size: 14px; line-height: 26px; font-weight: 600; color: #58595B; }
+  .trust-stats__col--right .trust-stats__group { gap: 24px; }
+  .stat-card { background: rgba(255, 255, 255, 0.5); padding: 16px; gap: 8px; width: 100%; min-width: 0; }
+  .stat-card__number { font-weight: 600; font-size: 24px; line-height: 34px; }
+  .stat-card__label { font-size: 14px; line-height: 26px; font-weight: 600; color: #58595B; overflow-wrap: break-word; }
 }
