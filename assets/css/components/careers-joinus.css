@@ -112,11 +112,20 @@
   object-fit: cover;
 }
 
-@media (max-width: 1100px) {
-  .careers-joinus__inner { flex-direction: column; }
-  .careers-joinus__media { flex-basis: auto; width: 100%; }
+/* Laptop */
+@media (max-width: 1279px) {
+  .careers-joinus { padding: 48px; }
+  .careers-joinus__inner { gap: 48px; }
+  .careers-joinus__media { flex: 0 0 460px; }
 }
-@media (max-width: 600px) {
+/* Tablet */
+@media (max-width: 1023px) {
+  .careers-joinus__inner { flex-direction: column; gap: 40px; }
+  .careers-joinus__media { flex-basis: auto; width: 100%; }
+  .careers-joinus__title { font-size: 26px; line-height: 34px; }
+}
+/* Mobile */
+@media (max-width: 767px) {
   .careers-joinus { padding: 48px 24px; }
   .careers-joinus__inner { gap: 32px; }
   .careers-joinus__title { font-size: 24px; line-height: 32px; }

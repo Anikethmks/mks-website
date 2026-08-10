@@ -88,12 +88,15 @@
   border-right: 1px solid #D9DCE3;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .retail-engagement { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .retail-engagement__row { flex-direction: column; }
   .retail-engagement__img { width: 100%; max-width: 100%; }
   .retail-engagement__content { padding: 0; }
 }
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .retail-engagement { padding: 48px 24px; }
   .retail-engagement__title { font-size: 28px; line-height: 36px; }
   .retail-engagement__strip { justify-content: flex-start; }

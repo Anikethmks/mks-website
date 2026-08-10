@@ -197,16 +197,37 @@
   display: block;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1279px) {
+  .industries-row__col { padding: 56px 40px; }
+  .industries-automotive { padding: 56px 40px; }
   .industries-automotive__inner { flex-direction: column; }
   .industries-automotive__col { flex-basis: auto; width: 100%; }
   .industries-automotive__media { width: 100%; height: 400px; }
 }
-@media (max-width: 900px) {
-  .industries-row__col { flex-basis: 100%; padding: 48px 24px; }
+
+@media (max-width: 1023px) {
+  .industries-row__col { flex-basis: 100%; min-width: 0; padding: 48px 24px; }
   .industries-automotive { padding: 48px 24px; }
+  .industries-automotive__media { height: 340px; }
 }
-@media (max-width: 600px) {
-  .industries-row__heading,
-  .industries-automotive__col p:first-child { font-size: 24px; line-height: 32px; }
+
+@media (max-width: 767px) {
+  .industries-row__col { padding: 40px 20px; gap: 20px; }
+  .industries-row__col--plain { gap: 24px; }
+  .industries-row__heading { font-size: 24px; line-height: 32px; }
+  .industry-case-card,
+  .industry-case-card--roomy { padding: 20px; gap: 20px; }
+  .industry-case-card__stats { gap: 12px 16px; }
+  .industries-automotive { padding: 40px 20px; }
+  .industries-automotive__inner { gap: 24px; }
+  .industries-automotive__col { gap: 24px; }
+  .industries-automotive__media { height: 260px; }
+}
+
+@media (max-width: 479px) {
+  .industries-row__col { padding: 32px 16px; }
+  .industries-automotive { padding: 32px 16px; }
+  .industries-row__heading { font-size: 22px; line-height: 28px; }
+  .industry-case-card__image { height: 200px; }
+  .industries-automotive__media { height: 220px; }
 }

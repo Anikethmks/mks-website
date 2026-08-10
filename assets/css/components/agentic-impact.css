@@ -106,11 +106,18 @@
   white-space: nowrap;
 }
 
-@media (max-width: 1100px) {
-  .agentic-impact { padding: 48px 24px; }
+@media (max-width: 1279px) {
+  .agentic-impact { padding: 56px 48px; }
   .agentic-impact__grid { flex-wrap: wrap; }
   .agentic-impact-card { flex-basis: calc(50% - 8px); }
 }
-@media (max-width: 600px) {
+@media (max-width: 1023px) {
+  .agentic-impact { padding: 48px 24px; }
+  .agentic-impact__title { font-size: 24px; line-height: 32px; }
+}
+@media (max-width: 767px) {
+  .agentic-impact { padding: 32px 16px; gap: 32px; }
+  .agentic-impact__title { font-size: 22px; line-height: 30px; }
   .agentic-impact-card { flex-basis: 100%; }
+  .agentic-impact__tags { gap: 12px 8px; }
 }

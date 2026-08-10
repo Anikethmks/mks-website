@@ -120,7 +120,12 @@
   border-radius: 2px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .navbar__inner { padding: 14px 24px; gap: 20px; }
+  .navbar__list { gap: 16px; }
+}
+
+@media (max-width: 1023px) {
   .navbar__inner { padding: 12px 20px; gap: 16px; }
   .navbar__nav {
     display: none;
@@ -142,7 +147,7 @@
    full desktop sizes even with the reduced gap above — shrink the logo and
    the button so all three stay on one line without forcing the page wider
    than the actual viewport. */
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   .navbar__inner { gap: 8px; padding: 10px 12px; }
   .navbar__logo-img { height: 34px; }
   .navbar .btn--gradient {

@@ -87,7 +87,20 @@
   color: #020202;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1279px) {
+  .pva-solution { padding: 48px 48px; gap: 40px; }
+  .pva-solution__row { gap: 32px; }
+}
+/* Tablet: original stack breakpoint was 1000px; remapped to the standard
+   1023px tier (transitions earlier, no coverage gap). */
+@media (max-width: 1023px) {
   .pva-solution { padding: 48px 24px; }
   .pva-solution__row { flex-direction: column; }
+}
+@media (max-width: 767px) {
+  .pva-solution { padding: 24px 16px; gap: 24px; }
+  .pva-solution__title { font-size: 24px; line-height: 32px; }
+  .pva-solution__subtitle { font-size: 15px; }
+  .pva-solution__photo { padding: 16px; }
+  .pva-solution__list { gap: 12px; }
 }

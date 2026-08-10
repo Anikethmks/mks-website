@@ -55,8 +55,19 @@
   /* Layout (Figma exact 1440 canvas → 1312 content) */
   --frame-max: 1440px;
   --content-max: 1312px;
+  --container-max: 1312px;
   --section-py: 64px;
   --section-px: 64px;
+
+  /*
+   * Responsive breakpoint scale (desktop-first, max-width queries).
+   * Use these exact values in every component's @media rules:
+   *   Desktop  — default styles, no media query   (>= 1280px)
+   *   Laptop   — @media (max-width: 1279px)        (1024px – 1279px)
+   *   Tablet   — @media (max-width: 1023px)        (768px – 1023px)
+   *   Mobile   — @media (max-width: 767px)         (<= 767px)
+   *   (Small-phone fine-tuning only, nested inside Mobile: max-width: 479px)
+   */
 
   /* Radius */
   --radius-xs: 4px;

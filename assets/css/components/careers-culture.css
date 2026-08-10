@@ -130,13 +130,26 @@
   background: #FFFFFF;
 }
 
-@media (max-width: 1100px) {
+/* Laptop */
+@media (max-width: 1279px) {
+  .careers-culture { padding: 48px; }
+  .careers-culture__media { flex-basis: 460px; }
+  .careers-culture__card { margin-left: -40px; }
+}
+/* Tablet */
+@media (max-width: 1023px) {
   .careers-culture__inner { flex-direction: column; gap: 0; }
   .careers-culture__media { flex-basis: auto; width: 100%; }
   .careers-culture__card { margin-left: 0; margin-top: -48px; width: calc(100% - 48px); }
+  .careers-culture__eyebrow { font-size: 24px; line-height: 32px; }
 }
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 767px) {
   .careers-culture { padding: 48px 24px; }
   .careers-culture__card { padding: 24px; margin-top: -24px; width: calc(100% - 24px); }
   .careers-culture__title { font-size: 20px; line-height: 28px; }
+}
+/* Small phone */
+@media (max-width: 479px) {
+  .careers-culture__card { padding: 20px; margin-top: -16px; width: calc(100% - 16px); }
 }

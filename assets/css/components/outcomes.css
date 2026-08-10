@@ -437,15 +437,24 @@
   white-space: nowrap;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1279px) {
+  .outcomes { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .outcomes { padding: 48px 24px; }
   .outcomes__body { grid-template-columns: 1fr; gap: 32px; }
   .outcomes__stack { height: 480px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .outcomes { padding: 40px 16px; }
   .outcomes__title { font-size: 28px; line-height: 36px; }
   .outcomes__stack { height: 560px; }
   .outcome-card { padding: 24px; }
   .outcomes__counter-current { font-size: 44px; }
+}
+@media (max-width: 479px) {
+  .outcomes__stack { height: 620px; }
+  .outcome-card { padding: 20px; }
+  .outcomes__counter-current { font-size: 38px; }
+  .outcomes__list-label { font-size: 14px; }
 }

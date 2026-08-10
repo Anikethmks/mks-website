@@ -109,12 +109,20 @@
 }
 .agentic-objective-card__icon svg { width: 100%; height: 100%; }
 
-@media (max-width: 1100px) {
-  .agentic-objective { padding: 48px 24px; }
+@media (max-width: 1279px) {
+  .agentic-objective { padding: 56px 48px; }
   .agentic-objective__row { flex-direction: column; }
-  .agentic-objective__media { width: 100%; height: 300px; }
-  .agentic-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agentic-objective__media { width: 100%; height: 320px; }
 }
-@media (max-width: 600px) {
-  .agentic-objective__grid { grid-template-columns: 1fr; }
+@media (max-width: 1023px) {
+  .agentic-objective { padding: 48px 24px; }
+  .agentic-objective__title { font-size: 24px; line-height: 32px; }
+  .agentic-objective__media { height: 260px; }
+  .agentic-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+@media (max-width: 767px) {
+  .agentic-objective { padding: 32px 16px; gap: 32px; }
+  .agentic-objective__title { font-size: 22px; line-height: 30px; }
+  .agentic-objective__media { height: 200px; }
+  .agentic-objective__grid { grid-template-columns: 1fr; gap: 16px; }
 }

@@ -225,17 +225,18 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6H14M9.5 1.5L14 6L9.5 10.5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
-@media (max-width: 1024px) {
-  .industries__accordion { height: 440px; }
-  .industry-panel.is-active { flex: 1 1 400px; }
-  .industry-panel__content { padding: 24px; }
+@media (max-width: 1279px) {
+  .industries__accordion { height: 460px; }
+  .industry-panel.is-active { flex: 1 1 440px; }
+  .industry-panel__content { padding: 28px; }
 }
 
 /* Below tablet, a horizontal strip too narrow to read comfortably — stack
    the panels vertically instead: collapsed strips become horizontal bars
    (label reads left-to-right, no rotation) and the active one grows in
-   height rather than width. */
-@media (max-width: 900px) {
+   height rather than width. Triggered a bit earlier (standard Tablet
+   breakpoint) so the cramped horizontal strip never lingers at 900-1023px. */
+@media (max-width: 1023px) {
   .industries__accordion { flex-direction: column; height: auto; }
   .industry-panel { flex: 0 0 56px; width: 100%; }
   .industry-panel.is-active { flex: 0 0 380px; }
@@ -255,10 +256,17 @@
   .industry-panel__plus { margin-left: auto; }
 }
 
-@media (max-width: 480px) {
-  .industry-panel.is-active { flex-basis: 420px; }
+@media (max-width: 767px) {
+  .industry-panel.is-active { flex-basis: 340px; }
   .industry-panel__content { padding: 20px; gap: 8px; }
   .industry-panel__desc { max-width: none; }
+}
+
+@media (max-width: 479px) {
+  .industry-panel { flex-basis: 48px; }
+  .industry-panel.is-active { flex-basis: 300px; }
+  .industry-panel__content { padding: 16px; gap: 6px; }
+  .industry-panel__title { font-size: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

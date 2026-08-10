@@ -68,6 +68,25 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
-  .wwa-ethics { padding: 48px 24px; }
+@media (max-width: 1279px) {
+  .wwa-ethics { padding: 56px 48px; gap: 40px; }
+  .wwa-ethics__grid { gap: 20px; }
+}
+
+@media (max-width: 1023px) {
+  .wwa-ethics { padding: 48px 32px; gap: 32px; }
+  .wwa-ethics__title { font-size: 24px; line-height: 32px; }
+  .wwa-ethics__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .wwa-ethics-card { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .wwa-ethics { padding: 40px 20px; gap: 24px; }
+  .wwa-ethics__title { font-size: 22px; line-height: 30px; }
+  .wwa-ethics__grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 479px) {
+  .wwa-ethics { padding: 32px 16px; }
+  .wwa-ethics-card { padding: 20px; }
 }

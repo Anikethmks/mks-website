@@ -156,13 +156,16 @@
   margin: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .retail-sync { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .retail-sync__diagram { flex-direction: column; }
   .retail-sync__connector { transform: rotate(90deg); }
   .retail-sync__features { flex-wrap: wrap; }
   .retail-sync__feature { min-width: 220px; }
 }
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .retail-sync { padding: 48px 24px; }
   .retail-sync__title { font-size: 28px; line-height: 36px; }
   .retail-sync__diagram { padding: 24px; }

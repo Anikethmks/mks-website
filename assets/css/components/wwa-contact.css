@@ -41,10 +41,6 @@
 }
 .wwa-contact__pin svg { width: 100%; height: 100%; }
 
-@media (max-width: 1100px) {
-  .wwa-contact__map { display: none; }
-}
-
 .wwa-contact__title {
   width: 430px;
   max-width: 100%;
@@ -284,14 +280,32 @@
 }
 .wwa-contact-form__submit:hover { box-shadow: var(--shadow-lift); }
 
-@media (max-width: 1100px) {
-  .wwa-contact__body { flex-direction: column; align-items: stretch; }
-  .wwa-contact-form { width: 100%; }
+@media (max-width: 1279px) {
+  .wwa-contact { padding: 56px 48px; gap: 56px; }
+  .wwa-contact__body { gap: 40px; }
+  .wwa-office-grid { gap: 20px; }
 }
-@media (max-width: 900px) {
-  .wwa-contact { padding: 48px 24px; }
+
+@media (max-width: 1023px) {
+  .wwa-contact__map { display: none; }
+  .wwa-contact { padding: 48px 32px; gap: 48px; }
+  .wwa-contact__title { font-size: 24px; line-height: 32px; }
+  .wwa-contact__body { flex-direction: column; align-items: stretch; gap: 32px; }
+  .wwa-contact__left { max-width: 100%; }
+  .wwa-contact-form { width: 100%; max-width: 100%; }
+  .wwa-contact__left-title { font-size: 24px; line-height: 32px; }
   .wwa-office-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 640px) {
-  .wwa-office-grid { grid-template-columns: 1fr; }
+
+@media (max-width: 767px) {
+  .wwa-contact { padding: 40px 20px; gap: 32px; }
+  .wwa-contact__title { font-size: 22px; line-height: 30px; }
+  .wwa-contact__left-title { font-size: 20px; line-height: 28px; }
+  .wwa-office-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wwa-contact-form { padding: 20px; }
+}
+
+@media (max-width: 479px) {
+  .wwa-contact { padding: 32px 16px; }
+  .wwa-office-card { padding: 12px; }
 }

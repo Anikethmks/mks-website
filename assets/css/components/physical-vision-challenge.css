@@ -121,7 +121,19 @@
   color: #020202;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1279px) {
+  .pva-challenge { padding: 48px 48px; gap: 40px; }
+}
+/* Tablet: original stack breakpoint was 900px; remapped to the standard
+   1023px tier (transitions earlier, no coverage gap). */
+@media (max-width: 1023px) {
   .pva-challenge { padding: 48px 24px; }
   .pva-challenge__row { flex-direction: column; }
+}
+@media (max-width: 767px) {
+  .pva-challenge { padding: 24px 16px; gap: 24px; }
+  .pva-challenge__title { font-size: 24px; line-height: 32px; }
+  .pva-challenge__subtitle { font-size: 15px; }
+  .pva-challenge__photo, .pva-challenge__caption, .pva-challenge__card { padding: 16px; }
+  .pva-challenge__list { gap: 10px; }
 }

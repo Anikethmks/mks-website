@@ -82,11 +82,23 @@
   margin: 0;
 }
 
-@media (max-width: 1100px) {
-  .pva-impact { padding: 48px 24px; }
+/* Laptop: the unwrapped 6-across row gets cramped well before 1024px, so
+   the original 1100px wrap breakpoint is remapped to the 1279px tier (with
+   a graduated 3-column step instead of jumping straight to 2). */
+@media (max-width: 1279px) {
+  .pva-impact { padding: 48px 48px; }
   .pva-impact__grid { flex-wrap: wrap; }
+  .pva-impact-card { flex-basis: calc((100% - 32px) / 3); }
+}
+@media (max-width: 1023px) {
+  .pva-impact { padding: 48px 24px; }
   .pva-impact-card { flex-basis: calc(50% - 8px); }
 }
-@media (max-width: 600px) {
+/* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
+   767px tier (transitions earlier, no coverage gap). */
+@media (max-width: 767px) {
+  .pva-impact { padding: 24px 16px; gap: 24px; }
+  .pva-impact__title { font-size: 24px; line-height: 32px; }
+  .pva-impact__subtitle { font-size: 15px; }
   .pva-impact-card { flex-basis: 100%; }
 }
