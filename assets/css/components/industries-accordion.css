@@ -92,7 +92,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 32px 16px;
-  opacity: 1;
+  /* Figma's capsule is deliberately dimmed to 80% opacity even in its
+     resting (non-active) state — at full opacity the gradient reads
+     noticeably more saturated/crisp than the reference. */
+  opacity: 0.8;
   transition: opacity 0.35s ease;
   background: linear-gradient(36deg, #CABEFA 9.12%, #FFD2BD 89.44%);
 }
@@ -264,6 +267,11 @@
     transform: none;
     flex: 1 1 auto;
     max-height: none;
+    /* Figma centers this label within its own box (between the number and
+       the plus-indicator), not left-aligned — the row layout previously
+       just let default left-alignment coincidentally look roughly
+       centered for some labels but not others. */
+    text-align: center;
   }
   .industry-panel__plus { margin-left: auto; }
 }
