@@ -81,5 +81,37 @@
 .footer__legal a:first-child, .footer__legal a:last-child { font-size: 12px; line-height: 18px; letter-spacing: .2px; }
 @media (max-width: 1279px) { .footer__inner { grid-template-columns: 300px 1fr 1fr; } .footer__col--company-contact { grid-column: 2 / -1; flex-direction: row; justify-content: space-between; } }
 @media (max-width: 1023px) { .footer { padding: 56px 40px 20px; } }
-@media (max-width: 767px) { .footer { padding: 48px 24px 20px; } .footer__inner { grid-template-columns: 1fr; gap: 40px; } .footer__brand { width: min(300px, 100%); } .footer__col--company-contact { grid-column: auto; flex-direction: column; gap: 40px; } .footer__bottom { flex-direction: column; } .footer__legal { flex-wrap: wrap; gap: 12px 24px; } }
+/* Mobile (Figma node 1933:5003, 390px frame) — the Industries/Company
+   lists drop their bullet dots entirely (plain stacked text), the
+   "What we do" tags shrink and tighten up, and a divider line appears
+   under the brand block that desktop doesn't have. */
+@media (max-width: 767px) {
+  .footer { padding: 48px 20px 24px; }
+  .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer__brand {
+    width: 100%;
+    gap: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .footer__tagline { font-size: 13px; line-height: 1.6; }
+  .footer__col, .footer__company, .footer__contact { gap: 16px; }
+  .footer__col-title { font-size: 14px; }
+  .footer__list--wrap { gap: 8px; }
+  .footer__list--wrap .footer__link-dot { padding: 4px 8px; gap: 6px; min-height: 0; }
+  .footer__list--wrap a { font-size: 12px; }
+  .footer__list--bulleted { gap: 8px; }
+  .footer__list--bulleted li { padding-left: 0; }
+  .footer__list--bulleted li::before { display: none; }
+  .footer__list--bulleted, .footer__list--bulleted a { font-size: 13px; }
+  .footer__list--bulleted.footer__list--inline { flex-direction: column; }
+  .footer__col--company-contact { grid-column: auto; flex-direction: column; gap: 32px; }
+  .footer__contact-item { font-size: 13px; }
+  .footer__contact-item > span { width: 15px; height: 15px; }
+  .footer__contact-item--email { font-size: 13px; font-weight: 400; letter-spacing: normal; }
+  .footer__bottom { flex-direction: column; gap: 12px; }
+  .footer__copy { font-size: 11px; line-height: 18px; }
+  .footer__legal { flex-wrap: wrap; gap: 16px; }
+  .footer__legal a, .footer__legal a:first-child, .footer__legal a:last-child { font-size: 11px; line-height: 18px; letter-spacing: normal; }
+}
 @media (max-width: 479px) { .footer__contact-item, .footer__legal a { white-space: normal; } }

@@ -125,6 +125,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .testimonial-card__avatar {
@@ -144,7 +145,7 @@
   flex-shrink: 0;
 }
 
-.testimonial-card__meta { display: flex; flex-direction: column; }
+.testimonial-card__meta { display: flex; flex-direction: column; min-width: 0; }
 
 .testimonial-card__name {
   font-family: var(--font-primary);
@@ -164,10 +165,19 @@
 }
 
 .testimonial-card__stars {
-  display: flex;
-  gap: 4px;
+  /* flex-shrink:0 alone, no flex-basis — a flex-basis in the shorthand
+     applies to whichever axis is the current main axis, so on the
+     mobile tier (where the header switches to flex-direction:column)
+     "131.792px" would apply to HEIGHT instead of width, stretching this
+     wide/short star graphic into a tall, distorted shape via the 100%
+     100% background-size. Explicit width/height stay correct regardless
+     of flex-direction; only shrink behavior needs flex-shrink. */
+  width: 131.792px;
+  height: 22.897px;
+  flex-shrink: 0;
+  background: url('../../images/icons/testimonial-stars.svg') center / 100% 100% no-repeat;
 }
-.testimonial-card__stars svg { width: 23px; height: 23px; }
+.testimonial-card__stars svg { display: none; }
 
 .testimonial-card__quote {
   font-family: var(--font-primary);
@@ -180,6 +190,12 @@
 
 @media (max-width: 1279px) {
   .testimonials { padding: 56px 48px; }
+  /* The 1024px laptop view is the 1440px Figma design reduced to fit. Keep
+     the exported five-star group together so it cannot force past a card. */
+  .testimonial-card__stars {
+    width: 94px;
+    height: 16.3px;
+  }
 }
 @media (max-width: 1023px) {
   .testimonials { padding: 48px 24px; }
@@ -187,13 +203,25 @@
      the section's own side padding eats into the available width. */
   .testimonial-card { width: calc((100% - 24px) / 2); min-width: 260px; }
 }
+/* Mobile (Figma node 1936:7659, 390px frame) — cards go back to a fixed
+   319px (not 100%) so the next card visibly peeks in at the edge instead
+   of being fully off-screen, and the star rating drops to its own row
+   below the name/role instead of sitting beside it (there isn't room for
+   both side by side at this width). */
 @media (max-width: 767px) {
-  .testimonials { padding: 40px 16px; }
-  .testimonial-card { width: 100%; min-width: 0; padding: 14px; }
+  .testimonials { padding: 32px 16px; }
+  .testimonials__inner { gap: 32px; }
+  .testimonials__header-text { gap: 8px; }
+  .testimonials__title { font-size: 28px; line-height: 38px; }
+  .testimonials__lead { font-size: 14px; line-height: 22px; }
+  .testimonials__wall { gap: 32px; }
   .testimonials__track { gap: 16px; }
-  .testimonials__title { font-size: 28px; line-height: 36px; }
+  .testimonial-card { width: 319px; min-width: 0; padding: 16px; }
+  .testimonial-card__header { flex-direction: column; align-items: flex-end; gap: 6px; }
+  .testimonial-card__person { width: 100%; }
+  .testimonial-card__role { font-size: 12px; }
+  .testimonial-card__quote { font-size: 12px; letter-spacing: 0.2px; }
 }
 @media (max-width: 479px) {
   .testimonials { padding: 32px 16px; }
-  .testimonials__inner { gap: 40px; }
 }

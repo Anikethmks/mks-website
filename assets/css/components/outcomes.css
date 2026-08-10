@@ -440,21 +440,131 @@
 @media (max-width: 1279px) {
   .outcomes { padding: 56px 48px; }
 }
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .outcomes { height: 593px; padding: 46px; }
+  .outcomes__inner { gap: 34px; }
+  .outcomes__header { gap: 11px; }
+  .outcomes__title { font-size: 23px; line-height: 30px; }
+  .outcomes__lead { font-size: 11px; line-height: 18px; }
+  .outcomes__body { grid-template-columns: 341px 535px; gap: 57px; min-height: 316px; }
+  .outcomes__nav { gap: 26px; }
+  .outcomes__counter-current { font-size: 34px; }
+  .outcomes__counter-total { font-size: 14px; }
+  .outcomes__list-item { gap: 11px; padding: 9px 3px; }
+  .outcomes__list-num { font-size: 10px; }
+  .outcomes__list-label { font-size: 11px; }
+  .outcomes__list-arrow { width: 20px; height: 20px; font-size: 9px; }
+  .outcomes__controls { gap: 11px; }
+  .outcomes__control { width: 28px; height: 28px; font-size: 11px; }
+  .outcomes__hint { font-size: 10px; }
+  .outcomes__stack { height: 299px; }
+  .outcome-card { padding: 28px; border-radius: 23px; }
+  .outcome-card__icon { width: 34px; height: 34px; }
+  .outcome-card__num { font-size: 10px; }
+  .outcome-card__title { margin-top: 17px; font-size: 20px; }
+  .outcome-card__desc { margin-top: 9px; font-size: 10px; line-height: 1.5; }
+  .outcome-card__checklist { gap: 8px; margin-top: 14px; padding-top: 13px; }
+  .outcome-card__check { gap: 8px; font-size: 10px; }
+  .outcome-card__check-mark { width: 14px; height: 14px; font-size: 8px; }
+  .outcome-card__cta { margin-top: 16px; gap: 6px; padding: 7px 17px; font-size: 10px; }
+  .outcomes__impact { gap: 17px; }
+  .outcomes__impact-fixed { gap: 6px; padding: 9px 17px; }
+  .outcomes__impact-lead { font-size: 14px; line-height: 21px; }
+  .outcomes__impact-sub { font-size: 10px; line-height: 14px; }
+  .outcomes__pill { font-size: 11px; line-height: 18px; }
+}
 @media (max-width: 1023px) {
   .outcomes { padding: 48px 24px; }
   .outcomes__body { grid-template-columns: 1fr; gap: 32px; }
   .outcomes__stack { height: 480px; }
 }
+/* Mobile (Figma node 1936:7456, 390px frame) — a structurally different
+   layout, not just a smaller version of desktop:
+   - The marquee moves ABOVE the card stack (order swap via flex `order`,
+     no HTML change needed).
+   - The vertical outcome-name list collapses to just its ACTIVE item,
+     restyled as a single centered label — paired with the counter and
+     prev/next arrows in one compact row. Non-active items are hidden
+     rather than removed, so the existing click-to-jump JS/DOM keeps
+     working unchanged; there's just nothing extra to click at this size. */
 @media (max-width: 767px) {
-  .outcomes { padding: 40px 16px; }
-  .outcomes__title { font-size: 28px; line-height: 36px; }
-  .outcomes__stack { height: 560px; }
-  .outcome-card { padding: 24px; }
-  .outcomes__counter-current { font-size: 44px; }
+  .outcomes { padding: 32px 16px; }
+  .outcomes__inner { gap: 32px; }
+  .outcomes__header { gap: 16px; }
+  .outcomes__title { font-weight: 600; font-size: 28px; line-height: 38px; }
+  .outcomes__lead { font-size: 14px; line-height: 22px; }
+
+  .outcomes__body { order: 2; grid-template-columns: 1fr; gap: 16px; }
+  .outcomes__impact { order: 1; gap: 6px; }
+  .outcomes__impact-fixed { padding: 7px 8px; gap: 8px; }
+  .outcomes__impact-lead { font-size: 14px; line-height: 20px; }
+  .outcomes__impact-sub { font-size: 10px; line-height: 16px; letter-spacing: -0.5px; }
+  .outcomes__pill { font-size: 14px; line-height: 22px; }
+
+  .outcomes__nav { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; }
+  .outcomes__counter { gap: 4px; }
+  .outcomes__counter-current {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 32px;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #4D3D8A;
+  }
+  .outcomes__counter-total { font-family: var(--font-primary); font-weight: 600; font-size: 16px; color: #94A3B8; }
+
+  .outcomes__list { flex: 1; }
+  .outcomes__list-item:not(.is-active) { display: none; }
+  .outcomes__list-item.is-active { border-bottom: none; padding: 0; justify-content: center; }
+  .outcomes__list-num { display: none; }
+  .outcomes__list-label {
+    flex: none;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0;
+    color: #0F172A;
+  }
+  .outcomes__list-arrow { display: none; }
+
+  .outcomes__controls { margin-top: 0; gap: 16px; }
+  .outcomes__control {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0 2px 2px rgba(31, 41, 55, 0.05);
+    font-size: 12px;
+  }
+  .outcomes__hint { display: none; }
+
+  /* 440px, not Figma's literal 376px — Figma's mobile mockup only shows
+     one outcome ("IT Services", short copy); the other 3 outcomes have
+     longer descriptions/checklist items that don't fit 376px and were
+     clipping the CTA button off the bottom of the card (inconsistently,
+     since it depends on which outcome happens to be active). Padding/gaps
+     also trimmed slightly for extra margin. */
+  .outcomes__stack { height: 440px; }
+  .outcome-card { padding: 14px; border-radius: 32px; gap: 16px; }
+  .outcome-card__badge {
+    background: #FFFFFF;
+    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+  .outcome-card__icon { width: 32px; height: 32px; }
+  .outcome-card__num { font-size: 14px; letter-spacing: normal; color: #94A3B8; }
+  .outcome-card__title { margin-top: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 34px; letter-spacing: normal; }
+  .outcome-card__desc { margin-top: 0; font-size: 12px; max-width: none; }
+  .outcome-card__checklist { margin-top: 0; padding-top: 10px; gap: 10px; }
+  .outcome-card__check { gap: 10px; font-size: 12px; }
+  .outcome-card__check-mark { width: 20px; height: 20px; background: #EEF2FF; font-size: 10px; }
+  .outcome-card__cta { margin-top: 0; padding: 10px 24px; font-size: 14px; gap: 8px; }
 }
 @media (max-width: 479px) {
-  .outcomes__stack { height: 620px; }
-  .outcome-card { padding: 20px; }
-  .outcomes__counter-current { font-size: 38px; }
-  .outcomes__list-label { font-size: 14px; }
+  .outcomes__stack { height: 440px; }
 }

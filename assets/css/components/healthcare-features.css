@@ -31,7 +31,7 @@
   margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 32px;
   position: relative;
   z-index: 1;
 }
@@ -64,7 +64,7 @@
 .healthcare-features__titles {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .healthcare-features__title {
@@ -87,9 +87,9 @@
 
 .healthcare-features__body {
   display: grid;
-  grid-template-columns: 516fr 679fr;
-  gap: 117px;
-  align-items: stretch;
+  grid-template-columns: 516px 689px;
+  gap: 107px;
+  align-items: start;
 }
 
 .healthcare-features__cards {
@@ -128,7 +128,11 @@
   padding: 12px;
   flex-shrink: 0;
 }
-.feature-card__icon svg { width: 100%; height: 100%; stroke: #FFFFFF; }
+.feature-card__icon svg { display: none; }
+.feature-card:nth-child(1) .feature-card__icon { background: url('../../images/icons/healthcare-file-search.svg') center / 24px 24px no-repeat, var(--grad-vivid); }
+.feature-card:nth-child(2) .feature-card__icon { background: url('../../images/icons/healthcare-heart-pulse.svg') center / 24px 24px no-repeat, var(--grad-vivid); }
+.feature-card:nth-child(3) .feature-card__icon { background: url('../../images/icons/healthcare-database-backup.svg') center / 24px 24px no-repeat, var(--grad-vivid); }
+.feature-card:nth-child(4) .feature-card__icon { background: url('../../images/icons/healthcare-monitor-smartphone.svg') center / 24px 24px no-repeat, var(--grad-vivid); }
 
 .feature-card__badge {
   display: inline-flex;
@@ -157,8 +161,8 @@
 .feature-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 22px;
   color: #58595B;
 }
 
@@ -230,6 +234,7 @@
 .healthcare-features__image {
   border-radius: 16px;
   overflow: hidden;
+  height: 406px;
 }
 .healthcare-features__image img {
   width: 100%;
@@ -241,17 +246,62 @@
 @media (max-width: 1279px) {
   .healthcare-features { padding: 56px 48px; }
 }
+
+/* The 1024px laptop frame is the 1440px Figma composition reduced as one
+   desktop layout. Keep the complete header, four cards, and landscape image
+   in the intended 482px section instead of allowing the grid to distort. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .healthcare-features {
+    height: 482px;
+    padding: 46px;
+  }
+  .healthcare-features__inner { gap: 23px; }
+  .healthcare-features__header { gap: 11px; }
+  .healthcare-features__eyebrow { gap: 6px; font-size: 10px; line-height: 14px; letter-spacing: 0.2px; }
+  .healthcare-features__eyebrow::before { width: 9px; height: 3px; }
+  .healthcare-features__titles { gap: 6px; }
+  .healthcare-features__title { font-size: 23px; line-height: 30px; letter-spacing: -0.14px; }
+  .healthcare-features__lead { font-size: 11px; line-height: 18px; }
+  .healthcare-features__body { grid-template-columns: 366px 490px; gap: 76px; }
+  .healthcare-features__cards { gap: 14px; }
+  .feature-card { gap: 14px; padding: 11px; border-radius: 11px; }
+  .feature-card__icon { width: 34px; height: 34px; padding: 8px; border-radius: 9px; }
+  .feature-card:nth-child(1) .feature-card__icon,
+  .feature-card:nth-child(2) .feature-card__icon,
+  .feature-card:nth-child(3) .feature-card__icon,
+  .feature-card:nth-child(4) .feature-card__icon { background-size: 17px 17px, auto; }
+  .feature-card__badge { padding: 3px 7px; font-size: 9px; line-height: 13px; letter-spacing: 0.2px; }
+  .feature-card__body { gap: 7px; }
+  .feature-card__title { font-size: 13px; line-height: 20px; }
+  .feature-card__desc { font-size: 10px; line-height: 16px; }
+  .healthcare-features__image { height: 289px; border-radius: 11px; }
+}
 @media (max-width: 1023px) {
   .healthcare-features { padding: 48px 24px; }
   .healthcare-features__body { grid-template-columns: 1fr; gap: 32px; }
   .healthcare-features__insight { min-height: 320px; }
 }
+/* Mobile (Figma node 1936:7740, 390px frame) — cards stay a 2-column grid
+   here (not stacked to 1 column), just smaller; the image below drops its
+   fixed height for an explicit aspect-ratio so it scales cleanly at any
+   mobile width. */
 @media (max-width: 767px) {
-  .healthcare-features { padding: 40px 16px; }
-  .healthcare-features__cards { grid-template-columns: 1fr; }
-  .healthcare-features__title { font-size: 28px; line-height: 36px; }
+  .healthcare-features { padding: 32px 16px; }
+  .healthcare-features__inner { gap: 32px; }
+  .healthcare-features__header { gap: 24px; }
+  .healthcare-features__eyebrow { font-size: 14px; line-height: 20px; }
+  .healthcare-features__titles { gap: 12px; }
+  .healthcare-features__title { font-weight: 600; font-size: 28px; line-height: 38px; }
+  .healthcare-features__lead { font-size: 14px; line-height: 22px; }
+  .healthcare-features__body { gap: 32px; }
+  .healthcare-features__cards { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .feature-card { padding: 8px; gap: 16px; }
+  .feature-card__icon { width: 35px; height: 35px; padding: 8px; }
+  .feature-card__body { gap: 10px; }
+  .feature-card__title { font-size: 14px; line-height: 20px; letter-spacing: 0.3px; }
+  .feature-card__desc { font-size: 12px; line-height: 18px; }
+  .healthcare-features__image { height: auto; aspect-ratio: 679 / 451; }
 }
 @media (max-width: 479px) {
   .healthcare-features { padding: 32px 16px; }
-  .healthcare-features__body { gap: 24px; }
 }

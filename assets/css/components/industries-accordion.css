@@ -5,8 +5,8 @@
 
 .industries__accordion {
   display: flex;
-  gap: 10px;
-  height: 500px;
+  gap: 12px;
+  height: 450px;
 }
 
 .industry-panel {
@@ -14,9 +14,15 @@
   flex: 0 0 64px;
   min-width: 0;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-pill);
   box-shadow: var(--shadow-card);
   cursor: pointer;
+  /* border-radius is deliberately NOT in this list — animating it on its
+     own timer while flex is simultaneously growing the panel's width
+     produces a moment where the box is already wide but still has the
+     collapsed pill's huge corner radius, reading as an oval bulging out
+     before it catches up to the active card's 28px corners. Snapping it
+     instantly avoids that in-between shape entirely. */
   transition: flex 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, transform 0.4s ease;
 }
 .industry-panel:focus-visible {
@@ -25,6 +31,7 @@
 }
 .industry-panel.is-active {
   flex: 1 1 480px;
+  border-radius: 28px;
   box-shadow: var(--shadow-lift);
   transform: translateY(-4px);
 }
@@ -84,7 +91,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 32px 16px;
   opacity: 1;
   transition: opacity 0.35s ease;
   background: linear-gradient(36deg, #CABEFA 9.12%, #FFD2BD 89.44%);
@@ -94,20 +101,19 @@
 }
 
 .industry-panel__num {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: rgba(34, 34, 34, 0.55);
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(46, 51, 77, 0.7);
 }
 
 .industry-panel__vtext {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-family: var(--font-display);
-  font-size: 14px;
+  font-family: var(--font-primary);
+  font-size: 16px;
   font-weight: 600;
-  color: #58595B;
+  color: #1C2138;
   white-space: nowrap;
   max-height: 340px;
   overflow: hidden;
@@ -115,14 +121,14 @@
 }
 
 .industry-panel__plus {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(92, 92, 92, 0.4);
+  border: 1px solid rgba(28, 33, 56, 0.3);
   display: grid;
   place-items: center;
-  font-size: 12px;
-  color: #292929;
+  font-size: 14px;
+  color: #1C2138;
   flex-shrink: 0;
 }
 
@@ -226,9 +232,15 @@
 }
 
 @media (max-width: 1279px) {
-  .industries__accordion { height: 460px; }
-  .industry-panel.is-active { flex: 1 1 440px; }
-  .industry-panel__content { padding: 28px; }
+  .industries__accordion { height: 300px; }
+  .industry-panel.is-active { flex: 1 1 420px; }
+  .industry-panel__content { padding: 18px; }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .industries__accordion { height: 320px; gap: 9px; }
+  .industry-panel { flex-basis: 46px; }
+  .industry-panel.is-active { flex: 1 1 556px; }
 }
 
 /* Below tablet, a horizontal strip too narrow to read comfortably — stack
@@ -256,17 +268,30 @@
   .industry-panel__plus { margin-left: auto; }
 }
 
+/* Mobile (Figma node 1936:7346, 390px frame) — the active card here is a
+   short, fully-rounded-corner (8px, not the 28px used at wider tiers)
+   card with its content vertically CENTERED across the whole card height
+   (not pinned to the bottom like the larger layouts), and the collapsed
+   bars go back to justify-content:space-between (num / label / plus each
+   pushed to their own position) instead of a fixed gap. */
 @media (max-width: 767px) {
-  .industry-panel.is-active { flex-basis: 340px; }
-  .industry-panel__content { padding: 20px; gap: 8px; }
-  .industry-panel__desc { max-width: none; }
+  .industries__accordion { gap: 24px; }
+  .industry-panel.is-active { flex-basis: 276px; border-radius: 8px; }
+  .industry-panel__collapsed { justify-content: space-between; padding: 8px; gap: 0; }
+  .industry-panel__plus { border-width: 0.5px; font-size: 10px; }
+  .industry-panel__content { top: 0; bottom: 0; justify-content: center; padding: 16px; gap: 16px; }
+  .industry-panel__eyebrow { gap: 16px; }
+  .industry-panel__eyebrow-num { font-size: 16px; font-weight: 600; color: #FFFFFF; }
+  .industry-panel__eyebrow-label { font-size: 12px; padding: 10px 18px; }
+  .industry-panel__title { font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 30px; margin-top: 0; }
+  .industry-panel__desc { font-size: 14px; margin-top: 0; max-width: none; }
+  .industry-panel__cta { font-size: 12px; padding: 12px 16px; margin-top: 0; }
 }
 
 @media (max-width: 479px) {
   .industry-panel { flex-basis: 48px; }
-  .industry-panel.is-active { flex-basis: 300px; }
-  .industry-panel__content { padding: 16px; gap: 6px; }
-  .industry-panel__title { font-size: 20px; }
+  .industry-panel.is-active { flex-basis: 276px; }
+  .industry-panel__content { padding: 16px; gap: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

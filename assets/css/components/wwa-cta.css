@@ -45,11 +45,10 @@
 .wwa-cta__actions a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   padding: 8px 16px;
+  border: 0.5px solid #2784C5;
   border-radius: 4px;
   background: #FFFFFF;
-  position: relative;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
@@ -57,19 +56,6 @@
   letter-spacing: 0.3px;
   color: #4C3C89;
   text-decoration: none;
-}
-.wwa-cta__actions a::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 0.5px;
-  border-radius: inherit;
-  background: var(--grad-cta);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 @media (max-width: 1279px) {

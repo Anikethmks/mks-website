@@ -223,6 +223,38 @@ body { opacity: 1; transition: opacity 0.6s ease; }
     from { transform: translateX(240px); }
     to   { transform: translateX(0); }
   }
+
+  /* Who We Are — Contact Us gets the same treatment: the decorative map
+     drifts like the healthcare/fintech background image, and the left
+     column (office cards) / form slide in from opposite sides like the
+     cards-grid / image pairing. .wwa-contact already has its own
+     overflow:hidden (for the map bleed), so it needs the named
+     view-timeline-on-the-section trick too — see the note above this
+     block for why. The map already carries a static scale(0.7); the
+     keyframes preserve it since animating `transform` replaces the whole
+     property, not just the parts named in the "from"/"to" values. */
+  .wwa-contact {
+    view-timeline-name: --wwa-contact-scroll;
+  }
+  .wwa-contact__map {
+    animation: wwa-map-parallax linear both;
+    animation-timeline: --wwa-contact-scroll;
+    animation-range: entry 0% cover 60%;
+  }
+  @keyframes wwa-map-parallax {
+    from { transform: scale(0.7) translateY(-3%); }
+    to   { transform: scale(0.7) translateY(3%); }
+  }
+  .wwa-contact__left {
+    animation: section-parallax-left linear both;
+    animation-timeline: --wwa-contact-scroll;
+    animation-range: entry 0% entry 100%;
+  }
+  .wwa-contact-form {
+    animation: section-parallax-right linear both;
+    animation-timeline: --wwa-contact-scroll;
+    animation-range: entry 0% entry 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -233,5 +265,69 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   .healthcare-features__cards,
   .fintech-features__image,
   .healthcare-features__image,
-  .fintech-features__services { animation: none; }
+  .fintech-features__services,
+  .wwa-contact__map,
+  .wwa-contact__left,
+  .wwa-contact-form { animation: none; }
+}
+
+/* === Who We Are — same hover-lift/tilt/icon treatment as the home page's
+   feature-card / fintech-service "boxes" ================================ */
+.wwa-director-card,
+.wwa-ethics-card,
+.wwa-office-card {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+}
+.wwa-director-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(148, 163, 184, 0.35);
+}
+.wwa-ethics-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+}
+.wwa-office-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(148, 163, 184, 0.3);
+}
+
+.wwa-director-card__photo img,
+.wwa-ethics-card svg,
+.wwa-office-card__label svg {
+  transition: transform 0.3s ease;
+}
+.wwa-director-card:hover .wwa-director-card__photo img { transform: scale(1.1); }
+.wwa-ethics-card:hover svg { transform: scale(1.12) rotate(-4deg); }
+.wwa-office-card:hover .wwa-office-card__label svg { transform: scale(1.15) rotate(-6deg); }
+
+.wwa-director-card__linkedin { transition: transform 0.25s ease, background 0.25s ease; }
+.wwa-director-card:hover .wwa-director-card__linkedin {
+  transform: scale(1.1);
+  background: #1F73B4;
+}
+
+/* Vision / Mission icons — a slow, continuous, always-on float+breathe so
+   they feel gently alive even without any hover, echoing the home page's
+   healthcare-glow ambient float. Staggered delays so the two icons drift
+   out of sync with each other rather than moving in lockstep. */
+.wwa-vision__vm-col svg {
+  animation: wwa-icon-float 5s ease-in-out infinite;
+}
+.wwa-vision__vm-col:nth-child(2) svg {
+  animation-delay: -2.2s;
+}
+@keyframes wwa-icon-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wwa-director-card,
+  .wwa-ethics-card,
+  .wwa-office-card,
+  .wwa-director-card__photo,
+  .wwa-ethics-card svg,
+  .wwa-office-card__label svg,
+  .wwa-director-card__linkedin { transition: none; }
+  .wwa-vision__vm-col svg { animation: none; }
 }
