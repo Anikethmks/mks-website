@@ -178,13 +178,22 @@
   flex: 1;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .testimonials { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .testimonials { padding: 48px 24px; }
   /* 2 per view below desktop — 3 full cards no longer fit comfortably once
      the section's own side padding eats into the available width. */
   .testimonial-card { width: calc((100% - 24px) / 2); min-width: 260px; }
 }
-@media (max-width: 640px) {
+@media (max-width: 767px) {
+  .testimonials { padding: 40px 16px; }
   .testimonial-card { width: 100%; min-width: 0; padding: 14px; }
   .testimonials__track { gap: 16px; }
+  .testimonials__title { font-size: 28px; line-height: 36px; }
+}
+@media (max-width: 479px) {
+  .testimonials { padding: 32px 16px; }
+  .testimonials__inner { gap: 40px; }
 }

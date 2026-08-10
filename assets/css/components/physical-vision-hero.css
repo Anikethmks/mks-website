@@ -125,12 +125,29 @@
   border-top-right-radius: 4px;
 }
 
-@media (max-width: 1100px) {
+/* Laptop: original design collapsed to a stacked layout starting at 1100px;
+   remapped to the 1279px tier so the two-part row never sits in a cramped
+   1024–1279px range before switching. */
+@media (max-width: 1279px) {
   .pva-hero { flex-direction: column; min-height: 0; padding: 96px 24px 0; }
   .pva-hero__content { flex-basis: auto; }
   .pva-hero__title { font-size: 28px; line-height: 36px; }
   .pva-hero__media { flex-basis: 280px; margin: 0 -24px 0; }
 }
-@media (max-width: 600px) {
+@media (max-width: 1023px) {
+  .pva-hero { padding: 80px 24px 0; }
+  .pva-hero__title { font-size: 26px; line-height: 34px; }
+  .pva-hero__media { flex-basis: 240px; }
+}
+@media (max-width: 767px) {
+  .pva-hero { padding: 48px 16px 0; gap: 20px; }
+  .pva-hero__title { font-size: 22px; line-height: 30px; }
+  .pva-hero__media { flex-basis: 200px; margin: 0 -16px 0; }
   .pva-tabs { flex-wrap: wrap; padding-inline: 12px; }
+}
+@media (max-width: 479px) {
+  .pva-hero { padding: 40px 16px 0; }
+  .pva-hero__title { font-size: 20px; line-height: 28px; }
+  .pva-hero__breadcrumb { flex-wrap: wrap; }
+  .pva-hero__media { flex-basis: 160px; }
 }

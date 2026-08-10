@@ -106,11 +106,14 @@
   object-fit: cover;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .retail-payments { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .retail-payments__inner { flex-direction: column; }
   .retail-payments__img { flex: none; margin-right: 0; width: 100%; max-width: 100%; align-self: auto; aspect-ratio: 16/9; }
 }
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .retail-payments { padding: 48px 24px; }
   .retail-payments__title { font-size: 28px; line-height: 36px; }
   .retail-payments__label { width: 100%; }

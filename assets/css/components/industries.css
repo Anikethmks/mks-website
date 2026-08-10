@@ -40,9 +40,16 @@
   max-width: 1248px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .industries { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .industries { padding: 48px 32px; }
 }
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .industries { padding: 40px 20px; }
+  .industries__title { font-size: 28px; line-height: 36px; }
+}
+@media (max-width: 479px) {
+  .industries { padding: 32px 16px; }
 }

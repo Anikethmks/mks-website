@@ -120,7 +120,17 @@
   margin: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1279px) {
+  .agentic-challenge { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .agentic-challenge { padding: 48px 24px; }
   .agentic-challenge__row { flex-direction: column; }
+  .agentic-challenge__title { font-size: 24px; line-height: 32px; }
+}
+@media (max-width: 767px) {
+  .agentic-challenge { padding: 32px 16px; gap: 32px; }
+  .agentic-challenge__title { font-size: 22px; line-height: 30px; }
+  .agentic-challenge__card, .agentic-challenge__photo, .agentic-challenge__caption { padding: 16px; }
+  .agentic-challenge__list { padding-left: 20px; }
 }

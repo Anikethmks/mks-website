@@ -99,9 +99,19 @@
   margin: 0;
 }
 
-@media (max-width: 1000px) {
-  .agentic-overview { padding: 48px 24px; }
+@media (max-width: 1279px) {
+  .agentic-overview { padding: 56px 48px; }
   .agentic-overview__row { flex-direction: column; }
   .agentic-overview__media { flex-basis: auto; width: 100%; }
   .agentic-overview__stats { flex-wrap: wrap; justify-content: flex-start; }
+}
+@media (max-width: 1023px) {
+  .agentic-overview { padding: 48px 24px; }
+  .agentic-overview__title { font-size: 24px; line-height: 32px; }
+}
+@media (max-width: 767px) {
+  .agentic-overview { padding: 32px 16px; gap: 32px; }
+  .agentic-overview__title { font-size: 22px; line-height: 30px; }
+  .agentic-overview__text { padding: 16px; }
+  .agentic-overview__stat { white-space: normal; }
 }

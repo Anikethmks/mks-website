@@ -114,12 +114,26 @@
   display: block;
 }
 
-@media (max-width: 1100px) {
+/* Laptop: original stack + 3→2 col breakpoint was 1100px; remapped to the
+   1279px tier so the 3-column grid never sits cramped in a 1024–1279px
+   range before reducing. */
+@media (max-width: 1279px) {
   .pva-objective { padding: 48px 24px; }
   .pva-objective__row { flex-direction: column; }
   .pva-objective__media { width: 100%; aspect-ratio: 900 / 600; }
   .pva-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 600px) {
-  .pva-objective__grid { grid-template-columns: 1fr; }
+@media (max-width: 1023px) {
+  .pva-objective { padding: 40px 24px; gap: 40px; }
+  .pva-objective__row { gap: 24px; }
+  .pva-objective__grid { gap: 24px; }
+}
+/* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
+   767px tier (transitions earlier, no coverage gap). */
+@media (max-width: 767px) {
+  .pva-objective { padding: 24px 16px; gap: 24px; }
+  .pva-objective__title { font-size: 24px; line-height: 32px; }
+  .pva-objective__intro { font-size: 15px; }
+  .pva-objective__grid { grid-template-columns: 1fr; gap: 16px; }
+  .pva-objective-card { min-height: auto; padding: 16px; }
 }

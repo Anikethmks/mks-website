@@ -92,12 +92,27 @@
   margin: 0;
 }
 
-@media (max-width: 900px) {
-  .careers-hero { height: auto; }
-  .careers-hero__inner { margin-top: 40px; padding-bottom: 40px; }
-  .careers-hero__title { font-size: 36px; line-height: 44px; }
+/* Laptop */
+@media (max-width: 1279px) {
+  .careers-hero__inner { padding-left: 48px; max-width: calc(100% - 48px); gap: 24px; margin-top: 80px; }
+  .careers-hero__title { font-size: 42px; line-height: 52px; }
+  .careers-hero__lead { font-size: 18px; line-height: 28px; }
 }
-@media (max-width: 600px) {
-  .careers-hero__inner { padding-left: 24px; max-width: calc(100% - 24px); margin-top: 32px; padding-bottom: 32px; }
+/* Tablet */
+@media (max-width: 1023px) {
+  .careers-hero { height: auto; }
+  .careers-hero__inner { margin-top: 40px; padding-bottom: 40px; gap: 20px; }
+  .careers-hero__title { font-size: 36px; line-height: 44px; }
+  .careers-hero__lead { font-size: 17px; line-height: 26px; }
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .careers-hero__inner { padding-left: 24px; max-width: calc(100% - 24px); margin-top: 32px; padding-bottom: 32px; gap: 16px; }
   .careers-hero__title { font-size: 28px; line-height: 36px; }
+  .careers-hero__lead { font-size: 16px; line-height: 24px; }
+}
+/* Small phone */
+@media (max-width: 479px) {
+  .careers-hero__inner { padding-left: 16px; max-width: calc(100% - 16px); }
+  .careers-hero__title { font-size: 24px; line-height: 32px; }
 }

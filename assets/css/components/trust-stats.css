@@ -206,16 +206,22 @@
 /* Left column and ticker block both shrink fluidly (flex + min/max-width)
    so the numbers stay pinned to the right at every desktop/laptop width.
    They only run out of room to shrink once both hit their min-width
-   (320px + 360px + 24px gap = 704px content), so the stacked fallback only
-   needs to kick in below that, not at every common laptop width. */
-@media (max-width: 860px) {
+   (320px + 360px + 24px gap = 704px content), so the stacked fallback is
+   triggered at the standard Tablet breakpoint rather than lower, so the
+   cramped two-up range is never left on screen. */
+@media (max-width: 1279px) {
+  .trust-stats { padding: 56px 48px 80px; }
+}
+
+@media (max-width: 1023px) {
+  .trust-stats { padding: 48px 32px 64px; }
   .trust-stats__inner { flex-direction: column; gap: 48px; }
   .trust-stats__left { width: 100%; max-width: 100%; }
   .trust-stats__right { width: 100%; max-width: 100%; justify-content: center; }
 }
 
-@media (max-width: 640px) {
-  .trust-stats { padding: 48px 24px 64px; }
+@media (max-width: 767px) {
+  .trust-stats { padding: 40px 20px 48px; }
   .trust-stats__right { height: 420px; gap: 20px; }
   .trust-stats__col { flex: 0 0 150px; width: 150px; }
   .stat-card { padding: 16px; gap: 4px; }
@@ -226,4 +232,14 @@
   .trust-stats__col--right .trust-stats__track,
   .trust-stats__col--right .trust-stats__group { gap: 28px; }
   .trust-stats__logos { justify-content: center; flex-wrap: wrap; gap: 24px; }
+  .trust-stats__title { font-size: 28px; line-height: 36px; }
+}
+
+@media (max-width: 479px) {
+  .trust-stats { padding: 32px 16px 40px; }
+  .trust-stats__right { height: 380px; gap: 12px; }
+  .trust-stats__col { flex: 0 0 130px; width: 130px; }
+  .stat-card { padding: 12px; }
+  .stat-card__number { font-size: 22px; line-height: 28px; }
+  .stat-card__label { font-size: 13px; line-height: 18px; }
 }

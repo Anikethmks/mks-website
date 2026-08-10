@@ -99,9 +99,22 @@
   margin: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1279px) {
+  .pva-overview { padding: 56px 48px; gap: 40px; }
+}
+/* Tablet: original stack breakpoint was 1000px; remapped to the standard
+   1023px tier (transitions slightly earlier, no coverage gap). */
+@media (max-width: 1023px) {
   .pva-overview { padding: 48px 24px; }
   .pva-overview__row { flex-direction: column; }
   .pva-overview__media { flex-basis: auto; width: 100%; }
   .pva-overview__stats { flex-wrap: wrap; justify-content: flex-start; }
+}
+@media (max-width: 767px) {
+  .pva-overview { padding: 24px 16px; gap: 24px; }
+  .pva-overview__title { font-size: 24px; line-height: 32px; }
+  .pva-overview__text { padding: 16px; gap: 20px; }
+  .pva-overview__stats { flex-direction: column; align-items: flex-start; gap: 16px; padding: 16px 0; }
+  .pva-overview__stat { white-space: normal; }
+  .pva-overview__stats-icon { display: none; }
 }

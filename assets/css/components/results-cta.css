@@ -144,12 +144,24 @@
   color: #4B5563;
 }
 
-@media (max-width: 900px) {
-  .results-cta { padding: 48px 24px; flex-direction: column; align-items: stretch; }
+@media (max-width: 1279px) {
+  .results-cta { padding: 56px 48px; gap: 48px; }
+}
+@media (max-width: 1023px) {
+  .results-cta { padding: 48px 24px; flex-direction: column; align-items: stretch; gap: 32px; }
   .results-cta__content { max-width: 100%; }
   .results-cta__metrics { max-width: 100%; }
   .results-cta__title { font-size: 28px; line-height: 36px; }
 }
-@media (max-width: 640px) {
-  .results-cta__metrics { grid-template-columns: 1fr; }
+@media (max-width: 767px) {
+  .results-cta { padding: 32px 16px; gap: 24px; }
+  .results-cta__metrics { grid-template-columns: 1fr; gap: 16px; }
+  .results-cta__title { font-size: 24px; line-height: 32px; }
+  .metric-card { padding: 20px 24px; }
+  .metric-card__value { font-size: 32px; line-height: 40px; }
+}
+@media (max-width: 479px) {
+  .results-cta__actions { flex-direction: column; align-items: stretch; }
+  .results-cta__actions .btn--outline,
+  .results-cta__actions .btn--solid-grad { justify-content: center; }
 }

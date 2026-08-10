@@ -195,7 +195,29 @@
   height: 12px;
 }
 
-@media (max-width: 600px) {
-  .careers-blog { padding: 48px 24px; }
+/* Laptop */
+@media (max-width: 1279px) {
+  .careers-blog { padding: 48px; }
+  .careers-blog__inner { gap: 32px; }
+  .blog-card { flex-basis: 300px; }
+  .blog-card--big .blog-card__title { font-size: 24px; line-height: 32px; }
+}
+/* Tablet */
+@media (max-width: 1023px) {
+  .careers-blog__title { font-size: 24px; line-height: 32px; }
   .blog-card { flex-basis: 280px; }
+  .blog-card__media { height: 180px; }
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .careers-blog { padding: 40px 24px; }
+  .careers-blog__title { font-size: 22px; line-height: 30px; }
+  .blog-card { flex-basis: 260px; }
+  .blog-card__media { height: 160px; }
+  .blog-card__title { font-size: 18px; line-height: 26px; }
+  .blog-card--big .blog-card__title { font-size: 20px; line-height: 28px; }
+}
+/* Small phone */
+@media (max-width: 479px) {
+  .blog-card { flex-basis: 240px; }
 }

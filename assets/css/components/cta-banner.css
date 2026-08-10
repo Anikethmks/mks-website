@@ -39,7 +39,19 @@
 
 .cta-banner .btn { flex-shrink: 0; }
 
-@media (max-width: 720px) {
+@media (max-width: 1279px) {
+  .cta-banner { padding: 28px 48px; }
+}
+@media (max-width: 1023px) {
+  .cta-banner { padding: 28px 32px; }
+  .cta-banner__inner { gap: 40px; }
+}
+@media (max-width: 767px) {
   .cta-banner { padding: 24px; }
   .cta-banner__inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+@media (max-width: 479px) {
+  .cta-banner { padding: 20px 16px; }
+  .cta-banner__title { font-size: 22px; line-height: 30px; }
+  .cta-banner__lead { font-size: 13px; line-height: 18px; }
 }

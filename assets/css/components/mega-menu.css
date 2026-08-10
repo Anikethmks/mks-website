@@ -155,7 +155,7 @@
    the accordion flow) — leaving it as a display toggle there avoids an
    invisible-but-still-occupying-space gap that opacity/visibility would
    otherwise leave in the stacked mobile nav. */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .mega-menu {
     display: flex;
     opacity: 0;
@@ -178,11 +178,11 @@
   .navbar__item--dropdown.is-open .mega-menu { transition: opacity 0.15s ease; transform: none; }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1279px) {
   .mega-menu { left: auto; right: 0; }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .mega-menu {
     position: static;
     width: auto;

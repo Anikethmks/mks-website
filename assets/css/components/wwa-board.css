@@ -181,8 +181,27 @@
   z-index: 1;
 }
 
-@media (max-width: 900px) {
-  .wwa-board { padding: 48px 24px; }
+@media (max-width: 1279px) {
+  .wwa-board { padding: 56px 48px; gap: 40px; }
+  .wwa-board__grid { gap: 32px; }
+}
+
+@media (max-width: 1023px) {
+  .wwa-board { padding: 48px 32px; gap: 32px; }
   .wwa-board__watermark,
   .wwa-board__dots { display: none; }
+  .wwa-board__title { font-size: 24px; line-height: 32px; }
+  .wwa-board__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .wwa-director-card { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .wwa-board { padding: 40px 20px; gap: 24px; }
+  .wwa-board__title { font-size: 22px; line-height: 30px; }
+  .wwa-board__grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 479px) {
+  .wwa-board { padding: 32px 16px; }
+  .wwa-director-card { padding: 20px; }
 }

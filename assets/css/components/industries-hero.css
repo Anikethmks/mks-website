@@ -103,11 +103,27 @@
   box-shadow: 0 0 32px rgba(59, 130, 246, 0.2), 0 0 18px rgba(0, 102, 255, 0.4);
 }
 
-@media (max-width: 900px) {
-  .industries-hero { padding: 96px 24px 48px; }
-  .industries-hero__title { font-size: 36px; line-height: 44px; }
+@media (max-width: 1279px) {
+  .industries-hero { padding: 108px 48px 56px; }
+  .industries-hero__title { font-size: 42px; line-height: 52px; }
 }
-@media (max-width: 480px) {
+
+@media (max-width: 1023px) {
+  .industries-hero { padding: 96px 24px 48px; }
+  .industries-hero__title { font-size: 36px; line-height: 44px; max-width: 100%; }
+  .industries-hero__lead { max-width: 100%; }
+}
+
+@media (max-width: 767px) {
   .industries-hero { padding: 88px 16px 40px; }
-  .industries-hero__title { font-size: 28px; line-height: 36px; }
+  .industries-hero__breadcrumb { margin-bottom: 24px; }
+  .industries-hero__content { gap: 24px; }
+  .industries-hero__title { font-size: 28px; line-height: 36px; letter-spacing: -0.3px; }
+  .industries-hero__lead { font-size: 16px; line-height: 26px; }
+}
+
+@media (max-width: 479px) {
+  .industries-hero { padding: 80px 16px 32px; }
+  .industries-hero__title { font-size: 24px; line-height: 32px; }
+  .industries-hero__accent { width: 160px; }
 }

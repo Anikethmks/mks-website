@@ -106,10 +106,16 @@
   color: #58595B;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .capabilities-trust { padding: 56px 48px; gap: 40px; }
+}
+@media (max-width: 1023px) {
   .capabilities-trust { padding: 48px 24px; }
   .capabilities-trust__grid { grid-template-columns: repeat(2, 1fr); }
+  .capabilities-trust__title { font-size: 24px; line-height: 32px; }
 }
-@media (max-width: 640px) {
-  .capabilities-trust__grid { grid-template-columns: 1fr; }
+@media (max-width: 767px) {
+  .capabilities-trust { padding: 32px 16px; gap: 32px; }
+  .capabilities-trust__grid { grid-template-columns: 1fr; gap: 16px; }
+  .capabilities-trust__title { font-size: 22px; line-height: 30px; }
 }

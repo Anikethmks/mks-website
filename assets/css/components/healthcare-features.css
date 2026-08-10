@@ -238,13 +238,20 @@
   display: block;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .healthcare-features { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
   .healthcare-features { padding: 48px 24px; }
   .healthcare-features__body { grid-template-columns: 1fr; gap: 32px; }
   .healthcare-features__insight { min-height: 320px; }
 }
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .healthcare-features { padding: 40px 16px; }
   .healthcare-features__cards { grid-template-columns: 1fr; }
   .healthcare-features__title { font-size: 28px; line-height: 36px; }
+}
+@media (max-width: 479px) {
+  .healthcare-features { padding: 32px 16px; }
+  .healthcare-features__body { gap: 24px; }
 }

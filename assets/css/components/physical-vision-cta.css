@@ -92,8 +92,19 @@
   white-space: nowrap;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1279px) {
+  .pva-cta { padding: 32px 48px; }
+}
+/* Tablet: original stack breakpoint was 900px; remapped to the standard
+   1023px tier (transitions earlier, no coverage gap). */
+@media (max-width: 1023px) {
   .pva-cta__row { grid-template-columns: 1fr; justify-items: stretch; }
   .pva-cta__side, .pva-cta__center { justify-self: stretch; justify-content: center; }
   .pva-cta__side-title { white-space: normal; }
+}
+@media (max-width: 767px) {
+  .pva-cta { padding: 24px 16px; }
+  .pva-cta__side { padding: 8px 16px; gap: 16px; }
+  .pva-cta__side-label { font-size: 18px; line-height: 26px; }
+  .pva-cta__center { padding: 14px 20px; font-size: 15px; }
 }
