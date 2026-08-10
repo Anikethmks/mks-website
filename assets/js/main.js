@@ -410,7 +410,8 @@
       { transform: 'none', opacity: '1', zIndex: '40', pointerEvents: 'auto' },
       { transform: 'translateY(20px) scale(0.955) rotateX(2deg)', opacity: '0.5', zIndex: '39', pointerEvents: 'none' },
       { transform: 'translateY(40px) scale(0.91) rotateX(4deg)', opacity: '0.22', zIndex: '38', pointerEvents: 'none' },
-      { transform: 'translateX(72%) rotate(7deg) scale(0.94)', opacity: '0', zIndex: '37', pointerEvents: 'none' }
+      // { transform: 'translateX(72%) rotate(7deg) scale(0.94)', opacity: '0', zIndex: '37', pointerEvents: 'none' }
+      { transform: 'translateY(60px) scale(0.94) rotateX(6deg)', opacity: '0', zIndex: '37', pointerEvents: 'none' }
     ];
 
     function setActive(index) {
@@ -685,8 +686,29 @@
     });
   }
 
+  // Shared footer: the static pages predate component includes, so keep every
+  // instance synchronized with the Figma footer component at runtime.
+  function initFooter() {
+    var footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    footer.innerHTML = `
+      <div class="footer__inner">
+        <section class="footer__brand" aria-label="MKS Vision">
+          <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision, a preferred technology partner">
+          <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
+          <div class="footer__social"><a href="#" aria-label="LinkedIn"><span aria-hidden="true">in</span></a><a href="#" aria-label="X"><span aria-hidden="true">𝕏</span></a></div>
+        </section>
+        <nav class="footer__col footer__col--services" aria-label="What we do"><h2 class="footer__col-title">What we do</h2><ul class="footer__list footer__list--wrap"><li><a href="#" class="footer__link-dot">AI solutions</a></li><li><a href="#" class="footer__link-dot">IT Services</a></li><li><a href="#" class="footer__link-dot">Engineering</a></li><li><a href="#" class="footer__link-dot">Products &amp; Platforms</a></li><li><a href="#" class="footer__link-dot">Managed Services</a></li><li><a href="#" class="footer__link-dot">Data &amp; Analytics</a></li><li><a href="#" class="footer__link-dot">Industries</a></li></ul></nav>
+        <nav class="footer__col footer__col--industries" aria-label="Industries"><h2 class="footer__col-title">Industries</h2><ul class="footer__list footer__list--leading"><li><a href="#">Banking &amp; Financial Institutions</a></li><li><a href="#">(BFI)NBFC &amp; Fintech</a></li><li><a href="#">Healthcare</a></li><li><a href="#">Retail</a></li><li><a href="#">Manufacturing</a></li><li><a href="#">Data Center Infrastructure</a></li></ul></nav>
+        <div class="footer__col footer__col--company-contact"><nav class="footer__company" aria-label="Company"><h2 class="footer__col-title">Company</h2><ul class="footer__list footer__list--inline"><li><a href="who-we-are.html">Who we are</a></li><li><a href="capabilities.html">Capabilities</a></li><li><a href="careers.html">Careers</a></li></ul></nav><address class="footer__contact"><h2 class="footer__col-title">Contact Us</h2><div class="footer__contact-list"><a href="tel:+15027499992" class="footer__contact-item"><span aria-hidden="true">☎</span>+1 (502) 749-9992</a><a href="mailto:hr@mksvision.com" class="footer__contact-item footer__contact-item--email"><span aria-hidden="true">✉</span>hr@mksvision.com</a></div></address></div>
+      </div>
+      <div class="footer__bottom"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></nav></div>`;
+  }
+
   // Init all on DOM ready
   document.addEventListener('DOMContentLoaded', function () {
+    initFooter();
     document.documentElement.classList.remove('preload');
     initNavbar();
     initNavbarScroll();

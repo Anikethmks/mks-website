@@ -9,7 +9,7 @@
    NOT behind the cards, since they're translucent and would let it show
    through. Height = section's 64px top padding + header content (38px
    title + 16px gap + 26px lead = 80px) + the 64px gap before the grid. */
-.outcomes__stars {
+/* .outcomes__stars {
   position: absolute;
   top: 0;
   right: 0;
@@ -20,7 +20,7 @@
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 .outcomes__inner {
   max-width: var(--content-max);

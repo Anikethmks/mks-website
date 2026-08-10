@@ -92,7 +92,7 @@
 }
 .testimonials__dot:hover { border-color: rgba(2, 2, 2, 0.3); }
 .testimonials__dot.is-active {
-  background: var(--grad-cta);
+  background: linear-gradient(304.99deg, #8465FF 17.03%, #FFA980 70.59%);
   border-color: transparent;
   transform: scale(1.2);
 }
