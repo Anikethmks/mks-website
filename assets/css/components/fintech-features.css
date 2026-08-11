@@ -87,7 +87,11 @@
 
 .fintech-features__body {
   display: grid;
-  grid-template-columns: 483px 762px;
+  /* Fluid ratio (483:762), not fixed px — see .healthcare-features__body:
+     the fixed sum only fit flush at exactly 1440px viewport, and bled past
+     the container (eating the right-side padding) at narrower laptop
+     widths in the 1280-1439px range. */
+  grid-template-columns: minmax(0, 483fr) minmax(0, 762fr);
   gap: 75px;
   align-items: start;
 }
