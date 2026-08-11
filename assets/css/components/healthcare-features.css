@@ -93,7 +93,11 @@
 
 .healthcare-features__body {
   display: grid;
-  grid-template-columns: 516px 689px;
+  /* Fluid ratio (516:689), not fixed px — the fixed sum only fit flush at
+     exactly 1440px viewport (content-max's own width); at laptop widths
+     down to 1280px the container is narrower than that, and the fixed
+     columns bled past it, eating the section's right-side padding. */
+  grid-template-columns: minmax(0, 516fr) minmax(0, 689fr);
   gap: 107px;
   align-items: start;
 }
