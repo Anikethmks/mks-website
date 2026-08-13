@@ -1,0 +1,623 @@
+/* ==========================================================================
+   Outcomes — AI First Solutions / IT Services / Engineering / Products & Platform
+   Source Figma frame: "Outcomes" #710:18213 — recolored to the site's MKS
+   blue system. Figma's own purple/peach washes (hero title gradient, the
+   Engineering section wash, the IT services stats banner, and the Stats
+   Row numbers) are swapped for the blue family used everywhere else on the
+   site; icon gradients and the "AI First / IT / Engineering" heading
+   accents were already blue/purple-blue in Figma and are kept as-is.
+   ========================================================================== */
+
+/* Hero --------------------------------------------------------------- */
+.op-hero {
+  position: relative;
+  padding: 120px 64px 64px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-image: linear-gradient(135deg, rgba(20, 29, 96, 0.65) 0%, rgba(20, 29, 96, 0.45) 100%), url('../../images/content/outcomes-hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.op-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.op-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.op-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.op-hero__breadcrumb svg { flex-shrink: 0; }
+
+.op-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1036px;
+}
+
+.op-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.op-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Sub-nav tabs — identical pattern to Physical & Vision AI / Agentic AI's. */
+.op-tabs {
+  background: #FCFCFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+.op-tabs__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.op-tabs__link--active {
+  font-weight: 600;
+  background: #FFFFFF;
+  border-bottom: 2px solid #2784C5;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* Shared section shell ------------------------------------------------- */
+.op-section {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.op-section__split {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+}
+.op-section__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.op-section__heading-accent {
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.op-section__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+  margin: 0;
+}
+
+.op-section__media {
+  flex-shrink: 0;
+  width: 45%;
+  max-width: 607px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.op-section__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* AI First Solutions --------------------------------------------------- */
+.op-narrative {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.op-narrative__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.op-proofpoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.op-proofpoint {
+  padding: 16px;
+  background: #EBEBEB;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.op-proofpoint__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  background: var(--grad-form-submit);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.op-proofpoint__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #020202;
+}
+
+/* Figma composites the capability list and stats row directly on top of
+   the AI panel image (not as separate boxes underneath it) — the image is
+   an absolutely-positioned backdrop filling the whole panel, with the
+   translucent "glass" cards and white text sitting above it. */
+.op-panel {
+  position: relative;
+  flex-shrink: 0;
+  width: 56%;
+  max-width: 607px;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+.op-panel__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.op-panel__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Fixed narrower than the panel (Figma: 259px cards inside a 607px panel)
+   so the AI globe image stays visible beside them, not hidden behind a
+   full-width stack of cards. */
+.op-capabilities {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.op-cap-card {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.op-cap-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.op-cap-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+.op-cap-card__row svg { width: 12px; height: 6px; color: #FFFFFF; flex-shrink: 0; }
+.op-cap-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #F1F1F1;
+}
+.op-cap-card--collapsed {
+  background: rgba(15, 23, 42, 0.35);
+  padding: 10px 16px;
+}
+.op-cap-card--collapsed .op-cap-card__title { font-weight: 500; font-size: 16px; }
+
+/* Unlike the capability cards, the stats row spans the panel's full width
+   (not the narrower 300px card column) — that's what gives each number
+   room to breathe instead of squeezing its label onto 3 cramped lines. */
+.op-stats-row {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+.op-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.op-stat__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.op-stat__label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.op-service-pills {
+  display: flex;
+  gap: 24px;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+}
+.op-service-pill {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.op-service-pill svg,
+.op-service-pill img { width: 24px; height: 24px; }
+.op-service-pill__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* IT Services ----------------------------------------------------------- */
+.op-section--it { background: #F9F9F9; }
+
+.op-feature-chips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.op-feature-chip {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid rgba(39, 132, 197, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.op-feature-chip svg { width: 28px; height: 28px; flex-shrink: 0; }
+.op-feature-chip__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: #4D3D8A;
+}
+
+.op-stats-banner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+  padding: 16px 32px;
+  border-radius: 16px;
+  background: linear-gradient(141deg, rgba(138, 207, 255, 0.35) 2%, rgba(41, 134, 197, 0.25) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.op-stats-banner__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.op-stats-banner__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  background: var(--grad-trust-label);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.op-stats-banner__label {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 13px;
+  color: #020202;
+  max-width: 180px;
+}
+.op-stats-banner__divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(2, 2, 2, 0.12);
+  flex-shrink: 0;
+}
+
+.op-tech {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.op-tech__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: #020202;
+  margin: 0;
+}
+.op-tech__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+}
+.op-tech__item {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* A separate sibling "dot" element can get stranded at the end of one
+   wrapped line while its item starts the next — pairing it to the item via
+   ::before keeps the dot and the text it belongs to on the same line. */
+.op-tech__item:not(:first-child) {
+  position: relative;
+}
+.op-tech__item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--grad-cta);
+}
+
+/* Engineering Excellence ------------------------------------------------ */
+.op-section--engineering { background: rgba(39, 132, 197, 0.1); }
+
+/* No left padding — the grid's cards align to the same left edge as the
+   narrative text/CTA above and below it, rather than sitting inset from it. */
+.op-eng-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 24px 24px 24px 0;
+  border-radius: 16px;
+  /* background: linear-gradient(135deg, rgba(138, 207, 255, 0.18) 0%, rgba(41, 134, 197, 0.12) 100%); */
+}
+.op-eng-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(2, 2, 2, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.op-eng-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.op-eng-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(39, 132, 197, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.op-eng-card__icon img { width: 24px; height: 24px; }
+.op-eng-card__title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  color: #0D4A8A;
+  margin: 0;
+}
+.op-eng-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #212121;
+  margin: 0;
+}
+
+.op-eng-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--grad-cta);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.op-eng-cta svg { width: 18px; height: 18px; }
+
+/* Products & Platform ---------------------------------------------------- */
+.op-products__top {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.op-products__media {
+  flex: 1;
+  min-width: 0;
+  border-radius: 8px 0 0 8px;
+  overflow: hidden;
+}
+.op-products__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.op-products__text {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.op-products__row {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 24px;
+  flex-wrap: wrap;
+}
+.op-product {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.op-product__name {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  color: #020202;
+}
+.op-product__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  color: #020202;
+}
+.op-products__divider {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(39, 132, 197, 0.4);
+  flex-shrink: 0;
+}
+
+/* Responsive ------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .op-hero { padding: 104px 48px 56px; }
+  .op-section { padding: 56px 48px; }
+  .op-section__split { flex-direction: column; gap: 32px; }
+  .op-section__media,
+  .op-panel { width: 100%; max-width: none; }
+  .op-service-pills { flex-wrap: wrap; }
+  .op-service-pill { flex-basis: 30%; }
+  .op-feature-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .op-eng-grid { grid-template-columns: 1fr; }
+  .op-products__top { flex-direction: column; }
+  .op-products__media,
+  .op-products__text { border-radius: 8px; }
+}
+@media (max-width: 1023px) {
+  .op-hero { padding: 96px 24px 48px; }
+  .op-hero__title { font-size: 36px; line-height: 44px; }
+  .op-section { padding: 48px 24px; }
+  .op-proofpoints { grid-template-columns: 1fr; }
+  .op-stats-row { flex-direction: column; gap: 16px; }
+  .op-stats-banner { flex-direction: column; }
+  .op-stats-banner__divider { display: none; }
+  .op-products__row { flex-direction: column; }
+  .op-products__divider { display: none; }
+}
+@media (max-width: 767px) {
+  .op-hero { padding: 88px 16px 40px; }
+  .op-hero__title { font-size: 28px; line-height: 36px; }
+  .op-section { padding: 40px 16px; gap: 24px; }
+  .op-tabs { flex-wrap: wrap; padding-inline: 12px; }
+  .op-service-pills { flex-direction: column; }
+  .op-feature-chips { grid-template-columns: 1fr; }
+  .op-eng-cta { width: 100%; justify-content: center; }
+  /* Below tablet there's no room left over to show the image beside a
+     narrower card column, so let the cards use the full panel width
+     instead of leaving dead space next to them. */
+  .op-panel { align-items: stretch; }
+  .op-capabilities,
+  .op-stats-row { width: 100%; max-width: none; }
+}

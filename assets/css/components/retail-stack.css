@@ -5,7 +5,7 @@
 
 .retail-stack {
   position: relative;
-  background: var(--grad-soft);
+  background: rgba(39, 132, 197, 0.1);
   padding: 64px;
   overflow: hidden;
 }

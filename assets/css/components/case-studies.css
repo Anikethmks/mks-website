@@ -276,7 +276,7 @@
    Heading/eyebrow/meta text is dark on all 4 cards per Figma; only the
    overlay glass tint and tag-pill treatment differ card to card. */
 .case-study-card--agentic { --overlay-bg: rgba(0, 0, 0, 0.11); }
-.case-study-card--agentic .tag-pill { --tag-bg: linear-gradient(141deg, rgba(202, 190, 250, 0.9) 2%, rgba(255, 210, 189, 0.9) 100%); }
+.case-study-card--agentic .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(77, 79, 164, 0.8) 98%); --tag-color: #FFFFFF; }
 
 .case-study-card--voice { --overlay-bg: rgba(255, 255, 255, 0.7); }
 .case-study-card--voice .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(77, 79, 164, 0.8) 98%); --tag-color: #FFFFFF; }
@@ -287,7 +287,10 @@
 .case-study-card--document { --overlay-bg: rgba(255, 255, 255, 0.7); }
 .case-study-card--document .tag-pill { --tag-bg: linear-gradient(-66deg, rgba(134, 103, 255, 0.23) 4%, rgba(41, 134, 197, 0.23) 97%); --tag-color: #020202; }
 
-.case-study-card--warm-cta .case-study-card__cta { --cta-color: var(--grad-number); --cta-stroke: #8465FF; }
+.case-study-card--warm-cta .case-study-card__cta {
+  --cta-color: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
+  --cta-stroke: #4D4FA4;
+}
 
 /* Two-column RPA / Engineering split section --------------------------- */
 .case-studies-split {
@@ -307,7 +310,7 @@
   background: linear-gradient(146deg, rgba(175, 154, 255, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
 }
 .case-studies-split__col--eng {
-  background: linear-gradient(146deg, rgba(247, 244, 255, 0.5) 0%, rgba(255, 238, 230, 0.5) 97%);
+  background: linear-gradient(146deg, rgba(175, 154, 255, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
 }
 
 .case-studies-split__header {

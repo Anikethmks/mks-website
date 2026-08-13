@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Careers — Current Openings (Entry Level & Internships / Lateral Hiring)
+   Source Figma frame: carrers-jobs #984:1703 — recolored to the site's MKS
+   blue system (Figma's own purple/peach tints and purple "Apply Now" text
+   are swapped for the blue family used everywhere else on the site).
+   ========================================================================== */
+
+.co-openings {
+  background: rgba(39, 132, 197, 0.1);
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.co-openings__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  text-align: center;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.co-openings__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #020202;
+  max-width: 640px;
+  margin: 0;
+}
+
+.co-openings__container {
+  width: 100%;
+  max-width: var(--content-max);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Tabs ------------------------------------------------------------------ */
+.co-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.co-tab {
+  position: relative;
+  flex: 1 1 0;
+  max-width: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  text-align: left;
+}
+.co-tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: transparent;
+}
+.co-tab.is-active {
+  box-shadow: 0px 4px 4px 0px rgba(239, 239, 239, 1);
+}
+.co-tab.is-active::after {
+  background: var(--grad-cta);
+}
+
+.co-tab__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #58595B;
+  margin: 0;
+}
+.co-tab.is-active .co-tab__title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #111827;
+}
+
+.co-tab__count {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  color: #58595B;
+}
+.co-tab__count strong {
+  font-weight: 700;
+  font-size: 18px;
+  color: #58595B;
+}
+.co-tab.is-active .co-tab__count,
+.co-tab.is-active .co-tab__count strong {
+  color: #020202;
+}
+
+/* Job panels ------------------------------------------------------------- */
+.co-panel { display: none; }
+.co-panel.is-active { display: block; }
+
+.co-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.co-panel__col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.co-job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(39, 132, 197, 0.08);
+  border: 1px solid rgba(39, 132, 197, 0.3);
+  border-radius: 4px;
+}
+
+.co-job-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.co-job-card__title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #020202;
+  margin: 0;
+}
+
+.co-job-card__meta {
+  display: flex;
+  gap: 24px;
+}
+
+.co-job-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #58595B;
+}
+.co-job-card__meta-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.co-job-card__apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: 1px solid rgba(39, 132, 197, 0.35);
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #2784C5;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.co-job-card__apply svg { width: 16px; height: 16px; flex-shrink: 0; }
+.co-job-card__apply:hover {
+  background: rgba(39, 132, 197, 0.06);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 1279px) {
+  .co-openings { padding: 56px 48px; }
+  .co-panel__grid { gap: 32px; }
+}
+@media (max-width: 1023px) {
+  .co-openings { padding: 48px 24px; }
+  .co-tabs { flex-direction: column; }
+  .co-tab { max-width: none; border-radius: 8px; }
+  .co-tab.is-active::after { display: none; }
+  .co-tab.is-active { box-shadow: none; border: 1px solid rgba(39, 132, 197, 0.3); }
+  .co-panel__grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 767px) {
+  .co-openings { padding: 40px 16px; gap: 20px; }
+  .co-openings__title { font-size: 24px; line-height: 32px; }
+  .co-openings__container { gap: 32px; }
+  .co-job-card { flex-direction: column; align-items: stretch; }
+  .co-job-card__apply { justify-content: center; }
+}

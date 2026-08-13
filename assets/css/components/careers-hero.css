@@ -9,6 +9,7 @@
    section — do NOT add another 72px on top of that or it doubles the gap. */
 .careers-hero {
   position: relative;
+  z-index: 0;
   height: 468px;
   overflow: hidden;
 }
@@ -26,6 +27,19 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Openings sub-page hero uses a static Figma photo instead of the video —
+   unlike the video (already dark enough on its own), the photo needs its
+   own scrim for text contrast: Figma's own rect is a flat rgba(0,0,0,0.4)
+   tint under the photo. Negative z-index, same as .careers-hero__bg, so it
+   stacks above the photo (later in DOM) but still behind the in-flow
+   .careers-hero__inner content. */
+.careers-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .careers-hero__inner {
@@ -77,10 +91,7 @@
   width: 611px;
   max-width: 100%;
   margin: 0;
-  background: var(--grad-soft);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #FFFFFF;
 }
 
 .careers-hero__lead {

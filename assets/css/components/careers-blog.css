@@ -129,14 +129,14 @@
   align-self: flex-start;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
-  border: 1px solid #E3DCFF;
-  background: #FFFFFF;
+  border: 1px solid transparent;
+  background: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.3px;
-  color: #4C3C89;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -163,11 +163,9 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Figma's last two cards use a visibly larger, borderless "highlight" style
-   with a solid black pill CTA — preserved as-is per "build accurately as it
-   is in figma". The CTA text is set to white: Figma's own layer has black
-   text on the black pill (an evident authoring slip), which would render
-   invisible, so white is used to keep the button legible. */
+/* Figma's last two cards use a visibly larger, borderless "highlight" style —
+   the pill CTA itself now shares the same gradient as every other card's
+   .blog-card__cta, just in a bigger pill shape. */
 .blog-card--big .blog-card__body {
   background: transparent;
   padding: 24px;
@@ -180,8 +178,6 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #020202;
-  border-color: #020202;
   border-radius: 23px;
   padding: 8px 15px;
   font-size: 12px;

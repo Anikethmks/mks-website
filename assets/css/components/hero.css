@@ -36,6 +36,17 @@
 .hero__bg[data-slide="2"] { background-image: url('../../images/content/slide3.jpg'); }
 .hero__bg[data-slide="3"] { background-image: url('../../images/content/fig-hero4-bg.png'); }
 
+/* Figma's own overlay rect (node 1971:7885): a flat navy tint over the
+   photo, constant across all 4 slides — sits above every .hero__bg layer
+   but below .hero__inner's content. */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(20, 29, 96, 0.6);
+  pointer-events: none;
+}
+
 .hero__inner {
   position: relative;
   z-index: 2;
@@ -95,29 +106,14 @@
   flex-direction: column;
 }
 
-.hero__title-gradient {
-  background: linear-gradient(-10.667deg, #8465FF 17.033%, #FFA980 70.59%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero__title-gradient--gold {
-  background: linear-gradient(-13.591deg, #D7D542 17.033%, #EFE703 70.59%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.hero__title-gradient--green {
-  background: linear-gradient(-13.591deg, #B0E76C 17.033%, #5AD42A 70.59%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
+/* Figma's hero title is plain white throughout (no per-slide accent
+   color) — the modifier classes stay in the markup for whichever slide
+   is showing, but all resolve to the same white as the rest of the title. */
+.hero__title-gradient,
+.hero__title-gradient--gold,
+.hero__title-gradient--green,
 .hero__title-gradient--soft {
-  background: linear-gradient(119.883deg, #CABEFA 9.1235%, #FFD2BD 89.436%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #FFFFFF;
 }
 
 .hero__subtitle {

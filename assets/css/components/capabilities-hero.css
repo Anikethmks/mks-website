@@ -69,10 +69,7 @@
   font-size: 48px;
   line-height: 60px;
   letter-spacing: -0.5px;
-  background: var(--grad-number);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #FFFFFF;
 }
 
 .capabilities-hero__lead {
