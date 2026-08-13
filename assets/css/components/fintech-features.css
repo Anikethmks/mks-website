@@ -1,6 +1,6 @@
 .fintech-features {
-  /* Same soft gradient used on Outcomes / Why Businesses Trust MKS Vision */
-  background: linear-gradient(103deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%), #FFFFFF;
+  /* Figma node 1971:8461 — plain white, no pastel gradient wash. */
+  background: #FFFFFF;
   padding: 64px;
   position: relative;
   overflow: hidden;
@@ -20,10 +20,12 @@
   opacity: 0.25;
   z-index: 0;
 }
-.fintech-features__glow--a { width: 227px; height: 227px; top: 136px; left: 961px; background: linear-gradient(141deg, rgba(202, 190, 250, 0.87) 2%, rgba(255, 210, 189, 0.87) 100%); }
-.fintech-features__glow--b { width: 333px; height: 333px; top: 465px; left: 1155px; background: rgba(116, 100, 173, 0.49); }
-.fintech-features__glow--c { width: 149px; height: 149px; top: 380px; left: 691px; background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(77, 79, 164, 0.33) 98%); }
-.fintech-features__glow--d { width: 204px; height: 204px; top: 210px; left: -26px; background: #FFD2BD; }
+/* Figma node 1971:8461 — exact size/color/position of each "Glow Decor Left"
+   layer (blur amount already matches: their 30px Gaussian == our blur(30px)). */
+.fintech-features__glow--a { width: 204px; height: 204px; top: 131.68px; left: -38px; background: #B5E1FF; }
+.fintech-features__glow--b { width: 231px; height: 231px; top: 532.68px; left: 1257px; background: #B3B5EE; }
+.fintech-features__glow--c { width: 286px; height: 286px; top: 28.68px; left: 1147px; background: #E3EFF6; }
+.fintech-features__glow--d { width: 149px; height: 149px; top: 377.68px; left: 574px; background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(77, 79, 164, 0.33) 98%); }
 
 .fintech-features__inner {
   max-width: var(--content-max);
@@ -126,7 +128,7 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(-55.005deg, #8465FF 17.033%, #FFA980 70.59%);
+  background: #1F73B4;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -135,12 +137,12 @@
   flex-shrink: 0;
 }
 .fintech-service__icon svg { display: none; }
-.fintech-service:nth-child(1) .fintech-service__icon { background: url('../../images/icons/fintech-building.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
-.fintech-service:nth-child(2) .fintech-service__icon { background: url('../../images/icons/fintech-smartphone.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
-.fintech-service:nth-child(3) .fintech-service__icon { background: url('../../images/icons/fintech-shield.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
-.fintech-service:nth-child(4) .fintech-service__icon { background: url('../../images/icons/fintech-chart.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
-.fintech-service:nth-child(5) .fintech-service__icon { background: url('../../images/icons/fintech-bot.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
-.fintech-service:nth-child(6) .fintech-service__icon { background: url('../../images/icons/fintech-card.svg') center / 24px 24px no-repeat, linear-gradient(-55deg, #8465FF 17.033%, #FFA980 70.59%); }
+.fintech-service:nth-child(1) .fintech-service__icon { background: url('../../images/icons/fintech-building.svg') center / 24px 24px no-repeat, #1F73B4; }
+.fintech-service:nth-child(2) .fintech-service__icon { background: url('../../images/icons/fintech-smartphone.svg') center / 24px 24px no-repeat, #1F73B4; }
+.fintech-service:nth-child(3) .fintech-service__icon { background: url('../../images/icons/fintech-shield.svg') center / 24px 24px no-repeat, #1F73B4; }
+.fintech-service:nth-child(4) .fintech-service__icon { background: url('../../images/icons/fintech-chart.svg') center / 24px 24px no-repeat, #1F73B4; }
+.fintech-service:nth-child(5) .fintech-service__icon { background: url('../../images/icons/fintech-bot.svg') center / 24px 24px no-repeat, #1F73B4; }
+.fintech-service:nth-child(6) .fintech-service__icon { background: url('../../images/icons/fintech-card.svg') center / 24px 24px no-repeat, #1F73B4; }
 
 .fintech-service__body { display: flex; flex-direction: column; gap: 6px; }
 

@@ -17,22 +17,38 @@
 .wwa-board__header {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  align-self: stretch;
   gap: 24px;
 }
 
+/* Distinct from the word-by-word [data-split] slide-up used elsewhere —
+   this one wipes in left-to-right behind a hard clip edge, like a reveal
+   curtain, rather than individual words rising into place. */
 .wwa-board__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
-  color: #020202;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.2px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+[data-reveal].is-visible .wwa-board__title {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwa-board__title { clip-path: none; transition: none; }
 }
 
 .wwa-board__lead {
   width: 1096px;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 16px;

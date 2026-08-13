@@ -15,14 +15,14 @@
 .wwa-vision__header {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
 }
 
 .wwa-vision__title {
-  width: 468px;
+  width: 839px;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 32px;
@@ -35,7 +35,7 @@
   width: 64px;
   height: 4px;
   border-radius: 2px;
-  background: var(--grad-soft);
+  background: var(--grad-trust-label);
 }
 
 .wwa-vision__row {
@@ -85,7 +85,7 @@
   flex: 1;
   min-width: 0;
 }
-.wwa-vision__vm-col svg { width: 40px; height: 40px; }
+.wwa-vision__vm-icon { display: block; width: 40px; height: auto; }
 
 .wwa-vision__vm-title {
   font-family: var(--font-display);

@@ -68,6 +68,7 @@
   // Hero slider with auto-play
   function initHeroSlider() {
     var hero = document.querySelector('.hero');
+    var tabsWrap = document.querySelector('.hero__tabs');
     var bgs = Array.from(document.querySelectorAll('.hero__bg[data-slide]'));
     var contents = Array.from(document.querySelectorAll('.hero__content[data-slide]'));
     var segments = Array.from(document.querySelectorAll('.hero__tab'));
@@ -144,9 +145,11 @@
       activeSegment.classList.add('is-active');
     }
 
-    // Autoplay pauses whenever the cursor or keyboard focus is anywhere on
-    // the hero (so reading the headline never gets cut off) or the tab is
-    // backgrounded, and resumes with a fresh full interval afterward.
+    // Autoplay pauses only while the cursor or keyboard focus is on the tab
+    // rail itself (so picking/reading a specific slide's tab doesn't get
+    // cut off) or the tab is backgrounded — hovering the rest of the hero
+    // (image, headline, CTAs) no longer stops it. Resumes with a fresh full
+    // interval afterward.
     function syncPausedState() {
       var shouldPause = hovering || document.hidden;
       hero.classList.toggle('is-paused', shouldPause);
@@ -165,10 +168,12 @@
       });
     });
 
-    hero.addEventListener('mouseenter', function () { hovering = true; syncPausedState(); });
-    hero.addEventListener('mouseleave', function () { hovering = false; syncPausedState(); });
-    hero.addEventListener('focusin', function () { hovering = true; syncPausedState(); });
-    hero.addEventListener('focusout', function () { hovering = false; syncPausedState(); });
+    if (tabsWrap) {
+      tabsWrap.addEventListener('mouseenter', function () { hovering = true; syncPausedState(); });
+      tabsWrap.addEventListener('mouseleave', function () { hovering = false; syncPausedState(); });
+      tabsWrap.addEventListener('focusin', function () { hovering = true; syncPausedState(); });
+      tabsWrap.addEventListener('focusout', function () { hovering = false; syncPausedState(); });
+    }
 
     document.addEventListener('visibilitychange', syncPausedState);
 
@@ -510,10 +515,13 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!window.matchMedia('(pointer: fine)').matches) return;
 
-    // .outcome-card is excluded — initOutcomesStack already drives its
-    // transform (stack depth/position), and tilt's own transform writes
-    // would silently fight with it on hover.
-    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .testimonial-card, .wwa-director-card, .wwa-ethics-card, .wwa-office-card'));
+    // .outcome-card and .testimonial-card are excluded — initOutcomesStack
+    // and initTestimonialsCarousel already drive their transform (stack
+    // depth/arc position), and tilt's own transform writes would silently
+    // fight with it on hover, snapping the card back toward the identity
+    // transform (i.e. toward the active card's position) instead of
+    // leaving it where the carousel placed it.
+    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .wwa-director-card, .wwa-ethics-card, .wwa-office-card'));
     if (!els.length) return;
 
     var MAX_TILT = 6;
@@ -533,121 +541,133 @@
     });
   }
 
-  // Testimonials — manual paging only (no auto-advance: an in-background
-  // timer firing its smooth horizontal scroll at the same moment the user
-  // was scrolling the page past this section caused a visibly torn/cut
-  // frame, since both scrolls animated at once). Navigate via dot click or
-  // click-and-drag ("grab") on the row; one page is 3 cards via native CSS
-  // scroll-snap. Dots are generated per page (ceil(cards / 3), so 7 cards
-  // → 3 dots) and reflect whichever page is nearest the scroll position
-  // regardless of how it got there — a dot click or a manual drag.
+  // Testimonials — auto-advancing circular carousel. Each card's signed
+  // distance from the active index drives an x/y/scale/rotateY/opacity
+  // offset (spacing scaled to the ring's own width so it holds up across
+  // breakpoints without separate per-tier constants), so stepping to the
+  // next card swings the whole set around a shared arc instead of sliding
+  // flat. Auto-advances on a timer, paused while the ring is hovered; dots
+  // and a click on any visible side card both jump straight to that index.
   function initTestimonialsCarousel() {
     var section = document.querySelector('.testimonials');
-    var row = document.querySelector('.testimonials__row');
-    var track = document.querySelector('.testimonials__track');
+    var viewport = document.querySelector('.testimonials__viewport');
+    var ring = document.querySelector('.testimonials__ring');
     var dotsContainer = document.querySelector('.testimonials__dots');
     var cards = Array.from(document.querySelectorAll('.testimonial-card'));
-    if (!section || !row || !track || !cards.length) return;
+    if (!section || !viewport || !ring || !cards.length) return;
 
-    var PAGE_SIZE = 3;
-    var totalPages = Math.ceil(cards.length / PAGE_SIZE);
-    var currentPage = 0;
-    var dragging = false;
-    var dragged = false;
+    var total = cards.length;
+    var active = 0;
+    var AUTO_INTERVAL = 6500;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    var hovering = false;
     var dots = [];
 
     if (dotsContainer) {
-      for (var p = 0; p < totalPages; p++) {
+      cards.forEach(function (card, i) {
         var dot = document.createElement('button');
         dot.type = 'button';
-        dot.className = 'testimonials__dot' + (p === 0 ? ' is-active' : '');
+        dot.className = 'testimonials__dot' + (i === 0 ? ' is-active' : '');
         dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-selected', String(p === 0));
-        dot.setAttribute('aria-label', 'Testimonials page ' + (p + 1));
+        dot.setAttribute('aria-selected', String(i === 0));
+        dot.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
         dotsContainer.appendChild(dot);
         dots.push(dot);
-      }
-    }
-
-    function nearestCardIndex() {
-      var trackLeft = track.getBoundingClientRect().left;
-      var best = 0;
-      var bestDist = Infinity;
-      cards.forEach(function (card, i) {
-        var dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
-        if (dist < bestDist) { bestDist = dist; best = i; }
       });
-      return best;
     }
 
-    // Mirrors goToPage's last-page clamp: a leftmost card at or past
-    // cards.length - PAGE_SIZE means the final (clamped) page is showing,
-    // not whatever a plain floor(index / PAGE_SIZE) would compute.
-    function indexToPage(index) {
-      if (index >= cards.length - PAGE_SIZE) return totalPages - 1;
-      return Math.floor(index / PAGE_SIZE);
+    function startAuto() {
+      if (reduceMotion || hovering) return;
+      stopAuto();
+      timer = setInterval(function () { setActive(active + 1); }, AUTO_INTERVAL);
+    }
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
     }
 
-    function setActiveDot(page) {
+    // Indexed by distance-from-active, same pattern as initOutcomesStack's
+    // STACK_STATES. x/y are px offsets scaled off the ring's live width so
+    // the arc reads correctly at any breakpoint.
+    function arcStates() {
+      var w = viewport.clientWidth || 900;
+      return [
+        { x: 0, y: 0, scale: 1, rot: 0, opacity: 1, z: 50 },
+        { x: w * 0.32, y: 18, scale: 0.86, rot: 34, opacity: 0.55, z: 40 },
+        { x: w * 0.5, y: 34, scale: 0.72, rot: 48, opacity: 0.16, z: 30 },
+        { x: w * 0.58, y: 46, scale: 0.62, rot: 55, opacity: 0, z: 20 }
+      ];
+    }
+
+    function setActive(index) {
+      active = (index + total) % total;
+      var states = arcStates();
+
       dots.forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === page);
-        dot.setAttribute('aria-selected', String(i === page));
+        var isActive = i === active;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', String(isActive));
+      });
+
+      cards.forEach(function (card, i) {
+        var raw = i - active;
+        if (raw > total / 2) raw -= total;
+        if (raw < -total / 2) raw += total;
+        var absD = Math.abs(raw);
+        var sign = raw === 0 ? 0 : (raw > 0 ? 1 : -1);
+        var state = states[Math.min(absD, states.length - 1)];
+        card.classList.toggle('is-active', absD === 0);
+        card.style.transform = 'translateX(' + (sign * state.x) + 'px) translateY(' + state.y +
+          'px) scale(' + state.scale + ') rotateY(' + (-sign * state.rot) + 'deg)';
+        card.style.opacity = String(state.opacity);
+        card.style.zIndex = String(state.z);
+        card.style.pointerEvents = absD <= 2 ? 'auto' : 'none';
       });
     }
-
-    function goToPage(page) {
-      currentPage = (page + totalPages) % totalPages;
-      // The last page's anchor is clamped so it always lands on the final
-      // complete set of PAGE_SIZE cards (e.g. cards 6-7-8 of 8) instead of
-      // starting a page that only has 1-2 cards left with empty space
-      // trailing it.
-      var anchor = Math.min(currentPage * PAGE_SIZE, Math.max(cards.length - PAGE_SIZE, 0));
-      var card = cards[anchor];
-      var target = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
-      track.scrollTo({ left: target, behavior: 'smooth' });
-      setActiveDot(currentPage);
-    }
-
-    // Debounced so it settles once a scroll (of any origin) finishes,
-    // rather than fighting the in-flight smooth-scroll animation.
-    var scrollSyncTimer = null;
-    track.addEventListener('scroll', function () {
-      clearTimeout(scrollSyncTimer);
-      scrollSyncTimer = setTimeout(function () {
-        currentPage = indexToPage(nearestCardIndex());
-        setActiveDot(currentPage);
-      }, 120);
-    });
 
     dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () { goToPage(i); });
+      dot.addEventListener('click', function () { setActive(i); startAuto(); });
     });
 
-    // Click-and-drag ("grab") scrolling
-    var startX = 0;
-    var startScroll = 0;
-    track.addEventListener('mousedown', function (e) {
-      dragging = true;
-      dragged = false;
-      track.classList.add('is-dragging');
-      startX = e.pageX;
-      startScroll = track.scrollLeft;
+    // Pausing is scoped to the cards themselves, not the whole viewport box
+    // — the viewport has to be wider/taller than the visible cards to make
+    // room for the arc's side offsets, so a viewport-level mouseenter would
+    // stay "hovering" even once the cursor left every card, and auto-advance
+    // would never resume. hoverCount (rather than a plain boolean) covers
+    // moving directly between two overlapping cards without a false resume
+    // in the gap between their mouseleave/mouseenter.
+    var hoverCount = 0;
+    cards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        if (i === active) return;
+        setActive(i);
+        startAuto();
+      });
+      card.addEventListener('mouseenter', function () {
+        hoverCount++;
+        hovering = true;
+        stopAuto();
+      });
+      card.addEventListener('mouseleave', function () {
+        hoverCount = Math.max(0, hoverCount - 1);
+        if (hoverCount === 0) {
+          hovering = false;
+          startAuto();
+        }
+      });
     });
-    window.addEventListener('mousemove', function (e) {
-      if (!dragging) return;
-      var dx = e.pageX - startX;
-      if (Math.abs(dx) > 4) dragged = true;
-      track.scrollLeft = startScroll - dx;
+
+    // Re-layout on resize: the arc's px offsets are derived from the
+    // ring's current width, so a viewport/breakpoint change needs a
+    // recompute even though `active` itself hasn't moved.
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { setActive(active); }, 150);
     });
-    window.addEventListener('mouseup', function () {
-      if (!dragging) return;
-      dragging = false;
-      track.classList.remove('is-dragging');
-    });
-    // A drag shouldn't also register as a click on whatever's underneath the cursor
-    track.addEventListener('click', function (e) {
-      if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; }
-    }, true);
+
+    setActive(0);
+    startAuto();
   }
 
   // Outcomes "Delivering Impact" marquee — duplicate the pill group for a seamless infinite scroll

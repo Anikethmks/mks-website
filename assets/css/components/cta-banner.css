@@ -1,5 +1,6 @@
 .cta-banner {
-  background: linear-gradient(137.13deg, rgba(202, 190, 250, 0.7) 9.1235%, rgba(255, 210, 189, 0.7) 89.436%);
+  /* Figma node 1971:8447 — plain light gray, no pastel gradient wash. */
+  background: #F8F9FA;
   padding: 32px 64px;
   min-height: 130px;
 }
@@ -20,12 +21,37 @@
   flex: 1;
 }
 
+/* Distinct from the word-by-word [data-split] slide-up used on every other
+   heading — this is the page's final call to action, so it gets its own
+   treatment: rises and fades in as a single block, then settles into a
+   slow, continuous gradient shimmer (first/last stops match so the loop
+   has no visible seam). Reveal is still driven by the ancestor
+   [data-reveal], same trigger as everywhere else, just a different result. */
 .cta-banner__title {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 28px;
   line-height: 38px;
-  color: #4D3D8A;
+  background: linear-gradient(90deg, #2784C5 0%, #4D4FA4 25%, #2784C5 50%, #4D4FA4 75%, #2784C5 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible .cta-banner__title {
+  opacity: 1;
+  transform: translateY(0);
+  animation: cta-title-shimmer 5s linear 0.5s infinite;
+}
+@keyframes cta-title-shimmer {
+  from { background-position: 0% 0; }
+  to   { background-position: -300% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-banner__title { animation: none; }
 }
 
 .cta-banner__lead {
@@ -38,6 +64,11 @@
 }
 
 .cta-banner .btn { flex-shrink: 0; }
+/* Figma wants a gradient-filled button with white text here — .btn--gradient
+   has that color scheme already, just not this exact shape (its shared
+   padding/radius are tuned for the navbar/hero instances), so the shape is
+   overridden locally rather than touching the shared class. */
+.cta-banner .btn--gradient { padding: 8px 32px; border-radius: 4px; }
 
 @media (max-width: 1279px) {
   .cta-banner { padding: 28px 48px; }

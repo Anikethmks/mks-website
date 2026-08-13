@@ -6,7 +6,7 @@
 .industries__accordion {
   display: flex;
   gap: 12px;
-  height: 450px;
+  height: 406px;
 }
 
 .industry-panel {
@@ -35,6 +35,12 @@
   box-shadow: var(--shadow-lift);
   transform: translateY(-4px);
 }
+/* Figma's row gap is 16px between the active card and the capsule group,
+   but only 12px between capsules within that group — not one uniform
+   gap. The base 12px above covers every pair; these add the extra 4px
+   on whichever side actually touches the active card. */
+.industry-panel.is-active + .industry-panel { margin-left: 4px; }
+.industry-panel:has(+ .industry-panel.is-active) { margin-right: 4px; }
 
 .industry-panel__progress {
   position: absolute;
@@ -43,7 +49,7 @@
   z-index: 3;
   height: 3px;
   width: 0%;
-  background: var(--grad-cta);
+  background: linear-gradient(101deg, #1A70B2 3.897%, #4C3C89 92.225%);
 }
 
 .industry-panel__bg {
@@ -67,7 +73,8 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(2, 2, 2, 0.05) 0%, rgba(2, 2, 2, 0.55) 45%, rgba(2, 2, 2, 0.92) 100%);
+  /* Figma node 1971:7939 — the active card's tint, not a dark vignette. */
+  background: linear-gradient(123.449deg, rgba(92, 165, 229, 0.5) 51.081%, rgba(75, 86, 136, 0.5) 88.979%);
   /* Dimmed while collapsed so the gradient underneath stays vivid — full
      darkening is only needed once the real photo is showing, for the
      content text sitting on top of it. */
@@ -79,10 +86,9 @@
 }
 
 /* Collapsed state — vertical rotated label, visible until the panel expands.
-   Its own soft gradient sits above the scrim/image (z-index 2) and fully
-   covers them while collapsed, fading away on activation to reveal the
-   real photo beneath — same soft purple-to-peach pairing (9.12%/89.44%
-   stops) used for section backgrounds elsewhere on the site. */
+   Its own gradient sits above the scrim/image (z-index 2) and fully covers
+   them while collapsed, fading away on activation to reveal the real photo
+   beneath — Figma node 1971:7939's blue-to-periwinkle capsule fill. */
 .industry-panel__collapsed {
   position: absolute;
   inset: 0;
@@ -92,12 +98,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 32px 16px;
-  /* Figma's capsule is deliberately dimmed to 80% opacity even in its
-     resting (non-active) state — at full opacity the gradient reads
-     noticeably more saturated/crisp than the reference. */
-  opacity: 0.8;
   transition: opacity 0.35s ease;
-  background: linear-gradient(36deg, #CABEFA 9.12%, #FFD2BD 89.44%);
+  background: linear-gradient(180deg, rgba(65, 158, 224, 0.9) 10.837%, rgba(129, 135, 238, 0.9) 89.163%);
 }
 .industry-panel.is-active .industry-panel__collapsed {
   opacity: 0;
@@ -105,9 +107,9 @@
 
 .industry-panel__num {
   font-family: var(--font-primary);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: rgba(46, 51, 77, 0.7);
+  color: #FFFFFF;
 }
 
 .industry-panel__vtext {
@@ -116,7 +118,7 @@
   font-family: var(--font-primary);
   font-size: 16px;
   font-weight: 600;
-  color: #1C2138;
+  color: #FFFFFF;
   white-space: nowrap;
   max-height: 340px;
   overflow: hidden;
@@ -127,11 +129,11 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(28, 33, 56, 0.3);
+  border: 1px solid #DDE1FF;
   display: grid;
   place-items: center;
   font-size: 14px;
-  color: #1C2138;
+  color: #FFFFFF;
   flex-shrink: 0;
 }
 
@@ -142,66 +144,78 @@
   right: 0;
   bottom: 0;
   z-index: 2;
-  padding: 32px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+  /* Collapsing (this base rule, no is-active) needs to fade out faster
+     than .industry-panel__collapsed's 0.35s/no-delay reveal, and well
+     before the panel's own 0.8s width collapse — which is an ease-out
+     curve, so it's already mostly narrow within the first third of that
+     time. Without this, the old title/description was still visibly
+     fading inside an already-narrow, already-relabelled strip — a
+     double-exposure right at the tail of the animation. Expanding
+     (is-active below) keeps its own slower, delayed entrance. */
+  transition: opacity 0.2s ease, transform 0.25s ease;
   pointer-events: none;
 }
 .industry-panel.is-active .industry-panel__content {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
 .industry-panel__eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 .industry-panel__eyebrow-num {
-  font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #FFA980;
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 600;
+  opacity: 0.8;
+  color: #FFFFFF;
   flex-shrink: 0;
 }
 .industry-panel__eyebrow-line {
   height: 1px;
   flex: 1 1 auto;
-  background: linear-gradient(90deg, rgba(255, 169, 128, 0.8), transparent);
+  background: rgba(255, 255, 255, 0.3);
 }
 .industry-panel__eyebrow-label {
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: normal;
   text-transform: uppercase;
   white-space: nowrap;
-  padding: 5px 12px;
+  padding: 10px 18px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.14);
+  background: linear-gradient(47.68deg, rgb(39, 132, 197) 23.887%, rgb(77, 79, 164) 89.218%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #FFFFFF;
 }
 
 .industry-panel__title {
-  font-family: var(--font-display);
+  font-family: var(--font-primary);
   font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 30px);
+  font-size: 36px;
   line-height: 1.15;
-  letter-spacing: -0.01em;
   color: #FFFFFF;
 }
 
 .industry-panel__desc {
   font-family: var(--font-primary);
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #FFFFFF;
   max-width: 46ch;
 }
 
@@ -212,12 +226,12 @@
   width: fit-content;
   margin-top: 4px;
   font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   color: #FFFFFF;
-  padding: 11px 20px;
+  padding: 14px 24px;
   border-radius: var(--radius-pill);
-  background: var(--grad-cta);
+  background: linear-gradient(58.414deg, rgb(39, 132, 197) 23.887%, rgb(77, 79, 164) 89.218%);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
