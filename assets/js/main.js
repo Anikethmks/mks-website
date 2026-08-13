@@ -751,6 +751,75 @@
       <div class="footer__bottom" data-reveal style="--reveal-delay: 0.15s"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></nav></div>`;
   }
 
+  // Careers — Current Openings tabs (careers-openings.html). Which panel is
+  // active can be deep-linked via ?tab=entry / ?tab=lateral — careers.html's
+  // "Entry Level & Internships" / "Lateral Hiring" Explore buttons link here
+  // with that param so the right list is already open on arrival.
+  function initCareersOpenings() {
+    var tabs = Array.from(document.querySelectorAll('[data-co-tab]'));
+    var panels = Array.from(document.querySelectorAll('[data-co-panel]'));
+    if (!tabs.length || !panels.length) return;
+
+    function activate(name) {
+      tabs.forEach(function (tab) {
+        var isActive = tab.getAttribute('data-co-tab') === name;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+      panels.forEach(function (panel) {
+        panel.classList.toggle('is-active', panel.getAttribute('data-co-panel') === name);
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var name = tab.getAttribute('data-co-tab');
+        activate(name);
+        var url = new URL(window.location.href);
+        url.searchParams.set('tab', name);
+        window.history.replaceState(null, '', url);
+      });
+    });
+
+    // Arriving with a ?tab= param means the visit came from one of
+    // careers.html's "Explore" buttons — the page loads on the hero as
+    // normal, then eases down to the openings section a beat later so the
+    // jump reads as an animated hand-off rather than landing mid-page.
+    var requested = new URLSearchParams(window.location.search).get('tab');
+    if (requested && tabs.some(function (t) { return t.getAttribute('data-co-tab') === requested; })) {
+      activate(requested);
+      var openings = document.getElementById('current-openings');
+      if (openings) {
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.setTimeout(function () {
+          openings.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        }, 500);
+      }
+    }
+  }
+
+  // Outcomes (outcomes.html) — the homepage's four outcome cards ("AI First
+  // Solutions", "IT Services", "Engineering", "Products & Platform") each
+  // Explore into this same page with ?section=<id>. A plain #hash link
+  // would make the browser jump there instantly before the page even
+  // finishes rendering; a query param avoids that native jump entirely, so
+  // the page loads on the hero as normal and then eases down to the right
+  // section a beat later — the same animated hand-off used for careers.html
+  // → careers-openings.html.
+  function initOutcomesScroll() {
+    var sectionIds = ['ai-first-solutions', 'it-services', 'engineering', 'products-platform'];
+    var requested = new URLSearchParams(window.location.search).get('section');
+    if (!requested || sectionIds.indexOf(requested) === -1) return;
+
+    var target = document.getElementById(requested);
+    if (!target) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.setTimeout(function () {
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }, 500);
+  }
+
   // Init all on DOM ready
   document.addEventListener('DOMContentLoaded', function () {
     initFooter();
@@ -770,5 +839,7 @@
     initTiltCards();
     initIndustriesAccordion();
     initOutcomesStack();
+    initCareersOpenings();
+    initOutcomesScroll();
   });
 })();

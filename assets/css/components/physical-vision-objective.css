@@ -67,9 +67,9 @@
 .pva-objective-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid #CABEFA;
+  border: 1px solid rgba(39, 132, 197, 0.3);
   border-radius: 8px;
-  background: linear-gradient(98deg, rgba(202, 190, 250, 0.7) 9.12%, rgba(255, 210, 189, 0.7) 89.44%);
+  background: rgba(39, 132, 197, 0.1);
   padding: 16px;
   min-height: 163px;
   display: flex;

@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .pva-solution {
-  background: #FFEDE7;
+  background: rgba(39, 132, 197, 0.1);
   padding: 64px;
   display: flex;
   flex-direction: column;
