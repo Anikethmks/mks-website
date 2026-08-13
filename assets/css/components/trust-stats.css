@@ -1,8 +1,9 @@
 /* Why Businesses Trust MKS Vision — Figma node 1796:34747 */
 
 .trust-stats {
-  background: linear-gradient(101.54deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%);
-  padding: 64px 64px 99px;
+  /* Figma node 1971:8193 — plain white, no pastel gradient wash. */
+  background: #FFFFFF;
+  padding: 64px;
   overflow: hidden;
 }
 
@@ -60,8 +61,9 @@
 }
 
 .trust-stats__certified-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 600;
@@ -78,11 +80,20 @@
   flex-shrink: 0;
 }
 
+/* Two rows of two — Figma node 1971:8193 pairs ISO+GDPR on one row and
+   PCI DSS+NASSCOM on the next, not a single flat row of four. */
 .trust-stats__logos {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 16px;
+}
+
+.trust-stats__logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
 }
 
 .trust-stats__logo-tile {
@@ -98,11 +109,15 @@
   object-fit: contain;
 }
 
-.trust-stats__logo-tile:nth-child(1) .trust-stats__logo { max-height: 110px; }
-.trust-stats__logo-tile:nth-child(2) .trust-stats__logo { max-height: 93px; }
-.trust-stats__logo-tile:nth-child(3) .trust-stats__logo { max-width: 287px; max-height: 40px; }
+.trust-stats__logo-tile--iso .trust-stats__logo { max-height: 100px; }
+.trust-stats__logo-tile--gdpr .trust-stats__logo { max-height: 100px; }
+.trust-stats__logo-tile--pci .trust-stats__logo { max-height: 95px; }
+.trust-stats__logo-tile--nasscom .trust-stats__logo { max-width: 224px; max-height: 31px; }
 
-/* Right side — two vertical tickers scrolling in opposite directions --- */
+/* Right side — two vertical tickers scrolling in opposite directions,
+   split by a vertical rule. Figma node 1971:8193 gives the colors/type
+   (white section, #F8FBFF cards, gray labels) but the auto-scroll motion
+   itself carries over from the original build. */
 
 .trust-stats__right {
   display: flex;
@@ -171,17 +186,15 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid #FFFFFF;
+  background: #F8FBFF;
+  border: 1px solid #F8FBFF;
   border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  transition: background 0.3s ease, transform 0.3s ease;
 }
-.trust-stats__col:hover .stat-card { background: rgba(255, 255, 255, 0.4); }
 
 .stat-card__number {
   font-family: var(--font-display);
@@ -201,7 +214,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  color: #1F73B4;
+  color: #58595B;
 }
 
 /* Left column and ticker block both shrink fluidly (flex + min/max-width)
@@ -222,9 +235,8 @@
 }
 
 /* Mobile (Figma node 1936:7611, 390px frame) — same auto-scrolling vertical
-   ticker mechanism as desktop (see the note further down), just resized;
-   Figma's frame is a static snapshot and can't show that motion, but the
-   scroll/fade should still run at every width. */
+   ticker mechanism as desktop, just resized; Figma's frame is a static
+   snapshot and can't show that motion, but the scroll/fade still runs. */
 @media (max-width: 767px) {
   .trust-stats { padding: 32px 16px; }
   .trust-stats__inner { flex-direction: column; gap: 32px; }
@@ -234,12 +246,14 @@
   .trust-stats__lead { font-size: 16px; line-height: 26px; max-width: none; }
   .trust-stats__certified { gap: 16px; align-items: center; }
   .trust-stats__certified-label { justify-content: center; }
-  .trust-stats__logos { justify-content: center; flex-wrap: nowrap; gap: 12px; width: 100%; min-height: 132px; }
+  .trust-stats__logos { gap: 12px; width: 100%; min-height: 132px; }
+  .trust-stats__logos-row { gap: 20px; }
   /* Exact measured Figma dimensions — logos were rendering at desktop's
-     110/93/40px sizes without these, badly oversized for mobile. */
-  .trust-stats__logo-tile:nth-child(1) .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
-  .trust-stats__logo-tile:nth-child(2) .trust-stats__logo { width: 67px; height: 53px; max-width: none; max-height: none; }
-  .trust-stats__logo-tile:nth-child(3) .trust-stats__logo { width: 166px; height: 23px; max-width: none; max-height: none; }
+     100/95/31px sizes without these, badly oversized for mobile. */
+  .trust-stats__logo-tile--iso .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
+  .trust-stats__logo-tile--gdpr .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
+  .trust-stats__logo-tile--pci .trust-stats__logo { width: 67px; height: 53px; max-width: none; max-height: none; }
+  .trust-stats__logo-tile--nasscom .trust-stats__logo { width: 166px; height: 23px; max-width: none; max-height: none; }
 
   /* Keep the auto-scrolling ticker running at mobile too — Figma's static
      frame can't depict motion, so the mobile mockup necessarily shows a
@@ -276,7 +290,7 @@
   .trust-stats__col--left .trust-stats__group,
   .trust-stats__col--right .trust-stats__track,
   .trust-stats__col--right .trust-stats__group { gap: 24px; }
-  .stat-card { background: rgba(255, 255, 255, 0.5); padding: 16px; gap: 8px; width: 100%; min-width: 0; }
+  .stat-card { padding: 16px; gap: 8px; width: 100%; min-width: 0; }
   .stat-card__number { font-weight: 600; font-size: 24px; line-height: 34px; }
   .stat-card__label { font-size: 14px; line-height: 26px; font-weight: 600; color: #58595B; overflow-wrap: break-word; }
 }

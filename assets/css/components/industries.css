@@ -1,5 +1,7 @@
 .industries {
-  background: linear-gradient(102deg, rgba(202, 190, 250, 0.4) 9.12%, rgba(255, 210, 189, 0.4) 89.44%), #FFFFFF;
+  /* Figma node 1971:7939 has no gradient wash on this section — plain white,
+     unlike Outcomes/Trust Stats/Fintech/Healthcare which share that pastel. */
+  background: #FFFFFF;
   padding: 64px;
   position: relative;
   overflow: hidden;

@@ -64,12 +64,9 @@ body { opacity: 1; transition: opacity 0.6s ease; }
    outcomes.css (the card stack drives transform via JS, tied to which
    outcome is active — a competing hover rule here would fight it). */
 
-/* Testimonials */
-.testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 32px rgba(31, 115, 180, 0.18);
-}
+/* Testimonials — the carousel now owns .testimonial-card's transform/
+   transition entirely (arc position driven via JS, see testimonials.css
+   and initTestimonialsCarousel); a hover-lift rule here would fight it. */
 
 /* Healthcare feature cards */
 .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -121,11 +118,11 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 
 /* 3D tilt cards — rotation applied via inline transform in JS; the CSS
    transition below only smooths it. Faster than the lift/shadow transition
-   below it so tilt tracks the cursor closely. .outcome-card is excluded —
-   its transform is owned by the card stack in outcomes.css/main.js. */
+   below it so tilt tracks the cursor closely. .outcome-card and
+   .testimonial-card are excluded — their transform is owned by their own
+   carousel/stack (outcomes.css/main.js, testimonials.css/main.js). */
 .feature-card,
-.fintech-service,
-.testimonial-card {
+.fintech-service {
   transition: transform 0.15s ease-out, background 0.35s ease, box-shadow 0.3s ease;
 }
 

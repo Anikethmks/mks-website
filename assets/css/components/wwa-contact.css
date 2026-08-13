@@ -7,11 +7,12 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: linear-gradient(141deg, rgba(202, 190, 250, 0.15) 2%, rgba(255, 210, 189, 0.15) 100%);
+  /* Figma uses a light blue wash here, not the purple-peach pastel. */
+  background: linear-gradient(141deg, rgba(39, 132, 197, 0.09) 2%, rgba(39, 132, 197, 0.09) 100%);
   padding: 64px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 64px;
 }
 
@@ -42,19 +43,19 @@
 .wwa-contact__pin svg { width: 100%; height: 100%; }
 
 .wwa-contact__title {
-  width: 430px;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
-  color: #020202;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.2px;
+  color: #1F73B4;
 }
 
 .wwa-contact__lead {
   width: 100%;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 16px;
@@ -91,8 +92,8 @@
   max-width: 100%;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 24px;
+  line-height: 34px;
   color: #020202;
 }
 .wwa-contact__left-title span { color: #331897; }
@@ -100,8 +101,8 @@
 .wwa-contact__left-desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 22px;
   color: #020202;
 }
 
@@ -211,7 +212,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background: linear-gradient(141deg, rgba(202, 190, 250, 0.2) 2%, rgba(255, 210, 189, 0.2) 100%);
+  /* Figma uses a violet-to-blue tint here, not the purple-peach pastel. */
+  background: linear-gradient(-66deg, rgba(134, 103, 255, 0.2) 4%, rgba(41, 134, 197, 0.2) 97%);
   border-radius: 16px;
 }
 .wwa-contact-form::before {
@@ -220,12 +222,23 @@
   inset: 0;
   padding: 6px;
   border-radius: inherit;
-  background: var(--grad-soft);
+  background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(77, 79, 164, 0.33) 98%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.wwa-contact-form__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .wwa-contact-form__field {

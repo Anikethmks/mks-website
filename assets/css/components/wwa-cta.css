@@ -43,12 +43,18 @@
 }
 
 .wwa-cta__actions a {
+  position: relative;
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
-  border: 0.5px solid #2784C5;
   border-radius: 4px;
-  background: #FFFFFF;
+  /* Figma's border is a gradient stroke (mks-grad), not a solid blue.
+     Double-background (padding-box fill + border-box gradient) instead of
+     the mask/::before ring trick — mask-composite's "exclude" vs the
+     -webkit "xor" keyword don't always agree cross-browser, which left
+     only part of the ring painted. An actual `border` is unambiguous. */
+  border: 0.5px solid transparent;
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box, var(--grad-cta) border-box;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
@@ -56,6 +62,11 @@
   letter-spacing: 0.3px;
   color: #4C3C89;
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wwa-cta__actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
 }
 
 @media (max-width: 1279px) {
