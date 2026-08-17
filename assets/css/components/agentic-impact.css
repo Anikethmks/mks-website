@@ -6,6 +6,14 @@
 .agentic-impact {
   background: rgba(39, 132, 197, 0.1);
   padding: 64px;
+}
+
+/* Caps and centers the content column — without it, the section's flex
+   children (no width cap) fill its full padded width and glue to the left
+   edge on screens wider than ~1440px instead of centering. */
+.agentic-impact__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -116,7 +124,8 @@
   .agentic-impact__title { font-size: 24px; line-height: 32px; }
 }
 @media (max-width: 767px) {
-  .agentic-impact { padding: 32px 16px; gap: 32px; }
+  .agentic-impact { padding: 32px 16px; }
+  .agentic-impact__inner { gap: 32px; }
   .agentic-impact__title { font-size: 22px; line-height: 30px; }
   .agentic-impact-card { flex-basis: 100%; }
   .agentic-impact__tags { gap: 12px 8px; }

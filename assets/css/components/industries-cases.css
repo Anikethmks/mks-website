@@ -4,9 +4,16 @@
    Source Figma frames: #687:448, #674:1427 (671:673 subtree)
    ========================================================================== */
 
+/* Figma's own design is a full-bleed edge-to-edge split at its 1440px
+   canvas width — capped at --frame-max (not --content-max, which already
+   assumes 64px of its own side padding) so it stays exactly as-is at
+   typical desktop widths and only stops growing past 1440px, instead of
+   each column becoming excessively wide on ultra-wide screens. */
 .industries-row {
   display: flex;
   flex-wrap: wrap;
+  max-width: var(--frame-max);
+  margin-inline: auto;
 }
 
 .industries-row__col {
@@ -29,10 +36,11 @@
   margin: 0;
 }
 
-/* Shared case-study card, used across every industry section. Modifiers
-   account for the small padding/border/tag-color variance Figma has between
-   the Banking/Healthcare pair and the eCommerce/Manufacturing/Automotive
-   ones — not a mistake to normalize, preserved as-is. */
+/* Shared case-study card, used across every industry section. --roomy
+   accounts for the padding/gap Figma gives the eCommerce/Manufacturing/
+   Automotive cards vs. the tighter Banking/Healthcare pair — preserved as
+   intentional. --bordered is now applied to every card, Banking/Healthcare
+   included. */
 .industry-case-card {
   background: #FFFFFF;
   padding: 24px;

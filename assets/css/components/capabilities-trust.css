@@ -6,6 +6,15 @@
 .capabilities-trust {
   background: #FFFFFF;
   padding: 64px;
+}
+
+/* Caps and centers the content column at the same width as the rest of
+   the page — without it, the header/grid center themselves relative to
+   the section's full padded width instead of the shared content column,
+   and on very wide screens the 4-card grid stretches excessively. */
+.capabilities-trust__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -107,7 +116,8 @@
 }
 
 @media (max-width: 1279px) {
-  .capabilities-trust { padding: 56px 48px; gap: 40px; }
+  .capabilities-trust { padding: 56px 48px; }
+  .capabilities-trust__inner { gap: 40px; }
 }
 @media (max-width: 1023px) {
   .capabilities-trust { padding: 48px 24px; }
@@ -115,7 +125,8 @@
   .capabilities-trust__title { font-size: 24px; line-height: 32px; }
 }
 @media (max-width: 767px) {
-  .capabilities-trust { padding: 32px 16px; gap: 32px; }
+  .capabilities-trust { padding: 32px 16px; }
+  .capabilities-trust__inner { gap: 32px; }
   .capabilities-trust__grid { grid-template-columns: 1fr; gap: 16px; }
   .capabilities-trust__title { font-size: 22px; line-height: 30px; }
 }

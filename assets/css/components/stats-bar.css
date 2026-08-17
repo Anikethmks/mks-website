@@ -7,6 +7,14 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: inset 4px -1px 8px 0 rgba(225, 228, 255, 1);
   padding: 24px 64px;
+}
+
+/* Caps and centers the item row — without it, the fixed-width items
+   (space-between) spread apart across the section's full width on very
+   wide screens instead of sitting together as a centered group. */
+.stats-bar__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,13 +62,15 @@
   .stats-bar__item { width: 180px; }
 }
 @media (max-width: 1023px) {
-  .stats-bar { padding: 24px; flex-wrap: wrap; gap: 24px; justify-content: center; }
+  .stats-bar { padding: 24px; }
+  .stats-bar__inner { flex-wrap: wrap; gap: 24px; justify-content: center; }
   .stats-bar__divider { display: none; }
   .stats-bar__item { width: auto; flex: 1 1 30%; }
   .stats-bar__number { font-size: 32px; line-height: 40px; }
 }
 @media (max-width: 767px) {
-  .stats-bar { padding: 24px 16px; gap: 20px; }
+  .stats-bar { padding: 24px 16px; }
+  .stats-bar__inner { gap: 20px; }
   .stats-bar__item { flex: 1 1 45%; }
   .stats-bar__number { font-size: 28px; line-height: 36px; }
 }

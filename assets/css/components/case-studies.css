@@ -6,6 +6,14 @@
 
 .case-studies {
   padding: 64px;
+}
+
+/* Caps and centers the content column — without it, the section's flex
+   children (no width cap) fill its full padded width and glue to the left
+   edge on screens wider than ~1440px instead of centering. */
+.case-studies__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -293,10 +301,15 @@
 }
 
 /* Two-column RPA / Engineering split section --------------------------- */
+/* Figma's own design is a full-bleed edge-to-edge split at its 1440px
+   canvas width — capped at --frame-max so it stays exactly as-is at
+   typical desktop widths and only stops growing past 1440px. */
 .case-studies-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
+  max-width: var(--frame-max);
+  margin-inline: auto;
 }
 
 .case-studies-split__col {
@@ -381,7 +394,8 @@
 }
 
 @media (max-width: 1279px) {
-  .case-studies { padding: 56px 48px; gap: 40px; }
+  .case-studies { padding: 56px 48px; }
+  .case-studies__inner { gap: 40px; }
   .case-studies__grid { gap: 24px; }
   .case-studies-split__col { padding: 56px 48px; }
 }
@@ -395,7 +409,8 @@
   .case-studies-split__col { padding: 40px 24px; }
 }
 @media (max-width: 767px) {
-  .case-studies { padding: 32px 16px; gap: 32px; }
+  .case-studies { padding: 32px 16px; }
+  .case-studies__inner { gap: 32px; }
   .case-studies-split__col { padding: 32px 16px; gap: 24px; }
   .case-studies-split__col--rpa { gap: 32px; }
   .case-studies__title,

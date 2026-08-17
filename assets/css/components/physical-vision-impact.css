@@ -6,6 +6,14 @@
 .pva-impact {
   background: #F3F0FF;
   padding: 64px;
+}
+
+/* Caps and centers the content column — without it, the section's flex
+   children (no width cap) fill its full padded width and glue to the left
+   edge on screens wider than ~1440px instead of centering. */
+.pva-impact__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -97,7 +105,8 @@
 /* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
    767px tier (transitions earlier, no coverage gap). */
 @media (max-width: 767px) {
-  .pva-impact { padding: 24px 16px; gap: 24px; }
+  .pva-impact { padding: 24px 16px; }
+  .pva-impact__inner { gap: 24px; }
   .pva-impact__title { font-size: 24px; line-height: 32px; }
   .pva-impact__subtitle { font-size: 15px; }
   .pva-impact-card { flex-basis: 100%; }

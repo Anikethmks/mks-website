@@ -13,13 +13,24 @@
   position: relative;
   padding: 120px 64px 64px;
   color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  background-image: linear-gradient(135deg, rgba(20, 29, 96, 0.65) 0%, rgba(20, 29, 96, 0.45) 100%), url('../../images/content/outcomes-hero-bg.png');
+  /* Figma swapped both the photo (a target/standing-out visual) and the
+     tint — a flat 25%-black scrim now, not the navy-blue diagonal wash. */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../images/content/outcomes-hero-bg-new.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+/* Caps and centers the content column at the same width as the rest of
+   this page's sections (.op-section__split etc. all use --content-max) so
+   the hero's text lines up with the content below it, and so it centers
+   on screens wider than ~1440px instead of gluing to the left edge. */
+.op-hero__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .op-hero__breadcrumb {
@@ -49,15 +60,15 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 1036px;
+  max-width: 885px;
 }
 
 .op-hero__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
-  letter-spacing: -0.5px;
+  font-size: 52px;
+  line-height: 64px;
+  letter-spacing: -1px;
   color: #FFFFFF;
   margin: 0;
 }

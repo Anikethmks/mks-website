@@ -42,6 +42,16 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+/* Caps and centers the whole hero frame (still keeping the exact Figma
+   64px-from-left text position at <=1440px, since that's baked into
+   .careers-hero__inner's own padding-left) — without it, the section
+   itself has no width cap, so on screens wider than ~1440px the text
+   stayed glued to the left instead of centering like the home page does. */
+.careers-hero__frame {
+  max-width: var(--frame-max);
+  margin-inline: auto;
+}
+
 .careers-hero__inner {
   padding-left: 64px;
   display: flex;

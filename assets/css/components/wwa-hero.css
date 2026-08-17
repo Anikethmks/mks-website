@@ -6,7 +6,7 @@
 .wwa-hero {
   position: relative;
   padding: 120px 64px 64px;
-  background: #644DBF;
+  background: #000000;
   color: #FFFFFF;
   overflow: hidden;
   isolation: isolate;
@@ -19,11 +19,22 @@
   right: 0;
   height: 480px;
   z-index: -1;
-  /* Figma tints this photo with the brand purple (rgba(77,79,164,.9)),
-     not a black scrim. */
-  background-image: linear-gradient(rgba(77, 79, 164, 0.9), rgba(77, 79, 164, 0.9)), url('../../images/content/wwa-hero-bg-wwahero.png');
+  /* Figma swapped both the photo (a blue umbrella standing out among black
+     ones) and the tint — a flat 25% black scrim now, not the old 90%
+     brand-purple wash that hid the photo almost entirely. */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../images/content/wwa-hero-bg-new.png');
   background-size: cover;
   background-position: center;
+}
+
+/* Caps and centers the content column at the same width as the rest of
+   this page's sections (.wwa-vision__inner etc. all use --content-max) —
+   .wwa-hero__inner's own fixed 740px width then sits at the START of that
+   centered column (matching Figma), rather than at the section's raw left
+   padding edge on screens wider than ~1440px. */
+.wwa-hero__frame {
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 .wwa-hero__inner {
