@@ -10,6 +10,20 @@
   /* Figma uses a light blue wash here, not the purple-peach pastel. */
   background: linear-gradient(141deg, rgba(39, 132, 197, 0.09) 2%, rgba(39, 132, 197, 0.09) 100%);
   padding: 64px;
+}
+
+/* Caps and centers the content column (title/lead/body) — .wwa-contact__map
+   stays a direct child of the section itself, not this wrapper: its
+   absolute-position offsets are calibrated against the section's own
+   (full-bleed) box, and nesting it in here would shift it. Without this
+   wrapper, the title/lead/body (no max-width, explicit width:100% on two
+   of them) just fill the section's full padded width and glue to its left
+   edge on screens wider than ~1440px instead of centering. */
+.wwa-contact__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -294,14 +308,16 @@
 .wwa-contact-form__submit:hover { box-shadow: var(--shadow-lift); }
 
 @media (max-width: 1279px) {
-  .wwa-contact { padding: 56px 48px; gap: 56px; }
+  .wwa-contact { padding: 56px 48px; }
+  .wwa-contact__inner { gap: 56px; }
   .wwa-contact__body { gap: 40px; }
   .wwa-office-grid { gap: 20px; }
 }
 
 @media (max-width: 1023px) {
   .wwa-contact__map { display: none; }
-  .wwa-contact { padding: 48px 32px; gap: 48px; }
+  .wwa-contact { padding: 48px 32px; }
+  .wwa-contact__inner { gap: 48px; }
   .wwa-contact__title { font-size: 24px; line-height: 32px; }
   .wwa-contact__body { flex-direction: column; align-items: stretch; gap: 32px; }
   .wwa-contact__left { max-width: 100%; }
@@ -311,7 +327,8 @@
 }
 
 @media (max-width: 767px) {
-  .wwa-contact { padding: 40px 20px; gap: 32px; }
+  .wwa-contact { padding: 40px 20px; }
+  .wwa-contact__inner { gap: 32px; }
   .wwa-contact__title { font-size: 22px; line-height: 30px; }
   .wwa-contact__left-title { font-size: 20px; line-height: 28px; }
   .wwa-office-grid { grid-template-columns: 1fr; gap: 16px; }

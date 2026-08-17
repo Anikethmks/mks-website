@@ -6,6 +6,14 @@
 .pva-solution {
   background: rgba(39, 132, 197, 0.1);
   padding: 64px;
+}
+
+/* Caps and centers the content column — without it, the section's flex
+   children (no width cap) fill its full padded width and glue to the left
+   edge on screens wider than ~1440px instead of centering. */
+.pva-solution__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -88,7 +96,8 @@
 }
 
 @media (max-width: 1279px) {
-  .pva-solution { padding: 48px 48px; gap: 40px; }
+  .pva-solution { padding: 48px 48px; }
+  .pva-solution__inner { gap: 40px; }
   .pva-solution__row { gap: 32px; }
 }
 /* Tablet: original stack breakpoint was 1000px; remapped to the standard
@@ -98,7 +107,8 @@
   .pva-solution__row { flex-direction: column; }
 }
 @media (max-width: 767px) {
-  .pva-solution { padding: 24px 16px; gap: 24px; }
+  .pva-solution { padding: 24px 16px; }
+  .pva-solution__inner { gap: 24px; }
   .pva-solution__title { font-size: 24px; line-height: 32px; }
   .pva-solution__subtitle { font-size: 15px; }
   .pva-solution__photo { padding: 16px; }

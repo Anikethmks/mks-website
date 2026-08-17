@@ -7,11 +7,22 @@
   position: relative;
   background: #F9FAFC;
   padding: 64px;
+  overflow: hidden;
+}
+
+/* Caps and centers the content column — without it, the section's own
+   (unconstrained) flex children just fill its full padded width, which on
+   screens wider than ~1440px glues .wwa-board__header to the left edge
+   instead of centering like the home page does. */
+.wwa-board__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 48px;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .wwa-board__header {
@@ -198,12 +209,14 @@
 }
 
 @media (max-width: 1279px) {
-  .wwa-board { padding: 56px 48px; gap: 40px; }
+  .wwa-board { padding: 56px 48px; }
+  .wwa-board__inner { gap: 40px; }
   .wwa-board__grid { gap: 32px; }
 }
 
 @media (max-width: 1023px) {
-  .wwa-board { padding: 48px 32px; gap: 32px; }
+  .wwa-board { padding: 48px 32px; }
+  .wwa-board__inner { gap: 32px; }
   .wwa-board__watermark,
   .wwa-board__dots { display: none; }
   .wwa-board__title { font-size: 24px; line-height: 32px; }
@@ -212,7 +225,8 @@
 }
 
 @media (max-width: 767px) {
-  .wwa-board { padding: 40px 20px; gap: 24px; }
+  .wwa-board { padding: 40px 20px; }
+  .wwa-board__inner { gap: 24px; }
   .wwa-board__title { font-size: 22px; line-height: 30px; }
   .wwa-board__grid { grid-template-columns: 1fr; gap: 20px; }
 }

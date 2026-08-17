@@ -6,6 +6,15 @@
 .results-cta {
   background: var(--grad-vivid);
   padding: 64px;
+}
+
+/* Caps and centers the content row — without it, the two capped-width
+   halves just drift apart (space-between) as the section grows, each
+   sitting near its own edge with an ever-widening gap between them on
+   very wide screens, instead of sitting together as a centered block. */
+.results-cta__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,16 +154,19 @@
 }
 
 @media (max-width: 1279px) {
-  .results-cta { padding: 56px 48px; gap: 48px; }
+  .results-cta { padding: 56px 48px; }
+  .results-cta__inner { gap: 48px; }
 }
 @media (max-width: 1023px) {
-  .results-cta { padding: 48px 24px; flex-direction: column; align-items: stretch; gap: 32px; }
+  .results-cta { padding: 48px 24px; }
+  .results-cta__inner { flex-direction: column; align-items: stretch; gap: 32px; }
   .results-cta__content { max-width: 100%; }
   .results-cta__metrics { max-width: 100%; }
   .results-cta__title { font-size: 28px; line-height: 36px; }
 }
 @media (max-width: 767px) {
-  .results-cta { padding: 32px 16px; gap: 24px; }
+  .results-cta { padding: 32px 16px; }
+  .results-cta__inner { gap: 24px; }
   .results-cta__metrics { grid-template-columns: 1fr; gap: 16px; }
   .results-cta__title { font-size: 24px; line-height: 32px; }
   .metric-card { padding: 20px 24px; }

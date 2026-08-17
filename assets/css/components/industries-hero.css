@@ -10,23 +10,25 @@
   isolation: isolate;
 }
 
+/* Caps and centers the content column — the section's children (flex
+   column, no width cap) otherwise just fill its full padded width and
+   glue to the left edge on screens wider than ~1440px instead of
+   centering like the home page does. */
+.industries-hero__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
 .industries-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -2;
-  background: linear-gradient(90deg, #0B0B0B 0%, #1969A6 100%);
-}
-
-.industries-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
   z-index: -1;
-  background-image: url('../../images/content/industries-hero-bg.png');
+  /* Figma's own hero is a real photo with a flat 40%-black scrim — not the
+     dark-to-blue gradient + 20%-opacity texture this used to stand in with. */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../images/content/industries-hero-bg-new.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.2;
 }
 
 .industries-hero__breadcrumb {
@@ -79,10 +81,7 @@
   letter-spacing: -0.5px;
   max-width: 824px;
   margin: 0;
-  background: var(--grad-icon-soft);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #FFFFFF;
 }
 
 .industries-hero__lead {
