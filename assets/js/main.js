@@ -408,7 +408,12 @@
   // (matched against the reference), pausing on hover and restarting
   // fresh after any manual interaction (list click, prev/next, card
   // click, or drag) so the timer never immediately overrides a choice
-  // the user just made.
+  // the user just made. Like the Industries accordion, the timer only
+  // runs while the section is actually on screen — started via
+  // IntersectionObserver rather than at page load — so a reader who
+  // lingers on the hero above it doesn't scroll down to find it already
+  // several cards in; it should still be showing card 1 (AI First
+  // Solutions) at that point.
   function initOutcomesStack() {
     var root = document.querySelector('[data-outcomes]');
     if (!root) return;
@@ -426,9 +431,10 @@
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var timer = null;
     var hovering = false;
+    var visible = false;
 
     function startAuto() {
-      if (reduceMotion || hovering) return;
+      if (reduceMotion || hovering || !visible) return;
       stopAuto();
       timer = setInterval(function () { setActive(active + 1); }, AUTO_INTERVAL);
     }
@@ -462,6 +468,9 @@
         card.style.opacity = state.opacity;
         card.style.zIndex = state.zIndex;
         card.style.pointerEvents = state.pointerEvents;
+        // Only the front card is interactive — keep the buried ones out of
+        // the tab order the same way they're already out of click range.
+        card.tabIndex = distance === 0 ? 0 : -1;
       });
     }
 
@@ -506,8 +515,38 @@
       if (e.target.closest('.outcome-card.is-active')) { setActive(active + 1); startAuto(); }
     });
 
+    // Keyboard equivalents for the mouse-only drag/click gestures above:
+    // arrow keys step through the stack from anywhere inside it, and
+    // Enter/Space on the focused front card advances it (mirroring a
+    // click) without also firing for its inner CTA link.
+    stack.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); setActive(active + 1); startAuto(); return; }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); setActive(active - 1); startAuto(); return; }
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      if (e.target.closest('.outcome-card__cta')) return;
+      if (e.target.closest('.outcome-card.is-active')) {
+        e.preventDefault();
+        setActive(active + 1);
+        startAuto();
+      }
+    });
+
     setActive(0);
-    startAuto();
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          visible = entry.isIntersecting;
+          if (visible) startAuto();
+          else stopAuto();
+        });
+      }, { threshold: 0.4 });
+      observer.observe(root);
+    } else {
+      // No IntersectionObserver support — fall back to the old always-on timer.
+      visible = true;
+      startAuto();
+    }
   }
 
   // 3D tilt on cards — rotation follows the cursor across the card face
@@ -521,7 +560,15 @@
     // fight with it on hover, snapping the card back toward the identity
     // transform (i.e. toward the active card's position) instead of
     // leaving it where the carousel placed it.
-    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .wwa-director-card, .wwa-ethics-card, .wwa-office-card'));
+    var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .wwa-director-card, .wwa-ethics-card, .wwa-office-card, ' +
+      '.op-cap-card, .op-eng-card, .eng-carousel-card, .eng-cluster-card, .eng-service-card, .eng-cost-card, .eng-value-card, .eng-step-card, ' +
+      '.its-service-card, .its-cloud-card, .its-managed-card, .its-rpa-card, .its-mod-card, .its-collab-card, ' +
+      '.industry-case-card, .project-card, .blog-card, .co-job-card, .case-study-card, .trust-card, ' +
+      '.agentic-objective-card, .pva-objective-card, .voice-objective-card, .docai-objective-card, .retail-platforms__card, ' +
+      '.rpa-benefit-card, .rpa-achievement-card, .rpa-metric-card, ' +
+      '.pva-impact-card, .agentic-impact-card, .voice-impact-card, .docai-impact-card, .benefit-card, .retail-cta__card, .retail-sync__feature, ' +
+      '.its-tech-tile, .its-stat-box, .its-cta-stat, .metric-card, .eng-metric-card, ' +
+      '.retail1-service-card, .retail1-solution-group, .retail1-project-card, .retail1-advanced-card'));
     if (!els.length) return;
 
     var MAX_TILT = 6;
@@ -821,6 +868,29 @@
   }
 
   // Init all on DOM ready
+  // Retail 1 — ecommerce platforms accordion. Click a platform to expand
+  // its description; only one open at a time, matching the same
+  // single-open pattern as the careers openings tabs.
+  function initPlatformsAccordion() {
+    var root = document.querySelector('[data-platform-accordion]');
+    if (!root) return;
+    var items = Array.from(root.querySelectorAll('.retail1-platform-item'));
+    items.forEach(function (item) {
+      var head = item.querySelector('.retail1-platform-item__head');
+      head.addEventListener('click', function () {
+        var wasActive = item.classList.contains('is-active');
+        items.forEach(function (other) {
+          other.classList.remove('is-active');
+          other.querySelector('.retail1-platform-item__head').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasActive) {
+          item.classList.add('is-active');
+          head.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initFooter();
     document.documentElement.classList.remove('preload');
@@ -841,5 +911,6 @@
     initOutcomesStack();
     initCareersOpenings();
     initOutcomesScroll();
+    initPlatformsAccordion();
   });
 })();

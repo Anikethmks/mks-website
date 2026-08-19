@@ -1,0 +1,583 @@
+/* ==========================================================================
+   RPA page — built from Figma node #1622:28528 ("Robotic Process Automation
+   - RPA"). Built for exact fidelity: colors, gradients, copy and layout
+   below are taken directly from the Figma data. Two copy blocks in the
+   source file were clearly mismatched leftovers from other pages (an
+   "Automation Capabilities" subtext about LLM checkout agents, and a
+   results-section metrics grid citing "Agentic AI"/"Voice AI"/"Physical AI"
+   stats) — both were swapped for the correct, already-Figma-sourced RPA
+   copy/stats used elsewhere on this same page. Navbar/footer reuse the
+   site's shared, functional components instead of Figma's static snapshot.
+   ========================================================================== */
+
+/* Hero ------------------------------------------------------------------ */
+.rpa-hero { background: #4D3D8A; padding: 64px; }
+.rpa-hero__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 314px;
+}
+.rpa-hero__left {
+  flex: 0 1 601px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rpa-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.rpa-hero__breadcrumb a,
+.rpa-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.rpa-hero__breadcrumb .is-current {
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 0.0188em;
+}
+.rpa-hero__title {
+  max-width: 549px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.0139em;
+  margin: 0;
+}
+.rpa-hero__title .is-white { color: #FFFFFF; }
+.rpa-hero__title .is-grad {
+  background: linear-gradient(-9deg, rgba(132, 101, 255, 1) 0%, rgba(255, 169, 128, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.rpa-hero__lead {
+  max-width: 538px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpa-hero__media {
+  flex: 1 1 780px;
+  min-width: 0;
+  max-width: 780px;
+}
+.rpa-hero__media img { display: block; width: 100%; height: auto; }
+
+/* Our RPA Services -------------------------------------------------------- */
+.rpa-services { background: #FFFFFF; padding: 64px; }
+.rpa-services__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.rpa-services__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  margin: 0;
+}
+.rpa-services__split {
+  display: flex;
+  align-items: stretch;
+}
+.rpa-services__image {
+  flex: 0 0 608px;
+  min-width: 0;
+  object-fit: cover;
+  display: block;
+}
+.rpa-services__text-panel {
+  flex: 1;
+  min-width: 0;
+  background: #F9F9F9;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.rpa-services__text-panel p {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+}
+.rpa-apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.rpa-apps-grid__chip {
+  padding: 8px 16px;
+  background: #EDF8FF;
+  border-radius: 12px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4D3D8A;
+}
+
+/* Automation Capabilities -------------------------------------------------- */
+.rpa-capabilities { background: #F9F9F9; padding: 96px 64px; }
+.rpa-capabilities__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+}
+.rpa-capabilities__header {
+  max-width: 967px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.rpa-capabilities__title {
+  max-width: 798px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #212121;
+  margin: 0;
+}
+.rpa-capabilities__title .is-accent { color: #1F73B4; }
+.rpa-capabilities__lead {
+  max-width: 977px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #212121;
+  margin: 0;
+}
+.rpa-capabilities__lead:not(.rpa-capabilities__lead--figma) { display: none; }
+.rpa-capabilities__row {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.rpa-capabilities__grid {
+  /* Figma's literal 803px grid + 24px gap + 620px image (1447px) actually
+     overflows its own 1312px content column — the grid is the one built
+     to reflow (wrapped chips), so it shrinks first, keeping the image at
+     its full intended size instead of both fighting for space. */
+  flex: 0 1 803px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.rpa-cap-category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+.rpa-cap-category__title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+}
+.rpa-cap-category__title .c-blue { color: #1F73B4; }
+.rpa-cap-category__title .c-black { color: #020202; }
+.rpa-cap-category__title .c-grad {
+  background: linear-gradient(-62deg, rgba(26, 112, 178, 1) 17%, rgba(77, 79, 164, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.rpa-cap-chip {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+}
+.rpa-capabilities__media {
+  flex: 0 0 620px;
+  min-width: 0;
+  max-width: 620px;
+  /* Figma's hero-image is a fixed 605x439 box — without an explicit
+     height/ratio here, the img's height:100% has nothing to resolve
+     against, so it silently falls back to auto (the *uncropped* source
+     photo's much wider aspect), rendering visibly flatter/shorter than
+     intended. */
+  height: 439px;
+  border: 1px solid #E5E7EB;
+  border-radius: 24px 0 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 18px 40px -12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.rpa-capabilities__media img {
+  position: relative;
+  display: block;
+  width: 129.12%;
+  max-width: none;
+  height: 100.11%;
+  left: -26.44%;
+  top: -0.07%;
+}
+
+/* AI-Enabled Automation (Features) ----------------------------------------- */
+.rpa-features { background: rgba(97, 104, 158, 0.23); padding: 64px; }
+.rpa-features__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 32px;
+}
+.rpa-features__media {
+  flex: 1 1 678px;
+  min-width: 0;
+  overflow: hidden;
+}
+.rpa-features__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.rpa-features__panel {
+  flex: 1 1 542px;
+  min-width: 0;
+  background: rgba(251, 251, 251, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.rpa-features__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #212121;
+  margin: 0;
+}
+.rpa-features__title .is-accent { color: #1F73B4; }
+.rpa-features__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #212121;
+  margin: 0;
+}
+.rpa-features__label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  color: #0D4A8A;
+  margin: 0;
+}
+.rpa-features__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rpa-features__list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #020202;
+}
+.rpa-features__list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1F73B4;
+  flex-shrink: 0;
+}
+
+/* Platforms / Business Benefits + Achievements ----------------------------- */
+.rpa-platforms { position: relative; background: #4D3D8A; padding: 64px; overflow: hidden; }
+.rpa-platforms__bg { position: absolute; inset: 0; z-index: 0; }
+.rpa-platforms__bg img { display: block; width: 100%; height: 100%; opacity: 0.1; }
+.rpa-platforms__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.rpa-platforms__header { display: flex; flex-direction: column; gap: 16px; }
+.rpa-platforms__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpa-platforms__lead {
+  max-width: 700px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #E0E0E0;
+  margin: 0;
+}
+
+.rpa-benefits-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+.rpa-benefit-card {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+}
+.rpa-benefit-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ECECEC;
+  margin: 0;
+}
+.rpa-benefit-card--featured {
+  background: linear-gradient(246.045deg, #2784C5 23.817%, #4D4FA4 94.313%);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(77, 79, 164, 0.2);
+}
+.rpa-benefit-card--featured .rpa-benefit-card__title { color: #FFFFFF; }
+.rpa-benefit-card:nth-child(3),
+.rpa-benefit-card:nth-child(6) { width: 308px; }
+
+.rpa-achievements__header { display: flex; align-items: center; gap: 16px; }
+.rpa-achievements { display: flex; flex-direction: column; gap: 32px; }
+.rpa-achievements__intro { display: flex; flex-direction: column; gap: 16px; }
+.rpa-achievements__label {
+  flex-shrink: 0;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 18px;
+  background: linear-gradient(127.409deg, #CABEFA 9.124%, #FFD2BD 89.437%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  white-space: nowrap;
+}
+.rpa-achievements__divider {
+  flex: 1;
+  height: 1px;
+  background: url('../../images/icons/rpa-achievements-divider.svg') center / 100% 100% no-repeat;
+}
+.rpa-achievements__lead {
+  max-width: 700px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #E0E0E0;
+  margin: 0;
+}
+.rpa-achievements-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 0; }
+.rpa-achievement-card {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+  box-shadow: 0 8px 24px rgba(77, 79, 164, 0.2);
+}
+.rpa-achievement-card--grad,
+.rpa-achievement-card--bordered { background: transparent; border: 0; }
+.rpa-achievement-card:nth-child(2),
+.rpa-achievement-card:nth-child(5) { width: 308px; }
+.rpa-achievement-card__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpa-achievement-card__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpa-achievement-card:first-child .rpa-achievement-card__label {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* Results / CTA -------------------------------------------------------------- */
+.rpa-results { background: linear-gradient(-66deg, rgba(233, 233, 233, 1) 4%, rgba(242, 242, 242, 1) 97%); padding: 64px; }
+.rpa-results__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+.rpa-results__content {
+  flex: 1 1 480px;
+  min-width: 0;
+  max-width: 589px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rpa-results__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.0139em;
+  color: #020202;
+  margin: 0;
+}
+.rpa-results__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+.rpa-results__cta {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--grad-cta);
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.0214em;
+  text-decoration: none;
+}
+.rpa-metrics {
+  flex: 0 0 600px;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.rpa-metric-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rpa-metric-card__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -0.0075em;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.rpa-metric-card__label {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 56px 48px; }
+  .rpa-capabilities { padding: 72px 48px; }
+  .rpa-capabilities__grid { flex-basis: 60%; }
+}
+@media (max-width: 1023px) {
+  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 48px 24px; }
+  .rpa-capabilities { padding: 56px 24px; }
+
+  .rpa-hero__inner { flex-direction: column; align-items: stretch; }
+  .rpa-hero__left { flex-basis: auto; }
+  .rpa-hero__media { max-width: 100%; }
+
+  .rpa-services__split { flex-direction: column; }
+  .rpa-services__image { flex-basis: auto; width: 100%; height: 280px; }
+
+  .rpa-capabilities__row { flex-direction: column; }
+  .rpa-capabilities__grid { flex-basis: auto; width: 100%; }
+  /* flex-basis governs height once the row above becomes a column — reset
+     the 620px basis (from the desktop fixed-width rule) so the explicit
+     360px height below isn't fought by a 620px flex-basis instead. */
+  .rpa-capabilities__media { flex: 0 0 auto; width: 100%; max-width: 100%; aspect-ratio: auto; height: 360px; }
+
+  .rpa-features__inner { flex-direction: column; }
+  .rpa-features__media { flex-basis: auto; width: 100%; height: 320px; }
+  .rpa-features__panel { flex-basis: auto; width: 100%; }
+
+  .rpa-results__inner { flex-direction: column; align-items: stretch; }
+  .rpa-metrics { flex-basis: auto; max-width: 100%; }
+}
+@media (max-width: 767px) {
+  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 32px 16px; }
+  .rpa-capabilities { padding: 40px 16px; }
+
+  .rpa-hero__title { font-size: 28px; line-height: 36px; }
+  .rpa-services__title,
+  .rpa-features__title { font-size: 24px; line-height: 32px; }
+  .rpa-capabilities__title,
+  .rpa-platforms__title { font-size: 26px; line-height: 34px; }
+  .rpa-results__title { font-size: 26px; line-height: 34px; }
+
+  .rpa-metrics { grid-template-columns: 1fr; }
+  .rpa-achievements-grid { justify-content: flex-start; }
+}

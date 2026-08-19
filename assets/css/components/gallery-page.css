@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Gallery page — built from Figma node #907:5262 ("Contact" frame, reused
+   as the photo-gallery view linked from Careers). Built for exact fidelity:
+   colors, gradients, copy and layout below are taken directly from the
+   Figma data. Navbar/footer reuse the site's shared, functional components
+   instead of Figma's static snapshot of them.
+   ========================================================================== */
+
+/* Hero ------------------------------------------------------------------ */
+.gallery-hero {
+  position: relative;
+  min-height: 540px;
+  padding: 0 64px;
+  overflow: hidden;
+  background: #222222;
+}
+.gallery-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.gallery-hero__bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 34, 34, 0.5);
+}
+.gallery-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 911px;
+  /* Figma positions this block at y=171 within a 540px-tall hero (~32%
+     down) — independent of the section's own padding, since it's an
+     absolutely-positioned layer in the source file. */
+  margin-top: 171px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.gallery-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gallery-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #EFEFEF;
+  text-decoration: none;
+}
+.gallery-hero__breadcrumb a:last-child {
+  font-weight: 600;
+  letter-spacing: 0.0188em;
+  color: #FFFFFF;
+}
+.gallery-hero__breadcrumb svg { flex-shrink: 0; }
+
+.gallery-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gallery-hero__title {
+  max-width: 611px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.0104em;
+  margin: 0;
+  background: linear-gradient(141deg, rgba(246, 244, 255, 1) 0%, rgba(214, 222, 227, 1) 94%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gallery-hero__lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Gallery grid ------------------------------------------------------------ */
+.gallery-grid-section {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.gallery-grid-section__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #020202;
+  text-align: center;
+  margin: 0;
+}
+
+.gallery-tiles {
+  position: relative;
+  width: 100%;
+  max-width: 1314px;
+  aspect-ratio: 1314 / 650;
+}
+
+/* Positions below are each tile's exact Figma top-left offset and size,
+   expressed as a % of the 1314x650 mosaic — not a uniform grid — so the
+   whole bento layout scales uniformly and stays pixel-faithful to Figma. */
+.gallery-tile {
+  position: absolute;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #090808;
+}
+.gallery-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.gallery-tile--1 { left: 0%; top: 0%; width: 49.26%; height: 65.85%; }
+.gallery-tile--2 { left: 50.74%; top: 0%; width: 23.96%; height: 31.69%; }
+.gallery-tile--3 { left: 76.12%; top: 0%; width: 23.88%; height: 38.31%; }
+.gallery-tile--4 { left: 50.74%; top: 34%; width: 23.96%; height: 66%; }
+.gallery-tile--5 { left: 76.12%; top: 40.92%; width: 23.88%; height: 48.31%; }
+.gallery-tile--6 { left: 25.45%; top: 68.2%; width: 23.96%; height: 31.8%; }
+.gallery-tile--7 { left: 0.24%; top: 68.31%; width: 23.88%; height: 31.69%; }
+
+.gallery-view-more {
+  border-radius: 6px;
+  position: absolute;
+  left: 87.52%;
+  top: 93.08%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #ECF7FF;
+  box-shadow: 2px 2px 4px rgba(242, 242, 242, 1);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.0188em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.gallery-view-more span {
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gallery-view-more svg { width: 18px; height: 18px; flex-shrink: 0; color: #4D4FA4; }
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .gallery-hero { padding: 0 48px; }
+  .gallery-grid-section { padding: 56px 48px; }
+}
+@media (max-width: 1023px) {
+  .gallery-hero { min-height: 460px; padding: 0 24px; }
+  .gallery-hero__inner { margin-top: 128px; }
+  .gallery-hero__title { font-size: 36px; line-height: 46px; }
+  .gallery-hero__lead { font-size: 18px; line-height: 28px; }
+  .gallery-grid-section { padding: 48px 24px; }
+  .gallery-grid-section__title { font-size: 24px; line-height: 32px; }
+
+  /* The mosaic's fixed-position tiles get very thin at narrow widths since
+     row heights shrink along with column widths — switch to a simple
+     wrapping grid of even tiles instead of trying to preserve the exact
+     Figma bento shapes below desktop. */
+  .gallery-tiles { aspect-ratio: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .gallery-tile { position: static; width: auto; height: 220px; }
+  .gallery-tile--1 { grid-column: span 2; height: 320px; }
+  .gallery-view-more { position: static; margin-top: 8px; align-self: center; }
+}
+@media (max-width: 767px) {
+  .gallery-hero { min-height: 380px; padding: 0 16px; }
+  .gallery-hero__title { font-size: 28px; line-height: 36px; }
+  .gallery-hero__inner { margin-top: 100px; gap: 20px; }
+  .gallery-grid-section { padding: 32px 16px; gap: 20px; }
+  .gallery-tiles { grid-template-columns: 1fr; }
+  .gallery-tile { height: 220px; }
+  .gallery-tile--1 { grid-column: span 1; height: 240px; }
+}

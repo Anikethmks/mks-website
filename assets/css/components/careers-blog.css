@@ -128,7 +128,7 @@
 .blog-card__cta {
   align-self: flex-start;
   padding: 8px 16px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   border: 1px solid transparent;
   background: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
   font-family: var(--font-primary);
@@ -178,7 +178,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border-radius: 23px;
+  border-radius: 6px;
   padding: 8px 15px;
   font-size: 12px;
   line-height: 18px;

@@ -3,7 +3,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 24px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
@@ -27,7 +27,7 @@
   position: relative;
   background: #FFFFFF;
   padding: 8px 32px;
-  border-radius: var(--radius-xs);
+  border-radius: 6px;
 }
 .btn--white::before {
   content: '';

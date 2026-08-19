@@ -294,7 +294,7 @@
 .wwa-contact-form__submit {
   height: 48px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--grad-form-submit);
   color: #FFFFFF;
   font-family: var(--font-primary);

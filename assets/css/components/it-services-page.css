@@ -1,0 +1,499 @@
+/* ==========================================================================
+   IT Services page — built from Figma node #2117:11034. Built for exact
+   fidelity: colors, gradients, copy and layout below are taken directly
+   from the Figma data. The hero section's breadcrumb read "Outcomes" as
+   its current-page label (a stale reused component from the Outcomes
+   page — the H1/lead are also that page's copy) — the breadcrumb label
+   was corrected to "IT Services" since a breadcrumb mislabeling the
+   current page is a functional bug, not a style choice; the H1/lead were
+   left as Figma has them since they still read fine as a broad opener.
+   Navbar/footer reuse the site's shared, functional components.
+   ========================================================================== */
+
+.its-section { padding: 64px; }
+
+/* Hero ------------------------------------------------------------------ */
+.its-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  padding: 64px;
+  overflow: hidden;
+  background: #1B313F;
+}
+.its-hero__bg { position: absolute; inset: 0; z-index: 0; }
+.its-hero__bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.its-hero__bg::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.25); }
+.its-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  width: 100%;
+}
+.its-hero__text {
+  max-width: 833px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.its-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }
+.its-hero__breadcrumb a,
+.its-hero__breadcrumb span { font-family: var(--font-primary); font-size: 16px; line-height: 26px; color: #AFAFAF; text-decoration: none; }
+.its-hero__breadcrumb .is-current { color: #FFFFFF; font-weight: 600; letter-spacing: 0.0188em; }
+.its-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 64px;
+  letter-spacing: -0.0192em;
+  color: #FFFFFF;
+  margin: 0;
+}
+.its-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  max-width: 833px;
+  margin: 0;
+}
+
+/* Sub-nav tabs ------------------------------------------------------------ */
+.its-subnav {
+  background: #FCFCFC;
+  padding: 16px 64px 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: 1px solid #E2E8F0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 81px;
+  z-index: 10;
+}
+.its-subnav__link {
+  padding: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.0071em;
+  color: #020202;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.its-subnav__link--active {
+  font-weight: 600;
+  font-size: 14px;
+  border-image: var(--grad-trust-label) 1;
+  border-bottom: 2px solid transparent;
+}
+
+/* Shared: two-column "narrative split" sections --------------------------- */
+.its-split {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+.its-split--wide-gap { gap: 64px; }
+.its-heading-block { display: flex; flex-direction: column; gap: 16px; }
+.its-heading-block__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.its-heading-block__title .is-grad {
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.its-heading-block__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #58595B;
+  margin: 0;
+}
+
+/* Custom Software Development --------------------------------------------- */
+.its-software { background: #FFFFFF; padding: 48px 64px; }
+.its-software__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 32px; }
+.its-software__split { display: flex; align-items: flex-start; gap: 32px; }
+.its-software__left { flex: 0 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.its-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.its-service-card {
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #EDF8FF;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.its-service-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: #020202;
+  margin: 0;
+}
+.its-service-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #58595B;
+  margin: 0;
+}
+.its-software__right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.its-software__image { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; display: block; }
+.its-tech-stack { display: flex; flex-direction: column; gap: 20px; }
+.its-tech-stack__title { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: #020202; margin: 0; }
+.its-tech-pills { display: flex; flex-wrap: wrap; gap: 12px; }
+.its-tech-pill {
+  padding: 6px 16px;
+  background: #F2FBFF;
+  border: 1px solid #2784C5;
+  border-radius: 30px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  color: #58595B;
+}
+
+/* Cloud Services ----------------------------------------------------------- */
+.its-cloud { background: #F9FAFC; padding: 64px; }
+.its-cloud__inner { max-width: var(--content-max); margin-inline: auto; display: flex; align-items: flex-start; gap: 24px; }
+.its-cloud__grid {
+  /* A real grid, not flex-wrap: fixed per-card pixel heights (222/227px,
+     copied from Figma's literal 384px-wide card) didn't scale down when
+     the cards had to shrink narrower at laptop widths — text wrapped to
+     more lines than the fixed height had room for and spilled out of the
+     card (worst on the FinOps card, whose copy is longest). A 2-column
+     grid instead stretches every card in a row to match its row's
+     tallest card automatically, at any width, with no fixed heights
+     needed — which also keeps card sizing visually consistent everywhere. */
+  flex: 1 1 792px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.its-cloud-card {
+  max-width: 384px;
+  min-width: 0;
+  padding: 32px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+/* Exact Figma dimensions per icon — sizes vary a lot (e.g. GCP's wide
+   wordmark vs. Azure's square mark), so a single uniform height/width
+   doesn't fit all six; each is set explicitly instead. */
+.its-cloud-card:nth-child(1) img { width: 53px; height: 32px; }
+.its-cloud-card:nth-child(2) img { width: 32px; height: 32px; }
+.its-cloud-card:nth-child(3) img { width: 203px; height: 32px; }
+.its-cloud-card:nth-child(4) img { width: 31.54px; height: 32px; }
+.its-cloud-card:nth-child(5) img { width: 37px; height: 37px; }
+.its-cloud-card:nth-child(6) img { width: 48px; height: 48px; }
+.its-cloud-card img { display: block; align-self: flex-start; }
+.its-cloud-card__title { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 28px; color: #0F172A; margin: 0; }
+.its-cloud-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 22px; color: #4B5563; margin: 0; }
+.its-cloud__right { flex: 0 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.its-step-stack { display: flex; flex-direction: column; gap: 32px; }
+.its-cloud .its-step-stack { gap: 48px; }
+.its-step-row { display: flex; gap: 16px; }
+.its-step-row__num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 11px;
+  color: #2784C5;
+}
+.its-step-row__text { display: flex; flex-direction: column; gap: 4px; }
+.its-step-row__title { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #020202; margin: 0; }
+.its-step-row__desc { font-family: var(--font-primary); font-weight: 400; font-size: 13px; line-height: 20px; color: #58595B; margin: 0; }
+
+/* Mobile App Tech Stack ----------------------------------------------------- */
+.its-mobile { background: #FFFFFF; padding: 64px; }
+.its-mobile__inner { max-width: var(--content-max); min-height: 523px; margin-inline: auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; }
+.its-mobile__left { flex: 1 1 658px; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+.its-mobile__header { display: flex; flex-direction: column; gap: 16px; }
+.its-mobile__title { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 42px; color: #1F73B4; margin: 0; }
+.its-mobile__title .c-black { color: #020202; }
+.its-mobile__lead { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #58595B; margin: 0; }
+.its-mobile-card {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.its-mobile-card__title { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 28px; color: #0F172A; margin: 0; }
+.its-mobile-card__list { list-style: disc; margin: 0; padding-left: 27px; }
+.its-mobile-card__list li { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 28px; color: #4B5563; }
+.its-mobile-row { display: flex; gap: 32px; padding: 0 24px; }
+.its-mobile-col { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; }
+.its-mobile-col__label { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #58595B; margin: 0; white-space: nowrap; }
+.its-mobile-col__logos { display: flex; align-items: center; gap: 24px; height: 45px; }
+.its-mobile-col__logos img { display: block; height: auto; width: auto; max-height: 45px; }
+.its-mobile-col:first-child .its-mobile-col__logos img { width: 59px; height: 45px; }
+.its-mobile-col:nth-child(2) .its-mobile-col__logos img:first-child { width: 114px; height: 27px; }
+.its-mobile-col:nth-child(2) .its-mobile-col__logos img:last-child { width: 114px; height: 28px; }
+.its-mobile-divider { width: 1px; height: 16px; background: #898989; flex-shrink: 0; }
+
+.its-mobile__right { flex: 1 1 596px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.its-tech-tile {
+  padding: 24px;
+  background: #F8FBFF;
+  border: 1px solid #F8FBFF;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.its-tech-tile--outline { background: #F8FBFF; border-color: #F8FBFF; box-shadow: none; }
+.its-tech-tile__row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.its-tech-tile__row img { display: block; height: 40px; width: auto; }
+.its-tech-tile__row--stacked { flex-direction: column; gap: 8px; }
+.its-tech-tile__label { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #58595B; margin: 0; }
+.its-tech-tile__brand { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: #813CF3; }
+.its-tech-tile:nth-child(1) { grid-column: 1; grid-row: 1; }
+.its-tech-tile:nth-child(2) { grid-column: 1; grid-row: 2; }
+.its-tech-tile:nth-child(3) { grid-column: 1; grid-row: 3; }
+.its-tech-tile:nth-child(4) { grid-column: 2; grid-row: 1; }
+.its-tech-tile:nth-child(5) { grid-column: 2; grid-row: 2; }
+.its-tech-tile:nth-child(6) { grid-column: 2; grid-row: 3; }
+
+/* Managed Services ----------------------------------------------------------- */
+.its-managed { background: #F9FAFC; padding: 64px; }
+.its-managed__inner { max-width: var(--content-max); margin-inline: auto; display: flex; align-self: stretch; gap: 64px; }
+.its-managed__left { flex: 1; min-width: 0; }
+.its-managed__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.its-managed-card {
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #F4F7FF;
+  box-shadow: 0 4px 8px rgba(236, 231, 253, 0.13);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.its-managed-card__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: #020202; margin: 0; }
+.its-managed-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 13px; line-height: 20px; color: #58595B; margin: 0; }
+.its-managed__right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.its-managed__leads { display: flex; flex-direction: column; gap: 16px; }
+.its-managed__leads p { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #58595B; margin: 0; }
+.its-managed-step { display: flex; align-items: flex-start; gap: 20px; }
+.its-managed-step__num {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  min-width: 40px;
+  text-align: center;
+  background: #DDF4FF;
+  border-radius: 4px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  color: #020202;
+}
+
+/* IoT ------------------------------------------------------------------------ */
+.its-iot { background: #FFFFFF; padding: 64px; }
+.its-iot__inner { max-width: var(--content-max); margin-inline: auto; display: flex; align-items: center; gap: 64px; }
+.its-iot__left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.its-iot__image { flex: 0 0 580px; max-width: 580px; height: 460px; object-fit: cover; border-radius: 16px; display: block; }
+
+/* RPA & Technology Modernization ----------------------------------------------- */
+.its-rpa-mod { background: #FBFEFF; padding: 64px; }
+.its-rpa-mod__inner { max-width: var(--content-max); margin-inline: auto; display: flex; align-items: flex-start; gap: 64px; }
+.its-rpa-mod__col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+.its-rpa-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.its-rpa-card {
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #EDF8FF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.its-rpa-card__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: #020202; margin: 0; }
+.its-rpa-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 13px; line-height: 20px; color: #58595B; margin: 0; }
+.its-stats-row { display: flex; align-self: stretch; gap: 16px; }
+.its-stat-box {
+  flex: 1;
+  padding: 16px;
+  background: #FFFFFF;
+  border: 1px solid #EDF8FF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.its-stat-box__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.its-stat-box__label { font-family: var(--font-primary); font-weight: 500; font-size: 12px; line-height: 16px; color: #58595B; }
+.its-mod-stack { display: flex; flex-direction: column; gap: 16px; }
+.its-mod-card {
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #EDF8FF;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.its-mod-card__title { font-family: var(--font-display); font-weight: 600; font-size: 18px; color: #020202; margin: 0; }
+.its-mod-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 1.5em; color: #58595B; margin: 0; }
+
+/* Collaboration ---------------------------------------------------------------- */
+.its-collab { background: #F4F6F7; padding: 64px; }
+.its-collab__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 56px; }
+.its-collab__header { max-width: 967px; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.its-collab__row { display: flex; align-items: stretch; gap: 16px; }
+.its-collab__cards { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.its-collab-card {
+  flex: 1;
+  padding: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 12px rgba(222, 222, 222, 0.13);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.its-collab-card__title { font-family: var(--font-display); font-weight: 600; font-size: 18px; color: #020202; margin: 0; }
+.its-collab-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 1.5em; color: #58595B; margin: 0; }
+.its-collab__image { flex: 0 0 500px; max-width: 500px; height: 375px; object-fit: cover; border-radius: 16px; display: block; }
+
+/* CTA -------------------------------------------------------------------------- */
+.its-cta {
+  background: linear-gradient(180deg, rgba(65, 158, 224, 0.9) 11%, rgba(129, 135, 238, 0.9) 89%);
+  padding: 96px 80px;
+}
+.its-cta__inner { max-width: var(--content-max); margin-inline: auto; display: flex; gap: 64px; align-items: center; }
+.its-cta__left { flex: 0 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+.its-cta__eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.1071em; text-transform: uppercase; color: #4D3D8A; margin: 0; }
+.its-cta__title { font-family: var(--font-display); font-weight: 700; font-size: 48px; line-height: 58px; color: #FFFFFF; margin: 8px 0 0; }
+.its-cta__title .is-accent { color: #C5E3F7; }
+.its-cta__lead { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
+.its-cta__buttons { display: flex; gap: 16px; }
+.its-cta__btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.its-cta__btn--solid { background: #FFFFFF; color: #0D1B2A; }
+.its-cta__btn--outline { border: 1px solid #FFFFFF; color: #FFFFFF; }
+.its-cta__stats { flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.its-cta-stat {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.its-cta-stat__value { font-family: var(--font-display); font-weight: 700; font-size: 32px; color: #FFFFFF; margin: 0; }
+.its-cta-stat__label { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 1.5em; color: #020202; margin: 0; }
+/* At 1024px .its-cta__left's 640px basis leaves the stats grid only
+   ~224px total — each stat card down to ~100px, breaking mid-word.
+   Scoped 1px past the shared ≤1023 stack breakpoint below so only this
+   section stacks early; other its-cta rules there still apply at ≤1023. */
+@media (max-width: 1024px) {
+  .its-cta__inner { flex-direction: column; align-items: stretch; }
+  .its-cta__left { flex-basis: auto; max-width: 100%; }
+}
+
+/* Responsive ---------------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .its-hero, .its-software, .its-cloud, .its-mobile, .its-managed, .its-iot, .its-rpa-mod, .its-collab { padding: 56px 48px; }
+  .its-cta { padding: 72px 48px; }
+  .its-service-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1023px) {
+  .its-hero, .its-software, .its-cloud, .its-mobile, .its-managed, .its-iot, .its-rpa-mod, .its-collab { padding: 48px 24px; }
+  .its-cta { padding: 56px 24px; }
+  .its-hero__title { font-size: 40px; line-height: 50px; }
+
+  .its-software__split { flex-direction: column; }
+  .its-software__left, .its-software__right { flex-basis: auto; width: 100%; }
+
+  .its-cloud__inner { flex-direction: column; }
+  .its-cloud__grid, .its-cloud__right { flex-basis: auto; width: 100%; }
+
+  .its-mobile__inner { flex-direction: column; }
+  .its-mobile__left, .its-mobile__right { flex-basis: auto; width: 100%; }
+
+  .its-managed__inner { flex-direction: column; gap: 32px; }
+  .its-managed__grid { grid-template-columns: 1fr; }
+
+  .its-iot__inner { flex-direction: column-reverse; }
+  .its-iot__image { flex-basis: auto; width: 100%; max-width: 100%; height: 320px; }
+
+  .its-rpa-mod__inner { flex-direction: column; }
+  .its-rpa-grid, .its-cta__stats { grid-template-columns: 1fr 1fr; }
+
+  .its-collab__row { flex-direction: column; }
+  .its-collab__image { flex-basis: auto; width: 100%; max-width: 100%; height: 280px; }
+
+  .its-cta__inner { flex-direction: column; align-items: stretch; }
+  .its-cta__left { flex-basis: auto; max-width: 100%; }
+  .its-cta__title { font-size: 36px; line-height: 44px; }
+}
+@media (max-width: 767px) {
+  .its-hero, .its-software, .its-cloud, .its-mobile, .its-managed, .its-iot, .its-rpa-mod, .its-collab, .its-cta { padding: 32px 16px; }
+  .its-hero { min-height: 520px; }
+  .its-hero__title { font-size: 30px; line-height: 38px; }
+  .its-subnav { padding: 12px 16px 0; gap: 8px; top: 0; }
+  .its-subnav__link { font-size: 12px; }
+  .its-mobile__inner { flex-direction: column; }
+  .its-cloud__grid { grid-template-columns: 1fr; }
+  .its-cloud-card { max-width: 100%; }
+  .its-mobile-row { flex-direction: column; }
+  .its-rpa-grid, .its-cta__stats, .its-managed__grid { grid-template-columns: 1fr; }
+  .its-stats-row { flex-direction: column; }
+  .its-cta__buttons { flex-direction: column; align-items: stretch; }
+  .its-cta__title { font-size: 28px; line-height: 36px; }
+}

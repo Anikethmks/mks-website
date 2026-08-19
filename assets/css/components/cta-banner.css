@@ -68,7 +68,7 @@
    has that color scheme already, just not this exact shape (its shared
    padding/radius are tuned for the navbar/hero instances), so the shape is
    overridden locally rather than touching the shared class. */
-.cta-banner .btn--gradient { padding: 8px 32px; border-radius: 4px; }
+.cta-banner .btn--gradient { padding: 8px 32px; border-radius: 6px; }
 
 @media (max-width: 1279px) {
   .cta-banner { padding: 28px 48px; }

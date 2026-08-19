@@ -64,7 +64,7 @@
   bottom: 0;
   height: 2px;
   border-radius: 1px;
-  background: linear-gradient(304.99deg, #8465FF 17.03%, #FFA980 70.59%);
+  background: var(--grad-cta);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -101,7 +101,7 @@
 
 .navbar .btn--gradient {
   padding: 8px 24px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   height: 40px;
 }
 
