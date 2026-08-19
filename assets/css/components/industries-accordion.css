@@ -230,7 +230,7 @@
   font-weight: 600;
   color: #FFFFFF;
   padding: 14px 24px;
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   background: linear-gradient(58.414deg, rgb(39, 132, 197) 23.887%, rgb(77, 79, 164) 89.218%);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;

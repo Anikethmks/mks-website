@@ -62,6 +62,13 @@
 @import url('components/agentic-objective.css');
 @import url('components/agentic-solution.css');
 @import url('components/agentic-impact.css');
+@import url('components/engineering-page.css');
+@import url('components/gallery-page.css');
+@import url('components/rpa-page.css');
+@import url('components/it-services-page.css');
+@import url('components/voice-ai.css');
+@import url('components/docai.css');
+@import url('components/retail1-page.css');
 @import url('components/animations.css');
 
 .container {

@@ -178,8 +178,14 @@
   .navbar__item--dropdown.is-open .mega-menu { transition: opacity 0.15s ease; transform: none; }
 }
 
+/* Right-anchoring here used to push the panel mostly off the LEFT edge of
+   the viewport, since "What We Do" sits near the left of the navbar (not
+   the right) — right:0 anchored an 860px-wide panel to an item ~230px
+   from the left, landing its left edge around -560px. Staying left-
+   anchored but narrowing the panel to fit the viewport at this tier fixes
+   it without cutting off content on either side. */
 @media (max-width: 1279px) {
-  .mega-menu { left: auto; right: 0; }
+  .mega-menu { width: 760px; }
 }
 
 @media (max-width: 1023px) {

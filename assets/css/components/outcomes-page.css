@@ -518,7 +518,7 @@
   gap: 8px;
   width: fit-content;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--grad-cta);
   font-family: var(--font-primary);
   font-weight: 600;

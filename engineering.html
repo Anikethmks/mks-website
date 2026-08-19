@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering — MKS Vision</title>
+  <meta name="description"
+    content="Engineering plus IT services for future-ready businesses — product engineering, simulation, manufacturing engineering, digital &amp; IT solutions and sustainable engineering from MKS Vision." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (657:673) -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="MKS Vision — Home">
+        <img class="navbar__logo-img" src="assets/images/logos/mks-logo-dark.svg" alt="MKS Vision" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__list">
+          <li class="navbar__item navbar__item--dropdown" data-mega-menu>
+            <button type="button" class="navbar__link" aria-expanded="false" aria-haspopup="true">
+              What We Do <span class="navbar__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="mega-menu">
+              <div class="mega-menu__rail" role="tablist">
+                <button type="button" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">AI Solutions</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="it-services" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-digital-services.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">IT Services</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="engineering" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-engineering.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">Engineering</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">Products and Platform</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#4D4FA4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+              </div>
+              <div class="mega-menu__panels">
+                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
+                    <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
+                    <a class="mega-menu__link" href="voice-ai.html">Conversational AI</a>
+                    <a class="mega-menu__link" href="document-ai-nsf-compliance.html">Multimodal RAG Development</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ML / LLM Ops</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="it-services">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="it-services.html#software">Custom Software Development</a>
+                    <a class="mega-menu__link" href="it-services.html#cloud">Cloud - AWS/ Azure / GCP</a>
+                    <a class="mega-menu__link" href="rpa.html">RPA / Digital Workforce</a>
+                    <a class="mega-menu__link" href="it-services.html#mobile">Mobile Application</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ERP Implementation</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">CRM &amp; Salesforce</a>
+                    <a class="mega-menu__link" href="it-services.html#managed">IT Service Management (ITSM)</a>
+                    <a class="mega-menu__link" href="it-services.html#managed">24/7 Application Support</a>
+                    <a class="mega-menu__link" href="#">Desktop Management</a>
+                    <a class="mega-menu__link" href="#">Network &amp; Security Center</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Micro services</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="engineering">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="engineering.html">New Product Development</a>
+                    <a class="mega-menu__link" href="engineering.html">Product Sustenance</a>
+                    <a class="mega-menu__link" href="engineering.html">Predictive Engineering</a>
+                    <a class="mega-menu__link" href="engineering.html">Digital Scanning</a>
+                    <a class="mega-menu__link" href="engineering.html">Warranty Data Analytics</a>
+                    <a class="mega-menu__link" href="engineering.html">Asset Tracking &amp; MTTR</a>
+                    <a class="mega-menu__link" href="engineering.html">Supplier Quality Engineering</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="products-platform">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Medical Health Care Product</a>
+                    <a class="mega-menu__link" href="#">Blue222 - Real Estate</a>
+                    <a class="mega-menu__link" href="#">eCommerce &amp; Shopify</a>
+                    <a class="mega-menu__link" href="#">Data Engineering &amp; Pipelines</a>
+                    <a class="mega-menu__link" href="#">SaaS Customization</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Microservices</a>
+                    <a class="mega-menu__link" href="#">SEO &amp; Digital Analytics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item"><a href="who-we-are.html" class="navbar__link">Who We Are</a></li>
+          <li class="navbar__item"><a href="industries.html" class="navbar__link">Industries</a></li>
+          <li class="navbar__item"><a href="capabilities.html" class="navbar__link">Capabilities</a></li>
+          <li class="navbar__item"><a href="careers.html" class="navbar__link">Careers</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a href="contact.html" class="btn btn--gradient" data-magnetic>
+          Get In Touch
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero (2111:4755) -->
+    <section class="eng-hero">
+      <div class="eng-hero__inner">
+        <div class="eng-hero__left">
+          <h1 class="eng-hero__title"><span class="is-blue">Engineering</span> the<br />Future. <span class="is-purple">Transforming</span><br />Possibilities.</h1>
+          <ul class="eng-hero__lead">
+            <li>Turn engineering complexity into confident business advantage.</li>
+            <li>Engineering services for performance, cost and launch readiness</li>
+          </ul>
+          <a href="contact.html" class="eng-hero__cta">
+            Explore Services
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="eng-hero__visual" aria-hidden="true">
+          <div class="eng-orbit-outer" aria-hidden="true"></div>
+          <div class="eng-orbit-inner" aria-hidden="true"></div>
+          <div class="eng-orbit-center">
+            <img src="assets/images/content/eng-hero-logo-mark.svg" alt="" />
+          </div>
+
+          <div class="eng-orbit-node" style="left:75.37%; top:11.62%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-leaf.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">Sustainability</span>
+          </div>
+          <div class="eng-orbit-node" style="left:67.36%; top:35.37%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-image.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">Rendering</span>
+          </div>
+          <div class="eng-orbit-node" style="left:82.49%; top:63.23%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-code.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">Software Dev</span>
+          </div>
+          <div class="eng-orbit-node" style="left:48.37%; top:77.56%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-cpu.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">AI / ML</span>
+          </div>
+          <div class="eng-orbit-node" style="left:69.44%; top:87.07%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-cpu.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">CNC Programming</span>
+          </div>
+          <div class="eng-orbit-node" style="left:49.7%; top:-1.9%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-lightbulb.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">NPD</span>
+          </div>
+          <div class="eng-orbit-node eng-orbit-node--reverse" style="left:9.64%; top:82.36%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-database.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">Data Migration</span>
+          </div>
+          <div class="eng-orbit-node eng-orbit-node--reverse" style="left:13.35%; top:52.61%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-activity.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">SPC / PPAP</span>
+          </div>
+          <div class="eng-orbit-node eng-orbit-node--reverse" style="left:-0.45%; top:33.67%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-wind.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">FEA + CFD</span>
+          </div>
+          <div class="eng-orbit-node eng-orbit-node--reverse" style="left:23.15%; top:22.75%;">
+            <span class="eng-orbit-node__badge"><img src="assets/images/content/eng-icon-layers.svg" alt="" /></span>
+            <span class="eng-orbit-node__label">MBD / DFx</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services tagline (2111:4769) -->
+    <section class="eng-tagline">
+      <div class="eng-trust-bar">
+        <div class="eng-trust-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+          <h3 class="eng-trust-bar__title">Global Delivery Model</h3>
+          <p class="eng-trust-bar__desc">Across multiple time zones</p>
+        </div>
+        <div class="eng-trust-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3 class="eng-trust-bar__title">Engineering + IT Expertise</h3>
+          <p class="eng-trust-bar__desc">Deep domain knowledge</p>
+        </div>
+        <div class="eng-trust-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3 class="eng-trust-bar__title">Quality &amp; Security Focused</h3>
+          <p class="eng-trust-bar__desc">ISO aligned processes</p>
+        </div>
+        <div class="eng-trust-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          <h3 class="eng-trust-bar__title">Scalable, Agile Engagements</h3>
+          <p class="eng-trust-bar__desc">Flexibility that grows with you</p>
+        </div>
+        <div class="eng-trust-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <h3 class="eng-trust-bar__title">Innovation Led Approach</h3>
+          <p class="eng-trust-bar__desc">Driving continuous value</p>
+        </div>
+      </div>
+
+      <div class="eng-tagline__bottom">
+        <div class="eng-tagline__intro" data-reveal="left">
+          <p class="eng-tagline__label">OUR SERVICE UNIVERSE</p>
+          <h2 class="eng-tagline__heading">A comprehensive suite of Engineering and IT services to <span class="is-accent">design, build and scale</span> what's next.</h2>
+          <div class="eng-tagline__bar" aria-hidden="true"></div>
+        </div>
+        <div class="eng-carousel" data-reveal="right">
+          <article class="eng-carousel-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <div class="eng-carousel-card__media"><img src="assets/images/content/eng-carousel-product.png" alt="" loading="lazy" /></div>
+            <p class="eng-carousel-card__label">Product Engineering</p>
+          </article>
+          <article class="eng-carousel-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <div class="eng-carousel-card__media"><img src="assets/images/content/eng-carousel-simulation.png" alt="" loading="lazy" /></div>
+            <p class="eng-carousel-card__label">Simulation &amp; Analysis</p>
+          </article>
+          <article class="eng-carousel-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <div class="eng-carousel-card__media"><img src="assets/images/content/eng-carousel-manufacturing.png" alt="" loading="lazy" /></div>
+            <p class="eng-carousel-card__label">Manufacturing Engineering</p>
+          </article>
+          <article class="eng-carousel-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <div class="eng-carousel-card__media"><img src="assets/images/content/eng-carousel-digital-it.png" alt="" loading="lazy" /></div>
+            <p class="eng-carousel-card__label">Digital &amp; IT Solutions</p>
+          </article>
+          <article class="eng-carousel-card" data-reveal="zoom" style="--reveal-delay: 0.32s">
+            <div class="eng-carousel-card__media"><img src="assets/images/content/eng-carousel-sustainability.png" alt="" loading="lazy" /></div>
+            <p class="eng-carousel-card__label">Sustainability Engineering</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability clusters — narrative + photo (2111:4772) -->
+    <section class="eng-capabilities">
+      <div class="eng-capabilities__inner">
+        <div class="eng-capabilities__narrative" data-reveal="left">
+          <h2 class="eng-capabilities__heading">Engineering plus IT services<br />for <span class="is-accent">future-ready businesses</span></h2>
+          <p class="eng-capabilities__lead">Turn engineering complexity into confident business advantage.</p>
+          <ul class="eng-capabilities__body">
+            <li>MKS Vision helps product, manufacturing and technology teams move from uncertainty to execution.</li>
+            <li>We combine simulation, product engineering, digital workflows, cost intelligence, automation and AI/ML to help clients reduce technical risk, improve cost confidence and accelerate launch readiness.</li>
+          </ul>
+        </div>
+        <div class="eng-capabilities__media" data-reveal="right">
+          <img src="assets/images/content/eng-capability-clusters-photo.png" alt="CNC machining center in operation" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability clusters recreated — 3 cluster cards (2117:10874) -->
+    <section class="eng-clusters">
+      <div class="eng-clusters__inner">
+        <article class="eng-cluster-card eng-cluster-card--wide" data-reveal="zoom" style="--reveal-delay: 0s">
+          <p class="eng-cluster-card__eyebrow">CLUSTER 01</p>
+          <h3 class="eng-cluster-card__title">Engineer the physical and digital together</h3>
+          <div class="eng-cluster-card__rows">
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>Product Design &amp; CAD Engineering</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>Model-Based Definition (MBD) &amp; Tech Doc</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>FEA CFD &amp; Simulation Validation</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>Manufacturing Readiness Support</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>AI/ML &amp; Physical AI Solutions</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>Intelligent Engineering Automation</span>
+            </div>
+            <div class="eng-cluster-row">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-chevron.svg" alt="" /></span>
+              <span>Digital Engineering Integration</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="eng-clusters__pair">
+        <article class="eng-cluster-card" data-reveal="zoom" style="--reveal-delay: 0.15s">
+          <p class="eng-cluster-card__eyebrow">CLUSTER 02</p>
+          <h3 class="eng-cluster-card__title">Move from design intent to launch-ready execution</h3>
+          <p class="eng-cluster-card__desc">Bridge the gap between product design and manufacturing with end-to-end engineering support including CNC/CMM programming, PLC controls, quality documentation, SPC, and PPAP.</p>
+        </article>
+        <article class="eng-cluster-card" data-reveal="zoom" style="--reveal-delay: 0.3s">
+          <p class="eng-cluster-card__eyebrow">CLUSTER 03</p>
+          <h3 class="eng-cluster-card__title">Create cost clarity before cost becomes pressure</h3>
+          <div class="eng-cluster-card__rows eng-cluster-card__rows--green">
+            <div class="eng-cluster-row eng-cluster-row--green">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-check.svg" alt="" /></span>
+              <span>Engineering-based cost modelling</span>
+            </div>
+            <div class="eng-cluster-row eng-cluster-row--green">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-check.svg" alt="" /></span>
+              <span>VAVE and DFM/DFA opportunities</span>
+            </div>
+            <div class="eng-cluster-row eng-cluster-row--green">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-check.svg" alt="" /></span>
+              <span>Part consolidation and standardization</span>
+            </div>
+            <div class="eng-cluster-row eng-cluster-row--green">
+              <span class="eng-cluster-row__icon"><img src="assets/images/icons/eng-cluster-check.svg" alt="" /></span>
+              <span>Sourcing intelligence and RFQ support</span>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid — 15 cards (2111:4819) -->
+    <section class="eng-services">
+      <div class="eng-services__inner">
+        <div data-reveal>
+          <p class="eng-services__eyebrow">COMPLETE PORTFOLIO</p>
+          <h2 class="eng-services__title">Our Professional Service Areas</h2>
+        </div>
+        <div class="eng-services__grid">
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-settings.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">NPD</h3>
+            <p class="eng-service-card__desc">Concept-to-launch product engineering support.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-activity.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">FEA+CFD</h3>
+            <p class="eng-service-card__desc">Simulation-led structural, thermal and flow validation.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-database.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">Data Migration</h3>
+            <p class="eng-service-card__desc">Secure CAD, PLM, ERP and business data migration.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-file-text.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">SPC/PPAP</h3>
+            <p class="eng-service-card__desc">Automated quality documentation and workflows.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.32s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-box.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">MBD</h3>
+            <p class="eng-service-card__desc">Model-based definition with PMI, GD&amp;T and metadata.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-trending-down.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">VAVE</h3>
+            <p class="eng-service-card__desc">Value analysis and value engineering focused on cost.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-layers.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">DFX</h3>
+            <p class="eng-service-card__desc">Design for manufacturing, assembly, and serviceability.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-toolbox.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">CNC Programming</h3>
+            <p class="eng-service-card__desc">Process-ready CNC programming and machining strategy.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-target.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">CMM Programming</h3>
+            <p class="eng-service-card__desc">Offline CMM programming and inspection planning.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.32s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-globe.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">Sourcing</h3>
+            <p class="eng-service-card__desc">Engineering-led sourcing support for complex RFQs.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-cpu.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">PLC Programming</h3>
+            <p class="eng-service-card__desc">PLC logic, HMI concepts and controls engineering.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-git-pull-request.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">AI/ML</h3>
+            <p class="eng-service-card__desc">AI, machine learning and Physical AI workflows.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-image.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">Rendering</h3>
+            <p class="eng-service-card__desc">High-quality product renders and technical visuals.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-terminal.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">Software Dev</h3>
+            <p class="eng-service-card__desc">Custom software, web applications and workflow tools.</p>
+          </article>
+          <article class="eng-service-card" data-reveal="zoom" style="--reveal-delay: 0.32s">
+            <span class="eng-service-card__icon"><img src="assets/images/content/eng-icon-leaf.svg" alt="" /></span>
+            <h3 class="eng-service-card__title">Sustainability</h3>
+            <p class="eng-service-card__desc">Sustainable engineering support for lightweighting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cost, Sourcing & Sustainability (2131:4795) -->
+    <section class="eng-cost">
+      <div class="eng-cost__inner">
+        <div class="eng-cost__header" data-reveal>
+          <p class="eng-cost__eyebrow">Cost, Sourcing and Sustainability</p>
+          <h2 class="eng-cost__title">Improve value without weakening performance intent.</h2>
+        </div>
+        <div class="eng-cost__grid">
+          <article class="eng-cost-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <h3 class="eng-cost-card__title">Should Costing</h3>
+            <p class="eng-cost-card__desc">Engineering-based cost models analyze materials, processes, labor, tooling, machine cost and overheads to validate quotations and support negotiations.</p>
+          </article>
+          <article class="eng-cost-card" data-reveal="zoom" style="--reveal-delay: 0.15s">
+            <h3 class="eng-cost-card__title">Value Engineering</h3>
+            <p class="eng-cost-card__desc">Structured VAVE programs target part consolidation, DFM/DFA, material alternatives, tolerance right-sizing and assembly simplification.</p>
+          </article>
+          <article class="eng-cost-card" data-reveal="zoom" style="--reveal-delay: 0.3s">
+            <h3 class="eng-cost-card__title">Sustainable Engineering</h3>
+            <p class="eng-cost-card__desc">We help identify waste reduction, material efficiency, process simplification and manufacturability opportunities aligned to business value.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value prop (2111:4935) -->
+    <section class="eng-value">
+      <div class="eng-value__inner">
+        <div data-reveal>
+          <p class="eng-value__eyebrow">WHY CHOOSE MKS VISION</p>
+          <h2 class="eng-value__title">Designed for engineering leaders who need clarity before investment</h2>
+        </div>
+        <div class="eng-value__grid">
+          <article class="eng-value-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <div class="eng-value-card__head">
+              <h3 class="eng-value-card__title">Risk down</h3>
+              <span class="eng-value-card__tag">VALIDATION</span>
+            </div>
+            <p class="eng-value-card__desc">Early validation before committing capital to prototype or production tooling.</p>
+          </article>
+          <article class="eng-value-card" data-reveal="zoom" style="--reveal-delay: 0.15s">
+            <div class="eng-value-card__head">
+              <h3 class="eng-value-card__title">Speed up</h3>
+              <span class="eng-value-card__tag">SPEED</span>
+            </div>
+            <p class="eng-value-card__desc">Faster design iteration, technical reporting, and critical milestone reviews.</p>
+          </article>
+          <article class="eng-value-card" data-reveal="zoom" style="--reveal-delay: 0.3s">
+            <div class="eng-value-card__head">
+              <h3 class="eng-value-card__title">Cost check</h3>
+              <span class="eng-value-card__tag">COSTS</span>
+            </div>
+            <p class="eng-value-card__desc">Should-cost modeling, value opportunity insights, and component standardization.</p>
+          </article>
+          <article class="eng-value-card" data-reveal="zoom" style="--reveal-delay: 0.45s">
+            <div class="eng-value-card__head">
+              <h3 class="eng-value-card__title">Launch check</h3>
+              <span class="eng-value-card__tag">QUALITY</span>
+            </div>
+            <p class="eng-value-card__desc">Complete production quality, assembly instructions, and workflow documentation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery approach (2111:4914) -->
+    <section class="eng-delivery">
+      <div class="eng-delivery__inner">
+        <div data-reveal>
+          <p class="eng-delivery__eyebrow">DELIVERY APPROACH</p>
+          <h2 class="eng-delivery__title">A clear workflow from technical question to business decision</h2>
+        </div>
+        <div class="eng-delivery__row">
+          <article class="eng-step-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <p class="eng-step-card__num">01</p>
+            <h3 class="eng-step-card__title">Frame</h3>
+            <p class="eng-step-card__desc">Define inputs, operating conditions, targets, assumptions, risks and expected output format.</p>
+          </article>
+          <article class="eng-step-card" data-reveal="zoom" style="--reveal-delay: 0.15s">
+            <p class="eng-step-card__num">02</p>
+            <h3 class="eng-step-card__title">Analyze</h3>
+            <p class="eng-step-card__desc">Run simulation, design review, cost breakdown, data preparation or manufacturing assessment.</p>
+          </article>
+          <article class="eng-step-card" data-reveal="zoom" style="--reveal-delay: 0.3s">
+            <p class="eng-step-card__num">03</p>
+            <h3 class="eng-step-card__title">Optimize</h3>
+            <p class="eng-step-card__desc">Compare alternatives, identify risks, quantify opportunities and prioritize feasible actions.</p>
+          </article>
+          <article class="eng-step-card" data-reveal="zoom" style="--reveal-delay: 0.45s">
+            <p class="eng-step-card__num">04</p>
+            <h3 class="eng-step-card__title">Deliver</h3>
+            <p class="eng-step-card__desc">Provide models, reports, drawings, programs, documentation, source packages and review-ready insights.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results / CTA (2117:10844) -->
+    <section class="eng-results">
+      <div class="eng-results__inner">
+        <div class="eng-results__content" data-reveal="left">
+          <p class="eng-results__pill">Designed to create trust before the first conversation</p>
+          <h2 class="eng-results__kpi">Business Impact</h2>
+          <p class="eng-results__lead">MKS Vision services that help clients design faster, validate smarter, digitize securely and launch stronger.</p>
+          <p class="eng-results__question">Have a product, process, cost or digital challenge that needs engineering clarity?</p>
+          <a href="contact.html" class="eng-results__cta">Start a Conversation</a>
+        </div>
+        <div class="eng-metrics" data-reveal="right">
+          <div class="eng-metric-card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <span class="eng-metric-card__value">50+</span>
+            <p class="eng-metric-card__label">Enterprise Implementations</p>
+          </div>
+          <div class="eng-metric-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <span class="eng-metric-card__value">25+</span>
+            <p class="eng-metric-card__label">Digital Solutions</p>
+          </div>
+          <div class="eng-metric-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <span class="eng-metric-card__value">300+</span>
+            <p class="eng-metric-card__label">Agile Professionals</p>
+          </div>
+          <div class="eng-metric-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <span class="eng-metric-card__value">5+</span>
+            <p class="eng-metric-card__label">Global Locations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (828:1955) -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision" />
+        <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--services">
+        <h4 class="footer__col-title">What we do</h4>
+        <ul class="footer__list footer__list--wrap">
+          <li><a href="#" class="footer__link-dot">AI solutions</a></li>
+          <li><a href="it-services.html" class="footer__link-dot">IT Services</a></li>
+          <li><a href="engineering.html" class="footer__link-dot">Engineering</a></li>
+          <li><a href="#" class="footer__link-dot">Products &amp; Platforms</a></li>
+          <li><a href="#" class="footer__link-dot">Managed Services</a></li>
+          <li><a href="#" class="footer__link-dot">Data &amp; Analytics</a></li>
+          <li><a href="#" class="footer__link-dot">Industries</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--industries">
+        <h4 class="footer__col-title">Industries</h4>
+        <ul class="footer__list footer__list--bulleted">
+          <li><a href="#">Banking &amp; Financial Institutions</a></li>
+          <li><a href="#">(BFI)NBFC &amp; Fintech</a></li>
+          <li><a href="#">Healthcare</a></li>
+          <li><a href="#">Retail</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Data Center Infrastructure</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--company-contact">
+        <nav class="footer__company" aria-label="Company">
+          <h4 class="footer__col-title">Company</h4>
+          <ul class="footer__list footer__list--bulleted footer__list--inline">
+            <li><a href="who-we-are.html">Who we are</a></li>
+            <li><a href="capabilities.html">Capabilities</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </nav>
+        <address class="footer__contact">
+          <h4 class="footer__col-title">Contact Us</h4>
+          <div class="footer__contact-list">
+            <a href="tel:+15027499992" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (502) 749-9992
+            </a>
+            <a href="mailto:hr@mksvision.com" class="footer__contact-item footer__contact-item--email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hr@mksvision.com
+            </a>
+          </div>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 MKS Vision. All rights reserved.</span>
+      <nav class="footer__legal" aria-label="Legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

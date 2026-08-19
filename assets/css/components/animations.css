@@ -328,3 +328,173 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   .wwa-director-card__linkedin { transition: none; }
   .wwa-vision__vm-col svg { animation: none; }
 }
+
+/* === Site-wide card hover-lift/tilt =====================================
+   Same treatment as the home page's feature-card / fintech-service boxes,
+   extended to every other page's card grids so the interaction feels
+   consistent everywhere. Tilt rotation itself is applied via inline
+   transform in JS (initTilt's querySelector list in main.js); the
+   transition here only smooths it and drives the plain-hover fallback
+   (touch devices, or any card JS doesn't reach). */
+.op-cap-card,
+.op-eng-card,
+.eng-carousel-card,
+.eng-cluster-card,
+.eng-service-card,
+.eng-cost-card,
+.eng-value-card,
+.eng-step-card,
+.its-service-card,
+.its-cloud-card,
+.its-managed-card,
+.its-rpa-card,
+.its-mod-card,
+.its-collab-card,
+.industry-case-card,
+.project-card,
+.blog-card,
+.co-job-card,
+.case-study-card,
+.trust-card,
+.agentic-objective-card,
+.pva-objective-card,
+.voice-objective-card,
+.docai-objective-card,
+.retail-platforms__card,
+.rpa-benefit-card,
+.rpa-achievement-card,
+.rpa-metric-card,
+.pva-impact-card,
+.agentic-impact-card,
+.voice-impact-card,
+.docai-impact-card,
+.benefit-card,
+.retail-cta__card,
+.retail-sync__feature,
+.its-tech-tile,
+.its-stat-box,
+.its-cta-stat,
+.metric-card,
+.eng-metric-card,
+.retail1-service-card,
+.retail1-solution-group,
+.retail1-project-card,
+.retail1-advanced-card {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+}
+.op-cap-card:hover,
+.op-eng-card:hover,
+.eng-carousel-card:hover,
+.eng-cluster-card:hover,
+.eng-service-card:hover,
+.eng-cost-card:hover,
+.eng-value-card:hover,
+.eng-step-card:hover,
+.its-service-card:hover,
+.its-cloud-card:hover,
+.its-managed-card:hover,
+.its-rpa-card:hover,
+.its-mod-card:hover,
+.its-collab-card:hover,
+.industry-case-card:hover,
+.project-card:hover,
+.blog-card:hover,
+.co-job-card:hover,
+.case-study-card:hover,
+.trust-card:hover,
+.agentic-objective-card:hover,
+.pva-objective-card:hover,
+.voice-objective-card:hover,
+.docai-objective-card:hover,
+.retail-platforms__card:hover,
+.rpa-benefit-card:hover,
+.rpa-achievement-card:hover,
+.rpa-metric-card:hover,
+.pva-impact-card:hover,
+.agentic-impact-card:hover,
+.voice-impact-card:hover,
+.docai-impact-card:hover,
+.benefit-card:hover,
+.retail-cta__card:hover,
+.retail-sync__feature:hover,
+.its-tech-tile:hover,
+.its-stat-box:hover,
+.metric-card:hover,
+.eng-metric-card:hover,
+.retail1-service-card:hover,
+.retail1-solution-group:hover,
+.retail1-project-card:hover,
+.retail1-advanced-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(148, 163, 184, 0.3);
+}
+.retail1-platform-item { transition: background 0.25s ease, border-color 0.25s ease; }
+.retail1-platform-item:hover,
+.retail1-platform-item.is-active { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.18); }
+/* .its-cta-stat sits on a dark gradient CTA band — a light gray lift
+   shadow would be invisible there, so it gets a translucency bump instead. */
+.its-cta-stat:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.1);
+}
+.eng-carousel-card__media img,
+.agentic-objective-card svg,
+.pva-objective-card svg,
+.voice-objective-card svg {
+  transition: transform 0.3s ease;
+}
+.eng-carousel-card:hover .eng-carousel-card__media img { transform: scale(1.06); }
+.agentic-objective-card:hover svg,
+.pva-objective-card:hover svg,
+.voice-objective-card:hover svg { transform: scale(1.1) rotate(-4deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .op-cap-card,
+  .op-eng-card,
+  .eng-carousel-card,
+  .eng-cluster-card,
+  .eng-service-card,
+  .eng-cost-card,
+  .eng-value-card,
+  .eng-step-card,
+  .its-service-card,
+  .its-cloud-card,
+  .its-managed-card,
+  .its-rpa-card,
+  .its-mod-card,
+  .its-collab-card,
+  .industry-case-card,
+  .project-card,
+  .blog-card,
+  .co-job-card,
+  .case-study-card,
+  .trust-card,
+  .agentic-objective-card,
+  .pva-objective-card,
+  .voice-objective-card,
+  .docai-objective-card,
+  .retail-platforms__card,
+  .rpa-benefit-card,
+  .rpa-achievement-card,
+  .rpa-metric-card,
+  .pva-impact-card,
+  .agentic-impact-card,
+  .voice-impact-card,
+  .docai-impact-card,
+  .benefit-card,
+  .retail-cta__card,
+  .retail-sync__feature,
+  .its-tech-tile,
+  .its-stat-box,
+  .its-cta-stat,
+  .metric-card,
+  .eng-metric-card,
+  .retail1-service-card,
+  .retail1-solution-group,
+  .retail1-project-card,
+  .retail1-advanced-card,
+  .eng-carousel-card__media img,
+  .agentic-objective-card svg,
+  .pva-objective-card svg,
+  .voice-objective-card svg { transition: none; }
+}

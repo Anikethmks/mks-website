@@ -63,6 +63,7 @@
 .pva-overview__stats {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 16px;
   padding: 8px 24px;

@@ -68,7 +68,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
   background: none;
@@ -88,7 +88,7 @@
   display: inline-flex;
   align-items: center;
   padding: 12px 24px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   background: var(--grad-cta);
   color: #FFFFFF;
   text-decoration: none;

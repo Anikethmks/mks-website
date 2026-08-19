@@ -47,7 +47,7 @@
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
   /* Figma's border is a gradient stroke (mks-grad), not a solid blue.
      Double-background (padding-box fill + border-box gradient) instead of
      the mask/::before ring trick — mask-composite's "exclude" vs the

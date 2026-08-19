@@ -118,14 +118,11 @@
   border-top-right-radius: 4px;
 }
 
-@media (max-width: 1279px) {
-  .agentic-hero { flex-direction: column; min-height: 0; padding: 96px 48px 48px; gap: 24px; }
-  .agentic-hero__content { flex-basis: auto; }
-  .agentic-hero__title { font-size: 32px; line-height: 40px; }
-  .agentic-hero__media { flex-basis: 320px; margin: 0 -48px 0; }
-}
+/* Row layout holds through 1024px, matching physical-vision-hero.css —
+   only stacks at true tablet/mobile widths (≤1023px). */
 @media (max-width: 1023px) {
-  .agentic-hero { padding: 80px 32px 32px; gap: 20px; }
+  .agentic-hero { flex-direction: column; min-height: 0; padding: 80px 32px 32px; gap: 20px; }
+  .agentic-hero__content { flex-basis: auto; }
   .agentic-hero__title { font-size: 28px; line-height: 36px; }
   .agentic-hero__media { flex-basis: 260px; margin: 0 -32px 0; }
 }

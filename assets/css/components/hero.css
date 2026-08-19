@@ -59,9 +59,16 @@
   justify-content: flex-start;
 }
 
-/* Slide content panels — stacked, fade in/out */
+/* Slide content panels — stacked, fade in/out. min-height reserves room
+   for the tallest slide's title+subtitle+CTA at each breakpoint: slide 0
+   ("AI-Driven Strategy") is consistently ~30px shorter than slides 1-3, so
+   without this the tabs/divider below would jump position depending on
+   which slide is active. Set per-breakpoint alongside the title/subtitle
+   font-size changes below, since wrapped line count is what actually
+   drives the height difference. */
 .hero__content {
   max-width: 709px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -139,7 +146,7 @@
   justify-content: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
@@ -278,12 +285,14 @@
   .hero { height: 540px; }
   .hero__inner { padding: 100px 48px 0; }
   .hero__title { font-size: 42px; line-height: 52px; }
+  .hero__content { min-height: 244px; }
 }
 @media (max-width: 1023px) {
   .hero { height: 500px; }
   .hero__inner { padding: 80px 32px 0; }
   .hero__title { font-size: 34px; line-height: 42px; }
   .hero__subtitle { font-size: 16px; line-height: 26px; }
+  .hero__content { min-height: 216px; }
 }
 /* Mobile (Figma node 1936:7287, 390px frame): title stays at the same 32px
    H2 size used site-wide (not shrunk further), the two title lines sit
@@ -302,6 +311,7 @@
      grow instead of truncating their copy. */
   .hero { height: auto; min-height: 489px; }
   .hero__inner { padding: 32px 16px 32px; }
+  .hero__content { min-height: 280px; }
   .hero__title { font-size: 32px; line-height: 42px; gap: 0; }
   .hero__subtitle {
     font-size: 14px;
@@ -316,4 +326,5 @@
 }
 @media (max-width: 479px) {
   .hero { height: auto; min-height: 489px; }
+  .hero__content { min-height: 370px; }
 }
