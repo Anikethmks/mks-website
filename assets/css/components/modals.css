@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Site-wide modals — Apply Now (922:8550), Get In Touch (791:5540),
+   Success (791:5565). Injected into the DOM by main.js on every page so no
+   per-page markup is needed; opened by intercepting clicks on
+   `a.co-job-card__apply` (Apply Now) and any other `a[href="contact.html"]`
+   (Get In Touch) sitewide.
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(2, 2, 2, 0.55);
+  backdrop-filter: blur(2px);
+}
+.modal-overlay.is-open { display: flex; }
+
+/* Scroll (when content genuinely doesn't fit the viewport) lives on
+   .modal__body, not .modal itself — a scrollbar rendered directly on an
+   element with border-radius squares off that corner in most browsers,
+   which was flattening .modal's top/bottom-right corners. Keeping .modal
+   as a plain, non-scrolling, overflow:hidden box keeps its corners clean;
+   the inner body scrolls independently, contained by it. */
+.modal {
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  background: #FFFFFF;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* min-height:0 overrides the flex default of "never shrink below content
+   size" — without it this flex child can't actually become a bounded,
+   independently-scrolling box, so overflow-y:auto never has anything to
+   do and the outer page scrolls instead. */
+.modal__body { padding: 32px; overflow-y: auto; min-height: 0; display: flex; flex-direction: column; gap: 24px; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .modal { animation: none; } }
+
+.modal--apply { max-width: 797px; border: 1px solid transparent; background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(-66deg, #8667FF 4%, #2986C5 97%); background-origin: border-box; background-clip: padding-box, border-box; }
+.modal--contact { max-width: 418px; }
+.modal--success { max-width: 418px; background: linear-gradient(-66deg, rgba(134, 103, 255, 0.5) 4%, rgba(41, 134, 197, 0.5) 97%); }
+.modal--success .modal__body { align-items: center; text-align: center; justify-content: center; gap: 48px; padding: 56px 24px; }
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6F6F6F;
+  background: #F6F6F6;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.modal__close:hover { background: #E2E8F0; color: #020202; }
+.modal__close svg { width: 14px; height: 14px; }
+
+.modal__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
+.modal--success .modal__title { font-size: 24px; line-height: 34px; }
+
+.modal__row { display: flex; gap: 24px; align-items: flex-start; }
+.modal__col { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
+
+.modal-field { display: flex; flex-direction: column; gap: 8px; }
+.modal-field__label { font-family: var(--font-primary); font-weight: 500; font-size: 14px; color: #020202; }
+.modal-field__control {
+  height: 39px;
+  padding: 6px 8px;
+  background: #F6F6F6;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: #020202;
+  width: 100%;
+}
+.modal-field__control::placeholder { color: #6F6F6F; }
+.modal-field__control:focus { outline: none; border-color: #2784C5; background: #FFFFFF; }
+.modal-field__control--select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5l3 3 3-3' stroke='%23020202' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; cursor: pointer; }
+textarea.modal-field__control { height: 106px; resize: none; font-size: 12px; padding-top: 8px; }
+
+.modal-field__file { display: flex; align-items: stretch; border-radius: 6px; overflow: hidden; background: #F6F6F6; }
+.modal-field__file-btn { flex-shrink: 0; padding: 8px 16px; background: var(--grad-cta); color: #FFFFFF; font-family: var(--font-primary); font-weight: 400; font-size: 14px; border: none; cursor: pointer; }
+.modal-field__file-name { flex: 1 1 0; min-width: 0; padding: 8px 12px; font-family: var(--font-primary); font-size: 12px; color: #6F6F6F; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.modal-field__file input[type="file"] { display: none; }
+
+.modal__submit {
+  height: 48px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(-66deg, #644DBF 4%, #1A70B2 97%);
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+.modal__submit:hover { opacity: 0.92; }
+.modal__submit:active { transform: scale(0.99); }
+
+.modal__check {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(180deg, #93DA47 0%, #0D901C 100%);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.modal__check svg { width: 24px; height: 17px; }
+.modal__success-text { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 34px; color: #FFFFFF; margin: 0; }
+
+@media (max-width: 767px) {
+  .modal__body { padding: 24px; gap: 16px; }
+  .modal__row { flex-direction: column; gap: 16px; }
+  .modal__title { font-size: 22px; line-height: 30px; }
+}

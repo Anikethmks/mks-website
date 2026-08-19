@@ -891,6 +891,131 @@
     });
   }
 
+  // Site-wide modals — Apply Now / Get In Touch / Success. Injected on
+  // every page so no per-page markup is needed. `a[href="contact.html"]`
+  // was a dead link sitewide (the page was never built) — clicks on it now
+  // open the Get In Touch modal instead; `.co-job-card__apply` links open
+  // the Apply Now modal with the job title pre-filled.
+  function initModals() {
+    var checkSvg = '<svg viewBox="0 0 24 17" fill="none"><path d="M23 1.5L8.5 15.5 1 8.5" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var closeSvg = '<svg viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    document.body.insertAdjacentHTML('beforeend',
+      '<div class="modal-overlay" id="apply-modal" data-modal>' +
+        '<div class="modal modal--apply" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">' +
+          '<button type="button" class="modal__close" data-modal-close aria-label="Close">' + closeSvg + '</button>' +
+          '<div class="modal__body">' +
+          '<h2 class="modal__title" id="apply-modal-title">Send your application now !</h2>' +
+          '<form data-modal-form>' +
+            '<div class="modal__row">' +
+              '<div class="modal__col">' +
+                '<div class="modal-field"><label class="modal-field__label">Name *</label><input class="modal-field__control" type="text" placeholder="Full name" required /></div>' +
+                '<div class="modal-field"><label class="modal-field__label">Job Role *</label><input class="modal-field__control" type="text" data-apply-role placeholder="Job role" required /></div>' +
+                '<div class="modal-field"><label class="modal-field__label">When Able to Start *</label>' +
+                  '<select class="modal-field__control modal-field__control--select" required>' +
+                    '<option value="">Select…</option><option>Immediate Joining</option><option>2 Weeks Notice</option><option>1 Month Notice</option>' +
+                  '</select></div>' +
+                '<div class="modal-field"><label class="modal-field__label">Upload Resume *</label>' +
+                  '<div class="modal-field__file"><label class="modal-field__file-btn">Choose File<input type="file" data-file-input required /></label><span class="modal-field__file-name" data-file-name>No file chosen</span></div></div>' +
+              '</div>' +
+              '<div class="modal__col">' +
+                '<div class="modal-field"><label class="modal-field__label">Email *</label><input class="modal-field__control" type="email" placeholder="Email address" required /></div>' +
+                '<div class="modal-field"><label class="modal-field__label">Phone *</label><input class="modal-field__control" type="tel" placeholder="Phone number" required /></div>' +
+                '<div class="modal-field"><label class="modal-field__label">Message</label><textarea class="modal-field__control" placeholder="Write your message here..."></textarea></div>' +
+              '</div>' +
+            '</div>' +
+            '<button type="submit" class="modal__submit" style="margin-top:24px">Save &amp; Apply</button>' +
+          '</form>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="modal-overlay" id="contact-modal" data-modal>' +
+        '<div class="modal modal--contact" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">' +
+          '<button type="button" class="modal__close" data-modal-close aria-label="Close">' + closeSvg + '</button>' +
+          '<div class="modal__body">' +
+          '<h2 class="modal__title" id="contact-modal-title" style="font-size:20px;line-height:28px">Get In Touch</h2>' +
+          '<form data-modal-form>' +
+            '<div class="modal-field"><label class="modal-field__label">Name *</label><input class="modal-field__control" type="text" placeholder="Full name" required /></div>' +
+            '<div class="modal-field" style="margin-top:24px"><label class="modal-field__label">Email *</label><input class="modal-field__control" type="email" placeholder="Email address" required /></div>' +
+            '<div class="modal-field" style="margin-top:24px"><label class="modal-field__label">Phone *</label><input class="modal-field__control" type="tel" placeholder="Phone number" required /></div>' +
+            '<div class="modal-field" style="margin-top:24px"><label class="modal-field__label">Message</label><textarea class="modal-field__control" placeholder="Write your message here..."></textarea></div>' +
+            '<button type="submit" class="modal__submit" style="margin-top:24px">Send Message</button>' +
+          '</form>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="modal-overlay" id="success-modal" data-modal>' +
+        '<div class="modal modal--success" role="dialog" aria-modal="true">' +
+          '<button type="button" class="modal__close" data-modal-close aria-label="Close">' + closeSvg + '</button>' +
+          '<div class="modal__body">' +
+          '<span class="modal__check">' + checkSvg + '</span>' +
+          '<p class="modal__success-text">Thank you! We received your information. Will get back to you shortly.</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+
+    var overlays = Array.from(document.querySelectorAll('[data-modal]'));
+    function closeAll() {
+      overlays.forEach(function (o) { o.classList.remove('is-open'); });
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+    function open(id) {
+      closeAll();
+      var o = document.getElementById(id);
+      if (!o) return;
+      o.classList.add('is-open');
+      // Locking body alone doesn't stop the page scrolling here — html
+      // itself is the actual scroll container (see reset.css's overflow-x
+      // comment), so it needs the lock too.
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    document.addEventListener('click', function (e) {
+      var applyLink = e.target.closest('a.co-job-card__apply');
+      if (applyLink) {
+        e.preventDefault();
+        var card = applyLink.closest('.co-job-card');
+        var roleInput = document.querySelector('#apply-modal [data-apply-role]');
+        var titleEl = card && card.querySelector('.co-job-card__title');
+        if (roleInput) roleInput.value = titleEl ? titleEl.textContent.trim() : '';
+        open('apply-modal');
+        return;
+      }
+      var contactLink = e.target.closest('a[href="contact.html"]');
+      if (contactLink) {
+        e.preventDefault();
+        open('contact-modal');
+        return;
+      }
+      if (e.target.closest('[data-modal-close]') || e.target.classList.contains('modal-overlay')) {
+        closeAll();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAll();
+    });
+
+    document.addEventListener('change', function (e) {
+      if (e.target.matches('[data-file-input]')) {
+        var nameEl = e.target.closest('.modal-field__file').querySelector('[data-file-name]');
+        nameEl.textContent = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+      }
+    });
+
+    document.addEventListener('submit', function (e) {
+      var form = e.target.closest('[data-modal-form]');
+      if (!form) return;
+      e.preventDefault();
+      form.reset();
+      var fileName = form.querySelector('[data-file-name]');
+      if (fileName) fileName.textContent = 'No file chosen';
+      open('success-modal');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initFooter();
     document.documentElement.classList.remove('preload');
@@ -912,5 +1037,6 @@
     initCareersOpenings();
     initOutcomesScroll();
     initPlatformsAccordion();
+    initModals();
   });
 })();
