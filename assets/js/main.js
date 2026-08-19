@@ -732,6 +732,70 @@
     track.style.setProperty('--marquee-duration', duration + 's');
   }
 
+  // Careers "Stories by MKS Vision" blog strip — shows ~4 cards, advances
+  // one page every 5s while in view, and supports manual mouse/touch drag
+  // at any time (touch drag is native to the scroll container; mouse drag
+  // is wired up here). Auto-advance pauses on hover/drag, matching the
+  // same visible-and-not-interacting gating as the other carousels.
+  function initCareersBlogCarousel() {
+    var track = document.querySelector('[data-blog-carousel]');
+    if (!track) return;
+
+    var AUTO_INTERVAL = 5000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    var hovering = false;
+    var dragging = false;
+    var visible = false;
+
+    function pageWidth() { return track.clientWidth; }
+    function advance() {
+      var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + pageWidth(), behavior: 'smooth' });
+    }
+    function startAuto() {
+      if (reduceMotion || hovering || dragging || !visible) return;
+      stopAuto();
+      timer = setInterval(advance, AUTO_INTERVAL);
+    }
+    function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+    track.addEventListener('mouseenter', function () { hovering = true; stopAuto(); });
+    track.addEventListener('mouseleave', function () { hovering = false; startAuto(); });
+
+    var startX = 0, startScroll = 0;
+    track.addEventListener('mousedown', function (e) {
+      dragging = true;
+      track.classList.add('is-dragging');
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      stopAuto();
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!dragging) return;
+      track.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    window.addEventListener('mouseup', function () {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      startAuto();
+    });
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          visible = entry.isIntersecting;
+          if (visible) startAuto(); else stopAuto();
+        });
+      }, { threshold: 0.4 });
+      observer.observe(track);
+    } else {
+      visible = true;
+      startAuto();
+    }
+  }
+
   // Trust-stats vertical tickers — same duplicate-for-seamless-loop idea as
   // the outcomes marquee, but per column and top-to-bottom. The "down"
   // column reuses the same up-scrolling keyframe with animation-direction
@@ -1038,5 +1102,6 @@
     initOutcomesScroll();
     initPlatformsAccordion();
     initModals();
+    initCareersBlogCarousel();
   });
 })();
