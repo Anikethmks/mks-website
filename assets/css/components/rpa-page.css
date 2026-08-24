@@ -11,14 +11,14 @@
    ========================================================================== */
 
 /* Hero ------------------------------------------------------------------ */
-.rpa-hero { background: #145C93; padding: var(--hero-pt) var(--section-px) var(--section-py); }
+.rpa-hero { background: #145C93; padding: 0 var(--section-px); }
 .rpa-hero__inner {
   max-width: var(--content-max);
   margin-inline: auto;
   display: flex;
   align-items: center;
   gap: 32px;
-  min-height: 314px;
+  min-height: 575px;
 }
 .rpa-hero__left {
   flex: 0 1 601px;

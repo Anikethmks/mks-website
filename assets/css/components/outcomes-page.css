@@ -11,7 +11,10 @@
 /* Hero --------------------------------------------------------------- */
 .op-hero {
   position: relative;
-  padding: var(--hero-pt) var(--section-px) var(--section-py);
+  min-height: 575px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-px);
   color: #FFFFFF;
   /* Figma swapped both the photo (a target/standing-out visual) and the
      tint — a flat 25%-black scrim now, not the navy-blue diagonal wash. */
@@ -26,6 +29,7 @@
    the hero's text lines up with the content below it, and so it centers
    on screens wider than ~1440px instead of gluing to the left edge. */
 .op-hero__inner {
+  width: 100%;
   max-width: var(--content-max);
   margin-inline: auto;
   display: flex;
@@ -599,6 +603,7 @@
   .op-products__divider { display: none; }
 }
 @media (max-width: 767px) {
+  .op-hero { min-height: 489px; }
   .op-section { gap: 24px; }
   .op-tabs { flex-wrap: wrap; padding-inline: 12px; }
   .op-service-pills { flex-direction: column; }

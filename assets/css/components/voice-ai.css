@@ -10,16 +10,17 @@
 .voice-hero {
   position: relative;
   background: linear-gradient(-62deg, #2784C5 17%, #145C93 100%);
-  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
+  padding: var(--section-py) var(--section-px-fluid);
   display: flex;
   align-items: stretch;
   gap: 32px;
   overflow: hidden;
-  min-height: 590px;
+  min-height: 575px;
 }
 .voice-hero__content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 24px;
   flex: 0 1 608px;
   min-width: 0;
@@ -33,7 +34,7 @@
 .voice-hero__body { display: flex; flex-direction: column; gap: 24px; }
 .voice-hero__title { font-family: var(--font-display); font-weight: var(--fw-hero); font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: -0.5px; margin: 0; color: #FFFFFF; }
 .voice-hero__lead { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-hero-lead); line-height: var(--lh-hero-lead); color: #FFFFFF; margin: 0; }
-.voice-hero__media { flex: 1 1 0; min-width: 0; margin: calc(-1 * var(--hero-pt)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0; border-radius: 8px 0 0 0; overflow: hidden; }
+.voice-hero__media { flex: 1 1 0; min-width: 0; margin: calc(-1 * var(--section-py)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0; border-radius: 8px 0 0 0; overflow: hidden; }
 .voice-hero__media img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
 .voice-tabs { background: #FCFCFC; display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 16px; }

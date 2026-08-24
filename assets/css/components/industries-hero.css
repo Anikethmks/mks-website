@@ -5,7 +5,10 @@
 
 .industries-hero {
   position: relative;
-  padding: var(--hero-pt) var(--section-px) var(--section-py);
+  min-height: 575px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-px);
   overflow: hidden;
   isolation: isolate;
 }
@@ -15,6 +18,7 @@
    glue to the left edge on screens wider than ~1440px instead of
    centering like the home page does. */
 .industries-hero__inner {
+  width: 100%;
   max-width: var(--content-max);
   margin-inline: auto;
 }
@@ -109,6 +113,7 @@
 }
 
 @media (max-width: 767px) {
+  .industries-hero { min-height: 489px; }
   .industries-hero__breadcrumb { margin-bottom: 24px; }
   .industries-hero__content { gap: 24px; }
   .industries-hero__title { letter-spacing: -0.3px; }

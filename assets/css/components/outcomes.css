@@ -57,14 +57,15 @@
    with the others fanned out behind it in decreasing depth. */
 .outcomes__body {
   display: grid;
-  grid-template-columns: 480px minmax(0, 600px);
+  grid-template-columns: 480px minmax(0, 1fr);
   gap: 80px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .outcomes__nav {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 36px;
 }
 
@@ -250,7 +251,6 @@
 .outcome-card__desc {
   position: relative;
   margin: 12px 0 0;
-  max-width: 48ch;
   font-family: var(--font-primary);
   font-weight: 400;
   font-size: var(--fs-small);
@@ -431,7 +431,7 @@
   .outcomes { min-height: 593px; }
   .outcomes__inner { gap: 34px; }
   .outcomes__header { gap: 11px; }
-  .outcomes__body { grid-template-columns: 341px 535px; gap: 57px; min-height: 316px; }
+  .outcomes__body { grid-template-columns: 341px minmax(0, 1fr); gap: 57px; min-height: 316px; }
   .outcomes__nav { gap: 26px; }
   .outcomes__counter-current { font-size: 20px; }
   .outcomes__counter-total { font-size: 12px; }
