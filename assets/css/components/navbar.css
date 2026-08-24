@@ -23,11 +23,24 @@
 }
 
 .navbar__logo-img {
-  height: 48px;
+  height: 60px;
   width: auto;
 }
 
 .navbar__nav { display: flex; }
+
+/* Centers the menu on the bar itself (independent of logo/actions width)
+   rather than wherever space-between happens to land it between them. */
+@media (min-width: 1024px) {
+  .navbar__inner { position: relative; }
+  .navbar__nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max-content;
+    transform: translate(-50%, -50%);
+  }
+}
 
 .navbar__list {
   display: flex;
@@ -42,8 +55,8 @@
   padding: 8px 8px 6px;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 22px;
   letter-spacing: 0.1px;
   color: #020202;
   background: none;
@@ -149,7 +162,7 @@
    than the actual viewport. */
 @media (max-width: 479px) {
   .navbar__inner { gap: 8px; padding: 10px 12px; }
-  .navbar__logo-img { height: 34px; }
+  .navbar__logo-img { height: 40px; }
   .navbar .btn--gradient {
     padding: 6px 12px;
     height: 34px;

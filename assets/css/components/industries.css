@@ -32,6 +32,7 @@
   letter-spacing: -0.2px;
   color: #020202;
 }
+.industries__title-accent { color: #1F73B4; }
 
 .industries__description {
   font-family: var(--font-primary);
