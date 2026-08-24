@@ -6,7 +6,7 @@
 .wwa-board {
   position: relative;
   background: #F9FAFC;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -38,16 +38,13 @@
    curtain, rather than individual words rising into place. */
 .wwa-board__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1.1s cubic-bezier(0.65, 0, 0.35, 1);
+  color: var(--color-brand);
 }
 [data-reveal].is-visible .wwa-board__title {
   clip-path: inset(0 0 0 0);
@@ -62,10 +59,10 @@
   text-align: left;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #5C5C5C;
+  color: var(--color-text-muted);
 }
 
 .wwa-board__grid {
@@ -80,12 +77,12 @@
 .wwa-director-card {
   width: 321px;
   max-width: 100%;
-  padding: 24px;
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  border-radius: 16px;
+  border-radius: var(--card-radius);
   box-shadow: inset 1px 1px 4px 3px #f0f3f7;
 }
 
@@ -134,10 +131,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .wwa-director-card__role {
@@ -209,29 +203,23 @@
 }
 
 @media (max-width: 1279px) {
-  .wwa-board { padding: 56px 48px; }
   .wwa-board__inner { gap: 40px; }
   .wwa-board__grid { gap: 32px; }
 }
 
 @media (max-width: 1023px) {
-  .wwa-board { padding: 48px 32px; }
   .wwa-board__inner { gap: 32px; }
   .wwa-board__watermark,
   .wwa-board__dots { display: none; }
-  .wwa-board__title { font-size: 24px; line-height: 32px; }
   .wwa-board__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .wwa-director-card { width: 100%; }
 }
 
 @media (max-width: 767px) {
-  .wwa-board { padding: 40px 20px; }
   .wwa-board__inner { gap: 24px; }
-  .wwa-board__title { font-size: 22px; line-height: 30px; }
   .wwa-board__grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
 @media (max-width: 479px) {
-  .wwa-board { padding: 32px 16px; }
-  .wwa-director-card { padding: 20px; }
+  .wwa-director-card { padding: var(--card-pad); }
 }

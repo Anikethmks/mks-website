@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .careers-blog {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   background: #F7F7F7;
   overflow: hidden;
 }
@@ -25,9 +25,9 @@
 
 .careers-blog__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
@@ -35,9 +35,9 @@
 .careers-blog__subtitle {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -84,9 +84,9 @@
 
 .blog-card__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
   color: #020202;
   margin: 0;
 }
@@ -142,7 +142,7 @@
   padding: 8px 16px;
   border-radius: 6px;
   border: 1px solid transparent;
-  background: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
+  background: var(--color-brand);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
@@ -183,8 +183,8 @@
   padding: 24px;
 }
 .blog-card--big .blog-card__title {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
 }
 .blog-card--big .blog-card__cta {
   display: inline-flex;
@@ -205,27 +205,20 @@
 
 /* Laptop */
 @media (max-width: 1279px) {
-  .careers-blog { padding: 48px; }
   .careers-blog__inner { gap: 32px; }
   .blog-card { flex-basis: 300px; }
-  .blog-card--big .blog-card__title { font-size: 24px; line-height: 32px; }
 }
 /* Tablet */
 @media (max-width: 1023px) {
-  .careers-blog__title { font-size: 24px; line-height: 32px; }
   .blog-card { flex-basis: 280px; }
   .blog-card__media { height: 180px; }
   .blog-card--tint::after { height: 180px; }
 }
 /* Mobile */
 @media (max-width: 767px) {
-  .careers-blog { padding: 40px 24px; }
-  .careers-blog__title { font-size: 22px; line-height: 30px; }
   .blog-card { flex-basis: 260px; }
   .blog-card__media { height: 160px; }
   .blog-card--tint::after { height: 160px; }
-  .blog-card__title { font-size: 18px; line-height: 26px; }
-  .blog-card--big .blog-card__title { font-size: 20px; line-height: 28px; }
 }
 /* Small phone */
 @media (max-width: 479px) {

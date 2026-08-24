@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .retail-engagement {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 .retail-engagement__inner {
@@ -41,9 +41,9 @@
 
 .retail-engagement__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #212121;
   margin: 0;
 }
@@ -62,9 +62,9 @@
 
 .retail-engagement__desc {
   font-family: var(--font-primary);
-  font-size: 14px;
-  line-height: 1.5;
-  color: #1F2937;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -87,18 +87,12 @@
   padding-right: 16px;
   border-right: 1px solid #D9DCE3;
 }
-
-@media (max-width: 1279px) {
-  .retail-engagement { padding: 56px 48px; }
-}
 @media (max-width: 1023px) {
   .retail-engagement__row { flex-direction: column; }
   .retail-engagement__img { width: 100%; max-width: 100%; }
   .retail-engagement__content { padding: 0; }
 }
 @media (max-width: 767px) {
-  .retail-engagement { padding: 48px 24px; }
-  .retail-engagement__title { font-size: 28px; line-height: 36px; }
   .retail-engagement__strip { justify-content: flex-start; }
   .retail-engagement__strip span:not(:last-child) { border-right: none; padding-right: 0; }
 }

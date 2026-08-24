@@ -3,7 +3,7 @@
 .trust-stats {
   /* Figma node 1971:8193 — plain white, no pastel gradient wash. */
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -35,9 +35,9 @@
 
 .trust-stats__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   letter-spacing: -0.2px;
   color: #020202;
 }
@@ -46,9 +46,9 @@
 .trust-stats__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #58595B;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   max-width: 484px;
 }
 
@@ -63,16 +63,14 @@
 .trust-stats__certified-label {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* Starts on the same left edge as the heading and lead above it. */
+  justify-content: flex-start;
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .trust-stats__certified-label img {
   width: 24px;
@@ -81,38 +79,51 @@
 }
 
 /* Two rows of two — Figma node 1971:8193 pairs ISO+GDPR on one row and
-   PCI DSS+NASSCOM on the next, not a single flat row of four. */
+   PCI DSS+NASSCOM on the next, not a single flat row of four.
+   Both rows use the same two-column grid, so the four marks sit on a real
+   grid: column 1 shares a left edge with the heading, column 2 starts at
+   the same x in both rows, and every tile is the same height. Centering
+   each row independently (what this used to do) made the columns drift. */
 .trust-stats__logos {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 16px;
+  width: 100%;
+  max-width: 480px;
 }
 
 .trust-stats__logos-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
-  justify-content: center;
   gap: 32px;
 }
 
 .trust-stats__logo-tile {
-  padding: 8px;
-  border-radius: 8px;
+  height: 104px;
+  /* No side padding: the mark itself lands on the column edge, so ISO and
+     PCI line up with the heading rather than sitting 8px inside it. */
+  padding: 8px 0;
+  border-radius: var(--card-radius);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .trust-stats__logo {
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
-.trust-stats__logo-tile--iso .trust-stats__logo { max-height: 100px; }
-.trust-stats__logo-tile--gdpr .trust-stats__logo { max-height: 100px; }
-.trust-stats__logo-tile--pci .trust-stats__logo { max-height: 95px; }
-.trust-stats__logo-tile--nasscom .trust-stats__logo { max-width: 224px; max-height: 31px; }
+/* One optical size for the three round seals; the NASSCOM wordmark is
+   capped on width instead, since it is a landscape lockup. */
+.trust-stats__logo-tile--iso .trust-stats__logo,
+.trust-stats__logo-tile--gdpr .trust-stats__logo,
+.trust-stats__logo-tile--pci .trust-stats__logo { max-height: 88px; }
+.trust-stats__logo-tile--nasscom .trust-stats__logo { max-width: 200px; max-height: 40px; }
 
 /* Right side — two vertical tickers scrolling in opposite directions,
    split by a vertical rule. Figma node 1971:8193 gives the colors/type
@@ -187,9 +198,9 @@
 
 .stat-card {
   background: #F8FBFF;
-  border: 1px solid #F8FBFF;
-  border-radius: 16px;
-  padding: 24px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -202,11 +213,8 @@
   font-size: 36px;
   line-height: 44px;
   letter-spacing: -0.5px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  color: var(--color-brand);
 }
 
 .stat-card__label {
@@ -217,18 +225,7 @@
   color: #58595B;
 }
 
-/* Left column and ticker block both shrink fluidly (flex + min/max-width)
-   so the numbers stay pinned to the right at every desktop/laptop width.
-   They only run out of room to shrink once both hit their min-width
-   (320px + 360px + 24px gap = 704px content), so the stacked fallback is
-   triggered at the standard Tablet breakpoint rather than lower, so the
-   cramped two-up range is never left on screen. */
-@media (max-width: 1279px) {
-  .trust-stats { padding: 56px 48px 80px; }
-}
-
 @media (max-width: 1023px) {
-  .trust-stats { padding: 48px 32px 64px; }
   .trust-stats__inner { flex-direction: column; gap: 48px; }
   .trust-stats__left { width: 100%; max-width: 100%; }
   .trust-stats__right { width: 100%; max-width: 100%; min-width: 0; justify-content: center; }
@@ -238,16 +235,18 @@
    ticker mechanism as desktop, just resized; Figma's frame is a static
    snapshot and can't show that motion, but the scroll/fade still runs. */
 @media (max-width: 767px) {
-  .trust-stats { padding: 32px 16px; }
   .trust-stats__inner { flex-direction: column; gap: 32px; }
   .trust-stats__left { width: 100%; max-width: 100%; gap: 32px; }
   .trust-stats__header { gap: 16px; }
-  .trust-stats__title { font-weight: 600; font-size: 28px; line-height: 38px; }
-  .trust-stats__lead { font-size: 16px; line-height: 26px; max-width: none; }
-  .trust-stats__certified { gap: 16px; align-items: center; }
-  .trust-stats__certified-label { justify-content: center; }
-  .trust-stats__logos { gap: 12px; width: 100%; min-height: 132px; }
+  .trust-stats__title { font-weight: 600; }
+  .trust-stats__lead { max-width: none; }
+  /* Left-aligned like the heading and lead above it, same as desktop —
+     it used to centre only the label, which left it off-axis from both
+     the copy above and the marks below. */
+  .trust-stats__certified { gap: 16px; align-items: stretch; }
+  .trust-stats__logos { gap: 12px; width: 100%; }
   .trust-stats__logos-row { gap: 20px; }
+  .trust-stats__logo-tile { height: 72px; }
   /* Exact measured Figma dimensions — logos were rendering at desktop's
      100/95/31px sizes without these, badly oversized for mobile. */
   .trust-stats__logo-tile--iso .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
@@ -290,7 +289,7 @@
   .trust-stats__col--left .trust-stats__group,
   .trust-stats__col--right .trust-stats__track,
   .trust-stats__col--right .trust-stats__group { gap: 24px; }
-  .stat-card { padding: 16px; gap: 8px; width: 100%; min-width: 0; }
+  .stat-card { padding: var(--card-pad-compact); gap: 8px; width: 100%; min-width: 0; }
   .stat-card__number { font-weight: 600; font-size: 24px; line-height: 34px; }
   .stat-card__label { font-size: 14px; line-height: 26px; font-weight: 600; color: #58595B; overflow-wrap: break-word; }
 }

@@ -10,7 +10,7 @@
 .gallery-hero {
   position: relative;
   min-height: 540px;
-  padding: 0 64px;
+  padding: 0 var(--section-px-fluid);
   overflow: hidden;
   background: #222222;
 }
@@ -72,28 +72,25 @@
 .gallery-hero__title {
   max-width: 611px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.0104em;
   margin: 0;
-  background: linear-gradient(141deg, rgba(246, 244, 255, 1) 0%, rgba(214, 222, 227, 1) 94%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand-pale);
 }
 .gallery-hero__lead {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   margin: 0;
 }
 
 /* Gallery grid ------------------------------------------------------------ */
 .gallery-grid-section {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px-fluid);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,9 +98,9 @@
 }
 .gallery-grid-section__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   text-align: center;
   margin: 0;
@@ -121,7 +118,7 @@
    whole bento layout scales uniformly and stays pixel-faithful to Figma. */
 .gallery-tile {
   position: absolute;
-  border-radius: 4px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   background: #090808;
 }
@@ -156,25 +153,12 @@
   white-space: nowrap;
 }
 .gallery-view-more span {
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
-.gallery-view-more svg { width: 18px; height: 18px; flex-shrink: 0; color: #4D4FA4; }
-
-/* Responsive --------------------------------------------------------------- */
-@media (max-width: 1279px) {
-  .gallery-hero { padding: 0 48px; }
-  .gallery-grid-section { padding: 56px 48px; }
-}
+.gallery-view-more svg { width: 18px; height: 18px; flex-shrink: 0; color: #145C93; }
 @media (max-width: 1023px) {
-  .gallery-hero { min-height: 460px; padding: 0 24px; }
+  .gallery-hero { min-height: 460px; }
   .gallery-hero__inner { margin-top: 128px; }
-  .gallery-hero__title { font-size: 36px; line-height: 46px; }
-  .gallery-hero__lead { font-size: 18px; line-height: 28px; }
-  .gallery-grid-section { padding: 48px 24px; }
-  .gallery-grid-section__title { font-size: 24px; line-height: 32px; }
 
   /* The mosaic's fixed-position tiles get very thin at narrow widths since
      row heights shrink along with column widths — switch to a simple
@@ -186,10 +170,9 @@
   .gallery-view-more { position: static; margin-top: 8px; align-self: center; }
 }
 @media (max-width: 767px) {
-  .gallery-hero { min-height: 380px; padding: 0 16px; }
-  .gallery-hero__title { font-size: 28px; line-height: 36px; }
+  .gallery-hero { min-height: 380px; }
   .gallery-hero__inner { margin-top: 100px; gap: 20px; }
-  .gallery-grid-section { padding: 32px 16px; gap: 20px; }
+  .gallery-grid-section { gap: 20px; }
   .gallery-tiles { grid-template-columns: 1fr; }
   .gallery-tile { height: 220px; }
   .gallery-tile--1 { grid-column: span 1; height: 240px; }

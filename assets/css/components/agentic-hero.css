@@ -5,8 +5,8 @@
 
 .agentic-hero {
   position: relative;
-  background: #141D60;
-  padding: 120px 64px 64px;
+  background: #0B3454;
+  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
   display: flex;
   align-items: stretch;
   gap: 32px;
@@ -55,9 +55,9 @@
 
 .agentic-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   margin: 0;
   color: #FFFFFF;
@@ -66,8 +66,8 @@
 .agentic-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   margin: 0;
 }
@@ -77,7 +77,7 @@
 .agentic-hero__media {
   flex: 1 1 0;
   min-width: 0;
-  margin: -120px -64px -64px 0;
+  margin: calc(-1 * var(--hero-pt)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0;
 }
 .agentic-hero__media img {
   width: 100%;
@@ -121,20 +121,17 @@
 /* Row layout holds through 1024px, matching physical-vision-hero.css —
    only stacks at true tablet/mobile widths (≤1023px). */
 @media (max-width: 1023px) {
-  .agentic-hero { flex-direction: column; min-height: 0; padding: 80px 32px 32px; gap: 20px; }
+  .agentic-hero { flex-direction: column; min-height: 0; gap: 20px; }
   .agentic-hero__content { flex-basis: auto; }
-  .agentic-hero__title { font-size: 28px; line-height: 36px; }
-  .agentic-hero__media { flex-basis: 260px; margin: 0 -32px 0; }
+  .agentic-hero__media { flex-basis: 260px; margin: 0 calc(-1 * var(--section-px)) 0; }
 }
 @media (max-width: 767px) {
-  .agentic-hero { padding: 64px 24px 0; gap: 16px; }
-  .agentic-hero__title { font-size: 24px; line-height: 32px; }
+  .agentic-hero { gap: 16px; }
   .agentic-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
-  .agentic-hero__media { flex-basis: 220px; margin: 0 -24px 0; }
+  .agentic-hero__media { flex-basis: 220px; margin: 0 calc(-1 * var(--section-px)) 0; }
   .agentic-tabs { flex-wrap: wrap; padding-inline: 12px; }
 }
 @media (max-width: 479px) {
-  .agentic-hero__title { font-size: 22px; line-height: 30px; }
   .agentic-hero__media { flex-basis: 180px; }
   .agentic-tabs { gap: 8px; }
   .agentic-tabs__link { font-size: 13px; padding: 6px; }

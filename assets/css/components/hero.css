@@ -43,7 +43,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(20, 29, 96, 0.6);
+  background: rgba(11, 52, 84, 0.6);
   pointer-events: none;
 }
 
@@ -104,9 +104,9 @@
 
 .hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   color: #FFFFFF;
   display: flex;
@@ -126,8 +126,8 @@
 .hero__subtitle {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   letter-spacing: 0;
   color: #FFFFFF;
   max-width: 709px;
@@ -157,19 +157,17 @@
 }
 
 .hero__cta--primary {
-  background: linear-gradient(101deg, #1A70B2 3.897%, #4C3C89 92.225%);
+  background: var(--color-brand);
   color: #FFFFFF;
 }
+.hero__cta--primary:hover { background: var(--color-brand-dark); }
 
 .hero__cta--secondary {
   background: #FFFFFF;
-  filter: drop-shadow(2px 4px 2px rgba(76, 60, 137, 0.2));
+  filter: drop-shadow(2px 4px 2px rgba(15, 71, 114, 0.2));
 }
 .hero__cta--secondary span {
-  background: linear-gradient(50deg, #2784C5 23.887%, #4D4FA4 89.218%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 /* Same arrow used on the navbar's "Get In Touch" button (.btn__icon). */
@@ -250,7 +248,7 @@
 .hero__tab-bar-fill {
   position: absolute;
   inset: 0;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -284,14 +282,11 @@
 @media (max-width: 1279px) {
   .hero { height: 540px; }
   .hero__inner { padding: 100px 48px 0; }
-  .hero__title { font-size: 42px; line-height: 52px; }
   .hero__content { min-height: 244px; }
 }
 @media (max-width: 1023px) {
   .hero { height: 500px; }
   .hero__inner { padding: 80px 32px 0; }
-  .hero__title { font-size: 34px; line-height: 42px; }
-  .hero__subtitle { font-size: 16px; line-height: 26px; }
   .hero__content { min-height: 216px; }
 }
 /* Mobile (Figma node 1936:7287, 390px frame): title stays at the same 32px
@@ -312,10 +307,8 @@
   .hero { height: auto; min-height: 489px; }
   .hero__inner { padding: 32px 16px 32px; }
   .hero__content { min-height: 280px; }
-  .hero__title { font-size: 32px; line-height: 42px; gap: 0; }
+  .hero__title { gap: 0; }
   .hero__subtitle {
-    font-size: 14px;
-    line-height: 22px;
     margin-top: 24px;
   }
   .hero__cta-row { margin-top: 48px; gap: 24px; }

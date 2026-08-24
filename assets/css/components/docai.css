@@ -13,8 +13,8 @@
 /* Hero + sub-nav tabs ------------------------------------------------------ */
 .docai-hero {
   position: relative;
-  background: linear-gradient(146deg, #AF9AFF 0%, #CBEAFF 97%);
-  padding: 120px 64px 64px;
+  background: linear-gradient(146deg, #7FBEE4 0%, #CBEAFF 97%);
+  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
   display: flex;
   align-items: center;
   gap: 32px;
@@ -27,8 +27,8 @@
 .docai-hero__breadcrumb span { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #020202; }
 .docai-hero__breadcrumb svg { flex-shrink: 0; }
 .docai-hero__body { display: flex; flex-direction: column; gap: 24px; }
-.docai-hero__title { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 44px; letter-spacing: -0.5px; margin: 0; color: #020202; }
-.docai-hero__lead { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #58595B; margin: 0; }
+.docai-hero__title { font-family: var(--font-display); font-weight: var(--fw-hero); font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: -0.5px; margin: 0; color: #020202; }
+.docai-hero__lead { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-hero-lead); line-height: var(--lh-hero-lead); color: #58595B; margin: 0; }
 .docai-hero__media { flex: 1 1 0; min-width: 0; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
 .docai-hero__media img { max-width: 340px; width: 100%; height: auto; display: block; }
 
@@ -37,8 +37,8 @@
 .docai-tabs__link--active { font-weight: 600; background: #FFFFFF; border-bottom: 2px solid #2784C5; border-top-left-radius: 4px; border-top-right-radius: 4px; }
 
 /* Overview ------------------------------------------------------------------ */
-.docai-overview { padding: 64px; display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: var(--frame-max); margin-inline: auto; }
-.docai-overview__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; width: 100%; }
+.docai-overview { padding: var(--section-py) var(--section-px); display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: var(--frame-max); margin-inline: auto; }
+.docai-overview__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; width: 100%; }
 .docai-overview__row { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; }
 .docai-overview__media { flex: 0 0 590px; max-width: 100%; }
 .docai-overview__media img { width: 100%; height: auto; display: block; object-fit: cover; }
@@ -51,30 +51,30 @@
 .docai-overview__stat-value { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
 
 /* The Challenge -------------------------------------------------------------- */
-.docai-challenge { background: #FAFAFA; padding: 64px; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+.docai-challenge { background: #FAFAFA; padding: var(--section-py) var(--section-px); display: flex; flex-direction: column; gap: 48px; align-items: center; }
 .docai-challenge__header { display: flex; flex-direction: column; gap: 16px; max-width: var(--content-max); width: 100%; text-align: left; }
-.docai-challenge__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
-.docai-challenge__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #020202; margin: 0; }
+.docai-challenge__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; }
+.docai-challenge__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: var(--fs-lead); line-height: var(--lh-lead); letter-spacing: 0.1px; color: var(--color-text); margin: 0; }
 .docai-challenge__intro { background: #FFFFFF; box-shadow: 0 4px 4px rgba(218,218,218,0.16); padding: 24px; max-width: var(--content-max); width: 100%; }
 .docai-challenge__intro p { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
 .docai-challenge__row { display: flex; align-items: stretch; gap: 24px; max-width: var(--content-max); width: 100%; }
 .docai-challenge__photo { background: #FFFFFF; padding: 24px; box-shadow: 0 4px 2px rgba(218,218,218,0.15); flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
 .docai-challenge__photo img { width: 100%; height: auto; object-fit: cover; display: block; }
-.docai-challenge__card { background: #FFFFFF; box-shadow: 0 4px 2px rgba(218,218,218,0.15); padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 24px; justify-content: center; flex: 1 1 0; min-width: 0; }
-.docai-challenge__badge { width: 46px; height: 46px; border-radius: 39px; background: linear-gradient(173.5deg, #85FF67 12.72%, #19B03C 79.33%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.docai-challenge__card { background: #FFFFFF; box-shadow: 0 4px 2px rgba(218,218,218,0.15); padding: var(--card-pad); display: flex; flex-direction: column; align-items: center; gap: 24px; justify-content: center; flex: 1 1 0; min-width: 0; }
+.docai-challenge__badge { width: 46px; height: 46px; border-radius: 39px; background: linear-gradient(173.5deg, #7FBEE4 12.72%, #1A70B2 79.33%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .docai-challenge__badge svg { width: 24px; height: 24px; }
 .docai-challenge__list { list-style: disc; margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 12px; }
 .docai-challenge__list li { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; }
 
 /* The Objective --------------------------------------------------------------- */
-.docai-objective { padding: 64px; display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: var(--frame-max); margin-inline: auto; }
+.docai-objective { padding: var(--section-py) var(--section-px); display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: var(--frame-max); margin-inline: auto; }
 .docai-objective__header { display: flex; flex-direction: column; gap: 16px; width: 100%; text-align: left; }
-.docai-objective__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
-.docai-objective__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #020202; margin: 0; }
-.docai-objective__intro { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; width: 100%; }
+.docai-objective__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; }
+.docai-objective__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: var(--fs-lead); line-height: var(--lh-lead); letter-spacing: 0.1px; color: var(--color-text); margin: 0; }
+.docai-objective__intro { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--color-text); margin: 0; width: 100%; }
 .docai-objective__row { display: flex; align-items: stretch; gap: 24px; width: 100%; }
 .docai-objective__grid { flex: 1 1 0; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; filter: drop-shadow(2px 3px 3px rgba(222,222,222,0.35)); }
-.docai-objective-card { position: relative; overflow: hidden; border-radius: 8px; background: #4D3D8A; padding: 16px; min-height: 163px; display: flex; align-items: center; }
+.docai-objective-card { position: relative; overflow: hidden; border-radius: var(--card-radius); background: #145C93; padding: var(--card-pad-compact); min-height: 163px; display: flex; align-items: center; }
 .docai-objective-card__text { font-family: var(--font-primary); font-weight: 400; font-size: 15px; line-height: 24px; color: #FFFFFF; margin: 0; position: relative; z-index: 1; max-width: 75%; }
 .docai-objective-card__icon { position: absolute; right: 16px; width: 32px; height: 32px; opacity: 0.85; }
 .docai-objective-card__icon svg { width: 100%; height: 100%; }
@@ -85,11 +85,11 @@
 .docai-objective__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* The Solution ------------------------------------------------------------------ */
-.docai-solution { background: #F3EFFF; padding: 64px; }
+.docai-solution { background: #EEF6FC; padding: var(--section-py) var(--section-px); }
 .docai-solution__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 48px; }
 .docai-solution__header { display: flex; flex-direction: column; gap: 16px; }
-.docai-solution__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
-.docai-solution__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #020202; margin: 0; max-width: 1096px; }
+.docai-solution__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; }
+.docai-solution__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: var(--fs-lead); line-height: var(--lh-lead); letter-spacing: 0.1px; color: var(--color-text); margin: 0; max-width: 1096px; }
 .docai-solution__intro { background: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 4px rgba(218,218,218,0.16); padding: 24px; }
 .docai-solution__intro p { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
 .docai-solution__panel { background: #FFFFFF; padding: 24px; }
@@ -97,86 +97,61 @@
 .docai-solution__list li { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; }
 
 /* The Impact ---------------------------------------------------------------------- */
-.docai-impact { background: rgba(39, 132, 197, 0.1); padding: 64px; }
+.docai-impact { background: rgba(39, 132, 197, 0.1); padding: var(--section-py) var(--section-px); }
 .docai-impact__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 48px; }
 .docai-impact__header { display: flex; flex-direction: column; gap: 16px; }
-.docai-impact__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
-.docai-impact__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #020202; margin: 0; }
-.docai-impact__intro { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
-.docai-impact__grid { display: flex; align-items: stretch; justify-content: space-between; gap: 16px; filter: drop-shadow(0px 4px 2px #ECE7FD); }
-.docai-impact-card { background: #FFFFFF; border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 0; min-width: 0; }
-.docai-impact-card__label { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 28px; background: var(--grad-trust-label); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0; white-space: nowrap; }
-.docai-impact-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 22px; color: #020202; margin: 0; }
+.docai-impact__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; }
+.docai-impact__subtitle { font-family: var(--font-primary); font-weight: 500; font-size: var(--fs-lead); line-height: var(--lh-lead); letter-spacing: 0.1px; color: var(--color-text); margin: 0; }
+.docai-impact__intro { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--color-text); margin: 0; }
+.docai-impact__grid { display: flex; align-items: stretch; justify-content: space-between; gap: 16px; filter: drop-shadow(0px 4px 2px #E4F0FA); }
+.docai-impact-card { background: #FFFFFF; border-radius: var(--card-radius); padding: var(--card-pad-compact); display: flex; flex-direction: column; gap: 10px; flex: 1 1 0; min-width: 0; }
+.docai-impact-card__label { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 28px; margin: 0; white-space: nowrap; color: var(--color-brand); }
+.docai-impact-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--color-text); margin: 0; }
 .docai-impact__tags { display: flex; flex-wrap: wrap; gap: 16px 12px; }
 .docai-impact__tag { display: inline-flex; background: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 8px; }
-.docai-impact__tag span { font-family: var(--font-primary); font-weight: 600; font-size: 14px; line-height: 20px; letter-spacing: 0.3px; background: var(--grad-trust-label); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; }
+.docai-impact__tag span { font-family: var(--font-primary); font-weight: 600; font-size: 14px; line-height: 20px; letter-spacing: 0.3px; white-space: nowrap; color: var(--color-brand); }
 
 /* Responsive ------------------------------------------------------------------------ */
 @media (max-width: 1279px) {
-  .docai-overview { padding: 56px 48px; }
   .docai-overview__row { flex-direction: column; }
   .docai-overview__media { flex-basis: auto; width: 100%; }
-  .docai-challenge { padding: 56px 48px; }
-  .docai-objective { padding: 56px 48px; }
   .docai-objective__row { flex-direction: column; }
   .docai-objective__media { width: 100%; height: 320px; flex-basis: auto; }
-  .docai-solution { padding: 56px 48px; }
-  .docai-impact { padding: 56px 48px; }
   .docai-impact__grid { flex-wrap: wrap; }
   .docai-impact-card { flex-basis: calc(50% - 8px); }
 }
 @media (max-width: 1023px) {
-  .docai-hero { flex-direction: column; min-height: 0; padding: 80px 32px 32px; gap: 20px; text-align: left; }
+  .docai-hero { flex-direction: column; min-height: 0; gap: 20px; text-align: left; }
   .docai-hero__content { flex-basis: auto; }
-  .docai-hero__title { font-size: 28px; line-height: 36px; }
   .docai-hero__media { flex-basis: 200px; }
   .docai-hero__media img { max-width: 200px; }
-  .docai-overview { padding: 48px 24px; }
-  .docai-overview__title { font-size: 24px; line-height: 32px; }
-  .docai-challenge { padding: 48px 24px; }
   .docai-challenge__row { flex-direction: column; }
-  .docai-challenge__title { font-size: 24px; line-height: 32px; }
-  .docai-objective { padding: 48px 24px; }
-  .docai-objective__title { font-size: 24px; line-height: 32px; }
   .docai-objective__media { height: 260px; }
   .docai-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-  .docai-solution { padding: 48px 24px; }
-  .docai-solution__title { font-size: 24px; line-height: 32px; }
-  .docai-impact { padding: 48px 24px; }
-  .docai-impact__title { font-size: 24px; line-height: 32px; }
 }
 @media (max-width: 767px) {
-  .docai-hero { padding: 64px 24px 0; gap: 16px; }
-  .docai-hero__title { font-size: 24px; line-height: 32px; }
+  .docai-hero { gap: 16px; }
   .docai-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
   .docai-hero__media { flex-basis: 160px; }
   .docai-hero__media img { max-width: 160px; }
   .docai-tabs { flex-wrap: wrap; padding-inline: 12px; }
-  .docai-overview { padding: 32px 16px; gap: 32px; }
-  .docai-overview__title { font-size: 22px; line-height: 30px; }
+  .docai-overview { gap: 32px; }
   .docai-overview__text { padding: 16px; }
   .docai-overview__stat { white-space: normal; }
-  .docai-challenge { padding: 32px 16px; gap: 32px; }
-  .docai-challenge__title { font-size: 22px; line-height: 30px; }
+  .docai-challenge { gap: 32px; }
   .docai-challenge__card, .docai-challenge__photo, .docai-challenge__intro { padding: 16px; }
   .docai-challenge__list { padding-left: 20px; }
-  .docai-objective { padding: 32px 16px; gap: 32px; }
-  .docai-objective__title { font-size: 22px; line-height: 30px; }
+  .docai-objective { gap: 32px; }
   .docai-objective__media { height: 200px; }
   .docai-objective__grid { grid-template-columns: 1fr; gap: 16px; }
-  .docai-solution { padding: 32px 16px; }
   .docai-solution__inner { gap: 24px; }
-  .docai-solution__title { font-size: 22px; line-height: 30px; }
   .docai-solution__list { padding-left: 20px; gap: 12px; }
   .docai-solution__panel, .docai-solution__intro { padding: 16px; }
-  .docai-impact { padding: 32px 16px; }
   .docai-impact__inner { gap: 32px; }
-  .docai-impact__title { font-size: 22px; line-height: 30px; }
   .docai-impact-card { flex-basis: 100%; }
   .docai-impact__tags { gap: 12px 8px; }
 }
 @media (max-width: 479px) {
-  .docai-hero__title { font-size: 22px; line-height: 30px; }
   .docai-tabs { gap: 8px; }
   .docai-tabs__link { font-size: 13px; padding: 6px; }
 }

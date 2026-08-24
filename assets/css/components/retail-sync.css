@@ -5,7 +5,7 @@
 
 .retail-sync {
   background: #F9F9F9;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 .retail-sync__inner {
@@ -21,11 +21,13 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.05em;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
   color: var(--color-eyebrow-blue);
   margin-bottom: 16px;
+  line-height: var(--lh-eyebrow);
+  text-transform: uppercase;
 }
 .retail-sync__eyebrow-dot {
   width: 8px;
@@ -36,9 +38,9 @@
 
 .retail-sync__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #11162A;
   margin: 0;
 }
@@ -119,11 +121,9 @@
   font-weight: 500;
   font-size: 11px;
   letter-spacing: 1.5px;
-  background: var(--grad-services);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   text-transform: uppercase;
+  /* Small caps on the near-black hub card — the light step of the scale. */
+  color: var(--color-brand-soft);
 }
 
 .retail-sync__features {
@@ -144,7 +144,7 @@
 .retail-sync__feature-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-h6);
   color: #11162A;
   margin: 0;
 }
@@ -155,10 +155,6 @@
   color: #1F2937;
   margin: 0;
 }
-
-@media (max-width: 1279px) {
-  .retail-sync { padding: 56px 48px; }
-}
 @media (max-width: 1023px) {
   .retail-sync__diagram { flex-direction: column; }
   .retail-sync__connector { transform: rotate(90deg); }
@@ -166,7 +162,5 @@
   .retail-sync__feature { min-width: 220px; }
 }
 @media (max-width: 767px) {
-  .retail-sync { padding: 48px 24px; }
-  .retail-sync__title { font-size: 28px; line-height: 36px; }
   .retail-sync__diagram { padding: 24px; }
 }

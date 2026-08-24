@@ -5,8 +5,8 @@
 
 .pva-hero {
   position: relative;
-  background: #141D60;
-  padding: 120px 64px 64px;
+  background: #0B3454;
+  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
   display: flex;
   align-items: stretch;
   gap: 32px;
@@ -55,9 +55,9 @@
 
 .pva-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.2px;
   margin: 0;
   color: #FFFFFF;
@@ -66,8 +66,8 @@
 .pva-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   margin: 0;
 }
@@ -81,7 +81,7 @@
 .pva-hero__media {
   flex: 1 1 0;
   min-width: 0;
-  margin: -120px -64px -64px 0;
+  margin: calc(-1 * var(--hero-pt)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0;
 }
 .pva-hero__media img {
   width: 100%;
@@ -128,20 +128,16 @@
    need to give up the two-column layout early. Only stacks at true
    tablet/mobile widths (≤1023px). */
 @media (max-width: 1023px) {
-  .pva-hero { flex-direction: column; min-height: 0; padding: 80px 24px 0; }
+  .pva-hero { flex-direction: column; min-height: 0; }
   .pva-hero__content { flex-basis: auto; }
-  .pva-hero__title { font-size: 26px; line-height: 34px; }
-  .pva-hero__media { flex-basis: 240px; margin: 0 -24px 0; }
+  .pva-hero__media { flex-basis: 240px; margin: 0 calc(-1 * var(--section-px)) 0; }
 }
 @media (max-width: 767px) {
-  .pva-hero { padding: 48px 16px 0; gap: 20px; }
-  .pva-hero__title { font-size: 22px; line-height: 30px; }
-  .pva-hero__media { flex-basis: 200px; margin: 0 -16px 0; }
+  .pva-hero { gap: 20px; }
+  .pva-hero__media { flex-basis: 200px; margin: 0 calc(-1 * var(--section-px)) 0; }
   .pva-tabs { flex-wrap: wrap; padding-inline: 12px; }
 }
 @media (max-width: 479px) {
-  .pva-hero { padding: 40px 16px 0; }
-  .pva-hero__title { font-size: 20px; line-height: 28px; }
   .pva-hero__breadcrumb { flex-wrap: wrap; }
   .pva-hero__media { flex-basis: 160px; }
 }

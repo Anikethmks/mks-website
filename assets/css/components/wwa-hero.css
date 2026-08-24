@@ -5,7 +5,7 @@
 
 .wwa-hero {
   position: relative;
-  padding: 120px 64px 64px;
+  padding: var(--hero-pt) var(--section-px) var(--section-py);
   background: #000000;
   color: #FFFFFF;
   overflow: hidden;
@@ -76,9 +76,9 @@
 
 .wwa-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   color: #FFFFFF;
 }
@@ -86,31 +86,17 @@
 .wwa-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #E6E6E6;
 }
 
-@media (max-width: 1279px) {
-  .wwa-hero { padding: 104px 48px 56px; }
-  .wwa-hero__title { font-size: 42px; line-height: 52px; }
-}
-
 @media (max-width: 1023px) {
-  .wwa-hero { padding: 96px 32px 48px; }
   .wwa-hero__inner { gap: 24px; }
-  .wwa-hero__title { font-size: 36px; line-height: 44px; }
 }
 
 @media (max-width: 767px) {
-  .wwa-hero { padding: 80px 20px 40px; }
   .wwa-hero__inner { gap: 20px; }
   .wwa-hero__content { gap: 16px; }
-  .wwa-hero__title { font-size: 28px; line-height: 36px; letter-spacing: -0.3px; }
-  .wwa-hero__lead { font-size: 15px; line-height: 24px; }
-}
-
-@media (max-width: 479px) {
-  .wwa-hero { padding: 72px 16px 32px; }
-  .wwa-hero__title { font-size: 24px; line-height: 32px; }
+  .wwa-hero__title { letter-spacing: -0.3px; }
 }

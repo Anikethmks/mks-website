@@ -5,7 +5,7 @@
 
 .wwa-cta {
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px-fluid);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,14 +14,11 @@
 
 .wwa-cta__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   text-align: center;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .wwa-cta__lead {
@@ -30,10 +27,10 @@
   text-align: center;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #58595B;
+  color: var(--color-text-muted);
 }
 
 .wwa-cta__actions {
@@ -48,19 +45,15 @@
   align-items: center;
   padding: 8px 16px;
   border-radius: 6px;
-  /* Figma's border is a gradient stroke (mks-grad), not a solid blue.
-     Double-background (padding-box fill + border-box gradient) instead of
-     the mask/::before ring trick — mask-composite's "exclude" vs the
-     -webkit "xor" keyword don't always agree cross-browser, which left
-     only part of the ring painted. An actual `border` is unambiguous. */
-  border: 0.5px solid transparent;
-  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box, var(--grad-cta) border-box;
+  /* One corporate blue: a plain solid stroke, no gradient border trick. */
+  border: 1px solid var(--color-brand);
+  background: #FFFFFF;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.3px;
-  color: #4C3C89;
+  color: #0F4772;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -70,23 +63,14 @@
 }
 
 @media (max-width: 1279px) {
-  .wwa-cta { padding: 56px 48px; gap: 28px; }
-  .wwa-cta__title { font-size: 26px; line-height: 34px; }
+  .wwa-cta { gap: 28px; }
 }
 
 @media (max-width: 1023px) {
-  .wwa-cta { padding: 48px 32px; gap: 24px; }
-  .wwa-cta__title { font-size: 24px; line-height: 32px; }
-  .wwa-cta__lead { font-size: 15px; line-height: 22px; }
+  .wwa-cta { gap: 24px; }
 }
 
 @media (max-width: 767px) {
-  .wwa-cta { padding: 40px 20px; gap: 20px; }
-  .wwa-cta__title { font-size: 22px; line-height: 30px; }
+  .wwa-cta { gap: 20px; }
   .wwa-cta__actions { flex-wrap: wrap; gap: 16px; }
-}
-
-@media (max-width: 479px) {
-  .wwa-cta { padding: 32px 16px; }
-  .wwa-cta__title { font-size: 20px; line-height: 28px; }
 }

@@ -9,7 +9,7 @@
   overflow: hidden;
   /* Figma uses a light blue wash here, not the purple-peach pastel. */
   background: linear-gradient(141deg, rgba(39, 132, 197, 0.09) 2%, rgba(39, 132, 197, 0.09) 100%);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 /* Caps and centers the content column (title/lead/body) — .wwa-contact__map
@@ -60,9 +60,9 @@
   max-width: 100%;
   text-align: left;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #1F73B4;
 }
@@ -72,10 +72,10 @@
   text-align: left;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
 }
 
 .wwa-contact__body {
@@ -106,11 +106,11 @@
   max-width: 100%;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 24px;
-  line-height: 34px;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: #020202;
 }
-.wwa-contact__left-title span { color: #331897; }
+.wwa-contact__left-title span { color: #0F4772; }
 
 .wwa-contact__left-desc {
   font-family: var(--font-primary);
@@ -127,14 +127,14 @@
 }
 
 .wwa-office-card {
-  padding: 16px;
+  padding: var(--card-pad-compact);
   display: flex;
   flex-direction: column;
   gap: 8px;
   background: #FFFFFF;
-  border: 1px solid #EEEEFF;
+  border: 1px solid #EAF3FB;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
 }
 
 /* Head Office and Call Center use a different template in Figma: a wider
@@ -142,7 +142,7 @@
    gap + diffuse gray shadow on the other four (Hyderabad/Coimbatore x2/México). */
 .wwa-office-card--plain {
   gap: 16px;
-  box-shadow: 1px 1px 7px 0 rgba(235, 232, 255, 1);
+  box-shadow: 1px 1px 7px 0 rgba(232, 243, 251, 1);
 }
 
 .wwa-office-card__label {
@@ -157,7 +157,7 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.1px;
-  color: #4D3D8A;
+  color: #145C93;
 }
 
 .wwa-office-card__city span {
@@ -201,12 +201,12 @@
 }
 
 /* Call Center card — different internal layout from the address cards */
-.wwa-office-card--call .wwa-office-card__label span { color: #331897; }
+.wwa-office-card--call .wwa-office-card__label span { color: #0F4772; }
 .wwa-office-card__divider {
   height: 1px;
   border: none;
   margin: 0;
-  background: linear-gradient(141deg, #E3DCFF 0%, #2986C5 94%);
+  background: var(--color-brand-soft);
 }
 .wwa-office-card__value {
   font-family: var(--font-primary);
@@ -227,7 +227,7 @@
   flex-direction: column;
   gap: 24px;
   /* Figma uses a violet-to-blue tint here, not the purple-peach pastel. */
-  background: linear-gradient(-66deg, rgba(134, 103, 255, 0.2) 4%, rgba(41, 134, 197, 0.2) 97%);
+  background: linear-gradient(-66deg, rgba(20, 92, 147, 0.2) 4%, rgba(41, 134, 197, 0.2) 97%);
   border-radius: 16px;
 }
 .wwa-contact-form::before {
@@ -236,7 +236,7 @@
   inset: 0;
   padding: 6px;
   border-radius: inherit;
-  background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(77, 79, 164, 0.33) 98%);
+  background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(20, 92, 147, 0.33) 98%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -246,13 +246,10 @@
 
 .wwa-contact-form__heading {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 34px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  color: var(--color-brand);
 }
 
 .wwa-contact-form__field {
@@ -295,7 +292,7 @@
   height: 48px;
   border: none;
   border-radius: 6px;
-  background: var(--grad-form-submit);
+  background: var(--color-brand);
   color: #FFFFFF;
   font-family: var(--font-primary);
   font-weight: 600;
@@ -308,7 +305,6 @@
 .wwa-contact-form__submit:hover { box-shadow: var(--shadow-lift); }
 
 @media (max-width: 1279px) {
-  .wwa-contact { padding: 56px 48px; }
   .wwa-contact__inner { gap: 56px; }
   .wwa-contact__body { gap: 40px; }
   .wwa-office-grid { gap: 20px; }
@@ -316,9 +312,7 @@
 
 @media (max-width: 1023px) {
   .wwa-contact__map { display: none; }
-  .wwa-contact { padding: 48px 32px; }
   .wwa-contact__inner { gap: 48px; }
-  .wwa-contact__title { font-size: 24px; line-height: 32px; }
   .wwa-contact__body { flex-direction: column; align-items: stretch; gap: 32px; }
   .wwa-contact__left { max-width: 100%; }
   .wwa-contact-form { width: 100%; max-width: 100%; }
@@ -327,15 +321,12 @@
 }
 
 @media (max-width: 767px) {
-  .wwa-contact { padding: 40px 20px; }
   .wwa-contact__inner { gap: 32px; }
-  .wwa-contact__title { font-size: 22px; line-height: 30px; }
   .wwa-contact__left-title { font-size: 20px; line-height: 28px; }
   .wwa-office-grid { grid-template-columns: 1fr; gap: 16px; }
   .wwa-contact-form { padding: 20px; }
 }
 
 @media (max-width: 479px) {
-  .wwa-contact { padding: 32px 16px; }
   .wwa-office-card { padding: 12px; }
 }

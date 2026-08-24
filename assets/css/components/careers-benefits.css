@@ -4,8 +4,8 @@
    ========================================================================== */
 
 .careers-benefits {
-  padding: 48px 64px;
-  background: linear-gradient(55deg, rgba(39, 132, 197, 0.3) 24%, rgba(77, 79, 164, 0.3) 89%);
+  padding: var(--section-py) var(--section-px);
+  background: linear-gradient(55deg, rgba(39, 132, 197, 0.3) 24%, rgba(20, 92, 147, 0.3) 89%);
 }
 
 .careers-benefits__inner {
@@ -19,9 +19,9 @@
 
 .careers-benefits__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
   text-align: center;
@@ -35,8 +35,8 @@
 
 .benefit-card {
   align-self: stretch;
-  border-radius: var(--radius-md);
-  padding: 16px;
+  border-radius: var(--card-radius);
+  padding: var(--card-pad-compact);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -58,38 +58,28 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.1px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0;
+  color: var(--color-brand);
 }
 
 .benefit-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #58595B;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
 /* Laptop */
 @media (max-width: 1279px) {
-  .careers-benefits { padding: 48px; }
   .careers-benefits__inner { gap: 48px; }
   .careers-benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
-/* Tablet */
-@media (max-width: 1023px) {
-  .careers-benefits__title { font-size: 26px; line-height: 34px; }
-}
 /* Mobile */
 @media (max-width: 767px) {
-  .careers-benefits { padding: 40px 24px; }
   .careers-benefits__inner { gap: 32px; }
   .careers-benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-  .careers-benefits__title { font-size: 24px; line-height: 32px; }
 }
 /* Small phone */
 @media (max-width: 479px) {

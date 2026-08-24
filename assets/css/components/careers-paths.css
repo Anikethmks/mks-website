@@ -5,7 +5,7 @@
 
 .careers-paths {
   background: #F3F3F3;
-  padding: 32px 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 .careers-paths__inner {
@@ -28,15 +28,15 @@
 .careers-paths__divider {
   width: 2px;
   height: 48px;
-  background: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
+  background: var(--color-brand);
   flex-shrink: 0;
 }
 
 .careers-paths__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #111827;
   margin: 0;
 }
@@ -44,9 +44,9 @@
 .careers-paths__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #4B5563;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -67,16 +67,13 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .careers-paths__cta-arrow {
   width: 16px;
   height: 12px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6h13M9 1l5 5-5 5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6h13M9 1l5 5-5 5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   -webkit-mask-size: contain;
@@ -88,7 +85,6 @@
 
 /* Laptop */
 @media (max-width: 1279px) {
-  .careers-paths { padding: 32px 48px; }
   .careers-paths__col { width: 460px; }
 }
 /* Tablet */
@@ -96,13 +92,4 @@
   .careers-paths__inner { flex-direction: column; gap: 32px; }
   .careers-paths__col { padding: 0; width: 100%; max-width: 100%; }
   .careers-paths__divider { width: 100%; height: 1px; align-self: auto; }
-  .careers-paths__title { font-size: 24px; line-height: 32px; }
-}
-/* Mobile */
-@media (max-width: 767px) {
-  .careers-paths { padding: 40px 24px; }
-}
-/* Small phone */
-@media (max-width: 479px) {
-  .careers-paths__title { font-size: 22px; line-height: 30px; }
 }

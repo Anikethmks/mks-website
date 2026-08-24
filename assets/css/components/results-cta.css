@@ -5,7 +5,7 @@
 
 .results-cta {
   background: var(--grad-vivid);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 /* Caps and centers the content row — without it, the two capped-width
@@ -32,18 +32,19 @@
 
 .results-cta__eyebrow {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: 0.3px;
-  color: #FFFFFF;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-brand-pale);
+  text-transform: uppercase;
 }
 
 .results-cta__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.5px;
   color: #FFFFFF;
 }
@@ -51,9 +52,9 @@
 .results-cta__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #FFFFFF;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-on-dark);
 }
 
 .results-cta__actions {
@@ -89,7 +90,7 @@
   align-items: center;
   padding: 12px 24px;
   border-radius: 6px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   color: #FFFFFF;
   text-decoration: none;
   font-family: var(--font-primary);
@@ -105,7 +106,7 @@
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: var(--grad-services);
+  background: var(--color-brand);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -125,8 +126,8 @@
 
 .metric-card {
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: var(--radius-md);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
@@ -139,36 +140,28 @@
   font-size: 40px;
   line-height: 52px;
   letter-spacing: -0.3px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .metric-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #4B5563;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 1279px) {
-  .results-cta { padding: 56px 48px; }
   .results-cta__inner { gap: 48px; }
 }
 @media (max-width: 1023px) {
-  .results-cta { padding: 48px 24px; }
   .results-cta__inner { flex-direction: column; align-items: stretch; gap: 32px; }
   .results-cta__content { max-width: 100%; }
   .results-cta__metrics { max-width: 100%; }
-  .results-cta__title { font-size: 28px; line-height: 36px; }
 }
 @media (max-width: 767px) {
-  .results-cta { padding: 32px 16px; }
   .results-cta__inner { gap: 24px; }
   .results-cta__metrics { grid-template-columns: 1fr; gap: 16px; }
-  .results-cta__title { font-size: 24px; line-height: 32px; }
   .metric-card { padding: 20px 24px; }
   .metric-card__value { font-size: 32px; line-height: 40px; }
 }

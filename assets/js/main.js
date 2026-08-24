@@ -817,13 +817,14 @@
   }
 
   // Image fallback gradients
+  // One corporate blue, six depths — placeholders vary in value, never in hue.
   var FALLBACK_PALETTE = [
-    ['#2A2D57', '#4C3F82'],
-    ['#153C5A', '#2784C5'],
-    ['#4D2F82', '#8465FF'],
-    ['#8B3A3A', '#E27B4F'],
-    ['#134E4A', '#1F9E8A'],
-    ['#6E1F44', '#C64B7E']
+    ['#0B3454', '#1A70B2'],
+    ['#0F4772', '#2784C5'],
+    ['#145C93', '#4E9BD1'],
+    ['#0B3454', '#145C93'],
+    ['#0F4772', '#1A70B2'],
+    ['#153C5A', '#2784C5']
   ];
 
   function pickGradient(src) {

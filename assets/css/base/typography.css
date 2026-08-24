@@ -38,7 +38,7 @@ p {
   font-size: var(--fs-eyebrow);
   line-height: var(--lh-eyebrow);
   letter-spacing: 0.3px;
-  color: var(--color-heading-purple);
+  color: var(--color-heading-blue);
 }
 .eyebrow::before {
   content: '';
@@ -49,19 +49,13 @@ p {
 }
 
 .text-gradient {
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   display: inline-block;
+  color: var(--color-brand);
 }
 
 .text-gradient--number {
-  background: var(--grad-number);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   display: inline-block;
+  color: var(--color-brand);
 }
 
 @media (max-width: 1023px) {

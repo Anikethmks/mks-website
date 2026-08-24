@@ -5,7 +5,7 @@
 
 .wwa-ethics {
   position: relative;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px-fluid);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
   /* Figma tints this photo with the brand blue-purple gradient at 90%
      opacity, not a black scrim. */
   background-image:
-    linear-gradient(163deg, rgba(39, 132, 197, 0.9) 22%, rgba(77, 79, 164, 0.9) 53%),
+    linear-gradient(163deg, rgba(39, 132, 197, 0.9) 22%, rgba(20, 92, 147, 0.9) 53%),
     url('../../images/content/wwa-ethics-bg.png');
   background-size: cover;
   background-position: center;
@@ -30,9 +30,9 @@
 
 .wwa-ethics__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #FFFFFF;
   text-align: center;
 }
@@ -48,22 +48,22 @@
 .wwa-ethics-card {
   width: 309px;
   max-width: 100%;
-  padding: 24px;
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   background: rgba(255, 255, 255, 0.9);
 }
 .wwa-ethics-card svg { width: 32px; height: 32px; color: #1F73B4; }
 
 .wwa-ethics-card__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 28px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h5);
+  line-height: var(--lh-h5);
   color: #1F73B4;
   text-align: center;
 }
@@ -71,31 +71,28 @@
 .wwa-ethics-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #212121;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   text-align: center;
 }
 
 @media (max-width: 1279px) {
-  .wwa-ethics { padding: 56px 48px; gap: 40px; }
+  .wwa-ethics { gap: 40px; }
   .wwa-ethics__grid { gap: 20px; }
 }
 
 @media (max-width: 1023px) {
-  .wwa-ethics { padding: 48px 32px; gap: 32px; }
-  .wwa-ethics__title { font-size: 24px; line-height: 32px; }
+  .wwa-ethics { gap: 32px; }
   .wwa-ethics__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .wwa-ethics-card { width: 100%; }
 }
 
 @media (max-width: 767px) {
-  .wwa-ethics { padding: 40px 20px; gap: 24px; }
-  .wwa-ethics__title { font-size: 22px; line-height: 30px; }
+  .wwa-ethics { gap: 24px; }
   .wwa-ethics__grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 479px) {
-  .wwa-ethics { padding: 32px 16px; }
-  .wwa-ethics-card { padding: 20px; }
+  .wwa-ethics-card { padding: var(--card-pad); }
 }

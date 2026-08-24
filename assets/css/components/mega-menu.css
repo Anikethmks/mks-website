@@ -58,7 +58,7 @@
 }
 
 .mega-menu__tab.is-active {
-  background: linear-gradient(146deg, rgba(175, 154, 255, 0.25) 0%, rgba(203, 234, 255, 0.25) 97%);
+  background: linear-gradient(146deg, rgba(127, 190, 228, 0.25) 0%, rgba(203, 234, 255, 0.25) 97%);
 }
 
 .mega-menu__tab.is-active::before {
@@ -67,7 +67,7 @@
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(146deg, #AF9AFF 0%, #CBEAFF 97%);
+  background: var(--color-brand-soft);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -95,10 +95,7 @@
   line-height: 24px;
   letter-spacing: 0.006em;
   white-space: nowrap;
-  background: linear-gradient(-86deg, #1A70B2 7%, #4D4FA4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .mega-menu__tab-chevron {
@@ -148,7 +145,7 @@
   transition: color 0.15s ease;
 }
 .mega-menu__link:hover {
-  color: #4D3D8A;
+  color: #145C93;
 }
 
 /* Desktop-only fade/rise entrance instead of the plain display toggle above.

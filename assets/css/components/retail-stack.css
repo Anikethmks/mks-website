@@ -6,7 +6,7 @@
 .retail-stack {
   position: relative;
   background: rgba(39, 132, 197, 0.1);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -29,15 +29,15 @@
 
 .retail-stack__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .retail-stack__title em {
   font-style: normal;
-  color: var(--color-heading-purple);
+  color: var(--color-heading-blue);
 }
 
 .retail-stack__grid {
@@ -59,17 +59,14 @@
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 12px;
-  color: var(--color-heading-purple);
+  color: var(--color-heading-blue);
 }
 .retail-stack__layer-name {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 20px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0 0 8px;
+  color: var(--color-brand);
 }
 .retail-stack__layer-list {
   list-style: none;
@@ -111,7 +108,7 @@
      = 870px subtracted from the row's own width. */
   flex: 0 0 calc(100% - 870px);
   min-width: 200px;
-  margin-right: -64px;
+  margin-right: calc(50% - 50vw);
   align-self: stretch;
   border-radius: 16px;
   object-fit: cover;
@@ -119,7 +116,6 @@
 }
 
 @media (max-width: 1279px) {
-  .retail-stack { padding: 56px 48px; }
   .retail-stack__inner { gap: 48px; }
 }
 @media (max-width: 1023px) {
@@ -127,7 +123,5 @@
   .retail-stack__image { margin-right: 0; width: 100%; max-width: 100%; min-width: 0; aspect-ratio: 4/3; flex: none; }
 }
 @media (max-width: 767px) {
-  .retail-stack { padding: 48px 24px; }
   .retail-stack__grid { grid-template-columns: 1fr; }
-  .retail-stack__title { font-size: 28px; line-height: 36px; }
 }

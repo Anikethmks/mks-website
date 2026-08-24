@@ -5,7 +5,7 @@
 
 .industries-hero {
   position: relative;
-  padding: 120px 64px 64px;
+  padding: var(--hero-pt) var(--section-px) var(--section-py);
   overflow: hidden;
   isolation: isolate;
 }
@@ -65,19 +65,20 @@
 
 .industries-hero__eyebrow {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  color: #F5F9FF;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-brand-pale);
   margin: 0;
+  text-transform: uppercase;
 }
 
 .industries-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   max-width: 824px;
   margin: 0;
@@ -87,8 +88,8 @@
 .industries-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   max-width: 795px;
   margin: 0;
@@ -99,30 +100,20 @@
   height: 0.5px;
   border-radius: 999px;
   background: var(--grad-icon-soft);
-  box-shadow: 0 0 32px rgba(59, 130, 246, 0.2), 0 0 18px rgba(0, 102, 255, 0.4);
-}
-
-@media (max-width: 1279px) {
-  .industries-hero { padding: 108px 48px 56px; }
-  .industries-hero__title { font-size: 42px; line-height: 52px; }
+  box-shadow: 0 0 32px rgba(39, 132, 197, 0.2), 0 0 18px rgba(26, 112, 178, 0.4);
 }
 
 @media (max-width: 1023px) {
-  .industries-hero { padding: 96px 24px 48px; }
-  .industries-hero__title { font-size: 36px; line-height: 44px; max-width: 100%; }
+  .industries-hero__title { max-width: 100%; }
   .industries-hero__lead { max-width: 100%; }
 }
 
 @media (max-width: 767px) {
-  .industries-hero { padding: 88px 16px 40px; }
   .industries-hero__breadcrumb { margin-bottom: 24px; }
   .industries-hero__content { gap: 24px; }
-  .industries-hero__title { font-size: 28px; line-height: 36px; letter-spacing: -0.3px; }
-  .industries-hero__lead { font-size: 16px; line-height: 26px; }
+  .industries-hero__title { letter-spacing: -0.3px; }
 }
 
 @media (max-width: 479px) {
-  .industries-hero { padding: 80px 16px 32px; }
-  .industries-hero__title { font-size: 24px; line-height: 32px; }
   .industries-hero__accent { width: 160px; }
 }

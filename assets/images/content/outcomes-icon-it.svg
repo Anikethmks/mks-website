@@ -18,19 +18,19 @@
 </filter>
 <linearGradient id="paint0_linear_0_8" x1="44.479" y1="52.0768" x2="12.6433" y2="21.7385" gradientUnits="userSpaceOnUse">
 <stop stop-color="#2784C5"/>
-<stop offset="1" stop-color="#4D4FA4"/>
+<stop offset="1" stop-color="#145C93"/>
 </linearGradient>
 <linearGradient id="paint1_linear_0_8" x1="39.4967" y1="57.7268" x2="21.6824" y2="42.094" gradientUnits="userSpaceOnUse">
 <stop stop-color="#2784C5"/>
-<stop offset="1" stop-color="#4D4FA4"/>
+<stop offset="1" stop-color="#145C93"/>
 </linearGradient>
 <linearGradient id="paint2_linear_0_8" x1="37.2226" y1="44.7658" x2="36.9023" y2="42.1758" gradientUnits="userSpaceOnUse">
 <stop stop-color="#2784C5"/>
-<stop offset="1" stop-color="#4D4FA4"/>
+<stop offset="1" stop-color="#145C93"/>
 </linearGradient>
 <linearGradient id="paint3_linear_0_8" x1="37.2226" y1="49.9396" x2="36.9023" y2="47.3497" gradientUnits="userSpaceOnUse">
 <stop stop-color="#2784C5"/>
-<stop offset="1" stop-color="#4D4FA4"/>
+<stop offset="1" stop-color="#145C93"/>
 </linearGradient>
 </defs>
 </svg>

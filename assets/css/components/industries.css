@@ -2,7 +2,7 @@
   /* Figma node 1971:7939 has no gradient wash on this section — plain white,
      unlike Outcomes/Trust Stats/Fintech/Healthcare which share that pastel. */
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   position: relative;
   overflow: hidden;
 }
@@ -26,9 +26,9 @@
 
 .industries__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #020202;
 }
@@ -36,34 +36,24 @@
 .industries__description {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   max-width: 1248px;
 }
 
-@media (max-width: 1279px) {
-  .industries { padding: 56px 48px; }
-}
-
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .industries { height: 459px; padding: 46px; }
+  /* min-height, not height: the laptop band keeps its designed 459px, but a
+     section that needs more room grows instead of clipping its own content
+     against the overflow:hidden above (the accordion CTA and the collapsed
+     capsules’ "+" buttons were being cut off). */
+  .industries { min-height: 459px; }
   .industries__inner { gap: 34px; }
   .industries__header { gap: 11px; }
-  .industries__title { font-size: 23px; line-height: 30px; }
-  .industries__description { font-size: 11px; line-height: 18px; }
-}
-@media (max-width: 1023px) {
-  .industries { padding: 48px 32px; }
 }
 /* Mobile (Figma node 1936:7346, 390px frame) */
 @media (max-width: 767px) {
-  .industries { padding: 32px 16px; }
   .industries__inner { gap: 32px; }
   .industries__header { gap: 16px; }
-  .industries__title { font-weight: 600; font-size: 28px; line-height: 38px; }
-  .industries__description { font-size: 14px; line-height: 22px; }
-}
-@media (max-width: 479px) {
-  .industries { padding: 32px 16px; }
+  .industries__title { font-weight: 600; }
 }

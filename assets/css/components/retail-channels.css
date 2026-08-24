@@ -5,7 +5,7 @@
 
 .retail-channels {
   background: #F9F9F9;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 .retail-channels__inner {
@@ -18,9 +18,9 @@
 
 .retail-channels__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
@@ -31,9 +31,9 @@
 
 .retail-channels__lead {
   font-family: var(--font-primary);
-  font-size: 14px;
-  line-height: 1.5;
-  color: #212121;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   max-width: 977px;
   margin: 0;
 }
@@ -66,8 +66,8 @@
 .retail-channels__panel-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
-  color: var(--color-heading-purple);
+  font-size: var(--fs-h3);
+  color: var(--color-heading-blue);
   margin: 0;
 }
 
@@ -92,15 +92,12 @@
 .retail-channels__col-title {
   font-family: var(--font-primary);
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-h6);
   color: #0D4A8A;
   margin: 0;
 }
 .retail-channels__col-title--grad {
-  background: var(--grad-services);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .retail-channels__col-list {
   list-style: none;
@@ -128,16 +125,10 @@
   flex-shrink: 0;
   background: var(--color-eyebrow-blue);
 }
-
-@media (max-width: 1279px) {
-  .retail-channels { padding: 56px 48px; }
-}
 @media (max-width: 1023px) {
   .retail-channels__row { flex-direction: column; }
   .retail-channels__img { width: 100%; max-width: 100%; }
 }
 @media (max-width: 767px) {
-  .retail-channels { padding: 48px 24px; }
-  .retail-channels__title { font-size: 28px; line-height: 36px; }
   .retail-channels__col-list li { white-space: normal; }
 }

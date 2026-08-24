@@ -1,4 +1,4 @@
-.footer { background: var(--color-footer-dark); color: var(--color-text-on-dark-muted); padding: 64px 64px 24px; }
+.footer { background: var(--color-footer-dark); color: var(--color-text-on-dark-muted); padding: var(--section-py) var(--section-px) 24px; }
 .footer__inner, .footer__bottom { max-width: var(--content-max); margin-inline: auto; }
 .footer__inner { display: grid; grid-template-columns: 300px 379px 246px 257px; justify-content: space-between; gap: 32px; }
 .footer__brand, .footer__col, .footer__company, .footer__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
@@ -14,15 +14,12 @@
   margin: 0;
   font-family: var(--font-primary);
   font-weight: 600;
-  font-size: 18px;
+  font-size: var(--fs-h5);
   line-height: normal;
-  background: linear-gradient(110deg, #CABEFA 9%, #FFD2BD 89%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand-pale);
 }
 .footer__col--industries .footer__col-title { font-family: var(--font-display); line-height: 28px; }
-.footer__contact .footer__col-title { font-size: 16px; line-height: 24px; letter-spacing: .3px; }
+.footer__contact .footer__col-title { font-size: var(--fs-h6); line-height: var(--lh-h6); letter-spacing: .3px; }
 
 .footer__list { margin: 0; padding: 0; list-style: none; }
 .footer__list a { display: inline-block; color: #efeff1; font: 400 16px/24px var(--font-primary); transition: color .18s ease; }
@@ -47,7 +44,7 @@
   height: 3px;
   flex: 0 0 3px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #CABEFA 0%, #FFD2BD 100%);
+  background: var(--color-brand-soft);
 }
 
 .footer__list--bulleted { display: flex; flex-direction: column; gap: 10px; color: #efeff1; }
@@ -80,13 +77,11 @@
 .footer__legal a { color: #c0c0c0; font: 400 14px/22px var(--font-primary); white-space: nowrap; }
 .footer__legal a:first-child, .footer__legal a:last-child { font-size: 12px; line-height: 18px; letter-spacing: .2px; }
 @media (max-width: 1279px) { .footer__inner { grid-template-columns: 300px 1fr 1fr; } .footer__col--company-contact { grid-column: 2 / -1; flex-direction: row; justify-content: space-between; } }
-@media (max-width: 1023px) { .footer { padding: 56px 40px 20px; } }
 /* Mobile (Figma node 1933:5003, 390px frame) — the Industries/Company
    lists drop their bullet dots entirely (plain stacked text), the
    "What we do" tags shrink and tighten up, and a divider line appears
    under the brand block that desktop doesn't have. */
 @media (max-width: 767px) {
-  .footer { padding: 48px 20px 24px; }
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
   .footer__brand {
     width: 100%;
@@ -110,7 +105,6 @@
   .footer__contact-item > span { width: 15px; height: 15px; }
   .footer__contact-item--email { font-size: 13px; font-weight: 400; letter-spacing: normal; }
   .footer__bottom { flex-direction: column; gap: 12px; }
-  .footer__copy { font-size: 11px; line-height: 18px; }
   .footer__legal a { white-space: normal; }
   .footer__legal { flex-wrap: wrap; gap: 16px; }
   .footer__legal a, .footer__legal a:first-child, .footer__legal a:last-child { font-size: 11px; line-height: 18px; letter-spacing: normal; }

@@ -49,7 +49,7 @@
   z-index: 3;
   height: 3px;
   width: 0%;
-  background: linear-gradient(101deg, #1A70B2 3.897%, #4C3C89 92.225%);
+  background: var(--color-brand);
 }
 
 .industry-panel__bg {
@@ -74,7 +74,7 @@
   inset: 0;
   z-index: 1;
   /* Figma node 1971:7939 — the active card's tint, not a dark vignette. */
-  background: linear-gradient(123.449deg, rgba(92, 165, 229, 0.5) 51.081%, rgba(75, 86, 136, 0.5) 88.979%);
+  background: linear-gradient(123.449deg, rgba(92, 165, 229, 0.5) 51.081%, rgba(15, 71, 114, 0.5) 88.979%);
   /* Dimmed while collapsed so the gradient underneath stays vivid — full
      darkening is only needed once the real photo is showing, for the
      content text sitting on top of it. */
@@ -99,7 +99,7 @@
   justify-content: space-between;
   padding: 32px 16px;
   transition: opacity 0.35s ease;
-  background: linear-gradient(180deg, rgba(65, 158, 224, 0.9) 10.837%, rgba(129, 135, 238, 0.9) 89.163%);
+  background: linear-gradient(180deg, rgba(65, 158, 224, 0.9) 10.837%, rgba(20, 92, 147, 0.9) 89.163%);
 }
 .industry-panel.is-active .industry-panel__collapsed {
   opacity: 0;
@@ -129,7 +129,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid #DDE1FF;
+  border: 1px solid #D6E8F6;
   display: grid;
   place-items: center;
   font-size: 14px;
@@ -190,32 +190,33 @@
 }
 .industry-panel__eyebrow-label {
   font-family: var(--font-primary);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: normal;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-eyebrow);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
   padding: 10px 18px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(47.68deg, rgb(39, 132, 197) 23.887%, rgb(77, 79, 164) 89.218%);
+  background: var(--color-brand);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: #FFFFFF;
+  color: var(--color-brand-pale);
+  line-height: var(--lh-eyebrow);
 }
 
 .industry-panel__title {
   font-family: var(--font-primary);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.15;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: #FFFFFF;
 }
 
 .industry-panel__desc {
   font-family: var(--font-primary);
-  font-size: 15px;
-  line-height: 1.5;
-  color: #FFFFFF;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-on-dark);
   max-width: 46ch;
 }
 
@@ -231,7 +232,7 @@
   color: #FFFFFF;
   padding: 14px 24px;
   border-radius: 6px;
-  background: linear-gradient(58.414deg, rgb(39, 132, 197) 23.887%, rgb(77, 79, 164) 89.218%);
+  background: var(--color-brand);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -303,10 +304,10 @@
   .industry-panel__plus { border-width: 0.5px; font-size: 10px; }
   .industry-panel__content { top: 0; bottom: 0; justify-content: center; padding: 16px; gap: 16px; }
   .industry-panel__eyebrow { gap: 16px; }
-  .industry-panel__eyebrow-num { font-size: 16px; font-weight: 600; color: #FFFFFF; }
-  .industry-panel__eyebrow-label { font-size: 12px; padding: 10px 18px; }
-  .industry-panel__title { font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 30px; margin-top: 0; }
-  .industry-panel__desc { font-size: 14px; margin-top: 0; max-width: none; }
+  .industry-panel__eyebrow-num { font-weight: 600; color: #FFFFFF; }
+  .industry-panel__eyebrow-label { padding: 10px 18px; }
+  .industry-panel__title { font-family: var(--font-display); font-weight: 600; margin-top: 0; }
+  .industry-panel__desc { margin-top: 0; max-width: none; }
   .industry-panel__cta { font-size: 12px; padding: 12px 16px; margin-top: 0; }
 }
 

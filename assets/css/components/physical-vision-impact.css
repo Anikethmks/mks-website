@@ -4,8 +4,8 @@
    ========================================================================== */
 
 .pva-impact {
-  background: #F3F0FF;
-  padding: 64px;
+  background: #EEF6FC;
+  padding: var(--section-py) var(--section-px);
 }
 
 /* Caps and centers the content column — without it, the section's flex
@@ -26,28 +26,28 @@
 }
 .pva-impact__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .pva-impact__subtitle {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
   margin: 0;
 }
 
 .pva-impact__intro {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -56,13 +56,13 @@
   align-items: stretch;
   justify-content: space-between;
   gap: 16px;
-  filter: drop-shadow(0px 4px 2px #ECE7FD);
+  filter: drop-shadow(0px 4px 2px #E4F0FA);
 }
 
 .pva-impact-card {
   background: #FFFFFF;
-  border-radius: 4px;
-  padding: 16px;
+  border-radius: var(--card-radius);
+  padding: var(--card-pad-compact);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -74,19 +74,16 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0;
   white-space: nowrap;
+  color: var(--color-brand);
 }
 .pva-impact-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-  color: #020202;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -94,20 +91,15 @@
    the original 1100px wrap breakpoint is remapped to the 1279px tier (with
    a graduated 3-column step instead of jumping straight to 2). */
 @media (max-width: 1279px) {
-  .pva-impact { padding: 48px 48px; }
   .pva-impact__grid { flex-wrap: wrap; }
   .pva-impact-card { flex-basis: calc((100% - 32px) / 3); }
 }
 @media (max-width: 1023px) {
-  .pva-impact { padding: 48px 24px; }
   .pva-impact-card { flex-basis: calc(50% - 8px); }
 }
 /* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
    767px tier (transitions earlier, no coverage gap). */
 @media (max-width: 767px) {
-  .pva-impact { padding: 24px 16px; }
   .pva-impact__inner { gap: 24px; }
-  .pva-impact__title { font-size: 24px; line-height: 32px; }
-  .pva-impact__subtitle { font-size: 15px; }
   .pva-impact-card { flex-basis: 100%; }
 }

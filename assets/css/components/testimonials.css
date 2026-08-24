@@ -2,7 +2,7 @@
   /* Figma node 1971:8240 — a light blue tint, not the pastel gradient used
      on the other "wash" sections. */
   background: rgba(39, 132, 197, 0.1);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -29,9 +29,9 @@
 
 .testimonials__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #020202;
 }
@@ -40,9 +40,9 @@
 .testimonials__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #58595B;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   max-width: 384px;
 }
 
@@ -84,8 +84,8 @@
   width: 320px;
   margin-left: -160px;
   background: #FFFFFF;
-  border-radius: var(--radius-md);
-  padding: 16px;
+  border-radius: var(--card-radius);
+  padding: var(--card-pad-compact);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,7 +118,7 @@
 }
 .testimonials__dot:hover { border-color: #D9D9D9; }
 .testimonials__dot.is-active {
-  background: linear-gradient(90deg, #2784C5 16.264%, #4D4FA4 95.006%);
+  background: var(--color-brand);
   border-color: #FFFFFF;
 }
 
@@ -174,7 +174,6 @@
 }
 
 @media (max-width: 1279px) {
-  .testimonials { padding: 56px 48px; }
   .testimonials__inner { flex-direction: column; gap: 32px; align-items: stretch; }
   .testimonials__lead { max-width: none; }
   /* The 1024px laptop view is the 1440px Figma design reduced to fit. Keep
@@ -185,24 +184,19 @@
   }
 }
 @media (max-width: 1023px) {
-  .testimonials { padding: 48px 24px; }
   .testimonials__viewport { height: 460px; }
   .testimonial-card { width: 280px; margin-left: -140px; }
 }
 /* Mobile (Figma node 1936:7659, 390px frame) */
 @media (max-width: 767px) {
-  .testimonials { padding: 32px 16px; }
   .testimonials__header-text { gap: 8px; }
-  .testimonials__title { font-size: 28px; line-height: 38px; }
-  .testimonials__lead { font-size: 14px; line-height: 22px; }
   .testimonials__wall { gap: 32px; }
   .testimonials__viewport { height: 480px; }
-  .testimonial-card { width: 260px; margin-left: -130px; padding: 16px; }
+  .testimonial-card { width: 260px; margin-left: -130px; padding: var(--card-pad-compact); }
   .testimonial-card__quote { font-size: 12px; letter-spacing: 0.2px; }
   .testimonial-card__role { font-size: 12px; }
 }
 @media (max-width: 479px) {
-  .testimonials { padding: 32px 16px; }
   .testimonial-card { width: 230px; margin-left: -115px; }
 }
 

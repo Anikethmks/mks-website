@@ -1,7 +1,7 @@
 .fintech-features {
   /* Figma node 1971:8461 — plain white, no pastel gradient wash. */
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   position: relative;
   overflow: hidden;
 }
@@ -23,9 +23,9 @@
 /* Figma node 1971:8461 — exact size/color/position of each "Glow Decor Left"
    layer (blur amount already matches: their 30px Gaussian == our blur(30px)). */
 .fintech-features__glow--a { width: 204px; height: 204px; top: 131.68px; left: -38px; background: #B5E1FF; }
-.fintech-features__glow--b { width: 231px; height: 231px; top: 532.68px; left: 1257px; background: #B3B5EE; }
+.fintech-features__glow--b { width: 231px; height: 231px; top: 532.68px; left: 1257px; background: #A8CDE8; }
 .fintech-features__glow--c { width: 286px; height: 286px; top: 28.68px; left: 1147px; background: #E3EFF6; }
-.fintech-features__glow--d { width: 149px; height: 149px; top: 377.68px; left: 574px; background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(77, 79, 164, 0.33) 98%); }
+.fintech-features__glow--d { width: 149px; height: 149px; top: 377.68px; left: 574px; background: linear-gradient(90deg, rgba(39, 132, 197, 0.33) 18%, rgba(20, 92, 147, 0.33) 98%); }
 
 .fintech-features__inner {
   max-width: var(--content-max);
@@ -48,11 +48,12 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  color: #58595B;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-eyebrow-blue);
+  text-transform: uppercase;
 }
 .fintech-features__eyebrow::before {
   content: '';
@@ -70,9 +71,9 @@
 
 .fintech-features__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #020202;
 }
@@ -81,10 +82,10 @@
 .fintech-features__lead {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
 }
 
 .fintech-features__body {
@@ -150,18 +151,18 @@
 
 .fintech-service__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
   color: #020202;
 }
 
 .fintech-service__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  color: #6B7280;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .fintech-features__footer {
@@ -185,22 +186,17 @@
   font-size: 12px;
   font-weight: 400;
   line-height: normal;
-  color: #4D3D8A;
-}
-
-@media (max-width: 1279px) {
-  .fintech-features { padding: 56px 48px; }
+  color: #145C93;
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .fintech-features { height: 486px; padding: 46px; }
+  .fintech-features { min-height: 486px; }
   .fintech-features__inner { gap: 23px; }
   .fintech-features__header { gap: 11px; }
-  .fintech-features__eyebrow { gap: 6px; font-size: 10px; line-height: 14px; letter-spacing: 0.2px; }
+  .fintech-features__eyebrow { gap: 6px; letter-spacing: 0.2px; }
   .fintech-features__eyebrow::before { width: 9px; height: 3px; }
   .fintech-features__titles { gap: 6px; }
-  .fintech-features__title { font-size: 23px; line-height: 30px; letter-spacing: -0.14px; }
-  .fintech-features__lead { font-size: 11px; line-height: 17px; }
+  .fintech-features__title { letter-spacing: -0.14px; }
   .fintech-features__body { grid-template-columns: 344px 542px; gap: 53px; margin-left: -6px; width: 939px; }
   .fintech-features__image { height: 294px; }
   .fintech-features__services { gap: 17px; }
@@ -213,13 +209,10 @@
   .fintech-service:nth-child(5) .fintech-service__icon,
   .fintech-service:nth-child(6) .fintech-service__icon { background-size: 17px 17px, auto; }
   .fintech-service__body { gap: 4px; }
-  .fintech-service__title { font-size: 11px; line-height: 17px; }
-  .fintech-service__desc { font-size: 9px; line-height: 14px; }
   .fintech-features__footer { gap: 9px; }
   .fintech-features__tag { padding: 4px 9px; border-radius: 6px; font-size: 9px; }
 }
 @media (max-width: 1023px) {
-  .fintech-features { padding: 48px 24px; }
   .fintech-features__body { grid-template-columns: 1fr; gap: 32px; }
   .fintech-features__services { grid-template-columns: repeat(2, 1fr); }
   .fintech-features__footer { flex-wrap: wrap; }
@@ -229,23 +222,15 @@
    left-aligned, and the footer tags stack vertically instead of wrapping
    in a centered row. */
 @media (max-width: 767px) {
-  .fintech-features { padding: 32px 16px; }
   .fintech-features__inner { gap: 32px; }
   .fintech-features__header { gap: 24px; }
-  .fintech-features__eyebrow { font-size: 14px; line-height: 20px; }
   .fintech-features__titles { gap: 12px; }
-  .fintech-features__title { font-weight: 600; font-size: 28px; line-height: 38px; }
-  .fintech-features__lead { font-size: 14px; line-height: 22px; }
+  .fintech-features__title { font-weight: 600; }
   .fintech-features__body { gap: 32px; }
   .fintech-features__services { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .fintech-service { padding: 8px; gap: 16px; align-items: center; text-align: center; }
   .fintech-service__icon { width: 32px; height: 32px; padding: 4px; border-radius: 4px; }
   .fintech-service__body { align-items: center; gap: 6px; }
-  .fintech-service__title { font-size: 12px; line-height: normal; }
-  .fintech-service__desc { font-size: 11px; line-height: 20px; }
   .fintech-features__footer { flex-direction: column; align-items: flex-start; gap: 12px; }
   .fintech-features__image { height: auto; aspect-ratio: 497 / 425; }
-}
-@media (max-width: 479px) {
-  .fintech-features { padding: 32px 16px; }
 }

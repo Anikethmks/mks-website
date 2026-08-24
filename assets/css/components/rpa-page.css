@@ -11,7 +11,7 @@
    ========================================================================== */
 
 /* Hero ------------------------------------------------------------------ */
-.rpa-hero { background: #4D3D8A; padding: 64px; }
+.rpa-hero { background: #145C93; padding: var(--hero-pt) var(--section-px) var(--section-py); }
 .rpa-hero__inner {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -50,25 +50,23 @@
 .rpa-hero__title {
   max-width: 549px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.0139em;
   margin: 0;
 }
 .rpa-hero__title .is-white { color: #FFFFFF; }
+/* Accent line sits on the dark blue hero — a light tint of the same blue. */
 .rpa-hero__title .is-grad {
-  background: linear-gradient(-9deg, rgba(132, 101, 255, 1) 0%, rgba(255, 169, 128, 1) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand-soft);
 }
 .rpa-hero__lead {
   max-width: 538px;
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   margin: 0;
 }
@@ -80,7 +78,7 @@
 .rpa-hero__media img { display: block; width: 100%; height: auto; }
 
 /* Our RPA Services -------------------------------------------------------- */
-.rpa-services { background: #FFFFFF; padding: 64px; }
+.rpa-services { background: #FFFFFF; padding: var(--section-py) var(--section-px); }
 .rpa-services__inner {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -90,9 +88,9 @@
 }
 .rpa-services__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
@@ -137,11 +135,11 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #4D3D8A;
+  color: #145C93;
 }
 
 /* Automation Capabilities -------------------------------------------------- */
-.rpa-capabilities { background: #F9F9F9; padding: 96px 64px; }
+.rpa-capabilities { background: #F9F9F9; padding: var(--section-py) var(--section-px); }
 .rpa-capabilities__inner {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -159,9 +157,9 @@
 .rpa-capabilities__title {
   max-width: 798px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #212121;
   margin: 0;
 }
@@ -170,9 +168,9 @@
   max-width: 977px;
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #212121;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   margin: 0;
 }
 .rpa-capabilities__lead:not(.rpa-capabilities__lead--figma) { display: none; }
@@ -203,17 +201,14 @@
   width: 100%;
   margin: 0;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 16px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
 }
 .rpa-cap-category__title .c-blue { color: #1F73B4; }
 .rpa-cap-category__title .c-black { color: #020202; }
 .rpa-cap-category__title .c-grad {
-  background: linear-gradient(-62deg, rgba(26, 112, 178, 1) 17%, rgba(77, 79, 164, 1) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .rpa-cap-chip {
   font-family: var(--font-primary);
@@ -248,7 +243,7 @@
 }
 
 /* AI-Enabled Automation (Features) ----------------------------------------- */
-.rpa-features { background: rgba(97, 104, 158, 0.23); padding: 64px; }
+.rpa-features { background: rgba(20, 92, 147, 0.23); padding: var(--section-py) var(--section-px); }
 .rpa-features__inner {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -276,9 +271,9 @@
 }
 .rpa-features__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #212121;
   margin: 0;
 }
@@ -286,9 +281,9 @@
 .rpa-features__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #212121;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   margin: 0;
 }
 .rpa-features__label {
@@ -326,7 +321,7 @@
 }
 
 /* Platforms / Business Benefits + Achievements ----------------------------- */
-.rpa-platforms { position: relative; background: #4D3D8A; padding: 64px; overflow: hidden; }
+.rpa-platforms { position: relative; background: #145C93; padding: var(--section-py) var(--section-px); overflow: hidden; }
 .rpa-platforms__bg { position: absolute; inset: 0; z-index: 0; }
 .rpa-platforms__bg img { display: block; width: 100%; height: 100%; opacity: 0.1; }
 .rpa-platforms__inner {
@@ -341,9 +336,9 @@
 .rpa-platforms__header { display: flex; flex-direction: column; gap: 16px; }
 .rpa-platforms__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: #FFFFFF;
   margin: 0;
 }
@@ -351,9 +346,9 @@
   max-width: 700px;
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #E0E0E0;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-on-dark-muted);
   margin: 0;
 }
 
@@ -361,8 +356,8 @@
 .rpa-benefit-card {
   flex: 0 0 auto;
   min-width: 0;
-  padding: 16px;
-  border-radius: 16px;
+  padding: var(--card-pad-compact);
+  border-radius: var(--card-radius);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
@@ -370,16 +365,16 @@
 }
 .rpa-benefit-card__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 28px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h5);
+  line-height: var(--lh-h5);
   color: #ECECEC;
   margin: 0;
 }
 .rpa-benefit-card--featured {
-  background: linear-gradient(246.045deg, #2784C5 23.817%, #4D4FA4 94.313%);
+  background: linear-gradient(246.045deg, #2784C5 23.817%, #145C93 94.313%);
   border-color: transparent;
-  box-shadow: 0 8px 24px rgba(77, 79, 164, 0.2);
+  box-shadow: 0 8px 24px rgba(20, 92, 147, 0.2);
 }
 .rpa-benefit-card--featured .rpa-benefit-card__title { color: #FFFFFF; }
 .rpa-benefit-card:nth-child(3),
@@ -393,12 +388,9 @@
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 18px;
-  background: linear-gradient(127.409deg, #CABEFA 9.124%, #FFD2BD 89.437%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0;
   white-space: nowrap;
+  color: var(--color-brand-pale);
 }
 .rpa-achievements__divider {
   flex: 1;
@@ -409,22 +401,22 @@
   max-width: 700px;
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #E0E0E0;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-on-dark-muted);
   margin: 0;
 }
 .rpa-achievements-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 0; }
 .rpa-achievement-card {
   flex: 0 0 auto;
   min-width: 0;
-  padding: 16px;
-  border-radius: 16px;
+  padding: var(--card-pad-compact);
+  border-radius: var(--card-radius);
   display: flex;
   flex-direction: column;
   gap: 12px;
   background: transparent;
-  box-shadow: 0 8px 24px rgba(77, 79, 164, 0.2);
+  box-shadow: 0 8px 24px rgba(20, 92, 147, 0.2);
 }
 .rpa-achievement-card--grad,
 .rpa-achievement-card--bordered { background: transparent; border: 0; }
@@ -451,7 +443,7 @@
 }
 
 /* Results / CTA -------------------------------------------------------------- */
-.rpa-results { background: linear-gradient(-66deg, rgba(233, 233, 233, 1) 4%, rgba(242, 242, 242, 1) 97%); padding: 64px; }
+.rpa-results { background: linear-gradient(-66deg, rgba(233, 233, 233, 1) 4%, rgba(242, 242, 242, 1) 97%); padding: var(--section-py) var(--section-px); }
 .rpa-results__inner {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -470,9 +462,9 @@
 }
 .rpa-results__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.0139em;
   color: #020202;
   margin: 0;
@@ -480,9 +472,9 @@
 .rpa-results__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   margin: 0;
 }
 .rpa-results__cta {
@@ -491,7 +483,7 @@
   width: fit-content;
   padding: 12px 24px;
   border-radius: 6px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   color: #FFFFFF;
   font-family: var(--font-primary);
   font-weight: 600;
@@ -509,8 +501,8 @@
 }
 .rpa-metric-card {
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 12px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
@@ -522,10 +514,7 @@
   font-size: 40px;
   line-height: 52px;
   letter-spacing: -0.0075em;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .rpa-metric-card__label {
   font-family: var(--font-primary);
@@ -538,13 +527,9 @@
 
 /* Responsive --------------------------------------------------------------- */
 @media (max-width: 1279px) {
-  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 56px 48px; }
-  .rpa-capabilities { padding: 72px 48px; }
   .rpa-capabilities__grid { flex-basis: 60%; }
 }
 @media (max-width: 1023px) {
-  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 48px 24px; }
-  .rpa-capabilities { padding: 56px 24px; }
 
   .rpa-hero__inner { flex-direction: column; align-items: stretch; }
   .rpa-hero__left { flex-basis: auto; }
@@ -568,15 +553,6 @@
   .rpa-metrics { flex-basis: auto; max-width: 100%; }
 }
 @media (max-width: 767px) {
-  .rpa-hero, .rpa-services, .rpa-features, .rpa-platforms, .rpa-results { padding: 32px 16px; }
-  .rpa-capabilities { padding: 40px 16px; }
-
-  .rpa-hero__title { font-size: 28px; line-height: 36px; }
-  .rpa-services__title,
-  .rpa-features__title { font-size: 24px; line-height: 32px; }
-  .rpa-capabilities__title,
-  .rpa-platforms__title { font-size: 26px; line-height: 34px; }
-  .rpa-results__title { font-size: 26px; line-height: 34px; }
 
   .rpa-metrics { grid-template-columns: 1fr; }
   .rpa-achievements-grid { justify-content: flex-start; }

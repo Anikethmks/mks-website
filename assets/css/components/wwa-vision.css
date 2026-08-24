@@ -5,7 +5,7 @@
 
 .wwa-vision {
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -35,9 +35,9 @@
   max-width: 100%;
   text-align: left;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #111827;
 }
@@ -101,8 +101,8 @@
 .wwa-vision__vm-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: #111827;
 }
 
@@ -129,32 +129,24 @@
 }
 
 @media (max-width: 1279px) {
-  .wwa-vision { padding: 56px 48px; }
   .wwa-vision__inner { gap: 56px; }
-  .wwa-vision__title { font-size: 30px; line-height: 40px; }
   .wwa-vision__col { gap: 40px; }
   .wwa-vision__vm-row { gap: 32px; }
 }
 
 @media (max-width: 1023px) {
-  .wwa-vision { padding: 48px 32px; }
   .wwa-vision__inner { gap: 48px; }
   .wwa-vision__row { flex-direction: column; gap: 40px; }
   .wwa-vision__image { width: 100%; height: auto; aspect-ratio: 474/473; }
-  .wwa-vision__title { font-size: 28px; line-height: 36px; }
 }
 
 @media (max-width: 767px) {
-  .wwa-vision { padding: 40px 20px; }
   .wwa-vision__inner { gap: 40px; }
-  .wwa-vision__title { font-size: 24px; line-height: 32px; }
   .wwa-vision__col { gap: 32px; }
   .wwa-vision__vm-row { flex-direction: column; gap: 24px; }
   .wwa-vision__vm-title { font-size: 22px; line-height: 30px; }
 }
 
 @media (max-width: 479px) {
-  .wwa-vision { padding: 32px 16px; }
   .wwa-vision__inner { gap: 32px; }
-  .wwa-vision__title { font-size: 22px; line-height: 30px; }
 }

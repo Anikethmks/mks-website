@@ -65,14 +65,11 @@
 .pva-cta__side-title {
   font-family: var(--font-primary);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
   letter-spacing: 0.3px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0;
+  color: var(--color-brand);
 }
 
 .pva-cta__center {
@@ -81,7 +78,7 @@
   justify-self: center;
   padding: 16px 24px;
   border-radius: 6px;
-  background: linear-gradient(100.35deg, #1A70B2 3.9%, #4C3C89 92.23%);
+  background: var(--color-brand);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 16px;

@@ -7,7 +7,7 @@
 
 .co-openings {
   background: rgba(39, 132, 197, 0.1);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,24 +16,21 @@
 
 .co-openings__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   text-align: center;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin: 0;
+  color: var(--color-brand);
 }
 
 .co-openings__subtitle {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   text-align: center;
-  color: #020202;
+  color: var(--color-text);
   max-width: 640px;
   margin: 0;
 }
@@ -81,14 +78,14 @@
   box-shadow: 0px 4px 4px 0px rgba(239, 239, 239, 1);
 }
 .co-tab.is-active::after {
-  background: var(--grad-cta);
+  background: var(--color-brand);
 }
 
 .co-tab__title {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
   color: #58595B;
   margin: 0;
 }
@@ -134,10 +131,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px;
+  padding: var(--card-pad-compact);
   background: rgba(39, 132, 197, 0.08);
   border: 1px solid rgba(39, 132, 197, 0.3);
-  border-radius: 4px;
+  border-radius: var(--card-radius);
 }
 
 .co-job-card__info {
@@ -149,9 +146,9 @@
 
 .co-job-card__title {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
   color: #020202;
   margin: 0;
 }
@@ -198,11 +195,9 @@
 }
 
 @media (max-width: 1279px) {
-  .co-openings { padding: 56px 48px; }
   .co-panel__grid { gap: 32px; }
 }
 @media (max-width: 1023px) {
-  .co-openings { padding: 48px 24px; }
   .co-tabs { flex-direction: column; }
   .co-tab { max-width: none; border-radius: 8px; }
   .co-tab.is-active::after { display: none; }
@@ -210,8 +205,7 @@
   .co-panel__grid { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 767px) {
-  .co-openings { padding: 40px 16px; gap: 20px; }
-  .co-openings__title { font-size: 24px; line-height: 32px; }
+  .co-openings { gap: 20px; }
   .co-openings__container { gap: 32px; }
   .co-job-card { flex-direction: column; align-items: stretch; }
   .co-job-card__apply { justify-content: center; }

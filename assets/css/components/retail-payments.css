@@ -6,7 +6,7 @@
 .retail-payments {
   position: relative;
   background: #FFFFFF;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -33,10 +33,12 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.05em;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
   color: var(--color-eyebrow-blue);
+  line-height: var(--lh-eyebrow);
+  text-transform: uppercase;
 }
 .retail-payments__eyebrow-dot {
   width: 8px;
@@ -47,9 +49,9 @@
 
 .retail-payments__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #11162A;
   margin: 0;
 }
@@ -100,21 +102,15 @@
      margin below. */
   flex: 0 0 calc(100% - 900px);
   min-width: 200px;
-  margin-right: -64px;
+  margin-right: calc(50% - 50vw);
   align-self: stretch;
   border-radius: 16px;
   object-fit: cover;
-}
-
-@media (max-width: 1279px) {
-  .retail-payments { padding: 56px 48px; }
 }
 @media (max-width: 1023px) {
   .retail-payments__inner { flex-direction: column; }
   .retail-payments__img { flex: none; margin-right: 0; width: 100%; max-width: 100%; align-self: auto; aspect-ratio: 16/9; }
 }
 @media (max-width: 767px) {
-  .retail-payments { padding: 48px 24px; }
-  .retail-payments__title { font-size: 28px; line-height: 36px; }
   .retail-payments__label { width: 100%; }
 }

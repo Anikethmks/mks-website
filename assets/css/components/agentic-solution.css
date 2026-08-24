@@ -4,8 +4,8 @@
    ========================================================================== */
 
 .agentic-solution {
-  background: #F3EFFF;
-  padding: 64px;
+  background: #EEF6FC;
+  padding: var(--section-py) var(--section-px);
 }
 
 /* Caps and centers the content column — without it, the section's flex
@@ -26,19 +26,19 @@
 }
 .agentic-solution__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .agentic-solution__subtitle {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
   margin: 0;
   max-width: 1096px;
 }
@@ -98,18 +98,11 @@
 }
 
 @media (max-width: 1279px) {
-  .agentic-solution { padding: 56px 48px; }
   .agentic-solution__row { flex-direction: column; }
   .agentic-solution__col { flex-basis: auto; width: 100%; }
 }
-@media (max-width: 1023px) {
-  .agentic-solution { padding: 48px 24px; }
-  .agentic-solution__title { font-size: 24px; line-height: 32px; }
-}
 @media (max-width: 767px) {
-  .agentic-solution { padding: 32px 16px; }
   .agentic-solution__inner { gap: 24px; }
-  .agentic-solution__title { font-size: 22px; line-height: 30px; }
   .agentic-solution__row { gap: 24px; }
   .agentic-solution__list { padding-left: 20px; gap: 12px; }
   .agentic-solution__photo { padding: 16px; }

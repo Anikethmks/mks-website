@@ -1,7 +1,7 @@
 .outcomes {
   /* Figma node 1971:8009 — plain light blue-white, no pastel gradient wash. */
   background: #F8FBFE;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   position: relative;
   overflow: hidden;
 }
@@ -37,9 +37,9 @@
 
 .outcomes__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.2px;
   color: #020202;
 }
@@ -47,9 +47,9 @@
 .outcomes__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #58595B;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
 }
 
 /* Outcomes body — a left-hand numbered list drives which outcome is
@@ -180,10 +180,10 @@
 .outcome-card {
   position: absolute;
   inset: 0;
-  border-radius: 32px;
+  border-radius: var(--card-radius);
   padding: 40px;
   background: #FFFFFF;
-  box-shadow: 0 20px 40px rgba(77, 79, 164, 0.07);
+  box-shadow: 0 20px 40px rgba(20, 92, 147, 0.07);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -201,7 +201,7 @@
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(132, 101, 255, 0.14), rgba(41, 134, 197, 0.08) 55%, transparent 75%);
+  background: radial-gradient(circle, rgba(20, 92, 147, 0.14), rgba(41, 134, 197, 0.08) 55%, transparent 75%);
   pointer-events: none;
 }
 
@@ -241,13 +241,10 @@
   position: relative;
   margin: 24px 0 0;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1.15;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  color: var(--color-brand);
 }
 
 .outcome-card__desc {
@@ -256,9 +253,9 @@
   max-width: 48ch;
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #475569;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .outcome-card__checklist {
@@ -317,7 +314,7 @@
   color: #FFFFFF;
   padding: 10px 24px;
   border-radius: 6px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -398,12 +395,9 @@
 .outcomes__impact-lead {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 24px;
-  line-height: 34px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  color: var(--color-brand);
 }
 
 .outcomes__impact-sub {
@@ -418,7 +412,7 @@
 .outcomes__dot {
   width: 4px;
   height: 4px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -429,23 +423,14 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.3px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   white-space: nowrap;
-}
-
-@media (max-width: 1279px) {
-  .outcomes { padding: 56px 48px; }
+  color: var(--color-brand);
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .outcomes { height: 593px; padding: 46px; }
+  .outcomes { min-height: 593px; }
   .outcomes__inner { gap: 34px; }
   .outcomes__header { gap: 11px; }
-  .outcomes__title { font-size: 23px; line-height: 30px; }
-  .outcomes__lead { font-size: 11px; line-height: 18px; }
   .outcomes__body { grid-template-columns: 341px 535px; gap: 57px; min-height: 316px; }
   .outcomes__nav { gap: 26px; }
   .outcomes__counter-current { font-size: 20px; }
@@ -457,11 +442,11 @@
   .outcomes__controls { gap: 11px; }
   .outcomes__control { width: 28px; height: 28px; font-size: 11px; }
   .outcomes__stack { height: 299px; }
-  .outcome-card { padding: 28px; border-radius: 23px; }
+  .outcome-card { padding: var(--card-pad); border-radius: var(--card-radius); }
   .outcome-card__icon { width: 40px; height: 40px; }
   .outcome-card__num { font-size: 10px; }
-  .outcome-card__title { margin-top: 17px; font-size: 20px; }
-  .outcome-card__desc { margin-top: 9px; font-size: 10px; line-height: 1.5; }
+  .outcome-card__title { margin-top: 17px; }
+  .outcome-card__desc { margin-top: 9px; }
   .outcome-card__checklist { gap: 8px; margin-top: 14px; padding-top: 13px; }
   .outcome-card__check { gap: 8px; font-size: 10px; }
   .outcome-card__check-mark { width: 14px; height: 14px; font-size: 8px; }
@@ -473,7 +458,6 @@
   .outcomes__pill { font-size: 11px; line-height: 18px; }
 }
 @media (max-width: 1023px) {
-  .outcomes { padding: 48px 24px; }
   .outcomes__body { grid-template-columns: 1fr; gap: 32px; }
   .outcomes__stack { height: 480px; }
 }
@@ -487,11 +471,9 @@
      rather than removed, so the existing click-to-jump JS/DOM keeps
      working unchanged; there's just nothing extra to click at this size. */
 @media (max-width: 767px) {
-  .outcomes { padding: 32px 16px; }
   .outcomes__inner { gap: 32px; }
   .outcomes__header { gap: 16px; }
-  .outcomes__title { font-weight: 600; font-size: 28px; line-height: 38px; }
-  .outcomes__lead { font-size: 14px; line-height: 22px; }
+  .outcomes__title { font-weight: 600; }
 
   .outcomes__body { order: 2; grid-template-columns: 1fr; gap: 16px; }
   .outcomes__impact { order: 1; gap: 6px; }
@@ -509,7 +491,7 @@
     background: none;
     -webkit-background-clip: initial;
     background-clip: initial;
-    color: #4D3D8A;
+    color: #145C93;
   }
   .outcomes__counter-total { font-family: var(--font-primary); font-weight: 600; font-size: 14px; color: #94A3B8; }
 
@@ -544,7 +526,7 @@
      since it depends on which outcome happens to be active). Padding/gaps
      also trimmed slightly for extra margin. */
   .outcomes__stack { height: 440px; }
-  .outcome-card { padding: 14px; border-radius: 32px; gap: 16px; }
+  .outcome-card { padding: 14px; border-radius: var(--card-radius); gap: 16px; }
   .outcome-card__badge {
     background: #FFFFFF;
     border-radius: 12px;
@@ -555,11 +537,11 @@
   }
   .outcome-card__icon { width: 40px; height: 40px; }
   .outcome-card__num { font-size: 14px; letter-spacing: normal; color: #94A3B8; }
-  .outcome-card__title { margin-top: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 34px; letter-spacing: normal; }
-  .outcome-card__desc { margin-top: 0; font-size: 12px; max-width: none; }
+  .outcome-card__title { margin-top: 0; font-family: var(--font-display); font-weight: 600; letter-spacing: normal; }
+  .outcome-card__desc { margin-top: 0; max-width: none; }
   .outcome-card__checklist { margin-top: 0; padding-top: 10px; gap: 10px; }
   .outcome-card__check { gap: 10px; font-size: 12px; }
-  .outcome-card__check-mark { width: 20px; height: 20px; background: #EEF2FF; font-size: 10px; }
+  .outcome-card__check-mark { width: 20px; height: 20px; background: #EAF3FB; font-size: 10px; }
   .outcome-card__cta { margin-top: 0; padding: 10px 24px; font-size: 14px; gap: 8px; }
 }
 @media (max-width: 479px) {

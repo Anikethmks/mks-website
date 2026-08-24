@@ -9,11 +9,16 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--grad-blue-a);
-  background: rgba(39, 132, 197, 0.10);
+  color: var(--color-brand);
+  background: rgba(26, 112, 178, 0.10);
 }
 
-.badge--purple { color: #6B4EFF; background: rgba(107, 78, 255, 0.10); }
-.badge--orange { color: #E27B4F; background: rgba(226, 123, 79, 0.10); }
-.badge--teal   { color: #1F9E8A; background: rgba(31, 158, 138, 0.10); }
-.badge--pink   { color: #C64B7E; background: rgba(198, 75, 126, 0.10); }
+/* The old per-topic hues (purple / orange / teal / pink) all resolve to the
+   one corporate blue now. Selectors stay so existing markup keeps working. */
+.badge--purple,
+.badge--orange,
+.badge--teal,
+.badge--pink {
+  color: var(--color-brand);
+  background: rgba(26, 112, 178, 0.10);
+}

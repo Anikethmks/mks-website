@@ -5,8 +5,8 @@
 
 .stats-bar {
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 4px -1px 8px 0 rgba(225, 228, 255, 1);
-  padding: 24px 64px;
+  box-shadow: inset 4px -1px 8px 0 rgba(214, 232, 246, 1);
+  padding: 24px var(--section-px);
 }
 
 /* Caps and centers the item row — without it, the fixed-width items
@@ -34,10 +34,7 @@
   font-size: 36px;
   line-height: 44px;
   letter-spacing: -0.5px;
-  background: var(--grad-vivid);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .stats-bar__label {
@@ -53,23 +50,20 @@
 .stats-bar__divider {
   width: 1px;
   height: 56px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   flex-shrink: 0;
 }
 
 @media (max-width: 1279px) {
-  .stats-bar { padding: 24px 48px; }
   .stats-bar__item { width: 180px; }
 }
 @media (max-width: 1023px) {
-  .stats-bar { padding: 24px; }
   .stats-bar__inner { flex-wrap: wrap; gap: 24px; justify-content: center; }
   .stats-bar__divider { display: none; }
   .stats-bar__item { width: auto; flex: 1 1 30%; }
   .stats-bar__number { font-size: 32px; line-height: 40px; }
 }
 @media (max-width: 767px) {
-  .stats-bar { padding: 24px 16px; }
   .stats-bar__inner { gap: 20px; }
   .stats-bar__item { flex: 1 1 45%; }
   .stats-bar__number { font-size: 28px; line-height: 36px; }

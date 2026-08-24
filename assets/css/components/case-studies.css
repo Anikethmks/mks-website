@@ -5,7 +5,7 @@
    ========================================================================== */
 
 .case-studies {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 /* Caps and centers the content column — without it, the section's flex
@@ -27,31 +27,29 @@
 
 .case-studies__eyebrow {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+  text-transform: uppercase;
 }
 
 .case-studies__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #111827;
 }
 
 .case-studies__lead {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #58595B;
+  color: var(--color-text-muted);
 }
 
 .case-studies__grid {
@@ -65,7 +63,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: var(--radius-md);
+  border-radius: var(--card-radius);
   overflow: hidden;
   isolation: isolate;
 }
@@ -118,17 +116,17 @@
 .case-study-card__eyebrow-row span {
   font-family: var(--font-primary);
   font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: var(--fs-mini);
+  line-height: var(--lh-mini);
   letter-spacing: 0.3px;
   color: #020202;
 }
 
 .case-study-card__heading {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: #020202;
 }
 
@@ -144,16 +142,13 @@
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.3px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .case-study-card__meta-dot {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   flex-shrink: 0;
 }
 
@@ -181,9 +176,9 @@
 .case-study-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
 }
 
 .case-study-card__metrics {
@@ -209,11 +204,7 @@
 .case-study-card--plain .metric-pill {
   background: none;
   padding: 0;
-  color: var(--metric-color, var(--grad-cta));
-  -webkit-text-fill-color: transparent;
-  background-image: var(--metric-color, var(--grad-cta));
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: var(--color-brand);
 }
 .metric-pill svg { width: 16px; height: 16px; flex-shrink: 0; }
 
@@ -260,7 +251,7 @@
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: var(--cta-color, var(--grad-cta));
+  background: var(--color-brand);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -269,35 +260,32 @@
 }
 .case-study-card__cta:hover { box-shadow: var(--shadow-card); }
 .case-study-card__cta span {
-  background: var(--cta-color, var(--grad-cta));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .case-study-card__cta svg {
   width: 14px;
   height: 14px;
-  color: var(--cta-stroke, #4D4FA4);
+  color: var(--cta-stroke, #145C93);
 }
 
 /* Card variants (AI Solutions grid) — overlay tint and tag-pill color only.
    Heading/eyebrow/meta text is dark on all 4 cards per Figma; only the
    overlay glass tint and tag-pill treatment differ card to card. */
 .case-study-card--agentic { --overlay-bg: rgba(0, 0, 0, 0.11); }
-.case-study-card--agentic .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(77, 79, 164, 0.8) 98%); --tag-color: #FFFFFF; }
+.case-study-card--agentic .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(20, 92, 147, 0.8) 98%); --tag-color: #FFFFFF; }
 
 .case-study-card--voice { --overlay-bg: rgba(255, 255, 255, 0.7); }
-.case-study-card--voice .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(77, 79, 164, 0.8) 98%); --tag-color: #FFFFFF; }
+.case-study-card--voice .tag-pill { --tag-bg: linear-gradient(90deg, rgba(39, 132, 197, 0.8) 18%, rgba(20, 92, 147, 0.8) 98%); --tag-color: #FFFFFF; }
 
 .case-study-card--physical { --overlay-bg: rgba(255, 255, 255, 0.51); }
 .case-study-card--physical .tag-pill { --tag-bg: linear-gradient(180deg, rgba(138, 207, 255, 0.4) 5%, rgba(41, 134, 197, 0.4) 100%); }
 
 .case-study-card--document { --overlay-bg: rgba(255, 255, 255, 0.7); }
-.case-study-card--document .tag-pill { --tag-bg: linear-gradient(-66deg, rgba(134, 103, 255, 0.23) 4%, rgba(41, 134, 197, 0.23) 97%); --tag-color: #020202; }
+.case-study-card--document .tag-pill { --tag-bg: linear-gradient(-66deg, rgba(20, 92, 147, 0.23) 4%, rgba(41, 134, 197, 0.23) 97%); --tag-color: #020202; }
 
 .case-study-card--warm-cta .case-study-card__cta {
-  --cta-color: linear-gradient(77.8deg, #2784C5 23.89%, #4D4FA4 89.22%);
-  --cta-stroke: #4D4FA4;
+  --cta-color: linear-gradient(77.8deg, #2784C5 23.89%, #145C93 89.22%);
+  --cta-stroke: #145C93;
 }
 
 /* Two-column RPA / Engineering split section --------------------------- */
@@ -320,10 +308,10 @@
 }
 .case-studies-split__col--rpa {
   gap: 64px;
-  background: linear-gradient(146deg, rgba(175, 154, 255, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
+  background: linear-gradient(146deg, rgba(127, 190, 228, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
 }
 .case-studies-split__col--eng {
-  background: linear-gradient(146deg, rgba(175, 154, 255, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
+  background: linear-gradient(146deg, rgba(127, 190, 228, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
 }
 
 .case-studies-split__header {
@@ -338,22 +326,20 @@
   gap: 8px;
   width: fit-content;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+  text-transform: uppercase;
 }
-.case-studies-split__eyebrow svg { width: 24px; height: 24px; flex-shrink: 0; color: #4D4FA4; }
+.case-studies-split__eyebrow svg { width: 24px; height: 24px; flex-shrink: 0; color: #145C93; }
 
 .case-studies-split__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
 }
 
@@ -368,7 +354,7 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.case-study-card__icon svg { width: 20px; height: 20px; color: #4D4FA4; }
+.case-study-card__icon svg { width: 20px; height: 20px; color: #145C93; }
 
 .case-study-card__icon-row {
   display: flex;
@@ -378,50 +364,41 @@
 
 .case-study-card__eyebrow-plain {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  color: #020202;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-eyebrow-blue);
+  text-transform: uppercase;
 }
 
 .case-study-card__heading--h5 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
   color: #020202;
 }
 
 @media (max-width: 1279px) {
-  .case-studies { padding: 56px 48px; }
   .case-studies__inner { gap: 40px; }
   .case-studies__grid { gap: 24px; }
   .case-studies-split__col { padding: 56px 48px; }
 }
 @media (max-width: 1023px) {
-  .case-studies { padding: 48px 24px; }
   .case-studies__grid { grid-template-columns: 1fr; }
-  .case-studies__title,
-  .case-studies-split__title { font-size: 24px; line-height: 32px; }
-  .case-study-card__heading { font-size: 24px; line-height: 32px; }
   .case-studies-split { grid-template-columns: 1fr; }
   .case-studies-split__col { padding: 40px 24px; }
 }
 @media (max-width: 767px) {
-  .case-studies { padding: 32px 16px; }
   .case-studies__inner { gap: 32px; }
   .case-studies-split__col { padding: 32px 16px; gap: 24px; }
   .case-studies-split__col--rpa { gap: 32px; }
-  .case-studies__title,
-  .case-studies-split__title { font-size: 22px; line-height: 30px; }
-  .case-study-card__heading { font-size: 22px; line-height: 30px; }
   .case-study-card__media { height: 240px; }
   .case-study-card__body { padding: 16px; }
   .case-study-card--plain { padding: 16px; }
 }
 @media (max-width: 479px) {
-  .case-study-card__heading { font-size: 20px; line-height: 28px; }
   .case-study-card__media { height: 200px; }
   .case-studies-split__eyebrow svg { width: 20px; height: 20px; }
 }

@@ -5,7 +5,7 @@
 
 .retail-applications {
   position: relative;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   overflow: hidden;
 }
 
@@ -65,9 +65,9 @@
 
 .retail-applications__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
@@ -78,10 +78,13 @@
 
 .retail-applications__eyebrow {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--color-heading-purple);
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  color: var(--color-eyebrow-blue);
   margin: 16px 0 0;
+  line-height: var(--lh-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .retail-applications__list {
@@ -115,18 +118,10 @@
   font-family: var(--font-primary);
   font-size: 16px;
   line-height: 26px;
-  color: var(--color-heading-purple);
+  color: var(--color-heading-blue);
   white-space: nowrap;
-}
-
-@media (max-width: 1279px) {
-  .retail-applications { padding: 56px 48px; }
 }
 @media (max-width: 1023px) {
   .retail-applications__row { flex-direction: column; }
   .retail-applications__img { max-width: 100%; width: 100%; }
-}
-@media (max-width: 767px) {
-  .retail-applications { padding: 48px 24px; }
-  .retail-applications__title { font-size: 28px; line-height: 36px; }
 }

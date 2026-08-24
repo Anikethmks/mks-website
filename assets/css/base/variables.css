@@ -14,50 +14,109 @@
   --color-trust-dark: #373737;
   --color-footer-dark: #0D1B2A;
 
-  /* Brand accents */
-  --color-eyebrow-blue: #1F73B4;
-  --color-heading-purple: #4D3D8A;
-  --color-badge-bg: #F0EDFF;
+  /* ------------------------------------------------------------------
+   * Corporate blue — one brand color, sitewide.
+   * Every accent, button, gradient, icon and badge on the site resolves
+   * to a single hue: the blue of the MKS Vision logo mark (#1A70B2).
+   * The previous purple / peach / violet / teal accents are gone — use
+   * a step from this scale instead of introducing a new color.
+   * ----------------------------------------------------------------- */
+  --color-brand-tint: #EFF6FC;    /* section washes */
+  --color-brand-pale: #DCEBF7;    /* chips, hover fills */
+  --color-brand-soft: #B9D8EF;    /* borders, dividers */
+  --color-brand-light: #7FBEE4;   /* light gradient stop */
+  --color-brand-mid: #2784C5;     /* bright gradient stop */
+  --color-brand: #1A70B2;         /* logo blue — primary */
+  --color-brand-dark: #145C93;    /* hover / dark gradient stop */
+  --color-brand-darker: #0F4772;  /* deep fills, headings */
+  --color-brand-deep: #0B3454;    /* darkest, on-dark surfaces */
 
-  /* Gradients (Figma exact) */
-  --grad-soft: linear-gradient(141deg, #CABEFA 2%, #FFD2BD 100%);
-  --grad-cta: linear-gradient(90deg, #2784C5 18%, #4D4FA4 98%);
-  --grad-vivid: linear-gradient(-66deg, #8667FF 4%, #2986C5 97%);
-  --grad-number: linear-gradient(-9deg, #8465FF 0%, #FFA980 100%);
-  --grad-icon-soft: linear-gradient(141deg, #CABCFF 0%, #C5E3F7 94%);
-  --grad-trust-label: linear-gradient(-62deg, #2784C5 17%, #4D4FA4 100%);
-  --grad-card-border: linear-gradient(146deg, #AF9AFF 0%, #CBEAFF 97%);
+  /* Brand accents */
+  --color-eyebrow-blue: var(--color-brand);
+  --color-heading-blue: var(--color-brand-dark);
+  --color-badge-bg: #E8F3FB;
+
+  /* Gradients — monochrome blue ramps only (same hue, two depths) */
+  --grad-soft: linear-gradient(141deg, #C9E3F5 2%, #E7F2FA 100%);
+  --grad-cta: linear-gradient(90deg, #2784C5 18%, #145C93 98%);
+  --grad-vivid: linear-gradient(-66deg, #145C93 4%, #2986C5 97%);
+  --grad-number: linear-gradient(-9deg, #145C93 0%, #7FBEE4 100%);
+  --grad-icon-soft: linear-gradient(141deg, #C9E3F5 0%, #C5E3F7 94%);
+  --grad-trust-label: linear-gradient(-62deg, #2784C5 17%, #145C93 100%);
+  --grad-card-border: linear-gradient(146deg, #7FBEE4 0%, #CBEAFF 97%);
   --grad-services: linear-gradient(180deg, #8ACFFF 5%, #2986C5 100%);
-  --grad-form-submit: linear-gradient(-66deg, #644DBF 4%, #1A70B2 97%);
+  --grad-form-submit: linear-gradient(-66deg, #0F4772 4%, #1A70B2 97%);
 
   /* Fonts */
   --font-primary: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-display: 'Montserrat', 'Poppins', system-ui, sans-serif;
 
-  /* Type scale (Figma exact) */
-  --fs-h1-big: 48px;      /* Trust stat numbers, hero */
-  --fs-h1: 36px;          /* Healthcare / Fintech titles */
-  --fs-h2: 28px;          /* Section headings */
-  --fs-h3: 18px;          /* Card titles */
-  --fs-body: 16px;
-  --fs-small: 14px;
-  --fs-eyebrow: 14px;
-  --fs-mini: 12px;
+  /* ------------------------------------------------------------------
+   * Type scale — ONE value per role, used site-wide.
+   * Never hardcode a heading/lead/eyebrow size in a component: pick the
+   * role token below. The tokens rescale themselves at each breakpoint
+   * (see the @media blocks at the bottom of this file), so components
+   * must NOT re-declare font-size/line-height inside media queries.
+   *
+   *   --fs-hero    page hero H1
+   *   --fs-h2      section heading
+   *   --fs-h3      feature-card headline / sub-section heading
+   *   --fs-h4      card title
+   *   --fs-h5      small card title
+   *   --fs-h6      compact list-row title
+   *   --fs-lead    section intro paragraph
+   *   --fs-body    body copy
+   *   --fs-small   card body copy, captions
+   *   --fs-eyebrow section eyebrow label
+   * ----------------------------------------------------------------- */
+  --fs-hero: 48px;        --lh-hero: 60px;
+  --fs-hero-lead: 18px;   --lh-hero-lead: 30px;
+  --fs-h2: 32px;          --lh-h2: 42px;
+  --fs-h3: 24px;          --lh-h3: 32px;
+  --fs-h4: 20px;          --lh-h4: 30px;
+  --fs-h5: 18px;          --lh-h5: 28px;
+  --fs-h6: 16px;          --lh-h6: 24px;
+  --fs-lead: 16px;        --lh-lead: 26px;
+  --fs-body: 16px;        --lh-body: 26px;
+  --fs-small: 14px;       --lh-small: 22px;
+  --fs-eyebrow: 14px;     --lh-eyebrow: 20px;
+  --fs-mini: 12px;        --lh-mini: 18px;
 
-  --lh-h1-big: 60px;
-  --lh-h1: 44px;
-  --lh-h2: 38px;
-  --lh-h3: 28px;
-  --lh-body: 26px;
-  --lh-small: 22px;
-  --lh-eyebrow: 20px;
+  /* Kept as aliases so any older reference still resolves. */
+  --fs-h1-big: var(--fs-hero);
+  --lh-h1-big: var(--lh-hero);
+  --fs-h1: var(--fs-h2);
+  --lh-h1: var(--lh-h2);
+
+  /* Weights — same size always gets the same weight */
+  --fw-hero: 700;
+  --fw-h2: 700;
+  --fw-card-title: 600;
+  --fw-eyebrow: 600;
 
   /* Layout (Figma exact 1440 canvas → 1312 content) */
   --frame-max: 1440px;
   --content-max: 1312px;
   --container-max: 1312px;
+
+  /* Section rhythm — every content section uses these, so the content
+     edge lands on the same x at every breakpoint. Also rescaled below. */
   --section-py: 64px;
   --section-px: 64px;
+  --hero-pt: 120px;       /* interior page heroes: breadcrumb + title */
+
+  /* Horizontal padding for sections that hold their content directly (no
+     __inner wrapper to cap the measure). Past --content-max the padding
+     grows instead of the text, so their content edge lands on exactly the
+     same x as every wrapped section's — including on >1440px monitors,
+     where those sections used to start 240px further left. */
+  --section-px-fluid: max(var(--section-px), (100% - var(--content-max)) / 2);
+
+  /* Card surface — one radius, one border, two padding tiers */
+  --card-radius: 12px;
+  --card-border: 1px solid #E5E7EB;
+  --card-pad: 24px;
+  --card-pad-compact: 16px;
 
   /*
    * Responsive breakpoint scale (desktop-first, max-width queries).
@@ -79,4 +138,56 @@
   /* Shadow */
   --shadow-card: 0 4px 12px rgba(8, 17, 31, 0.06);
   --shadow-lift: 0 12px 28px rgba(8, 17, 31, 0.10);
+}
+
+/* ---------------------------------------------------------------------
+ * Responsive steps for the type scale and the section rhythm.
+ * These are the ONLY place either one changes size. A component that
+ * re-declares a heading size or a section padding inside its own media
+ * query is a bug — it is what made section edges and heading sizes
+ * disagree from page to page.
+ * ------------------------------------------------------------------ */
+@media (max-width: 1279px) {           /* Laptop */
+  :root {
+    --fs-hero: 40px;      --lh-hero: 52px;
+    --fs-hero-lead: 17px; --lh-hero-lead: 28px;
+    --fs-h2: 28px;        --lh-h2: 38px;
+    --section-py: 56px;
+    --section-px: 48px;
+    --hero-pt: 104px;
+  }
+}
+
+@media (max-width: 1023px) {           /* Tablet */
+  :root {
+    --fs-hero: 34px;      --lh-hero: 44px;
+    --fs-hero-lead: 16px; --lh-hero-lead: 26px;
+    --fs-h2: 26px;        --lh-h2: 34px;
+    --fs-h3: 22px;        --lh-h3: 30px;
+    --fs-lead: 15px;      --lh-lead: 25px;
+    --section-py: 48px;
+    --section-px: 24px;
+    --hero-pt: 96px;
+  }
+}
+
+@media (max-width: 767px) {            /* Mobile */
+  :root {
+    --fs-hero: 28px;      --lh-hero: 38px;
+    --fs-hero-lead: 15px; --lh-hero-lead: 24px;
+    --fs-h2: 24px;        --lh-h2: 32px;
+    --fs-h3: 20px;        --lh-h3: 28px;
+    --fs-h4: 18px;        --lh-h4: 28px;
+    --fs-lead: 15px;      --lh-lead: 24px;
+    --section-py: 32px;
+    --section-px: 16px;
+    --hero-pt: 88px;
+  }
+}
+
+@media (max-width: 479px) {            /* Small phone */
+  :root {
+    --fs-hero: 26px;      --lh-hero: 34px;
+    --fs-h2: 22px;        --lh-h2: 30px;
+  }
 }

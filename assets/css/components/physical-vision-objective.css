@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .pva-objective {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -22,28 +22,28 @@
 }
 .pva-objective__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .pva-objective__subtitle {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
   margin: 0;
 }
 
 .pva-objective__intro {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   margin: 0;
   width: 100%;
 }
@@ -68,9 +68,9 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(39, 132, 197, 0.3);
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   background: rgba(39, 132, 197, 0.1);
-  padding: 16px;
+  padding: var(--card-pad-compact);
   min-height: 163px;
   display: flex;
   align-items: center;
@@ -118,22 +118,19 @@
    1279px tier so the 3-column grid never sits cramped in a 1024–1279px
    range before reducing. */
 @media (max-width: 1279px) {
-  .pva-objective { padding: 48px 24px; }
   .pva-objective__row { flex-direction: column; }
   .pva-objective__media { width: 100%; aspect-ratio: 900 / 600; }
   .pva-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 1023px) {
-  .pva-objective { padding: 40px 24px; gap: 40px; }
+  .pva-objective { gap: 40px; }
   .pva-objective__row { gap: 24px; }
   .pva-objective__grid { gap: 24px; }
 }
 /* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
    767px tier (transitions earlier, no coverage gap). */
 @media (max-width: 767px) {
-  .pva-objective { padding: 24px 16px; gap: 24px; }
-  .pva-objective__title { font-size: 24px; line-height: 32px; }
-  .pva-objective__intro { font-size: 15px; }
+  .pva-objective { gap: 24px; }
   .pva-objective__grid { grid-template-columns: 1fr; gap: 16px; }
-  .pva-objective-card { min-height: auto; padding: 16px; }
+  .pva-objective-card { min-height: auto; padding: var(--card-pad-compact); }
 }

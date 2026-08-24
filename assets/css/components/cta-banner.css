@@ -1,7 +1,7 @@
 .cta-banner {
   /* Figma node 1971:8447 — plain light gray, no pastel gradient wash. */
   background: #F8F9FA;
-  padding: 32px 64px;
+  padding: 32px var(--section-px);
   min-height: 130px;
 }
 
@@ -29,17 +29,14 @@
    [data-reveal], same trigger as everywhere else, just a different result. */
 .cta-banner__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
-  background: linear-gradient(90deg, #2784C5 0%, #4D4FA4 25%, #2784C5 50%, #4D4FA4 75%, #2784C5 100%);
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   background-size: 300% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--color-brand);
 }
 [data-reveal].is-visible .cta-banner__title {
   opacity: 1;
@@ -57,10 +54,10 @@
 .cta-banner__lead {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
 }
 
 .cta-banner .btn { flex-shrink: 0; }
@@ -69,19 +66,13 @@
    padding/radius are tuned for the navbar/hero instances), so the shape is
    overridden locally rather than touching the shared class. */
 .cta-banner .btn--gradient { padding: 8px 32px; border-radius: 6px; }
-
-@media (max-width: 1279px) {
-  .cta-banner { padding: 28px 48px; }
-}
 @media (max-width: 1023px) {
-  .cta-banner { padding: 28px 32px; }
   .cta-banner__inner { gap: 40px; }
 }
 /* Mobile (Figma node 1933:4935, 390px frame) — centered, not left-aligned,
    and the title/lead sizes already match the H3/Label tokens used here at
    every other tier, so nothing shrinks further at 479px. */
 @media (max-width: 767px) {
-  .cta-banner { padding: 32px 16px; }
   .cta-banner__inner { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
   .cta-banner__text { gap: 16px; align-items: center; }
 }

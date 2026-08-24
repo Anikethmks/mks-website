@@ -11,7 +11,7 @@
 /* Hero --------------------------------------------------------------- */
 .op-hero {
   position: relative;
-  padding: 120px 64px 64px;
+  padding: var(--hero-pt) var(--section-px) var(--section-py);
   color: #FFFFFF;
   /* Figma swapped both the photo (a target/standing-out visual) and the
      tint — a flat 25%-black scrim now, not the navy-blue diagonal wash. */
@@ -65,9 +65,9 @@
 
 .op-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 52px;
-  line-height: 64px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -1px;
   color: #FFFFFF;
   margin: 0;
@@ -76,8 +76,8 @@
 .op-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
   margin: 0;
 }
@@ -115,7 +115,7 @@
 
 /* Shared section shell ------------------------------------------------- */
 .op-section {
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -130,25 +130,22 @@
 }
 .op-section__heading {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .op-section__heading-accent {
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 .op-section__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: #58595B;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -192,17 +189,14 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 24px;
-  background: var(--grad-form-submit);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .op-proofpoint__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #020202;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text);
 }
 
 /* Figma composites the capability list and stats row directly on top of
@@ -245,7 +239,7 @@
 }
 .op-cap-card {
   padding: 10px 16px;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   background: rgba(15, 23, 42, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -261,23 +255,24 @@
 }
 .op-cap-card__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h5);
   color: #FFFFFF;
+  line-height: var(--lh-h5);
 }
 .op-cap-card__row svg { width: 12px; height: 6px; color: #FFFFFF; flex-shrink: 0; }
 .op-cap-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #F1F1F1;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-on-dark-muted);
 }
 .op-cap-card--collapsed {
   background: rgba(15, 23, 42, 0.35);
   padding: 10px 16px;
 }
-.op-cap-card--collapsed .op-cap-card__title { font-weight: 500; font-size: 16px; }
+.op-cap-card--collapsed .op-cap-card__title { font-weight: 500; font-size: var(--fs-h6); }
 
 /* Unlike the capability cards, the stats row spans the panel's full width
    (not the narrower 300px card column) — that's what gives each number
@@ -300,10 +295,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 32px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .op-stat__label {
   font-family: var(--font-primary);
@@ -336,10 +328,7 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 16px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 
 /* IT Services ----------------------------------------------------------- */
@@ -364,7 +353,7 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 16px;
-  color: #4D3D8A;
+  color: #145C93;
 }
 
 .op-stats-banner {
@@ -390,10 +379,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 24px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 .op-stats-banner__label {
   font-family: var(--font-primary);
@@ -419,10 +405,11 @@
 }
 .op-tech__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h4);
   color: #020202;
   margin: 0;
+  line-height: var(--lh-h4);
 }
 .op-tech__row {
   display: flex;
@@ -435,10 +422,7 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 18px;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-brand);
 }
 /* A separate sibling "dot" element can get stranded at the end of one
    wrapped line while its item starts the next — pairing it to the item via
@@ -473,8 +457,8 @@
 }
 .op-eng-card {
   background: #FFFFFF;
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: var(--card-radius);
+  padding: var(--card-pad);
   box-shadow: 0 4px 16px rgba(2, 2, 2, 0.06);
   display: flex;
   flex-direction: column;
@@ -498,17 +482,18 @@
 .op-eng-card__icon img { width: 24px; height: 24px; }
 .op-eng-card__title {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--fw-card-title);
+  font-size: var(--fs-h6);
   color: #0D4A8A;
   margin: 0;
+  line-height: var(--lh-h6);
 }
 .op-eng-card__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5em;
-  color: #212121;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -519,7 +504,7 @@
   width: fit-content;
   padding: 8px 16px;
   border-radius: 6px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 14px;
@@ -580,8 +565,9 @@
 .op-product__desc {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 14px;
-  color: #020202;
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  line-height: var(--lh-small);
 }
 .op-products__divider {
   width: 6px;
@@ -593,8 +579,6 @@
 
 /* Responsive ------------------------------------------------------------- */
 @media (max-width: 1279px) {
-  .op-hero { padding: 104px 48px 56px; }
-  .op-section { padding: 56px 48px; }
   .op-section__split { flex-direction: column; gap: 32px; }
   .op-section__media,
   .op-panel { width: 100%; max-width: none; }
@@ -607,9 +591,6 @@
   .op-products__text { border-radius: 8px; }
 }
 @media (max-width: 1023px) {
-  .op-hero { padding: 96px 24px 48px; }
-  .op-hero__title { font-size: 36px; line-height: 44px; }
-  .op-section { padding: 48px 24px; }
   .op-proofpoints { grid-template-columns: 1fr; }
   .op-stats-row { flex-direction: column; gap: 16px; }
   .op-stats-banner { flex-direction: column; }
@@ -618,9 +599,7 @@
   .op-products__divider { display: none; }
 }
 @media (max-width: 767px) {
-  .op-hero { padding: 88px 16px 40px; }
-  .op-hero__title { font-size: 28px; line-height: 36px; }
-  .op-section { padding: 40px 16px; gap: 24px; }
+  .op-section { gap: 24px; }
   .op-tabs { flex-wrap: wrap; padding-inline: 12px; }
   .op-service-pills { flex-direction: column; }
   .op-feature-chips { grid-template-columns: 1fr; }

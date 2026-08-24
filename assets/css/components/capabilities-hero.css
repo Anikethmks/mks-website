@@ -5,7 +5,7 @@
 
 .capabilities-hero {
   position: relative;
-  padding: 120px 64px 64px;
+  padding: var(--hero-pt) var(--section-px) var(--section-py);
   color: #FFFFFF;
   /* Figma swapped both the photo (a circuit-board/chip visual) and the
      tint — a flat 40%-black scrim now, not the old diagonal 65%-opacity
@@ -67,18 +67,19 @@
 
 .capabilities-hero__eyebrow {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  color: #F5F9FF;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-brand-pale);
+  text-transform: uppercase;
 }
 
 .capabilities-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   color: #FFFFFF;
 }
@@ -86,8 +87,8 @@
 .capabilities-hero__lead {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: var(--fs-hero-lead);
+  line-height: var(--lh-hero-lead);
   color: #FFFFFF;
 }
 
@@ -95,26 +96,12 @@
   width: 224px;
   height: 0.5px;
   border-radius: var(--radius-pill);
-  background: var(--grad-icon-soft);
-  box-shadow: 0 0 18px rgba(0, 102, 255, 0.4), 0 0 32px rgba(59, 130, 246, 0.2);
-}
-
-@media (max-width: 1279px) {
-  .capabilities-hero { padding: 104px 48px 56px; }
-}
-@media (max-width: 1023px) {
-  .capabilities-hero { padding: 96px 24px 48px; }
-  .capabilities-hero__title { font-size: 36px; line-height: 44px; }
-  .capabilities-hero__lead { font-size: 16px; line-height: 26px; }
+  background: var(--color-brand-soft);
+  box-shadow: 0 0 18px rgba(26, 112, 178, 0.4), 0 0 32px rgba(39, 132, 197, 0.2);
 }
 @media (max-width: 767px) {
-  .capabilities-hero { padding: 88px 16px 40px; gap: 24px; }
+  .capabilities-hero { gap: 24px; }
   .capabilities-hero__breadcrumb { flex-wrap: wrap; }
   .capabilities-hero__content { gap: 20px; }
-  .capabilities-hero__title { font-size: 28px; line-height: 36px; }
   .capabilities-hero__underline { width: 160px; }
-}
-@media (max-width: 479px) {
-  .capabilities-hero { padding: 80px 16px 32px; }
-  .capabilities-hero__title { font-size: 24px; line-height: 32px; }
 }

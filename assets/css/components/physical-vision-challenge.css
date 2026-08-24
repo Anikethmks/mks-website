@@ -5,7 +5,7 @@
 
 .pva-challenge {
   background: #FAFAFA;
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -22,19 +22,19 @@
 }
 .pva-challenge__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
 .pva-challenge__subtitle {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
   letter-spacing: 0.1px;
-  color: #020202;
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -83,7 +83,7 @@
 .pva-challenge__card {
   background: #FFFFFF;
   box-shadow: 0 4px 2px rgba(218, 218, 218, 0.15);
-  padding: 24px;
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +97,7 @@
   width: 46px;
   height: 46px;
   border-radius: 39px;
-  background: linear-gradient(173.5deg, #85FF67 12.72%, #19B03C 79.33%);
+  background: linear-gradient(173.5deg, #7FBEE4 12.72%, #1A70B2 79.33%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,18 +122,15 @@
 }
 
 @media (max-width: 1279px) {
-  .pva-challenge { padding: 48px 48px; gap: 40px; }
+  .pva-challenge { gap: 40px; }
 }
 /* Tablet: original stack breakpoint was 900px; remapped to the standard
    1023px tier (transitions earlier, no coverage gap). */
 @media (max-width: 1023px) {
-  .pva-challenge { padding: 48px 24px; }
   .pva-challenge__row { flex-direction: column; }
 }
 @media (max-width: 767px) {
-  .pva-challenge { padding: 24px 16px; gap: 24px; }
-  .pva-challenge__title { font-size: 24px; line-height: 32px; }
-  .pva-challenge__subtitle { font-size: 15px; }
+  .pva-challenge { gap: 24px; }
   .pva-challenge__photo, .pva-challenge__caption, .pva-challenge__card { padding: 16px; }
   .pva-challenge__list { gap: 10px; }
 }

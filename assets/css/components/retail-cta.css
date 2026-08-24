@@ -5,7 +5,7 @@
 
 .retail-cta {
   background: rgba(39, 132, 197, 0.1);
-  padding: 64px;
+  padding: var(--section-py) var(--section-px);
 }
 
 .retail-cta__inner {
@@ -27,18 +27,20 @@
 
 .retail-cta__eyebrow {
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.3px;
-  color: var(--color-heading-purple);
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-eyebrow-blue);
   margin: 0;
+  line-height: var(--lh-eyebrow);
+  text-transform: uppercase;
 }
 
 .retail-cta__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.5px;
   color: #020202;
   margin: 0;
@@ -46,9 +48,9 @@
 
 .retail-cta__lead {
   font-family: var(--font-primary);
-  font-size: 16px;
-  line-height: 26px;
-  color: #020202;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -58,7 +60,7 @@
   padding: 12px 24px;
   border-radius: 6px;
   border: 1px solid #8ACFFF;
-  background: var(--grad-trust-label);
+  background: var(--color-brand);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 14px;
@@ -93,7 +95,7 @@
   margin-top: 16px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 28px;
+  font-size: var(--fs-h3);
   color: #020202;
 }
 
@@ -105,8 +107,8 @@
 
 .retail-cta__card {
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 12px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
@@ -115,12 +117,9 @@
 .retail-cta__card-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
-  background: var(--grad-trust-label);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-size: var(--fs-h3);
   margin: 0;
+  color: var(--color-brand);
 }
 .retail-cta__card-desc {
   font-family: var(--font-primary);
@@ -131,7 +130,6 @@
 }
 
 @media (max-width: 1279px) {
-  .retail-cta { padding: 56px 48px; }
   .retail-cta__inner { gap: 48px; }
 }
 @media (max-width: 1023px) {
@@ -139,8 +137,6 @@
   .retail-cta__right { max-width: 100%; }
 }
 @media (max-width: 767px) {
-  .retail-cta { padding: 48px 24px; }
-  .retail-cta__title { font-size: 28px; line-height: 36px; }
   .retail-cta__grid { grid-template-columns: 1fr; }
   .retail-cta__right { min-width: 0; }
 }

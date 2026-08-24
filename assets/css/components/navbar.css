@@ -64,7 +64,7 @@
   bottom: 0;
   height: 2px;
   border-radius: 1px;
-  background: var(--grad-cta);
+  background: var(--color-brand);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -79,7 +79,7 @@
 }
 .navbar__link:hover,
 .navbar__item--dropdown.is-open .navbar__link {
-  color: #4D3D8A;
+  color: #145C93;
 }
 
 .navbar__chevron {

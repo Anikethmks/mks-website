@@ -17,20 +17,20 @@
 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_571_1036"/>
 </filter>
 <linearGradient id="paint0_linear_571_1036" x1="7.15392" y1="6.78509" x2="15.7176" y2="7.61708" gradientUnits="userSpaceOnUse">
-<stop stop-color="#CABEFA"/>
-<stop offset="1" stop-color="#FFD2BD"/>
+<stop stop-color="#C9E3F5"/>
+<stop offset="1" stop-color="#E7F2FA"/>
 </linearGradient>
 <linearGradient id="paint1_linear_571_1036" x1="9.46099" y1="9.55474" x2="13.012" y2="9.90051" gradientUnits="userSpaceOnUse">
-<stop stop-color="#CABEFA"/>
-<stop offset="1" stop-color="#FFD2BD"/>
+<stop stop-color="#C9E3F5"/>
+<stop offset="1" stop-color="#E7F2FA"/>
 </linearGradient>
 <linearGradient id="paint2_linear_571_1036" x1="0.701366" y1="3.87034" x2="6.93532" y2="4.4774" gradientUnits="userSpaceOnUse">
-<stop stop-color="#CABEFA"/>
-<stop offset="1" stop-color="#FFD2BD"/>
+<stop stop-color="#C9E3F5"/>
+<stop offset="1" stop-color="#E7F2FA"/>
 </linearGradient>
 <linearGradient id="paint3_linear_571_1036" x1="8.66292" y1="0.11522" x2="13.8331" y2="0.6187" gradientUnits="userSpaceOnUse">
-<stop stop-color="#CABEFA"/>
-<stop offset="1" stop-color="#FFD2BD"/>
+<stop stop-color="#C9E3F5"/>
+<stop offset="1" stop-color="#E7F2FA"/>
 </linearGradient>
 </defs>
 </svg>

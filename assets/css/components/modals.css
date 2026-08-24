@@ -44,9 +44,9 @@
 @keyframes modal-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .modal { animation: none; } }
 
-.modal--apply { max-width: 797px; border: 1px solid transparent; background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(-66deg, #8667FF 4%, #2986C5 97%); background-origin: border-box; background-clip: padding-box, border-box; }
+.modal--apply { max-width: 797px; border: 1px solid var(--color-brand); }
 .modal--contact { max-width: 418px; }
-.modal--success { max-width: 418px; background: linear-gradient(-66deg, rgba(134, 103, 255, 0.5) 4%, rgba(41, 134, 197, 0.5) 97%); }
+.modal--success { max-width: 418px; background: linear-gradient(-66deg, rgba(20, 92, 147, 0.5) 4%, rgba(41, 134, 197, 0.5) 97%); }
 .modal--success .modal__body { align-items: center; text-align: center; justify-content: center; gap: 48px; padding: 56px 24px; }
 
 .modal__close {
@@ -67,8 +67,8 @@
 .modal__close:hover { background: #E2E8F0; color: #020202; }
 .modal__close svg { width: 14px; height: 14px; }
 
-.modal__title { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 38px; color: #020202; margin: 0; }
-.modal--success .modal__title { font-size: 24px; line-height: 34px; }
+.modal__title { font-family: var(--font-display); font-weight: var(--fw-card-title); font-size: var(--fs-h3); line-height: var(--lh-h3); color: #020202; margin: 0; }
+.modal--success .modal__title { font-size: var(--fs-h3); line-height: var(--lh-h3); }
 
 .modal__row { display: flex; gap: 24px; align-items: flex-start; }
 .modal__col { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
@@ -92,7 +92,7 @@
 textarea.modal-field__control { height: 106px; resize: none; font-size: 12px; padding-top: 8px; }
 
 .modal-field__file { display: flex; align-items: stretch; border-radius: 6px; overflow: hidden; background: #F6F6F6; }
-.modal-field__file-btn { flex-shrink: 0; padding: 8px 16px; background: var(--grad-cta); color: #FFFFFF; font-family: var(--font-primary); font-weight: 400; font-size: 14px; border: none; cursor: pointer; }
+.modal-field__file-btn { flex-shrink: 0; padding: 8px 16px; background: var(--color-brand); color: #FFFFFF; font-family: var(--font-primary); font-weight: 400; font-size: 14px; border: none; cursor: pointer; }
 .modal-field__file-name { flex: 1 1 0; min-width: 0; padding: 8px 12px; font-family: var(--font-primary); font-size: 12px; color: #6F6F6F; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .modal-field__file input[type="file"] { display: none; }
 
@@ -101,7 +101,7 @@ textarea.modal-field__control { height: 106px; resize: none; font-size: 12px; pa
   width: 100%;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(-66deg, #644DBF 4%, #1A70B2 97%);
+  background: var(--color-brand);
   color: #FFFFFF;
   font-family: var(--font-primary);
   font-weight: 600;
@@ -124,5 +124,4 @@ textarea.modal-field__control { height: 106px; resize: none; font-size: 12px; pa
 @media (max-width: 767px) {
   .modal__body { padding: 24px; gap: 16px; }
   .modal__row { flex-direction: column; gap: 16px; }
-  .modal__title { font-size: 22px; line-height: 30px; }
 }
