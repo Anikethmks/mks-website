@@ -7,7 +7,7 @@
 /* Hero ----------------------------------------------------------------- */
 .retail1-hero {
   position: relative;
-  min-height: 480px;
+  min-height: 575px;
   display: flex;
   align-items: center;
   padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);

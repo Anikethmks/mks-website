@@ -9,7 +9,9 @@
 /* Hero ------------------------------------------------------------------ */
 .gallery-hero {
   position: relative;
-  min-height: 540px;
+  min-height: 575px;
+  display: flex;
+  align-items: center;
   padding: 0 var(--section-px-fluid);
   overflow: hidden;
   background: #222222;
@@ -35,11 +37,6 @@
   position: relative;
   z-index: 1;
   max-width: 911px;
-  /* Figma positions this block at y=171 within a 540px-tall hero (~32%
-     down) — independent of the section's own padding, since it's an
-     absolutely-positioned layer in the source file. */
-  margin-top: 171px;
-  padding-bottom: 48px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -157,8 +154,7 @@
 }
 .gallery-view-more svg { width: 18px; height: 18px; flex-shrink: 0; color: #145C93; }
 @media (max-width: 1023px) {
-  .gallery-hero { min-height: 460px; }
-  .gallery-hero__inner { margin-top: 128px; }
+  .gallery-hero { min-height: 500px; }
 
   /* The mosaic's fixed-position tiles get very thin at narrow widths since
      row heights shrink along with column widths — switch to a simple
@@ -170,8 +166,8 @@
   .gallery-view-more { position: static; margin-top: 8px; align-self: center; }
 }
 @media (max-width: 767px) {
-  .gallery-hero { min-height: 380px; }
-  .gallery-hero__inner { margin-top: 100px; gap: 20px; }
+  .gallery-hero { min-height: 489px; }
+  .gallery-hero__inner { gap: 20px; }
   .gallery-grid-section { gap: 20px; }
   .gallery-tiles { grid-template-columns: 1fr; }
   .gallery-tile { height: 220px; }

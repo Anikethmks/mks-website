@@ -5,7 +5,10 @@
 
 .capabilities-hero {
   position: relative;
-  padding: var(--hero-pt) var(--section-px) var(--section-py);
+  min-height: 575px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-px);
   color: #FFFFFF;
   /* Figma swapped both the photo (a circuit-board/chip visual) and the
      tint — a flat 40%-black scrim now, not the old diagonal 65%-opacity
@@ -20,6 +23,7 @@
    children (no width cap) fill its full padded width and glue to the left
    edge on screens wider than ~1440px instead of centering. */
 .capabilities-hero__inner {
+  width: 100%;
   max-width: var(--content-max);
   margin-inline: auto;
   display: flex;
@@ -100,7 +104,7 @@
   box-shadow: 0 0 18px rgba(26, 112, 178, 0.4), 0 0 32px rgba(39, 132, 197, 0.2);
 }
 @media (max-width: 767px) {
-  .capabilities-hero { gap: 24px; }
+  .capabilities-hero { gap: 24px; min-height: 489px; }
   .capabilities-hero__breadcrumb { flex-wrap: wrap; }
   .capabilities-hero__content { gap: 20px; }
   .capabilities-hero__underline { width: 160px; }

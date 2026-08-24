@@ -19,7 +19,7 @@
   align-items: center;
   gap: 32px;
   overflow: hidden;
-  min-height: 590px;
+  min-height: 575px;
 }
 .docai-hero__content { display: flex; flex-direction: column; gap: 24px; flex: 0 1 700px; min-width: 0; position: relative; z-index: 1; }
 .docai-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }

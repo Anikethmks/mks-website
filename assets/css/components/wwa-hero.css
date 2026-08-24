@@ -5,7 +5,10 @@
 
 .wwa-hero {
   position: relative;
-  padding: var(--hero-pt) var(--section-px) var(--section-py);
+  min-height: 575px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-px);
   background: #000000;
   color: #FFFFFF;
   overflow: hidden;
@@ -14,10 +17,7 @@
 .wwa-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 480px;
+  inset: 0;
   z-index: -1;
   /* Figma swapped both the photo (a blue umbrella standing out among black
      ones) and the tint — a flat 25% black scrim now, not the old 90%
@@ -33,6 +33,7 @@
    centered column (matching Figma), rather than at the section's raw left
    padding edge on screens wider than ~1440px. */
 .wwa-hero__frame {
+  width: 100%;
   max-width: var(--content-max);
   margin-inline: auto;
 }
@@ -96,6 +97,7 @@
 }
 
 @media (max-width: 767px) {
+  .wwa-hero { min-height: 489px; }
   .wwa-hero__inner { gap: 20px; }
   .wwa-hero__content { gap: 16px; }
   .wwa-hero__title { letter-spacing: -0.3px; }
