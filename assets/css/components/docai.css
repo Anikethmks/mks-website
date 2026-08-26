@@ -14,7 +14,7 @@
 .docai-hero {
   position: relative;
   background: linear-gradient(146deg, #7FBEE4 0%, #CBEAFF 97%);
-  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
+  padding: var(--section-py) var(--section-px-fluid);
   display: flex;
   align-items: center;
   gap: 32px;

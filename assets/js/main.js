@@ -563,7 +563,7 @@
     var els = Array.from(document.querySelectorAll('.feature-card, .fintech-service, .wwa-director-card, .wwa-ethics-card, .wwa-office-card, ' +
       '.op-cap-card, .op-eng-card, .eng-carousel-card, .eng-cluster-card, .eng-service-card, .eng-cost-card, .eng-value-card, .eng-step-card, ' +
       '.its-service-card, .its-cloud-card, .its-managed-card, .its-rpa-card, .its-mod-card, .its-collab-card, ' +
-      '.industry-case-card, .project-card, .blog-card, .co-job-card, .case-study-card, .trust-card, ' +
+      '.industry-case-card, .blog-card, .co-job-card, .case-study-card, .trust-card, ' +
       '.agentic-objective-card, .pva-objective-card, .voice-objective-card, .docai-objective-card, .retail-platforms__card, ' +
       '.rpa-benefit-card, .rpa-achievement-card, .rpa-metric-card, ' +
       '.pva-impact-card, .agentic-impact-card, .voice-impact-card, .docai-impact-card, .benefit-card, .retail-cta__card, .retail-sync__feature, ' +
@@ -580,7 +580,7 @@
         var rotateY = (px - 0.5) * MAX_TILT * 2;
         var rotateX = (0.5 - py) * MAX_TILT * 2;
         el.style.transform = 'perspective(700px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' +
-          rotateY.toFixed(2) + 'deg) translateY(-6px)';
+          rotateY.toFixed(2) + 'deg) scale(1.03)';
       });
       el.addEventListener('mouseleave', function () {
         el.style.transform = '';

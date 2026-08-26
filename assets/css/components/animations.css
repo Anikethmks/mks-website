@@ -71,7 +71,7 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 /* Healthcare feature cards */
 .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .feature-card:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   box-shadow: 0 16px 28px rgba(148, 163, 184, 0.35);
 }
 .feature-card__icon { transition: transform 0.3s ease; }
@@ -88,7 +88,7 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 .fintech-service:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
 }
@@ -276,15 +276,15 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   transition: transform 0.15s ease-out, box-shadow 0.3s ease, background 0.3s ease;
 }
 .wwa-director-card:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   box-shadow: 0 16px 28px rgba(148, 163, 184, 0.35);
 }
 .wwa-ethics-card:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
 }
 .wwa-office-card:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   box-shadow: 0 16px 28px rgba(148, 163, 184, 0.3);
 }
 
@@ -351,7 +351,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 .its-mod-card,
 .its-collab-card,
 .industry-case-card,
-.project-card,
 .blog-card,
 .co-job-card,
 .case-study-card,
@@ -397,7 +396,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 .its-mod-card:hover,
 .its-collab-card:hover,
 .industry-case-card:hover,
-.project-card:hover,
 .blog-card:hover,
 .co-job-card:hover,
 .case-study-card:hover,
@@ -425,7 +423,7 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 .retail1-solution-group:hover,
 .retail1-project-card:hover,
 .retail1-advanced-card:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   box-shadow: 0 16px 28px rgba(148, 163, 184, 0.3);
 }
 .retail1-platform-item { transition: background 0.25s ease, border-color 0.25s ease; }
@@ -434,7 +432,7 @@ body { opacity: 1; transition: opacity 0.6s ease; }
 /* .its-cta-stat sits on a dark gradient CTA band — a light gray lift
    shadow would be invisible there, so it gets a translucency bump instead. */
 .its-cta-stat:hover {
-  transform: translateY(-6px);
+  transform: scale(1.03);
   background: rgba(255, 255, 255, 0.1);
 }
 .eng-carousel-card__media img,
@@ -464,7 +462,6 @@ body { opacity: 1; transition: opacity 0.6s ease; }
   .its-mod-card,
   .its-collab-card,
   .industry-case-card,
-  .project-card,
   .blog-card,
   .co-job-card,
   .case-study-card,

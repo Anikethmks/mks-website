@@ -441,7 +441,7 @@
   .outcomes__list-arrow { width: 20px; height: 20px; font-size: 9px; }
   .outcomes__controls { gap: 11px; }
   .outcomes__control { width: 28px; height: 28px; font-size: 11px; }
-  .outcomes__stack { height: 299px; }
+  .outcomes__stack { height: 316px; }
   .outcome-card { padding: var(--card-pad); border-radius: var(--card-radius); }
   .outcome-card__icon { width: 40px; height: 40px; }
   .outcome-card__num { font-size: 10px; }

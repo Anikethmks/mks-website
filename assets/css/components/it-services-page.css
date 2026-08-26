@@ -266,7 +266,7 @@
 .its-mobile-col:nth-child(2) .its-mobile-col__logos img:last-child { width: 114px; height: 28px; }
 .its-mobile-divider { width: 1px; height: 16px; background: #898989; flex-shrink: 0; }
 
-.its-mobile__right { flex: 1 1 596px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: min-content; gap: 24px; align-items: start; }
+.its-mobile__right { flex: 1 1 596px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: min-content; gap: 24px; align-items: stretch; }
 .its-tech-tile {
   padding: var(--card-pad);
   background: #F8FBFF;
@@ -274,6 +274,7 @@
   border-radius: var(--card-radius);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
 }
 .its-tech-tile--outline { background: #F8FBFF; border-color: #F8FBFF; box-shadow: none; }
@@ -284,7 +285,7 @@
    the row to wrap, matching Figma's single-line layout. */
 .its-tech-tile__row { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
 .its-tech-tile__row img { display: block; height: 26px; width: auto; flex-shrink: 0; }
-.its-tech-tile__row--stacked { flex-direction: column; gap: 8px; }
+.its-tech-tile__row--stacked { flex-direction: column; align-items: flex-start; gap: 8px; }
 .its-tech-tile__label { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #58595B; margin: 0; }
 .its-tech-tile__brand { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: #1A70B2; white-space: nowrap; }
 .its-tech-tile:nth-child(1) { grid-column: 1; grid-row: 1; }
