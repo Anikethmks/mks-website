@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automating Supplier Material Certification Cuts Processing Time by 95% — MKS Vision</title>
+  <meta name="description"
+    content="How MKS Vision deployed a UiPath RPA solution to eliminate manual quality validation for a Global Precision Manufacturing Leader — saving 4 FTEs and $340K annually." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (657:673) -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="MKS Vision — Home">
+        <img class="navbar__logo-img" src="assets/images/logos/mks-logo-dark.svg" alt="MKS Vision" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__list">
+          <li class="navbar__item navbar__item--dropdown" data-mega-menu>
+            <button type="button" class="navbar__link" aria-expanded="false" aria-haspopup="true">
+              What We Do <span class="navbar__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="mega-menu">
+              <div class="mega-menu__rail" role="tablist">
+                <button type="button" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">AI Solutions</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">Products and Platform</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="it-services" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-digital-services.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">IT Services</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+                <button type="button" class="mega-menu__tab" data-tab="engineering" role="tab" aria-selected="false">
+                  <span class="mega-menu__tab-left">
+                    <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-engineering.svg" alt="" aria-hidden="true" />
+                    <span class="mega-menu__tab-label">Engineering</span>
+                  </span>
+                  <span class="mega-menu__tab-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </button>
+              </div>
+              <div class="mega-menu__panels">
+                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
+                    <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
+                    <a class="mega-menu__link" href="voice-ai.html">Conversational AI</a>
+                    <a class="mega-menu__link" href="document-ai-nsf-compliance.html">Multimodal RAG Development</a>
+                    <a class="mega-menu__link" href="#">AI Governance Systems</a>
+                    <a class="mega-menu__link" href="#">ML / LLM Ops</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="it-services">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="it-services.html#software">Custom Software Development</a>
+                    <a class="mega-menu__link" href="it-services.html#cloud">Cloud - AWS/ Azure / GCP</a>
+                    <a class="mega-menu__link" href="rpa.html">RPA / Digital Workforce</a>
+                    <a class="mega-menu__link" href="it-services.html#mobile">Mobile Application</a>
+                    <a class="mega-menu__link" href="#">ERP Implementation</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">CRM &amp; Salesforce</a>
+                    <a class="mega-menu__link" href="it-services.html#managed">IT Service Management (ITSM)</a>
+                    <a class="mega-menu__link" href="it-services.html#managed">24/7 Application Support</a>
+                    <a class="mega-menu__link" href="#">Desktop Management</a>
+                    <a class="mega-menu__link" href="#">Network &amp; Security Center</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Micro services</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="engineering">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="engineering.html">New Product Development</a>
+                    <a class="mega-menu__link" href="engineering.html">Product Sustenance</a>
+                    <a class="mega-menu__link" href="engineering.html">Predictive Engineering</a>
+                    <a class="mega-menu__link" href="engineering.html">Digital Scanning</a>
+                    <a class="mega-menu__link" href="engineering.html">Warranty Data Analytics</a>
+                    <a class="mega-menu__link" href="engineering.html">Asset Tracking &amp; MTTR</a>
+                    <a class="mega-menu__link" href="engineering.html">Supplier Quality Engineering</a>
+                  </div>
+                </div>
+                <div class="mega-menu__panel" data-panel="products-platform">
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link" href="#">Medical Health Care Product</a>
+                    <a class="mega-menu__link" href="#">Blue222 - Real Estate</a>
+                    <a class="mega-menu__link" href="#">eCommerce &amp; Shopify</a>
+                    <a class="mega-menu__link" href="#">Data Engineering &amp; Pipelines</a>
+                    <a class="mega-menu__link" href="#">SaaS Customization</a>
+                    <a class="mega-menu__link" href="#">Integration &amp; Microservices</a>
+                    <a class="mega-menu__link" href="#">SEO &amp; Digital Analytics</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item"><a href="who-we-are.html" class="navbar__link">Who We Are</a></li>
+          <li class="navbar__item"><a href="industries.html" class="navbar__link">Industries</a></li>
+          <li class="navbar__item"><a href="capabilities.html" class="navbar__link is-active">Capabilities</a></li>
+          <li class="navbar__item"><a href="careers.html" class="navbar__link">Careers</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a href="contact.html" class="btn btn--gradient" data-magnetic>
+          Get In Touch
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="navbar__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero (2351:63266) -->
+    <section class="rpasc-hero">
+      <div class="rpasc-hero__content">
+        <nav class="rpasc-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="capabilities.html">Capabilities</a>
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span aria-current="page">RPA - Supplier Certification</span>
+        </nav>
+        <h1 class="rpasc-hero__title">Automating Supplier Material Certification Cuts Processing Time by 95%</h1>
+        <p class="rpasc-hero__lead">How MKS Vision deployed a UiPath RPA solution to eliminate manual quality validation for a Global Precision Manufacturing Leader — saving 4 FTEs and $340K annually.</p>
+      </div>
+      <div class="rpasc-hero__media">
+        <img src="assets/images/content/rpasc-hero.png" alt="" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Floating stats bar (2351:63479) — straddles the hero's bottom edge -->
+    <div class="rpasc-float-bar">
+      <div class="rpasc-float-bar__item">
+        <p class="rpasc-float-bar__value">95%</p>
+        <p class="rpasc-float-bar__label">Reduction in processing cycle time per certificate</p>
+      </div>
+      <div class="rpasc-float-bar__item">
+        <p class="rpasc-float-bar__value">99.5%</p>
+        <p class="rpasc-float-bar__label">Data extraction &amp; validation accuracy</p>
+      </div>
+      <div class="rpasc-float-bar__item">
+        <p class="rpasc-float-bar__value">4FTE</p>
+        <p class="rpasc-float-bar__label">Workforce capacity freed for higher-value work</p>
+      </div>
+      <div class="rpasc-float-bar__item rpasc-float-bar__item--last">
+        <p class="rpasc-float-bar__value">$340K</p>
+        <p class="rpasc-float-bar__label">Annual labor cost savings</p>
+      </div>
+    </div>
+
+    <!-- Sub-nav tabs (2351:63282) -->
+    <nav class="rpasc-tabs" aria-label="Case study sections">
+      <a href="#overview" class="rpasc-tabs__link rpasc-tabs__link--active">Overview</a>
+      <a href="#challenge" class="rpasc-tabs__link">The Challenge</a>
+      <a href="#objective" class="rpasc-tabs__link">The Objective</a>
+      <a href="#objective" class="rpasc-tabs__link">The Solution</a>
+      <a href="#impact" class="rpasc-tabs__link">The Impact</a>
+    </nav>
+
+    <!-- Overview (2351:63304) -->
+    <section class="rpasc-overview" id="overview">
+      <div class="rpasc-overview__inner">
+      <h2 class="rpasc-overview__title" data-reveal>Overview</h2>
+      <div class="rpasc-overview__row">
+        <img class="rpasc-overview__media" src="assets/images/content/rpasc-overview.png" alt="" loading="lazy" data-reveal="left" />
+        <div class="rpasc-overview__panel" data-reveal="right">
+          <div class="rpasc-overview__panel-head">
+            <p class="rpasc-overview__panel-title">Transforming a Critical Quality Control Process</p>
+            <p class="rpasc-overview__panel-sub">From manual, error-prone certification to a real-time automated pipeline</p>
+          </div>
+          <p>A Global Precision Manufacturing Leader in the Industrial and Heavy Equipment sector manages an intricate supply chain that demands rigorous quality validation of incoming raw materials. Central to this is the Supplier Material Certification process, a high-frequency, detail-intensive workflow where supplier-submitted chemical composition certificates must be extracted, validated, and recorded against ERP quality specifications before raw material lots can be approved or rejected.</p>
+          <p>MKS Vision partnered with this manufacturer to design and deploy a fully automated UiPath RPA solution that eliminated manual intervention across the entire certification lifecycle — from email retrieval through ERP submission and folder management — transforming a process prone to delays and human error into a near real-time, highly accurate automated pipeline.</p>
+        </div>
+      </div>
+      <div class="rpasc-overview__stats" data-reveal>
+        <img class="rpasc-overview__stats-icon" src="assets/images/content/rpasc-icon-divider.svg" alt="" aria-hidden="true" />
+        <div class="rpasc-overview__stat">
+          <p class="rpasc-overview__stat-label">Client</p>
+          <p class="rpasc-overview__stat-value">Global Precision Manufacturing Leader</p>
+        </div>
+        <img class="rpasc-overview__stats-icon" src="assets/images/content/rpasc-icon-divider.svg" alt="" aria-hidden="true" />
+        <div class="rpasc-overview__stat">
+          <p class="rpasc-overview__stat-label">Industry</p>
+          <p class="rpasc-overview__stat-value">Industrial / Heavy Equipment</p>
+        </div>
+        <img class="rpasc-overview__stats-icon" src="assets/images/content/rpasc-icon-divider.svg" alt="" aria-hidden="true" />
+        <div class="rpasc-overview__stat">
+          <p class="rpasc-overview__stat-label">Technology</p>
+          <p class="rpasc-overview__stat-value">UiPath · ERP · FTP · Outlook</p>
+        </div>
+        <img class="rpasc-overview__stats-icon" src="assets/images/content/rpasc-icon-divider.svg" alt="" aria-hidden="true" />
+        <div class="rpasc-overview__stat">
+          <p class="rpasc-overview__stat-label">Delivery</p>
+          <p class="rpasc-overview__stat-value">MKS Vision</p>
+        </div>
+        <img class="rpasc-overview__stats-icon" src="assets/images/content/rpasc-icon-divider.svg" alt="" aria-hidden="true" />
+      </div>
+      </div>
+    </section>
+
+    <!-- The Challenge (2351:63358) -->
+    <section class="rpasc-challenge" id="challenge">
+      <div class="rpasc-challenge__inner">
+      <div class="rpasc-challenge__header" data-reveal>
+        <h2 class="rpasc-challenge__title">The Challenge</h2>
+        <p class="rpasc-challenge__subtitle">Manual Certification Was Slowing Down the Supply Chain</p>
+        <p class="rpasc-challenge__desc">High costs, inconsistent processes, and manual workflows inhibited growth and quality</p>
+      </div>
+      <div class="rpasc-challenge__row">
+        <div class="rpasc-challenge__cards">
+          <div class="rpasc-challenge__card" data-reveal="zoom" style="--reveal-delay: 0s">
+            <h3>High Time Cost</h3>
+            <p>Each certificate took 1–20 minutes to process manually, creating significant throughput bottlenecks during peak periods and delaying raw material lot approvals.</p>
+          </div>
+          <div class="rpasc-challenge__card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+            <h3>Human Error Risk</h3>
+            <p>Manual data extraction from varied certificate formats led to a ~10% exception rate from incomplete details, formatting issues, and validation mismatches.</p>
+          </div>
+          <div class="rpasc-challenge__card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+            <h3>Resource Drain</h3>
+            <p>Skilled supply chain staff were tied up in repetitive, low-value data entry instead of exception management, supplier engagement, and strategic procurement work.</p>
+          </div>
+          <div class="rpasc-challenge__card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+            <h3>Scalability Constraints</h3>
+            <p>Volume spikes required additional headcount to maintain SLAs, making the process costly to scale without proportional and unsustainable staffing increases.</p>
+          </div>
+        </div>
+        <div class="rpasc-challenge__side" data-reveal="right">
+          <img src="assets/images/content/rpasc-challenge.png" alt="" loading="lazy" />
+          <p class="rpasc-challenge__caption">The Supplier Material Certification process ran entirely on manual effort. Supply chain staff were required to retrieve supplier certificates from email, extract chemical composition values by hand, cross-reference each value against ERP quality specifications, and manually log results — repeating this cycle every 30 minutes, processing up to 100 certificates per day.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- The Objective (2351:63390) -->
+    <section class="rpasc-objective" id="objective">
+      <div class="rpasc-objective__inner">
+      <div class="rpasc-objective__header" data-reveal>
+        <h2 class="rpasc-objective__title">The Objective</h2>
+        <p class="rpasc-objective__subtitle">Build a Touchless, End-to-End Certification Pipeline</p>
+        <p class="rpasc-objective__desc">A connected, agile, and fully automated certification process ready for the future</p>
+      </div>
+      <div class="rpasc-objective__row">
+        <div class="rpasc-objective__box" data-reveal="left">
+          <span class="rpasc-objective__check" aria-hidden="true">✓</span>
+          <ul class="rpasc-objective__list">
+            <li>Automate retrieval of supplier certificate files from designated Outlook email folders</li>
+            <li>Dynamically fetch quality Test IDs from the ERP via API to guide targeted data extraction</li>
+            <li>Extract all required chemical composition values, mechanical properties, and order metadata from certificate PDFs</li>
+            <li>Submit structured validation data to the ERP per quantity lot, receiving pass/fail determinations in real time</li>
+            <li>Route processed certificates to Success or Failure FTP folders automatically based on API response codes</li>
+            <li>Implement robust exception handling with automated notifications for unresolvable errors and failures</li>
+          </ul>
+        </div>
+        <div class="rpasc-objective__side" data-reveal="right">
+          <img src="assets/images/content/rpasc-objective-44b461.png" alt="" loading="lazy" />
+          <p class="rpasc-objective__caption">MKS Vision was engaged to fully automate the Supplier Material Certification workflow using UiPath RPA, eliminating manual touchpoints while maintaining the accuracy and compliance standards required for raw material approval in a regulated manufacturing environment.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- The Impact (2351:63412) -->
+    <section class="rpasc-impact" id="impact">
+      <div class="rpasc-impact__inner">
+      <div class="rpasc-impact__header" data-reveal>
+        <h2 class="rpasc-impact__title">The Impact</h2>
+        <p class="rpasc-impact__subtitle">Measurable Outcomes Across Speed, Accuracy, and Cost</p>
+        <p class="rpasc-impact__desc">A supply chain ready for the next generation of precision manufacturing excellence</p>
+      </div>
+      <p class="rpasc-impact__intro" data-reveal>The deployment of the UiPath RPA solution delivered immediate, quantifiable benefits across every dimension of the Supplier Material Certification process. The transformation was comprehensive, measurable, and sustainable:</p>
+      <div class="rpasc-impact__grid">
+        <div class="rpasc-impact-card" data-reveal="zoom" style="--reveal-delay: 0s">
+          <h3>95% Faster Processing</h3>
+          <p>Certificate processing time dropped from up to 20 minutes per item to under 1 minute, enabling near real-time lot approval and preventing costly supply chain delays.</p>
+        </div>
+        <div class="rpasc-impact-card" data-reveal="zoom" style="--reveal-delay: 0.08s">
+          <h3>99.5% Accuracy Rate</h3>
+          <p>Automated extraction and structured API validation virtually eliminated the human error rate, reducing exceptions from ~10% to near zero and ensuring audit-ready data quality.</p>
+        </div>
+        <div class="rpasc-impact-card" data-reveal="zoom" style="--reveal-delay: 0.16s">
+          <h3>4 FTEs Redeployed</h3>
+          <p>Supply chain staff previously dedicated to manual certification tasks were freed to focus on exception management, supplier relationships, and strategic procurement activities.</p>
+        </div>
+        <div class="rpasc-impact-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
+          <h3>$340,000 Annual Savings</h3>
+          <p>Based on fully-loaded US FTE costs, the automation delivers approximately $340,000 in annual labor savings with full ROI realized within the first year of deployment.</p>
+        </div>
+      </div>
+      <p class="rpasc-impact__outro" data-reveal>Beyond the numbers, the solution established a scalable, resilient automation foundation. The bot handles 10–100 certificates daily without degradation, operates on a continuous 30-minute cycle, and is architected to accommodate future certificate formats or ERP schema changes with minimal rework.</p>
+      </div>
+    </section>
+
+    <!-- CTA / results section (2351:63457) -->
+    <section class="rpasc-cta">
+      <div class="rpasc-cta__inner">
+      <div class="rpasc-cta__left" data-reveal="left">
+        <h2 class="rpasc-cta__title">Let's Build Your Automation Solution</h2>
+        <p class="rpasc-cta__lead">Talk to our RPA and intelligent automation experts about your specific process challenges.</p>
+        <a href="contact.html" class="rpasc-cta__btn">Start a Conversation</a>
+      </div>
+      <div class="rpasc-cta__grid" data-reveal="right">
+        <div class="rpasc-cta-card">
+          <p class="rpasc-cta-card__num">95%</p>
+          <p class="rpasc-cta-card__desc">Faster supplier certificate processing time</p>
+        </div>
+        <div class="rpasc-cta-card">
+          <p class="rpasc-cta-card__num">99.5%</p>
+          <p class="rpasc-cta-card__desc">Data extraction &amp; validation accuracy</p>
+        </div>
+        <div class="rpasc-cta-card">
+          <p class="rpasc-cta-card__num">4 FTEs</p>
+          <p class="rpasc-cta-card__desc">Redeployed to higher-value supply chain work</p>
+        </div>
+        <div class="rpasc-cta-card">
+          <p class="rpasc-cta-card__num">$340K</p>
+          <p class="rpasc-cta-card__desc">Annual labor cost savings</p>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (828:563) -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision" />
+        <p class="footer__tagline">Engineering outcomes for the world's most complex industries. Since 2012, we've bridged the gap between physical operations and digital intelligence.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--services">
+        <h4 class="footer__col-title">What we do</h4>
+        <ul class="footer__list footer__list--wrap">
+          <li><a href="#" class="footer__link-dot">AI solutions</a></li>
+          <li><a href="it-services.html" class="footer__link-dot">IT Services</a></li>
+          <li><a href="#" class="footer__link-dot">Engineering</a></li>
+          <li><a href="#" class="footer__link-dot">Products &amp; Platforms</a></li>
+          <li><a href="#" class="footer__link-dot">Managed Services</a></li>
+          <li><a href="#" class="footer__link-dot">Data &amp; Analytics</a></li>
+          <li><a href="#" class="footer__link-dot">Industries</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--industries">
+        <h4 class="footer__col-title">Industries</h4>
+        <ul class="footer__list footer__list--bulleted">
+          <li><a href="#">Banking &amp; Financial Institutions</a></li>
+          <li><a href="#">(BFI)NBFC &amp; Fintech</a></li>
+          <li><a href="#">Healthcare</a></li>
+          <li><a href="#">Retail</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Data Center Infrastructure</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--company-contact">
+        <nav class="footer__company" aria-label="Company">
+          <h4 class="footer__col-title">Company</h4>
+          <ul class="footer__list footer__list--bulleted footer__list--inline">
+            <li><a href="who-we-are.html">Who we are</a></li>
+            <li><a href="capabilities.html">Capabilities</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </nav>
+        <address class="footer__contact">
+          <h4 class="footer__col-title">Contact Us</h4>
+          <div class="footer__contact-list">
+            <a href="tel:+15027499992" class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (502) 749-9992
+            </a>
+            <a href="mailto:hr@mksvision.com" class="footer__contact-item footer__contact-item--email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hr@mksvision.com
+            </a>
+          </div>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 MKS Vision. All rights reserved.</span>
+      <nav class="footer__legal" aria-label="Legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

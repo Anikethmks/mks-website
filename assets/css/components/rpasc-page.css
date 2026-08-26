@@ -1,0 +1,673 @@
+/* ==========================================================================
+   RPA — Automating Supplier Material Certification (case study)
+   Source Figma frame: #2351:63264
+   ========================================================================== */
+
+/* Hero --------------------------------------------------------------- */
+.rpasc-hero {
+  position: relative;
+  padding: var(--hero-pt) var(--section-px-fluid) calc(var(--hero-pt) * 0.8);
+  background: #020202;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  overflow: hidden;
+}
+.rpasc-hero__content {
+  flex: 0 1 608px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  transform: translateY(-32px);
+}
+.rpasc-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.rpasc-hero__breadcrumb a {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #AFAFAF;
+  text-decoration: none;
+}
+.rpasc-hero__breadcrumb span {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #FFFFFF;
+}
+.rpasc-hero__breadcrumb svg { flex-shrink: 0; }
+.rpasc-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  margin: 0;
+  background: linear-gradient(-9deg, #8465FF 0%, #FFA980 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rpasc-hero__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpasc-hero__media {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: calc(-1 * var(--hero-pt)) calc(50% - 50vw) calc(-1 * var(--hero-pt) * 0.8) 0;
+}
+.rpasc-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Sub-nav tabs --------------------------------------------------------- */
+.rpasc-tabs {
+  position: relative;
+  z-index: 1;
+  background: #FCFCFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+.rpasc-tabs__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #020202;
+  text-decoration: none;
+}
+.rpasc-tabs__link--active {
+  font-weight: 600;
+}
+.rpasc-tabs__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(-66deg, #8667FF 4%, #2986C5 97%);
+}
+
+/* Floating stats bar — straddles the hero's bottom edge ------------------ */
+.rpasc-float-bar {
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-max);
+  margin: -64px auto 32px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(15, 23, 42, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+.rpasc-float-bar__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+}
+.rpasc-float-bar__item:not(.rpasc-float-bar__item--last)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 40px;
+  background: #E2E8F0;
+}
+.rpasc-float-bar__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #1F73B4;
+  margin: 0;
+  white-space: nowrap;
+}
+.rpasc-float-bar__label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.0214em;
+  color: #1E293B;
+  margin: 0;
+  max-width: 180px;
+}
+
+/* Shared section header pattern ----------------------------------------- */
+.rpasc-overview__title,
+.rpasc-challenge__title,
+.rpasc-objective__title,
+.rpasc-impact__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  margin: 0;
+  color: #020202;
+}
+.rpasc-challenge__header,
+.rpasc-objective__header,
+.rpasc-impact__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  text-align: left;
+}
+.rpasc-challenge__subtitle,
+.rpasc-objective__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.0063em;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-impact__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-challenge__desc,
+.rpasc-impact__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+}
+.rpasc-objective__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  margin: 0;
+}
+
+/* Overview ---------------------------------------------------------------- */
+.rpasc-overview {
+  padding: var(--section-py) var(--section-px);
+}
+.rpasc-overview__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rpasc-overview__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+}
+.rpasc-overview__media {
+  flex: 0 0 30%;
+  min-width: 0;
+  height: auto;
+  align-self: stretch;
+  object-fit: cover;
+  display: block;
+}
+.rpasc-overview__panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background: #F9FBFB;
+}
+.rpasc-overview__panel-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rpasc-overview__panel-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #1F73B4;
+  margin: 0;
+}
+.rpasc-overview__panel-sub {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+}
+.rpasc-overview__panel > p {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-overview__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.rpasc-overview__stats-icon { flex-shrink: 0; }
+.rpasc-overview__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rpasc-overview__stat-label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-overview__stat-value {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #020202;
+  margin: 0;
+}
+
+/* The Challenge ------------------------------------------------------------ */
+.rpasc-challenge {
+  padding: var(--section-py) var(--section-px);
+  background: #FAFAFA;
+}
+.rpasc-challenge__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rpasc-challenge__row {
+  align-self: stretch;
+  display: flex;
+  gap: 24px;
+}
+.rpasc-challenge__cards {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.rpasc-challenge__card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rpasc-challenge__card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color: #4D3D8A;
+  margin: 0;
+}
+.rpasc-challenge__card p {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-challenge__side {
+  flex: 0 0 45%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rpasc-challenge__side img {
+  width: 100%;
+  aspect-ratio: 612 / 282;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.rpasc-challenge__caption {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+  padding: 16px 0;
+  margin: 0;
+}
+
+/* The Objective / Solution --------------------------------------------- */
+.rpasc-objective {
+  padding: var(--section-py) var(--section-px);
+}
+.rpasc-objective__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rpasc-objective__row {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+.rpasc-objective__box {
+  flex: 1;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+  background: #FAFAFA;
+  border-radius: 8px;
+}
+.rpasc-objective__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 39px;
+  background: linear-gradient(205deg, #85FF67 7%, #19B03C 86%);
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.rpasc-objective__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rpasc-objective__list li {
+  position: relative;
+  padding-left: 18px;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+}
+.rpasc-objective__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2784C5;
+}
+.rpasc-objective__side {
+  flex: 0 0 53%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rpasc-objective__side img {
+  width: 100%;
+  aspect-ratio: 612 / 267;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 4px 4px rgba(218, 218, 218, 0.15);
+}
+.rpasc-objective__caption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #020202;
+  background: #FAFAFA;
+  padding: 24px;
+  border-radius: 8px;
+  margin: 0;
+}
+
+/* The Impact ------------------------------------------------------------- */
+.rpasc-impact {
+  padding: var(--section-py) var(--section-px);
+  background: #F9FDFF;
+}
+.rpasc-impact__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rpasc-impact__title { color: #1F73B4; }
+.rpasc-impact__intro,
+.rpasc-impact__outro {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #020202;
+  margin: 0;
+}
+.rpasc-impact__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.rpasc-impact-card {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rpasc-impact-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+  background: linear-gradient(90deg, #2784C5 18%, #4D4FA4 98%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rpasc-impact-card p {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #58595B;
+  margin: 0;
+}
+
+/* CTA / results section -------------------------------------------------- */
+.rpasc-cta {
+  padding: var(--section-py) var(--section-px);
+  background: #4D3D8A;
+}
+.rpasc-cta__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+.rpasc-cta__left {
+  flex: 1 1 420px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rpasc-cta__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpasc-cta__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.rpasc-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: #1F73B4;
+  border: 0.5px solid #FFFFFF;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.0214em;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.rpasc-cta__grid {
+  flex: 1 1 460px;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.rpasc-cta-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rpasc-cta-card__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -0.3px;
+  color: #4D3D8A;
+  margin: 0;
+}
+.rpasc-cta-card__desc {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* Laptop (1024-1279) intentionally has no overrides here — this page
+   renders identically from 1024px up to Desktop; it only adapts again
+   at the Tablet stacking breakpoint below. */
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .rpasc-hero { flex-direction: column; }
+  .rpasc-hero__content { flex-basis: auto; }
+  .rpasc-hero__media { flex-basis: 320px; margin: 0 calc(-1 * var(--section-px)) 0; }
+  .rpasc-float-bar { flex-wrap: wrap; gap: 16px; margin-top: -32px; }
+  .rpasc-float-bar__item { flex: 1 1 45%; padding-right: 0; }
+  .rpasc-float-bar__item::after { display: none; }
+  .rpasc-overview__row { flex-direction: column; gap: 24px; }
+  .rpasc-overview__media { width: 100%; flex-basis: auto; height: 280px; }
+  .rpasc-challenge__row { flex-direction: column; }
+  .rpasc-challenge__side { flex-basis: auto; }
+  .rpasc-challenge__cards { grid-template-columns: 1fr; }
+  .rpasc-objective__row { flex-direction: column; }
+  .rpasc-objective__box { align-self: auto; }
+  .rpasc-objective__side { flex-basis: auto; width: 100%; }
+  .rpasc-objective__caption { flex: none; }
+  .rpasc-tabs { flex-wrap: wrap; padding-inline: 12px; }
+  .rpasc-cta__inner { flex-direction: column; align-items: stretch; gap: 24px; }
+  .rpasc-cta__left { flex-basis: auto; }
+  .rpasc-cta__grid { flex-basis: auto; max-width: 100%; }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .rpasc-hero__title { font-size: 28px; line-height: 36px; }
+  .rpasc-impact__grid { grid-template-columns: 1fr; }
+  .rpasc-cta__grid { grid-template-columns: 1fr; }
+  .rpasc-overview__stats { justify-content: flex-start; }
+}

@@ -30,16 +30,14 @@
 .navbar__nav { display: flex; }
 
 /* Centers the menu on the bar itself (independent of logo/actions width)
-   rather than wherever space-between happens to land it between them. */
+   using a real 3-column grid instead of viewport-relative absolute
+   centering — the old left:50% approach ignored how wide the logo and
+   actions actually were, so at narrower widths (~1024px) the "centered"
+   nav could overlap the logo. A grid's middle column is bounded by the
+   logo/actions columns' real widths, so it can never overlap them. */
 @media (min-width: 1024px) {
-  .navbar__inner { position: relative; }
-  .navbar__nav {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: max-content;
-    transform: translate(-50%, -50%);
-  }
+  .navbar__inner { display: grid; grid-template-columns: auto 1fr auto; }
+  .navbar__nav { justify-self: center; }
 }
 
 .navbar__list {
@@ -63,6 +61,7 @@
   cursor: pointer;
   border: none;
   position: relative;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
