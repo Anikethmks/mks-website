@@ -131,6 +131,8 @@
   .voice-hero { flex-direction: column; min-height: 0; gap: 20px; }
   .voice-hero__content { flex-basis: auto; }
   .voice-hero__media { flex-basis: 260px; margin: 0 calc(-1 * var(--section-px)) 0; }
+  .voice-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  .voice-overview__stats-icon { display: none; }
   .voice-challenge__row { flex-direction: column; }
   .voice-objective__media { height: 260px; }
   .voice-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -143,12 +145,15 @@
   .voice-overview { gap: 32px; }
   .voice-overview__text { padding: 16px; }
   .voice-overview__stat { white-space: normal; }
+  .voice-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  .voice-overview__stats-icon { display: none; }
   .voice-challenge { gap: 32px; }
   .voice-challenge__card, .voice-challenge__photo, .voice-challenge__intro { padding: 16px; }
   .voice-challenge__list { padding-left: 20px; }
   .voice-objective { gap: 32px; }
   .voice-objective__media { height: 200px; }
   .voice-objective__grid { grid-template-columns: 1fr; gap: 16px; }
+  .voice-objective-card { min-height: 0; }
   .voice-solution__inner { gap: 24px; }
   .voice-solution__row { gap: 24px; }
   .voice-solution__list { padding-left: 20px; gap: 12px; }

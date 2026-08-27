@@ -108,12 +108,13 @@
 @media (max-width: 1023px) {
   .pva-overview__row { flex-direction: column; }
   .pva-overview__media { flex-basis: auto; width: 100%; }
-  .pva-overview__stats { flex-wrap: wrap; justify-content: flex-start; }
+  .pva-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  .pva-overview__stats-icon { display: none; }
 }
 @media (max-width: 767px) {
   .pva-overview { gap: 24px; }
   .pva-overview__text { padding: 16px; gap: 20px; }
-  .pva-overview__stats { flex-direction: column; align-items: flex-start; gap: 16px; padding: 16px 0; }
+  .pva-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; padding: 16px 0; }
   .pva-overview__stat { white-space: normal; }
   .pva-overview__stats-icon { display: none; }
 }

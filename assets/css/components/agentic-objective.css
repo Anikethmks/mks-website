@@ -115,4 +115,5 @@
   .agentic-objective { gap: 32px; }
   .agentic-objective__media { height: 200px; }
   .agentic-objective__grid { grid-template-columns: 1fr; gap: 16px; }
+  .agentic-objective-card { min-height: 0; }
 }
