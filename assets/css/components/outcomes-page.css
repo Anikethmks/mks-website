@@ -402,53 +402,6 @@
   flex-shrink: 0;
 }
 
-.op-tech {
-  max-width: var(--content-max);
-  margin-inline: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.op-tech__title {
-  font-family: var(--font-display);
-  font-weight: var(--fw-card-title);
-  font-size: var(--fs-h4);
-  color: #020202;
-  margin: 0;
-  line-height: var(--lh-h4);
-}
-.op-tech__row {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding: 8px 16px;
-}
-.op-tech__item {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--color-brand);
-}
-/* A separate sibling "dot" element can get stranded at the end of one
-   wrapped line while its item starts the next — pairing it to the item via
-   ::before keeps the dot and the text it belongs to on the same line. */
-.op-tech__item:not(:first-child) {
-  position: relative;
-}
-.op-tech__item:not(:first-child)::before {
-  content: '';
-  position: absolute;
-  left: -14px;
-  top: 50%;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  background: var(--grad-cta);
-}
-
 /* Engineering Excellence ------------------------------------------------ */
 .op-section--engineering { background: rgba(39, 132, 197, 0.1); }
 

@@ -286,6 +286,9 @@
   .industries-automotive__media { height: 340px; }
   .industries-case-section__split { flex-direction: column; }
   .industries-case-section__image { width: 100%; height: 280px; }
+  .industries-case-section { padding-top: 40px; padding-bottom: 40px; }
+  .industries-case-section__inner { gap: 24px; }
+  .industries-automotive { padding-top: 40px; padding-bottom: 40px; }
 }
 
 @media (max-width: 767px) {
@@ -295,6 +298,10 @@
   .industries-automotive__inner { gap: 24px; }
   .industries-automotive__col { gap: 24px; }
   .industries-automotive__media { height: 260px; }
+  .industries-case-section { padding-top: 28px; padding-bottom: 28px; }
+  .industries-case-section__inner { gap: 20px; }
+  .industries-automotive { padding-top: 28px; padding-bottom: 28px; }
+  .industries-automotive__header { margin-bottom: 20px; }
 }
 
 @media (max-width: 479px) {
