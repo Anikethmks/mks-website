@@ -93,6 +93,9 @@
 
 /* Sub-nav tabs */
 .pva-tabs {
+  position: sticky;
+  top: var(--navbar-h, 93px);
+  z-index: 10;
   background: #FCFCFC;
   display: flex;
   align-items: center;

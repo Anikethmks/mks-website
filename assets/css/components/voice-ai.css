@@ -37,7 +37,7 @@
 .voice-hero__media { flex: 1 1 0; min-width: 0; margin: calc(-1 * var(--section-py)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0; border-radius: 8px 0 0 0; overflow: hidden; }
 .voice-hero__media img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
-.voice-tabs { background: #FCFCFC; display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 16px; }
+.voice-tabs { position: sticky; top: var(--navbar-h, 93px); z-index: 10; background: #FCFCFC; display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 16px; }
 .voice-tabs__link { display: inline-flex; align-items: center; gap: 8px; padding: 8px; font-family: var(--font-primary); font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 0.1px; color: #020202; text-decoration: none; border-bottom: 2px solid transparent; }
 .voice-tabs__link--active { font-weight: 600; background: #FFFFFF; border-bottom: 2px solid #2784C5; border-top-left-radius: 4px; border-top-right-radius: 4px; }
 
