@@ -181,8 +181,8 @@
     <nav class="rpasc-tabs" aria-label="Case study sections">
       <a href="#overview" class="rpasc-tabs__link rpasc-tabs__link--active">Overview</a>
       <a href="#challenge" class="rpasc-tabs__link">The Challenge</a>
+      <a href="#solution" class="rpasc-tabs__link">The Solution</a>
       <a href="#objective" class="rpasc-tabs__link">The Objective</a>
-      <a href="#objective" class="rpasc-tabs__link">The Solution</a>
       <a href="#impact" class="rpasc-tabs__link">The Impact</a>
     </nav>
 
@@ -259,6 +259,89 @@
           <p class="rpasc-challenge__caption">The Supplier Material Certification process ran entirely on manual effort. Supply chain staff were required to retrieve supplier certificates from email, extract chemical composition values by hand, cross-reference each value against ERP quality specifications, and manually log results — repeating this cycle every 30 minutes, processing up to 100 certificates per day.</p>
         </div>
       </div>
+      </div>
+    </section>
+
+    <!-- The Solution (2359:65042) -->
+    <section class="rpasc-solution" id="solution">
+      <div class="rpasc-solution__inner">
+        <div class="rpasc-solution__header" data-reveal>
+          <p class="rpasc-solution__eyebrow">The Solution</p>
+          <h2 class="rpasc-solution__title">A UiPath RPA Bot That Runs the Entire Certification Lifecycle</h2>
+          <p class="rpasc-solution__subtitle">An outcome-based automation model that establishes consistent processes and scales with agility</p>
+          <p class="rpasc-solution__desc">MKS Vision designed and deployed a UiPath automation that operates continuously on a 30-minute schedule, handling every step from certificate ingestion to ERP submission without human involvement. The bot connects to Outlook, retrieves supplier certificates, calls the ERP API to dynamically fetch Test IDs, extracts 16+ chemical and mechanical values from PDFs, structures the data into JSON payloads, and submits them to the ERP for validation all autonomously.</p>
+        </div>
+        <div class="rpasc-compare" data-reveal>
+          <div class="rpasc-compare__head">
+            <div class="rpasc-compare__head-cell rpasc-compare__head-cell--before">Before – Manual Process</div>
+            <div class="rpasc-compare__head-spacer"></div>
+            <div class="rpasc-compare__head-cell rpasc-compare__head-cell--after">After – UiPath RPA Bot</div>
+          </div>
+          <div class="rpasc-compare__row">
+            <div class="rpasc-compare__cell rpasc-compare__cell--before">
+              <p class="rpasc-compare__step">Step 1</p>
+              <p class="rpasc-compare__text">Staff manually checks inbox &amp; downloads certificate attachments from email.</p>
+            </div>
+            <div class="rpasc-compare__arrow"><svg viewBox="0 0 18 18" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></div>
+            <div class="rpasc-compare__cell rpasc-compare__cell--after">
+              <p class="rpasc-compare__step">Step 1</p>
+              <p class="rpasc-compare__text">Bot connects to Outlook, retrieves &amp; downloads certificates automatically.</p>
+            </div>
+          </div>
+          <div class="rpasc-compare__row">
+            <div class="rpasc-compare__cell rpasc-compare__cell--before">
+              <p class="rpasc-compare__step">Step 2</p>
+              <p class="rpasc-compare__text">Manually looks up Test IDs in ERP system for each item number.</p>
+            </div>
+            <div class="rpasc-compare__arrow"><svg viewBox="0 0 18 18" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></div>
+            <div class="rpasc-compare__cell rpasc-compare__cell--after">
+              <p class="rpasc-compare__step">Step 2</p>
+              <p class="rpasc-compare__text">Calls ERP API to fetch Test IDs dynamically per item number.</p>
+            </div>
+          </div>
+          <div class="rpasc-compare__row">
+            <div class="rpasc-compare__cell rpasc-compare__cell--before">
+              <p class="rpasc-compare__step">Step 3</p>
+              <p class="rpasc-compare__text">Reads &amp; extracts chemical composition values from PDF certificate by hand.</p>
+            </div>
+            <div class="rpasc-compare__arrow"><svg viewBox="0 0 18 18" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></div>
+            <div class="rpasc-compare__cell rpasc-compare__cell--after">
+              <p class="rpasc-compare__step">Step 3</p>
+              <p class="rpasc-compare__text">Extracts 16+ chemical &amp; mechanical values from PDFs using retrieved Test IDs.</p>
+            </div>
+          </div>
+          <div class="rpasc-compare__row">
+            <div class="rpasc-compare__cell rpasc-compare__cell--before">
+              <p class="rpasc-compare__step">Step 4</p>
+              <p class="rpasc-compare__text">Manually enters extracted data into ERP system per lot quantity.</p>
+            </div>
+            <div class="rpasc-compare__arrow"><svg viewBox="0 0 18 18" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></div>
+            <div class="rpasc-compare__cell rpasc-compare__cell--after">
+              <p class="rpasc-compare__step">Step 4</p>
+              <p class="rpasc-compare__text">Structures JSON payload &amp; submits to ERP API independently per lot quantity.</p>
+            </div>
+          </div>
+          <div class="rpasc-compare__row">
+            <div class="rpasc-compare__cell rpasc-compare__cell--before">
+              <p class="rpasc-compare__step">Step 5</p>
+              <p class="rpasc-compare__text">Reviews API result &amp; manually moves certificate to correct folder.</p>
+            </div>
+            <div class="rpasc-compare__arrow"><svg viewBox="0 0 18 18" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></div>
+            <div class="rpasc-compare__cell rpasc-compare__cell--after">
+              <p class="rpasc-compare__step">Step 5</p>
+              <p class="rpasc-compare__text">Routes certificate to FTP Success/Failure folder automatically based on response code.</p>
+            </div>
+          </div>
+        </div>
+        <p class="rpasc-solution__desc" data-reveal>The bot handles complex multi-quantity scenarios if a certificate covers multiple lot quantities, the ERP API is called independently for each, ensuring precise per-lot validation. A structured exception handling framework manages known errors (missing files, API failures, format issues) with automatic retries and stakeholder notifications, while unknown exceptions trigger immediate email alerts to the operations team.</p>
+        <div class="rpasc-solution__tags" data-reveal>
+          <span class="rpasc-solution__tag rpasc-solution__tag--primary">UiPath RPA</span>
+          <span class="rpasc-solution__tag">ERP (API Integration)</span>
+          <span class="rpasc-solution__tag">FTP File Management</span>
+          <span class="rpasc-solution__tag">Microsoft Outlook</span>
+          <span class="rpasc-solution__tag">PDF Data Extraction</span>
+          <span class="rpasc-solution__tag rpasc-solution__tag--muted">JSON API Orchestration</span>
+        </div>
       </div>
     </section>
 
