@@ -94,30 +94,27 @@
 
 .healthcare-features__body {
   display: grid;
-  /* Fluid ratio (516:689), not fixed px — the fixed sum only fit flush at
-     exactly 1440px viewport (content-max's own width); at laptop widths
-     down to 1280px the container is narrower than that, and the fixed
-     columns bled past it, eating the section's right-side padding. */
-  grid-template-columns: minmax(0, 516fr) minmax(0, 689fr);
-  gap: 107px;
+  /* Fluid ratio (516:623), matching Figma's two-column split. */
+  grid-template-columns: minmax(0, 516fr) minmax(0, 623fr);
+  gap: 64px;
   align-items: start;
 }
 
 .healthcare-features__cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .feature-card {
   background: #FFFFFF;
   border: var(--card-border);
   border-radius: var(--card-radius);
-  padding: var(--card-pad-compact);
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 0 8px 6px rgba(223, 233, 243, 0.3);
+  box-shadow: 0 6px 12px rgba(223, 233, 243, 0.3);
 }
 
 .feature-card__head {
@@ -140,23 +137,21 @@
   flex-shrink: 0;
 }
 .feature-card__icon svg { display: none; }
-.feature-card:nth-child(1) .feature-card__icon { background: url('../../images/icons/healthcare-file-search.svg') center / 24px 24px no-repeat, #1F73B4; }
-.feature-card:nth-child(2) .feature-card__icon { background: url('../../images/icons/healthcare-heart-pulse.svg') center / 24px 24px no-repeat, #1F73B4; }
-.feature-card:nth-child(3) .feature-card__icon { background: url('../../images/icons/healthcare-database-backup.svg') center / 24px 24px no-repeat, #1F73B4; }
-.feature-card:nth-child(4) .feature-card__icon { background: url('../../images/icons/healthcare-monitor-smartphone.svg') center / 24px 24px no-repeat, #1F73B4; }
+.feature-card:nth-child(1) .feature-card__icon { background: url('../../images/icons/healthcare-heart-pulse.svg') center / 24px 24px no-repeat, #1F73B4; }
+.feature-card:nth-child(2) .feature-card__icon { background: url('../../images/icons/healthcare-monitor-smartphone.svg') center / 24px 24px no-repeat, #1F73B4; }
 
 .feature-card__badge {
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
-  background: #E8F3FB;
+  background: #F0EDFF;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
-  letter-spacing: 0.3px;
-  color: #145C93;
+  letter-spacing: 0.025em;
+  color: #4D3D8A;
 }
 
 .feature-card__body { display: flex; flex-direction: column; gap: 10px; }
@@ -245,7 +240,7 @@
 .healthcare-features__image {
   border-radius: 16px;
   overflow: hidden;
-  height: 406px;
+  height: 368px;
 }
 .healthcare-features__image img {
   width: 100%;
@@ -267,17 +262,15 @@
   .healthcare-features__eyebrow::before { width: 9px; height: 3px; }
   .healthcare-features__titles { gap: 6px; }
   .healthcare-features__title { letter-spacing: -0.14px; }
-  .healthcare-features__body { grid-template-columns: 366px 490px; gap: 76px; }
+  .healthcare-features__body { grid-template-columns: 366px 440px; gap: 54px; }
   .healthcare-features__cards { gap: 14px; }
   .feature-card { gap: 14px; padding: 11px; border-radius: var(--card-radius); }
   .feature-card__icon { width: 34px; height: 34px; padding: 8px; border-radius: 9px; }
   .feature-card:nth-child(1) .feature-card__icon,
-  .feature-card:nth-child(2) .feature-card__icon,
-  .feature-card:nth-child(3) .feature-card__icon,
-  .feature-card:nth-child(4) .feature-card__icon { background-size: 17px 17px, auto; }
+  .feature-card:nth-child(2) .feature-card__icon { background-size: 17px 17px, auto; }
   .feature-card__badge { padding: 3px 7px; font-size: 9px; line-height: 13px; letter-spacing: 0.2px; }
   .feature-card__body { gap: 7px; }
-  .healthcare-features__image { height: 289px; border-radius: 11px; }
+  .healthcare-features__image { height: 262px; border-radius: 11px; }
 }
 @media (max-width: 1023px) {
   .healthcare-features__body { grid-template-columns: 1fr; gap: 32px; }
@@ -293,10 +286,10 @@
   .healthcare-features__titles { gap: 12px; }
   .healthcare-features__title { font-weight: 600; }
   .healthcare-features__body { gap: 32px; }
-  .healthcare-features__cards { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .healthcare-features__cards { gap: 16px; }
   .feature-card { padding: 8px; gap: 16px; }
   .feature-card__icon { width: 35px; height: 35px; padding: 8px; }
   .feature-card__body { gap: 10px; }
   .feature-card__title { letter-spacing: 0.3px; }
-  .healthcare-features__image { height: auto; aspect-ratio: 679 / 451; }
+  .healthcare-features__image { height: auto; aspect-ratio: 623 / 368; }
 }
