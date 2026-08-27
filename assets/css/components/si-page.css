@@ -124,7 +124,9 @@
 
 /* Sub-nav tabs --------------------------------------------------------- */
 .si-tabs {
-  position: relative;
+  position: sticky;
+  top: var(--navbar-h, 93px);
+  z-index: 10;
   background: #FCFCFC;
   display: flex;
   align-items: center;

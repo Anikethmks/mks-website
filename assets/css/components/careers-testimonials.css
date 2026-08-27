@@ -1,0 +1,165 @@
+/* ==========================================================================
+   Careers — What Our Associates Say (testimonials)
+   Source Figma frames: 2413:70483 (layout) + 2414:7451 (full card set)
+   ========================================================================== */
+
+.careers-testimonials {
+  padding: var(--section-py) var(--section-px);
+  background: #FBFBFB;
+  overflow: hidden;
+}
+
+.careers-testimonials__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.careers-testimonials__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.careers-testimonials__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.0063em;
+  color: #020202;
+  margin: 0;
+}
+
+.careers-testimonials__title .is-grad { color: var(--color-brand); }
+
+.careers-testimonials__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #64748B;
+  margin: 0;
+}
+
+.careers-testimonials__track {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.careers-testimonials__track::-webkit-scrollbar { display: none; }
+.careers-testimonials__track.is-dragging { cursor: grabbing; scroll-behavior: auto; scroll-snap-type: none; }
+
+.careers-testimonials__dots { display: flex; justify-content: center; align-items: center; gap: 16px; }
+.careers-testimonials__dot {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+.careers-testimonials__dot.is-active { background: #1F73B4; border-color: #FFFFFF; }
+
+.careers-testimonial-card {
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  background: #FFFFFF;
+  border: 1px solid #E9EFF5;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(15, 26, 38, 0.02);
+}
+
+.careers-testimonial-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.careers-testimonial-card__who {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.careers-testimonial-card__avatar {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1F73B4;
+  border-radius: 50%;
+}
+.careers-testimonial-card__avatar span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F4FA;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #58595B;
+}
+
+.careers-testimonial-card__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #151B26; margin: 0; }
+.careers-testimonial-card__role { font-family: var(--font-primary); font-weight: 400; font-size: 13px; color: #64748B; margin: 4px 0 0; }
+
+.careers-testimonial-card__quote-icon { flex: 0 0 40px; width: 40px; height: 40px; object-fit: contain; display: block; }
+
+.careers-testimonial-card__badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.careers-testimonial-card__badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  background: rgba(39, 132, 197, 0.08);
+  color: #1F73B4;
+}
+.careers-testimonial-card__badge--tag { background: #EAE5FF; color: #4D3D8A; }
+
+.careers-testimonial-card__quote {
+  padding-top: 20px;
+  border-top: 1px solid #E9EFF5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.careers-testimonial-card__quote-title { font-family: var(--font-primary); font-weight: 600; font-size: 15px; line-height: 1.4em; color: #151B26; margin: 0; }
+.careers-testimonial-card__quote-text { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 1.6em; color: #4E5868; margin: 0; }
+
+/* Laptop */
+@media (max-width: 1279px) {
+  .careers-testimonial-card { flex-basis: 340px; }
+}
+/* Tablet */
+@media (max-width: 1023px) {
+  .careers-testimonial-card { flex-basis: 300px; padding: 24px; }
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .careers-testimonial-card { flex-basis: 270px; }
+}

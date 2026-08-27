@@ -13,18 +13,18 @@
   margin-inline: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 64px;
 }
 
 .careers-benefits__title {
   font-family: var(--font-display);
-  font-weight: var(--fw-h2);
-  font-size: var(--fs-h2);
-  line-height: var(--lh-h2);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 0px;
   color: #020202;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .careers-benefits__grid {

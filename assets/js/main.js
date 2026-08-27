@@ -198,6 +198,65 @@
     update();
   }
 
+  // Publishes the sticky navbar's real rendered height as --navbar-h so any
+  // sticky element below it (case-study sub-nav tabs) can stick flush
+  // underneath instead of guessing a fixed offset per breakpoint.
+  function initNavbarHeightVar() {
+    var navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    function update() {
+      document.documentElement.style.setProperty('--navbar-h', navbar.offsetHeight + 'px');
+    }
+    update();
+    window.addEventListener('resize', update);
+  }
+
+  // Scroll-spy for the case-study/outcomes sub-nav tabs ("Overview / The
+  // Challenge / ..."): keeps the active tab's existing "--active" modifier
+  // class in sync with whichever section is in view, instead of it being
+  // permanently stuck on the first tab. Reuses each page's own bespoke
+  // modifier class (e.g. .agentic-tabs__link--active) by reading it off
+  // whichever link already has it in the markup, so no CSS has to change.
+  function initSectionTabs() {
+    var navbar = document.querySelector('.navbar');
+    var navs = document.querySelectorAll('nav[aria-label="Case study sections"], nav[aria-label="Outcomes sections"], nav[aria-label="IT Services sections"]');
+    navs.forEach(function (nav) {
+      var links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+      if (!links.length) return;
+      var sections = links
+        .map(function (l) { return document.getElementById(l.getAttribute('href').slice(1)); })
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      // Anchor-jumping to a section (click or page load with a #hash) would
+      // otherwise land its title right under the sticky navbar + sticky
+      // tabs bar, since neither is accounted for by native anchor scroll.
+      function applyScrollOffset() {
+        var offset = (navbar ? navbar.offsetHeight : 0) + nav.offsetHeight;
+        sections.forEach(function (s) { s.style.scrollMarginTop = offset + 'px'; });
+      }
+      applyScrollOffset();
+      window.addEventListener('resize', applyScrollOffset);
+
+      var activeClass = null;
+      links.forEach(function (l) {
+        l.className.split(/\s+/).forEach(function (c) { if (/--active$/.test(c)) activeClass = c; });
+      });
+      if (!activeClass) return;
+      function setActive(id) {
+        links.forEach(function (l) {
+          l.classList.toggle(activeClass, l.getAttribute('href') === '#' + id);
+        });
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (s) { observer.observe(s); });
+    });
+  }
+
   // Scroll-triggered reveal for [data-reveal] elements — replays every time
   // an element crosses into or out of view, rather than firing once and
   // disconnecting, so scrolling back up to a section plays it again.
@@ -741,12 +800,37 @@
     var track = document.querySelector('[data-blog-carousel]');
     if (!track) return;
 
-    var AUTO_INTERVAL = 5000;
+    var AUTO_INTERVAL = 3000;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var timer = null;
     var hovering = false;
     var dragging = false;
     var visible = false;
+
+    // Optional pagination dots — one per page (pageWidth-wide chunk of the
+    // track). Built dynamically since card count/width can change per page.
+    var dotsEl = document.querySelector('[data-carousel-dots]');
+    var pageCount = dotsEl ? Math.max(1, Math.round(track.scrollWidth / track.clientWidth)) : 0;
+    if (dotsEl && pageCount > 1) {
+      for (var i = 0; i < pageCount; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'careers-testimonials__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        (function (page) {
+          dot.addEventListener('click', function () {
+            track.scrollTo({ left: page * pageWidth(), behavior: 'smooth' });
+          });
+        })(i);
+        dotsEl.appendChild(dot);
+      }
+    }
+    function updateDots() {
+      if (!dotsEl || !pageCount) return;
+      var active = Math.round(track.scrollLeft / pageWidth());
+      Array.from(dotsEl.children).forEach(function (d, i) { d.classList.toggle('is-active', i === active); });
+    }
+    track.addEventListener('scroll', updateDots);
 
     function pageWidth() { return track.clientWidth; }
     function advance() {
@@ -1085,6 +1169,8 @@
     initFooter();
     document.documentElement.classList.remove('preload');
     initNavbar();
+    initNavbarHeightVar();
+    initSectionTabs();
     initNavbarScroll();
     initMegaMenu();
     initHeroSlider();
