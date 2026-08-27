@@ -4,30 +4,97 @@
    Source Figma frames: #687:448, #674:1427 (671:673 subtree)
    ========================================================================== */
 
-/* Figma's own design is a full-bleed edge-to-edge split at its 1440px
-   canvas width — capped at --frame-max (not --content-max, which already
-   assumes 64px of its own side padding) so it stays exactly as-is at
-   typical desktop widths and only stops growing past 1440px, instead of
-   each column becoming excessively wide on ultra-wide screens. */
-.industries-row {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: var(--frame-max);
-  margin-inline: auto;
-}
+/* Each industry now gets its own full-width section (Figma frames
+   2409:68129/68170/68212/68250/68284) instead of the old paired 2-column
+   grid (.industries-row / .industries-row__col, removed). */
+.industries-case-section { padding: var(--section-py) var(--section-px); }
+.industries-case-section--purple { background: rgba(198, 199, 243, 0.15); }
+.industries-case-section--blue { background: #F4FBFF; }
+.industries-case-section--lavender { background: #F6F7FF; }
+.industries-case-section--white { background: #FFFFFF; }
 
-.industries-row__col {
-  flex: 1 1 50%;
-  min-width: 360px;
-  padding: 64px;
+.industries-case-section__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  background: rgba(247, 247, 247, 0.2);
+  gap: 32px;
 }
-.industries-row__col--plain { background: #FFFFFF; gap: 40px; }
+
+.industries-case-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.industries-case-section__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #020202;
+  margin: 0;
+}
+.industries-case-section__title .is-accent { color: var(--color-brand); }
+
+.industries-case-section__lead {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #58595B;
+  margin: 0;
+}
+
+.industries-case-section__subhead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #58595B;
+  margin: 0;
+}
+
+.industries-case-section__body { display: flex; flex-direction: column; gap: 24px; }
+
+.industries-case-section__split {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+.industries-case-section__image {
+  flex: 1 1 420px;
+  min-width: 0;
+  height: 350px;
+  object-fit: cover;
+  /* border-radius: 8px; */
+  display: block;
+}
+.industries-case-section__content { flex: 1 1 480px; min-width: 0; }
+
+/* Plain content stack — no card border/shadow, matching Figma (these
+   sections have no card chrome around the copy, unlike other pages). */
+.industries-case-section__plain { display: flex; flex-direction: column; gap: 24px; }
+.industries-case-section__plain--tint { background: #EAF7FF; padding: 24px; border-radius: 8px; }
+
+.industries-case-section__media { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.industries-case-section__media .industries-case-section__image { flex: none; width: 100%; }
+
+.industries-case-section__more {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-brand);
+  text-decoration: none;
+}
 
 .industries-row__heading {
+  /* Kept as the shared "case-study row title" (H3-level) style, reused by
+     every industries-case-section below — only the paired 2-col wrapper
+     it originally belonged to was removed. */
   font-family: var(--font-display);
   font-weight: var(--fw-card-title);
   font-size: var(--fs-h3);
@@ -176,6 +243,11 @@
   background: #FBFBFB;
   padding: var(--section-py) var(--section-px);
 }
+.industries-automotive__header {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  margin-bottom: 32px;
+}
 .industries-automotive__inner {
   display: flex;
   gap: 40px;
@@ -205,20 +277,18 @@
 }
 
 @media (max-width: 1279px) {
-  .industries-row__col { padding: 56px 40px; }
   .industries-automotive__inner { flex-direction: column; }
   .industries-automotive__col { flex-basis: auto; width: 100%; }
   .industries-automotive__media { width: 100%; height: 400px; }
 }
 
 @media (max-width: 1023px) {
-  .industries-row__col { flex-basis: 100%; min-width: 0; padding: 48px 24px; }
   .industries-automotive__media { height: 340px; }
+  .industries-case-section__split { flex-direction: column; }
+  .industries-case-section__image { width: 100%; height: 280px; }
 }
 
 @media (max-width: 767px) {
-  .industries-row__col { padding: 40px 20px; gap: 20px; }
-  .industries-row__col--plain { gap: 24px; }
   .industry-case-card,
   .industry-case-card--roomy { padding: 20px; gap: 20px; }
   .industry-case-card__stats { gap: 12px 16px; }
@@ -228,7 +298,6 @@
 }
 
 @media (max-width: 479px) {
-  .industries-row__col { padding: 32px 16px; }
   .industry-case-card__image { height: 200px; }
   .industries-automotive__media { height: 220px; }
 }

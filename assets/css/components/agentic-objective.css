@@ -81,11 +81,11 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--card-radius);
-  background: var(--grad-trust-label);
+  background: linear-gradient(90deg, rgba(39, 132, 197, 1) 18%, rgba(77, 79, 164, 1) 98%);
   padding: var(--card-pad-compact);
   min-height: 163px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .agentic-objective-card__text {
@@ -97,17 +97,11 @@
   margin: 0;
   position: relative;
   z-index: 1;
+  padding-right: 44px;
 }
 
-.agentic-objective-card__icon {
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 56px;
-  height: 56px;
-  color: #FFFFFF;
-}
-.agentic-objective-card__icon svg { width: 100%; height: 100%; }
+.agentic-objective-card__icon { position: absolute; top: 16px; right: 16px; }
+.agentic-objective-card__icon img { display: block; height: 40px; width: auto; }
 
 @media (max-width: 1279px) {
   .agentic-objective__row { flex-direction: column; }
