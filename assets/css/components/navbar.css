@@ -25,6 +25,10 @@
 .navbar__logo-img {
   height: 60px;
   width: auto;
+  /* The source SVG's artwork isn't perfectly centered in its own canvas
+     (more empty space above the mark than below), which reads as
+     off-center even though the flex row itself centers it correctly. */
+  transform: translateY(-3px);
 }
 
 .navbar__nav { display: flex; }
@@ -53,7 +57,7 @@
   padding: 8px 8px 6px;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 22px;
   letter-spacing: 0.1px;
   color: #020202;

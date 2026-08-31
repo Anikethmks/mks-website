@@ -191,7 +191,7 @@
 @media (max-width: 767px) {
   .testimonials__header-text { gap: 8px; }
   .testimonials__wall { gap: 32px; }
-  .testimonials__viewport { height: 480px; }
+  .testimonials__viewport { height: 380px; }
   .testimonial-card { width: 260px; margin-left: -130px; padding: var(--card-pad-compact); }
   .testimonial-card__quote { font-size: 12px; letter-spacing: 0.2px; }
   .testimonial-card__role { font-size: 12px; }
