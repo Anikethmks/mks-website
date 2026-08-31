@@ -300,7 +300,7 @@
 @media (max-width: 767px) {
   .industries__accordion { gap: 24px; }
   .industry-panel.is-active { flex-basis: 276px; border-radius: 8px; }
-  .industry-panel__collapsed { justify-content: space-between; padding: 8px; gap: 0; }
+  .industry-panel__collapsed { justify-content: space-between; padding: 8px 18px; gap: 0; }
   .industry-panel__plus { border-width: 0.5px; font-size: 10px; }
   .industry-panel__content { top: 0; bottom: 0; justify-content: center; padding: 16px; gap: 16px; }
   .industry-panel__eyebrow { gap: 16px; }
