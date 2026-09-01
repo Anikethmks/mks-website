@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   padding: 0 var(--section-px);
+  background: #010306;
   overflow: hidden;
   isolation: isolate;
 }
@@ -26,11 +27,14 @@
 .industries-hero::before {
   content: '';
   position: absolute;
-  inset: 0;
+  /* Figma: a contained photo docked top-right (1070x611 in a 1440x645
+     frame) — flush right, near-flush bottom, no tint. */
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 74.3%;
   z-index: -1;
-  /* Figma's own hero is a real photo with a flat 40%-black scrim — not the
-     dark-to-blue gradient + 20%-opacity texture this used to stand in with. */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../images/content/industries-hero-bg-new.png');
+  background-image: url('../../images/content/industries-hero-bg-new.png');
   background-size: cover;
   background-position: center;
 }
@@ -114,6 +118,7 @@
 
 @media (max-width: 767px) {
   .industries-hero { min-height: 489px; }
+  .industries-hero::before { width: 100%; top: 0; opacity: 0.35; }
   .industries-hero__breadcrumb { margin-bottom: 24px; }
   .industries-hero__content { gap: 24px; }
   .industries-hero__title { letter-spacing: -0.3px; }
