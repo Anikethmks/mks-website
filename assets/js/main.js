@@ -283,7 +283,7 @@
   function initCountUp() {
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var els = Array.from(document.querySelectorAll(
-      '.stat-card__number, .op-stats-banner__value, .rpasc-float-bar__value, .rpasc-cta-card__num,' +
+      '.stat-card__number, .stats-bar__number, .op-stats-banner__value, .rpasc-float-bar__value, .rpasc-cta-card__num,' +
       ' .rpasc-impact-card h3, .si-challenge__stat-num, .si-impact-stat__num, .industry-case-card__stat-text,' +
       ' .agentic-overview__stat-value, .docai-overview__stat-value, .voice-overview__stat-value, .pva-overview__stat-value'
     ));
@@ -311,7 +311,6 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         animate(entry.target);
-        observer.unobserve(entry.target);
       });
     }, { threshold: 0.4 });
 
