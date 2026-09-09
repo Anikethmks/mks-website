@@ -15,7 +15,9 @@
   align-items: stretch;
   gap: 32px;
   overflow: hidden;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
 }
 .voice-hero__content {
   display: flex;
@@ -128,7 +130,7 @@
   .voice-impact-card { flex-basis: calc(50% - 8px); }
 }
 @media (max-width: 1023px) {
-  .voice-hero { flex-direction: column; min-height: 0; gap: 20px; }
+  .voice-hero { flex-direction: column; height: auto; max-height: none; min-height: 0; gap: 20px; }
   .voice-hero__content { flex-basis: auto; }
   .voice-hero__media { flex-basis: 260px; margin: 0 calc(-1 * var(--section-px)) 0; }
   .voice-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }

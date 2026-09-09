@@ -15,7 +15,9 @@
 /* Hero ------------------------------------------------------------------ */
 .its-hero {
   position: relative;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   display: flex;
   align-items: center;
   padding: var(--section-py) var(--section-px);
@@ -577,7 +579,7 @@
 @media (max-width: 767px) {
   .its-heading-block__title { font-size: 28px; line-height: 36px; }
   .its-fin-grid { grid-template-columns: 1fr; }
-  .its-hero { min-height: 520px; }
+  .its-hero { height: auto; max-height: none; min-height: 520px; }
   .its-subnav { padding: 12px 16px 0; gap: 8px; top: 0; }
   .its-subnav__link { font-size: 12px; }
   .its-fin-grid { grid-template-columns: 1fr; }

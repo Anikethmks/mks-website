@@ -1,6 +1,8 @@
 .hero {
   position: relative;
-  height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   overflow: hidden;
   /* background: #0F0F0F; */
   color: #FFFFFF;
@@ -279,12 +281,12 @@
 }
 
 @media (max-width: 1279px) {
-  .hero { height: 540px; }
+  .hero { height: calc(100vh - 92px); min-height: 420px; max-height: 540px; }
   .hero__inner { padding: 100px 48px 0; }
   .hero__content { min-height: 244px; }
 }
 @media (max-width: 1023px) {
-  .hero { height: 500px; }
+  .hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; }
   .hero__inner { padding: 80px 32px 0; }
   .hero__content { min-height: 216px; }
 }
