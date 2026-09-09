@@ -286,7 +286,7 @@
       '.stat-card__number, .stats-bar__number, .op-stats-banner__value, .rpasc-float-bar__value, .rpasc-cta-card__num,' +
       ' .rpasc-impact-card h3, .si-challenge__stat-num, .si-impact-stat__num, .industry-case-card__stat-text,' +
       ' .agentic-overview__stat-value, .docai-overview__stat-value, .voice-overview__stat-value, .pva-overview__stat-value,' +
-      ' .engsvc-metric-card__value'
+      ' .engsvc-metric-card__value, .hc-stat-card__value'
     ));
     if (reduceMotion || !els.length || !('IntersectionObserver' in window)) return;
 

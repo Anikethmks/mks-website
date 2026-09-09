@@ -3,7 +3,7 @@
    Source Figma frame: #2449:10127
    ========================================================================== */
 
-.privacy-hero { position: relative; background: #160100; min-height: 575px; padding: 0 var(--section-px); display: flex; align-items: center; overflow: hidden; }
+.privacy-hero { position: relative; background: #160100; height: calc(100vh - 92px); min-height: 460px; max-height: 575px; padding: 0 var(--section-px); display: flex; align-items: center; overflow: hidden; }
 .privacy-hero__media { position: absolute; top: 0; right: 0; width: 55%; height: 100%; object-fit: cover; }
 .privacy-hero__inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 20px; max-width: 608px; }
 .privacy-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }
@@ -60,7 +60,7 @@
   .privacy-doc__table-row { grid-template-columns: 1fr; gap: 6px; }
 }
 @media (max-width: 767px) {
-  .privacy-hero { min-height: 489px; padding: 0 20px; }
+  .privacy-hero { height: auto; max-height: none; min-height: 489px; padding: 0 20px; }
   .privacy-hero__title { font-size: 32px; }
   .privacy-doc { padding: 40px 20px; }
 }

@@ -11,7 +11,9 @@
 /* Hero --------------------------------------------------------------- */
 .op-hero {
   position: relative;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   display: flex;
   align-items: center;
   padding: 0 var(--section-px);
@@ -559,7 +561,7 @@
   .op-products__divider { display: none; }
 }
 @media (max-width: 767px) {
-  .op-hero { min-height: 489px; }
+  .op-hero { height: auto; max-height: none; min-height: 489px; }
   .op-section { gap: 24px; }
   .op-tabs { flex-wrap: wrap; padding-inline: 12px; }
   .op-service-pills { flex-direction: column; }

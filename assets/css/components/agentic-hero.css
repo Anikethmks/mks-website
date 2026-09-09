@@ -11,7 +11,9 @@
   align-items: stretch;
   gap: 32px;
   overflow: hidden;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
 }
 
 .agentic-hero__content {
@@ -125,7 +127,7 @@
 /* Row layout holds through 1024px, matching physical-vision-hero.css —
    only stacks at true tablet/mobile widths (≤1023px). */
 @media (max-width: 1023px) {
-  .agentic-hero { flex-direction: column; min-height: 0; gap: 20px; }
+  .agentic-hero { flex-direction: column; height: auto; max-height: none; min-height: 0; gap: 20px; }
   .agentic-hero__content { flex-basis: auto; }
   .agentic-hero__media { flex-basis: 260px; margin: 0 calc(-1 * var(--section-px)) 0; }
 }

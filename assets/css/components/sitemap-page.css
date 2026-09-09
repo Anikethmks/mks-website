@@ -3,7 +3,7 @@
    Source Figma frame: #2449:10873
    ========================================================================== */
 
-.sitemap-hero { position: relative; background: #DAD0AB; min-height: 575px; padding: 0 var(--section-px); display: flex; align-items: center; overflow: hidden; }
+.sitemap-hero { position: relative; background: #DAD0AB; height: calc(100vh - 92px); min-height: 460px; max-height: 575px; padding: 0 var(--section-px); display: flex; align-items: center; overflow: hidden; }
 .sitemap-hero__media { position: absolute; top: -3px; right: 0; width: 51%; height: calc(100% + 3px); object-fit: cover; }
 .sitemap-hero__inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 24px; max-width: 620px; }
 .sitemap-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }
@@ -28,7 +28,7 @@
   .sitemap-grid { padding: 48px 24px; }
 }
 @media (max-width: 767px) {
-  .sitemap-hero { min-height: 489px; padding: 0 20px; }
+  .sitemap-hero { height: auto; max-height: none; min-height: 489px; padding: 0 20px; }
   .sitemap-hero__title { font-size: 30px; line-height: 38px; }
   .sitemap-grid { padding: 40px 20px; gap: 32px; }
 }

@@ -19,7 +19,9 @@
   align-items: center;
   gap: 32px;
   overflow: hidden;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
 }
 .docai-hero__content { display: flex; flex-direction: column; gap: 24px; flex: 0 1 700px; min-width: 0; position: relative; z-index: 1; }
 .docai-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }
@@ -118,7 +120,7 @@
   .docai-impact-card { flex-basis: calc(50% - 8px); }
 }
 @media (max-width: 1023px) {
-  .docai-hero { flex-direction: column; min-height: 0; gap: 20px; text-align: left; }
+  .docai-hero { flex-direction: column; height: auto; max-height: none; min-height: 0; gap: 20px; text-align: left; }
   .docai-hero__content { flex-basis: auto; }
   .docai-hero__media { flex-basis: 200px; }
   .docai-hero__media img { max-width: 200px; }

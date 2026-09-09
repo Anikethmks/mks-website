@@ -5,7 +5,9 @@
 
 .wwa-hero {
   position: relative;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   display: flex;
   align-items: center;
   padding: 0 var(--section-px);
@@ -98,7 +100,7 @@
 }
 
 @media (max-width: 767px) {
-  .wwa-hero { min-height: 489px; }
+  .wwa-hero { height: auto; max-height: none; min-height: 489px; }
   .wwa-hero::before { width: 100%; opacity: 0.35; }
   .wwa-hero__inner { gap: 20px; }
   .wwa-hero__content { gap: 16px; }

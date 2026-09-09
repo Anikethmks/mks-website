@@ -18,7 +18,9 @@
   display: flex;
   align-items: center;
   gap: 32px;
-  min-height: 575px;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
 }
 .rpa-hero__left {
   flex: 0 1 601px;
@@ -531,7 +533,7 @@
 }
 @media (max-width: 1023px) {
 
-  .rpa-hero__inner { flex-direction: column; align-items: stretch; }
+  .rpa-hero__inner { flex-direction: column; align-items: stretch; height: auto; max-height: none; min-height: 0; }
   .rpa-hero__left { flex-basis: auto; }
   .rpa-hero__media { max-width: 100%; }
 
