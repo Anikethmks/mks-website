@@ -43,15 +43,6 @@
   max-width: 1248px;
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  /* min-height, not height: the laptop band keeps its designed 459px, but a
-     section that needs more room grows instead of clipping its own content
-     against the overflow:hidden above (the accordion CTA and the collapsed
-     capsules’ "+" buttons were being cut off). */
-  .industries { min-height: 459px; }
-  .industries__inner { gap: 34px; }
-  .industries__header { gap: 11px; }
-}
 /* Mobile (Figma node 1936:7346, 390px frame) */
 @media (max-width: 767px) {
   .industries__inner { gap: 32px; }

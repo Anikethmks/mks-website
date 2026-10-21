@@ -100,7 +100,7 @@
 }
 
 .fintech-features__image {
-  aspect-ratio: 483 / 413;
+  height: 440px;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: #1a2038;
@@ -189,29 +189,6 @@
   color: #145C93;
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .fintech-features { min-height: 486px; }
-  .fintech-features__inner { gap: 23px; }
-  .fintech-features__header { gap: 11px; }
-  .fintech-features__eyebrow { gap: 6px; letter-spacing: 0.2px; }
-  .fintech-features__eyebrow::before { width: 9px; height: 3px; }
-  .fintech-features__titles { gap: 6px; }
-  .fintech-features__title { letter-spacing: -0.14px; }
-  .fintech-features__body { grid-template-columns: 344px 542px; gap: 53px; margin-left: -6px; width: 939px; }
-  .fintech-features__image { height: 294px; }
-  .fintech-features__services { gap: 17px; }
-  .fintech-service { gap: 11px; padding: 14px; border-radius: 11px; }
-  .fintech-service__icon { width: 34px; height: 34px; padding: 8px; border-radius: 10px; }
-  .fintech-service:nth-child(1) .fintech-service__icon,
-  .fintech-service:nth-child(2) .fintech-service__icon,
-  .fintech-service:nth-child(3) .fintech-service__icon,
-  .fintech-service:nth-child(4) .fintech-service__icon,
-  .fintech-service:nth-child(5) .fintech-service__icon,
-  .fintech-service:nth-child(6) .fintech-service__icon { background-size: 17px 17px, auto; }
-  .fintech-service__body { gap: 4px; }
-  .fintech-features__footer { gap: 9px; }
-  .fintech-features__tag { padding: 4px 9px; border-radius: 6px; font-size: 9px; }
-}
 @media (max-width: 1023px) {
   .fintech-features__body { grid-template-columns: 1fr; gap: 32px; }
   .fintech-features__services { grid-template-columns: repeat(2, 1fr); }

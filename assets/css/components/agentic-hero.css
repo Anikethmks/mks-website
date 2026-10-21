@@ -5,15 +5,28 @@
 
 .agentic-hero {
   position: relative;
-  background: #0B3454;
-  padding: var(--section-py) var(--section-px-fluid);
-  display: flex;
-  align-items: stretch;
-  gap: 32px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   height: calc(100vh - 92px);
   min-height: 460px;
   max-height: 575px;
+  padding: 0 var(--section-px);
+  background: #0B3454 url('../../images/content/agentic-hero-bg.jpg') center/cover no-repeat;
+  isolation: isolate;
+}
+.agentic-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%);
+}
+
+.agentic-hero__inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 .agentic-hero__content {
@@ -21,10 +34,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 24px;
-  flex: 0 1 608px;
-  min-width: 0;
-  position: relative;
-  z-index: 1;
+  max-width: 700px;
 }
 
 .agentic-hero__breadcrumb {
@@ -75,20 +85,6 @@
   margin: 0;
 }
 
-/* Bleeds flush to the section's top/right/bottom edges — see the identical
-   technique (and the reasoning behind it) on Physical & Vision AI's hero. */
-.agentic-hero__media {
-  flex: 1 1 0;
-  min-width: 0;
-  margin: calc(-1 * var(--section-py)) calc(50% - 50vw) calc(-1 * var(--section-py)) 0;
-}
-.agentic-hero__media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 /* Sub-nav tabs — identical pattern to Physical & Vision AI's. */
 .agentic-tabs {
   position: sticky;
@@ -127,18 +123,13 @@
 /* Row layout holds through 1024px, matching physical-vision-hero.css —
    only stacks at true tablet/mobile widths (≤1023px). */
 @media (max-width: 1023px) {
-  .agentic-hero { flex-direction: column; height: auto; max-height: none; min-height: 0; gap: 20px; }
-  .agentic-hero__content { flex-basis: auto; }
-  .agentic-hero__media { flex-basis: 260px; margin: 0 calc(-1 * var(--section-px)) 0; }
+  .agentic-hero { height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
 }
 @media (max-width: 767px) {
-  .agentic-hero { gap: 16px; }
   .agentic-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
-  .agentic-hero__media { flex-basis: 220px; margin: 0 calc(-1 * var(--section-px)) 0; }
   .agentic-tabs { flex-wrap: wrap; padding-inline: 12px; }
 }
 @media (max-width: 479px) {
-  .agentic-hero__media { flex-basis: 180px; }
   .agentic-tabs { gap: 8px; }
   .agentic-tabs__link { font-size: 13px; padding: 6px; }
 }

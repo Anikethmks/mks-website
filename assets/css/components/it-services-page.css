@@ -422,6 +422,20 @@
   text-decoration: none;
 }
 .its-rpa-mod__more-arrow { font-size: 16px; }
+.its-rpa-mod__more-text { position: relative; }
+.its-rpa-mod__more-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.its-rpa-mod__more:hover .its-rpa-mod__more-text::after { transform: scaleX(1); }
 
 /* Split content sections (ERP / Financial / Health Care / CRM / Micro Services) */
 .its-split { padding: var(--section-py) var(--section-px); }
@@ -444,6 +458,7 @@
 }
 .its-split__image--sm { flex-basis: 513px; width: 513px; height: 289px; }
 .its-split__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.its-split__grid { flex: 1; min-width: 0; }
 .its-split__desc { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 26px; color: #58595B; margin: 0; }
 .its-split__inner--single .its-split__desc { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-small); line-height: var(--lh-small); }
 .its-explore-link { display: inline-flex; align-items: center; gap: 8px; width: fit-content; font-family: var(--font-primary); font-weight: 500; font-size: var(--fs-small); color: var(--color-brand); text-decoration: none; }

@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Financial Services — financial-services.html. Prefix `fsv2-`.
+   Hero reuses .fin-hero/.fin-breadcrumb/.fin-hero__title/.fin-hero__lead
+   from financial-services-page.css unchanged, per spec.
+   ========================================================================== */
+
+.fsv2-section { padding: var(--section-py) var(--section-px); background: #FFFFFF; }
+.fsv2-section--alt { background: #F9FAFC; }
+.fsv2-inner { max-width: var(--content-max); margin-inline: auto; }
+.fsv2-title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #111827; margin: 0 0 12px; max-width: 24ch; }
+.fsv2-title--nowrap { max-width: none; white-space: nowrap; }
+.fsv2-lede { font-family: var(--font-primary); font-size: 16px; line-height: 1.6em; color: #58595B; margin: 0 0 36px; max-width: 70ch; }
+.fsv2-lede--nowrap { max-width: none; white-space: nowrap; }
+.fsv2-accent { color: var(--color-brand); }
+
+/* Services list ---------------------------------------------------------------- */
+.fsv2-svc-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid #111827; }
+.fsv2-svc { display: grid; grid-template-columns: 0.9fr 1.5fr 1.1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid #E5E7EB; }
+.fsv2-svc h3 { font-family: var(--font-display); font-weight: 600; font-size: 22px; margin: 0; color: #111827; }
+.fsv2-svc .what { margin: 0; font-family: var(--font-primary); }
+.fsv2-svc .what strong { display: block; font-weight: 600; margin-bottom: 4px; color: #111827; }
+.fsv2-svc .what span { color: #58595B; font-size: 15px; }
+.fsv2-svc .practice { margin: 0; font-family: var(--font-primary); font-size: 14px; color: #58595B; padding-left: 16px; border-left: 2px solid var(--color-brand); }
+.fsv2-svc .practice b { color: #111827; font-weight: 600; }
+
+.fsv2-regs { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; padding: 32px 0 0; }
+.fsv2-regs > span:first-child { font-weight: 600; font-size: 15px; margin-right: 6px; font-family: var(--font-primary); color: #111827; }
+.fsv2-reg { font-family: var(--font-primary); font-size: 14px; padding: 4px 14px; border: 1px solid #E5E7EB; border-radius: 999px; background: #F9FAFC; color: #111827; }
+
+/* Domain knowledge --------------------------------------------------------------- */
+.fsv2-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.fsv2-domain { background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 32px; }
+.fsv2-domain h3 { font-family: var(--font-display); font-weight: 700; font-size: 24px; margin: 0 0 6px; color: #111827; }
+.fsv2-domain .sub { font-family: var(--font-primary); font-size: 15px; color: #58595B; margin: 0 0 24px; }
+.fsv2-areas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+.fsv2-areas li { padding: 12px 0; border-top: 1px solid #E5E7EB; font-family: var(--font-primary); font-weight: 500; font-size: 15px; color: #111827; }
+
+.fsv2-shared {
+  margin-top: 24px;
+  background: linear-gradient(146deg, rgba(127, 190, 228, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%);
+  color: #111827;
+  border-radius: 12px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: center;
+}
+.fsv2-shared h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin: 0 0 6px; color: #111827; }
+.fsv2-shared p { margin: 0; font-family: var(--font-primary); font-size: 15px; color: #475569; }
+.fsv2-shared ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.fsv2-shared li { border-left: 2px solid var(--color-brand); padding-left: 12px; }
+.fsv2-shared li strong { display: block; color: #111827; font-family: var(--font-primary); font-weight: 600; }
+.fsv2-shared li span { font-size: 13px; color: #475569; }
+
+/* Applications -------------------------------------------------------------------- */
+.fsv2-app-group + .fsv2-app-group { margin-top: 48px; }
+.fsv2-group-title { font-family: var(--font-primary); font-weight: 600; font-size: 16px; margin: 0 0 16px; color: #111827; }
+.fsv2-app-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid #111827; }
+.fsv2-app-grid--two { grid-template-columns: repeat(2, 1fr); }
+.fsv2-app { padding: 28px 28px 28px 0; }
+.fsv2-app + .fsv2-app { padding-left: 28px; border-left: 1px solid #E5E7EB; }
+.fsv2-app .who { font-family: var(--font-primary); font-size: 13px; font-weight: 600; color: var(--color-brand); margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+.fsv2-app h4 { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin: 0 0 10px; color: #111827; }
+.fsv2-app p { margin: 0 0 18px; font-family: var(--font-primary); font-size: 15px; color: #58595B; }
+.fsv2-app ul { margin: 0; padding: 0; list-style: none; font-family: var(--font-primary); font-size: 14px; color: #111827; }
+.fsv2-app ul li { padding: 8px 0; border-top: 1px solid #E5E7EB; }
+
+.fsv2-platforms { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; padding: 20px 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; }
+.fsv2-platforms > span:first-child { font-family: var(--font-primary); font-weight: 600; font-size: 15px; }
+.fsv2-platform { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-primary); font-size: 14px; color: #58595B; }
+.fsv2-platform svg { color: #111827; flex-shrink: 0; }
+
+/* Case study (expandable) --------------------------------------------------------- */
+.fsv2-case { background: linear-gradient(146deg, rgba(127, 190, 228, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%); border-radius: 12px; overflow: hidden; }
+.fsv2-case-body { padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; }
+.fsv2-case-tags { font-family: var(--font-primary); font-size: 14px; color: #475569; margin: 0 0 14px; }
+.fsv2-case-title { font-family: var(--font-display); font-weight: var(--fw-h3, 700); font-size: var(--fs-h3); line-height: var(--lh-h3); color: #111827; margin: 0 0 16px; }
+.fsv2-case-desc { font-family: var(--font-primary); font-size: 15px; line-height: 1.6em; color: #475569; margin: 0; max-width: 46ch; }
+.fsv2-outcomes { list-style: none; margin: 0; padding: 0; }
+.fsv2-outcomes li { padding: 18px 0; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+.fsv2-outcomes li:first-child { padding-top: 0; }
+.fsv2-outcomes strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--color-brand); }
+.fsv2-outcomes span { font-family: var(--font-primary); font-size: 14px; color: #475569; }
+.fsv2-case-foot { border-top: 1px solid rgba(15, 23, 42, 0.1); padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.fsv2-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.fsv2-chip { font-family: var(--font-primary); font-size: 13px; padding: 4px 12px; border: 1px solid rgba(15, 23, 42, 0.15); border-radius: 999px; color: #1F2937; }
+.fsv2-more-inner { padding: 40px 48px 0; }
+.fsv2-sector-group + .fsv2-sector-group { margin-top: 32px; }
+.fsv2-sector-group h4 { font-family: var(--font-primary); font-weight: 600; font-size: 16px; margin: 0 0 4px; color: #111827; }
+.fsv2-sector-group .gs { margin: 0 0 16px; font-family: var(--font-primary); font-size: 14px; color: #58595B; }
+.fsv2-sectors { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border-top: 1px solid rgba(15, 23, 42, 0.1); }
+.fsv2-sector { padding: 24px 24px 24px 0; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+.fsv2-sector h5 { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 6px; color: #111827; }
+.fsv2-sector p { margin: 0; font-family: var(--font-primary); font-size: 14px; color: #58595B; max-width: 36ch; }
+
+@media (max-width: 1023px) {
+  .fsv2-svc { grid-template-columns: 1fr; gap: 10px; }
+  .fsv2-domains, .fsv2-shared { grid-template-columns: 1fr; }
+  .fsv2-shared ul { grid-template-columns: 1fr 1fr; }
+  .fsv2-app-grid, .fsv2-app-grid--two { grid-template-columns: 1fr; }
+  .fsv2-app, .fsv2-app + .fsv2-app { padding-left: 0; border-left: 0; }
+  .fsv2-app + .fsv2-app { border-top: 1px solid #E5E7EB; }
+  .fsv2-case-body { grid-template-columns: 1fr; padding: 32px; }
+  .fsv2-case-foot, .fsv2-more-inner { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 767px) {
+  .fsv2-areas, .fsv2-shared ul { grid-template-columns: 1fr; }
+  .fsv2-case-foot { flex-direction: column; align-items: flex-start; }
+}

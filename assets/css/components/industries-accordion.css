@@ -249,18 +249,6 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none'%3E%3Cpath d='M1 6H14M9.5 1.5L14 6L9.5 10.5' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
-@media (max-width: 1279px) {
-  .industries__accordion { height: 300px; }
-  .industry-panel.is-active { flex: 1 1 420px; }
-  .industry-panel__content { padding: 18px; }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .industries__accordion { height: 320px; gap: 9px; }
-  .industry-panel { flex-basis: 46px; }
-  .industry-panel.is-active { flex: 1 1 556px; }
-}
-
 /* Below tablet, a horizontal strip too narrow to read comfortably — stack
    the panels vertically instead: collapsed strips become horizontal bars
    (label reads left-to-right, no rotation) and the active one grows in

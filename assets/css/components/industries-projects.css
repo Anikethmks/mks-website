@@ -61,6 +61,7 @@
 }
 
 .industries-projects__tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -73,14 +74,24 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.3px;
-  color: #4C4C4C;
+  color: var(--color-brand);
+  text-decoration: none;
   cursor: pointer;
 }
-.industries-projects__tab--active {
-  border-radius: 8px;
+.industries-projects__tab::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 8px;
+  height: 2px;
+  border-radius: 1px;
   background: var(--color-brand);
-  color: #FFFFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.industries-projects__tab:hover::after { transform: scaleX(1); }
 .industries-projects__tab svg { flex-shrink: 0; width: 14px; height: 14px; }
 
 .industries-projects__grid-section {

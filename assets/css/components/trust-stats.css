@@ -84,46 +84,39 @@
    grid: column 1 shares a left edge with the heading, column 2 starts at
    the same x in both rows, and every tile is the same height. Centering
    each row independently (what this used to do) made the columns drift. */
-.trust-stats__logos {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+.trust-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
   max-width: 480px;
 }
 
-.trust-stats__logos-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: center;
-  gap: 32px;
-}
-
-.trust-stats__logo-tile {
-  height: 104px;
-  /* No side padding: the mark itself lands on the column edge, so ISO and
-     PCI line up with the heading rather than sitting 8px inside it. */
-  padding: 8px 0;
+.trust-cert-card {
+  padding: 16px;
+  border: 1px solid #E3EAF3;
   border-radius: var(--card-radius);
+  background: #F7FAFD;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 16px;
 }
 
-.trust-stats__logo {
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.trust-cert-card__icon {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border-radius: 10px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.trust-cert-card__icon img { max-width: 52px; max-height: 52px; object-fit: contain; }
 
-/* One optical size for the three round seals; the NASSCOM wordmark is
-   capped on width instead, since it is a landscape lockup. */
-.trust-stats__logo-tile--iso .trust-stats__logo,
-.trust-stats__logo-tile--gdpr .trust-stats__logo,
-.trust-stats__logo-tile--pci .trust-stats__logo { max-height: 88px; }
-.trust-stats__logo-tile--nasscom .trust-stats__logo { max-width: 200px; max-height: 40px; }
+.trust-cert-card__text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.trust-cert-card__title { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #111827; }
+.trust-cert-card__desc { font-family: var(--font-primary); font-size: 12.5px; line-height: 1.45; color: #4B5563; margin: 0; }
 
 /* Right side — two vertical tickers scrolling in opposite directions,
    split by a vertical rule. Figma node 1971:8193 gives the colors/type
@@ -244,15 +237,7 @@
      it used to centre only the label, which left it off-axis from both
      the copy above and the marks below. */
   .trust-stats__certified { gap: 16px; align-items: stretch; }
-  .trust-stats__logos { gap: 12px; width: 100%; }
-  .trust-stats__logos-row { gap: 20px; }
-  .trust-stats__logo-tile { height: 72px; }
-  /* Exact measured Figma dimensions — logos were rendering at desktop's
-     100/95/31px sizes without these, badly oversized for mobile. */
-  .trust-stats__logo-tile--iso .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
-  .trust-stats__logo-tile--gdpr .trust-stats__logo { width: 62px; height: 51px; max-width: none; max-height: none; }
-  .trust-stats__logo-tile--pci .trust-stats__logo { width: 67px; height: 53px; max-width: none; max-height: none; }
-  .trust-stats__logo-tile--nasscom .trust-stats__logo { width: 166px; height: 23px; max-width: none; max-height: none; }
+  .trust-cert-grid { grid-template-columns: 1fr; gap: 12px; }
 
   /* Keep the auto-scrolling ticker running at mobile too — Figma's static
      frame can't depict motion, so the mobile mockup necessarily shows a

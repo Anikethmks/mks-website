@@ -201,8 +201,8 @@
   background: rgba(77, 61, 138, 0.1);
   color: #4D3D8A;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: var(--fw-eyebrow);
+  font-size: var(--fs-eyebrow);
   letter-spacing: 0.125em;
   text-transform: uppercase;
 }

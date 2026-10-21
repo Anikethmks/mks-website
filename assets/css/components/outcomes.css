@@ -57,7 +57,7 @@
    with the others fanned out behind it in decreasing depth. */
 .outcomes__body {
   display: grid;
-  grid-template-columns: 480px minmax(0, 1fr);
+  grid-template-columns: minmax(260px, 34%) minmax(0, 1fr);
   gap: 80px;
   align-items: stretch;
 }
@@ -172,7 +172,7 @@
    distance from the active index. */
 .outcomes__stack {
   position: relative;
-  height: 444px;
+  height: 450px;
   cursor: grab;
   perspective: 1400px;
 }
@@ -427,36 +427,6 @@
   color: var(--color-brand);
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .outcomes { min-height: 593px; }
-  .outcomes__inner { gap: 34px; }
-  .outcomes__header { gap: 11px; }
-  .outcomes__body { grid-template-columns: 341px minmax(0, 1fr); gap: 57px; min-height: 316px; }
-  .outcomes__nav { gap: 26px; }
-  .outcomes__counter-current { font-size: 20px; }
-  .outcomes__counter-total { font-size: 12px; }
-  .outcomes__list-item { gap: 11px; padding: 9px 3px; }
-  .outcomes__list-num { font-size: 10px; }
-  .outcomes__list-label { font-size: 11px; }
-  .outcomes__list-arrow { width: 20px; height: 20px; font-size: 9px; }
-  .outcomes__controls { gap: 11px; }
-  .outcomes__control { width: 28px; height: 28px; font-size: 11px; }
-  .outcomes__stack { height: 316px; }
-  .outcome-card { padding: var(--card-pad); border-radius: var(--card-radius); }
-  .outcome-card__icon { width: 40px; height: 40px; }
-  .outcome-card__num { font-size: 10px; }
-  .outcome-card__title { margin-top: 17px; }
-  .outcome-card__desc { margin-top: 9px; }
-  .outcome-card__checklist { gap: 8px; margin-top: 14px; padding-top: 13px; }
-  .outcome-card__check { gap: 8px; font-size: 10px; }
-  .outcome-card__check-mark { width: 14px; height: 14px; font-size: 8px; }
-  .outcome-card__cta { margin-top: 16px; gap: 6px; padding: 7px 17px; font-size: 10px; }
-  .outcomes__impact { gap: 17px; }
-  .outcomes__impact-fixed { gap: 6px; padding: 9px 17px; }
-  .outcomes__impact-lead { font-size: 14px; line-height: 21px; }
-  .outcomes__impact-sub { font-size: 10px; line-height: 14px; }
-  .outcomes__pill { font-size: 11px; line-height: 18px; }
-}
 @media (max-width: 1023px) {
   .outcomes__body { grid-template-columns: 1fr; gap: 32px; }
   .outcomes__stack { height: 480px; }

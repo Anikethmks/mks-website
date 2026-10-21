@@ -50,9 +50,9 @@
 .si-hero__breadcrumb svg { flex-shrink: 0; }
 .si-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
+  font-weight: var(--fw-hero);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
   letter-spacing: -0.5px;
   margin: 0;
   color: #FFFFFF;
@@ -696,7 +696,6 @@
 
 /* Mobile */
 @media (max-width: 767px) {
-  .si-hero__title { font-size: 28px; line-height: 36px; }
   .si-challenge__stats { grid-template-columns: 1fr; }
   .si-challenge__row { gap: 16px; }
   .si-solution__grid { grid-template-columns: 1fr; }

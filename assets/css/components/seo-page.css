@@ -1,0 +1,91 @@
+/* ==========================================================================
+   SEO & Digital Analytics service page
+   Builds on the shared section/card system in seoa-page.css; only the
+   pieces unique to this page live here. Loaded directly by
+   seo-digital-analytics.html.
+   ========================================================================== */
+
+/* Hero illustration — a stylized search-performance dashboard. Purely
+   decorative (aria-hidden), no real figures. ------------------------------ */
+.seo-visual__card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 48px rgba(11, 52, 84, 0.35);
+  overflow: hidden;
+}
+.seo-visual__bar { display: flex; gap: 6px; padding: 14px 18px; background: #F1F5F9; border-bottom: 1px solid #E5E7EB; }
+.seo-visual__bar span { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; }
+.seo-visual__body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+.seo-visual__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.seo-visual__title { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: #020202; }
+.seo-visual__pill { padding: 4px 10px; border-radius: var(--radius-pill); background: var(--color-brand-tint); color: var(--color-brand-dark); font-family: var(--font-primary); font-weight: 600; font-size: 12px; white-space: nowrap; }
+.seo-visual__chart { display: block; width: 100%; height: 180px; }
+.seo-visual__tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.seo-visual__tile {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 12px 14px; border-radius: 10px; border: 1px solid #E5E7EB; background: #F8FAFC;
+  font-family: var(--font-primary); font-weight: 600; font-size: 13px; color: #020202;
+}
+.seo-visual__up {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  background: #DCFCE7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316A34A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5M5 12l7-7 7 7'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+/* Floating badges sit on the card's edges so they never cover the tiles. */
+.seo-visual .seoa-hero__float--top { top: -18px; left: -20px; }
+.seo-visual .seoa-hero__float--bottom { bottom: -20px; right: 32px; }
+
+/* Standards (dark section) ------------------------------------------------ */
+.seo-standards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.seo-standard {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 24px; border-radius: 16px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.seo-standard:hover { background: rgba(255,255,255,0.08); border-color: rgba(127,190,228,0.35); }
+.seo-standard__tag {
+  width: fit-content; padding: 4px 10px; border-radius: 6px;
+  background: rgba(127,190,228,0.16); color: var(--color-brand-light);
+  font-family: var(--font-display); font-weight: 700; font-size: 13px; line-height: 18px; letter-spacing: 0.02em;
+}
+.seo-standard__desc { margin: 0; font-family: var(--font-primary); font-size: var(--fs-small); line-height: var(--lh-small); color: rgba(255,255,255,0.8); }
+
+/* FAQ — native <details>, so it works without JavaScript ------------------- */
+.seo-faq__layout { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; align-items: start; }
+.seo-faq__intro { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; position: sticky; top: 112px; }
+.seo-btn--brand { background: var(--color-brand); color: #FFFFFF; margin-top: 8px; }
+.seo-btn--brand:hover { background: var(--color-brand-dark); box-shadow: 0 10px 24px rgba(26, 112, 178, 0.3); }
+.seo-faq { display: flex; flex-direction: column; gap: 12px; }
+.seo-faq__item { background: #FFFFFF; border: var(--card-border); border-radius: var(--card-radius); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.seo-faq__item[open] { border-color: var(--color-brand-soft); box-shadow: var(--shadow-card); }
+.seo-faq__item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px;
+  font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h6); line-height: var(--lh-h6); color: #020202;
+}
+.seo-faq__item summary::-webkit-details-marker { display: none; }
+.seo-faq__item summary::after {
+  content: ''; width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
+  background: var(--color-brand-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%231A70B2' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+  transition: transform 0.25s ease;
+}
+.seo-faq__item[open] summary::after { transform: rotate(180deg); }
+.seo-faq__item summary:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: var(--card-radius); }
+.seo-faq__item p { margin: 0; padding: 0 24px 22px; font-family: var(--font-primary); font-size: var(--fs-small); line-height: var(--lh-small); color: var(--color-text-muted); }
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .seo-standards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .seo-faq__layout { grid-template-columns: 1fr; gap: 32px; }
+  .seo-faq__intro { position: static; }
+}
+@media (max-width: 767px) {
+  .seo-standards { grid-template-columns: 1fr; }
+  .seo-visual__body { padding: 16px; }
+  .seo-visual__chart { height: 130px; }
+  .seo-visual__tiles { grid-template-columns: 1fr; }
+  .seo-faq__item summary { padding: 16px 18px; }
+  .seo-faq__item p { padding: 0 18px 18px; }
+}
