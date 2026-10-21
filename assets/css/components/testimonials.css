@@ -68,7 +68,7 @@
      (see .testimonial-card below), so this needs enough headroom for the
      tallest card plus the arc's own y-offset — a snug height is what
      produced the old cut-off-text bug. */
-  height: 420px;
+  height: 320px;
 }
 
 .testimonials__ring {
@@ -173,17 +173,10 @@
   flex: 1;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1023px) {
   .testimonials__inner { flex-direction: column; gap: 32px; align-items: stretch; }
   .testimonials__lead { max-width: none; }
-  /* The 1024px laptop view is the 1440px Figma design reduced to fit. Keep
-     the exported five-star group together so it cannot force past a card. */
-  .testimonial-card__stars {
-    width: 86px;
-    height: 12.5px;
-  }
-}
-@media (max-width: 1023px) {
+  .testimonial-card__stars { width: 86px; height: 12.5px; }
   .testimonials__viewport { height: 460px; }
   .testimonial-card { width: 280px; margin-left: -140px; }
 }

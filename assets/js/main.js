@@ -272,7 +272,17 @@
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        var el = entry.target;
+        if (entry.isIntersecting) {
+          el.classList.add('is-revealing');
+          el.classList.toggle('is-visible', true);
+          el.addEventListener('transitionend', function cleanup() {
+            el.classList.remove('is-revealing');
+            el.removeEventListener('transitionend', cleanup);
+          });
+        } else {
+          el.classList.toggle('is-visible', false);
+        }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
@@ -631,7 +641,8 @@
       '.rpa-benefit-card, .rpa-achievement-card, .rpa-metric-card, ' +
       '.pva-impact-card, .agentic-impact-card, .voice-impact-card, .docai-impact-card, .benefit-card, .retail-cta__card, .retail-sync__feature, ' +
       '.its-tech-tile, .its-stat-box, .its-cta-stat, .metric-card, .eng-metric-card, ' +
-      '.retail1-service-card, .retail1-solution-group, .retail1-project-card, .retail1-advanced-card'));
+      '.retail1-service-card, .retail1-solution-group, .retail1-project-card, .retail1-advanced-card'))
+      .filter(function (el) { return !el.hasAttribute('data-no-tilt'); });
     if (!els.length) return;
 
     var MAX_TILT = 6;
@@ -942,10 +953,10 @@
         <div class="footer__top">
           <img class="footer__logo-img" src="assets/images/logos/mks-logo-light.svg" alt="MKS Vision, a preferred technology partner">
           <nav class="footer__nav" aria-label="Footer"><a href="who-we-are.html">About Us</a><a href="contact.html">Contact Us</a><a href="careers.html">Careers</a><a href="sitemap.html">Sitemap</a></nav>
-          <div class="footer__social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a></div>
+          <div class="footer__social"><a href="https://www.linkedin.com/company/mks-vision-private-limited/posts/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div>
         </div>
       </div>
-      <div class="footer__bottom"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="privacy-policy.html">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></nav></div>`;
+      <div class="footer__bottom"><span class="footer__copy">© 2026 MKS Vision. All rights reserved.</span><nav class="footer__legal" aria-label="Legal"><a href="privacy-policy.html">Privacy Policy</a><!-- Terms of Service and Cookie Settings hidden per request (2026-10-12) --></nav></div>`;
   }
 
   // Careers — Current Openings tabs (careers-openings.html). Which panel is
@@ -1015,6 +1026,42 @@
     window.setTimeout(function () {
       target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     }, 500);
+  }
+
+  // Ecommerce platforms tab switcher — click a platform tab to show its
+  // panel; only one panel visible at a time, with arrow-key navigation.
+  function initPlatformTabs() {
+    var root = document.querySelector('[data-platform-tabs]');
+    if (!root) return;
+    var tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+
+    function activate(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        if (panel) {
+          panel.hidden = !on;
+          panel.classList.toggle('is-active', on);
+        }
+      });
+      if (focus) tab.focus();
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { activate(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); activate(next, true); }
+      });
+    });
   }
 
   // Init all on DOM ready
@@ -1159,6 +1206,20 @@
       var form = e.target.closest('[data-modal-form]');
       if (!form) return;
       e.preventDefault();
+      if (form.classList.contains('wwa-contact-form') && form.action && form.action.indexOf('formspree.io') > -1) {
+        // Real server-side send via Formspree — no mail client opens, the
+        // submission goes straight to hr@mksvision.com. Needs a real form
+        // ID from https://formspree.io swapped into the form's action URL.
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then(function (res) {
+            if (res.ok) { form.reset(); open('success-modal'); }
+            else { alert('Something went wrong sending your message. Please try again or email hr@mksvision.com directly.'); }
+          })
+          .catch(function () {
+            alert('Something went wrong sending your message. Please try again or email hr@mksvision.com directly.');
+          });
+        return;
+      }
       form.reset();
       var fileName = form.querySelector('[data-file-name]');
       if (fileName) fileName.textContent = 'No file chosen';
@@ -1189,6 +1250,7 @@
     initCareersOpenings();
     initOutcomesScroll();
     initPlatformsAccordion();
+    initPlatformTabs();
     initModals();
     initCareersBlogCarousel();
   });

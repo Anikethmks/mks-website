@@ -249,29 +249,6 @@
   display: block;
 }
 
-/* The 1024px laptop frame is the 1440px Figma composition reduced as one
-   desktop layout. Keep the complete header, four cards, and landscape image
-   in the intended 482px section instead of allowing the grid to distort. */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .healthcare-features {
-    min-height: 482px;
-  }
-  .healthcare-features__inner { gap: 23px; }
-  .healthcare-features__header { gap: 11px; }
-  .healthcare-features__eyebrow { gap: 6px; letter-spacing: 0.2px; }
-  .healthcare-features__eyebrow::before { width: 9px; height: 3px; }
-  .healthcare-features__titles { gap: 6px; }
-  .healthcare-features__title { letter-spacing: -0.14px; }
-  .healthcare-features__body { grid-template-columns: 366px 440px; gap: 54px; }
-  .healthcare-features__cards { gap: 14px; }
-  .feature-card { gap: 14px; padding: 11px; border-radius: var(--card-radius); }
-  .feature-card__icon { width: 34px; height: 34px; padding: 8px; border-radius: 9px; }
-  .feature-card:nth-child(1) .feature-card__icon,
-  .feature-card:nth-child(2) .feature-card__icon { background-size: 17px 17px, auto; }
-  .feature-card__badge { padding: 3px 7px; font-size: 9px; line-height: 13px; letter-spacing: 0.2px; }
-  .feature-card__body { gap: 7px; }
-  .healthcare-features__image { height: 262px; border-radius: 11px; }
-}
 @media (max-width: 1023px) {
   .healthcare-features__body { grid-template-columns: 1fr; gap: 32px; }
   .healthcare-features__insight { min-height: 320px; }

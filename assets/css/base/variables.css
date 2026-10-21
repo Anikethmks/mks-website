@@ -121,8 +121,7 @@
   /*
    * Responsive breakpoint scale (desktop-first, max-width queries).
    * Use these exact values in every component's @media rules:
-   *   Desktop  — default styles, no media query   (>= 1280px)
-   *   Laptop   — @media (max-width: 1279px)        (1024px – 1279px)
+   *   Desktop  — default styles, no media query   (>= 1024px)
    *   Tablet   — @media (max-width: 1023px)        (768px – 1023px)
    *   Mobile   — @media (max-width: 767px)         (<= 767px)
    *   (Small-phone fine-tuning only, nested inside Mobile: max-width: 479px)
@@ -147,17 +146,6 @@
  * query is a bug — it is what made section edges and heading sizes
  * disagree from page to page.
  * ------------------------------------------------------------------ */
-@media (max-width: 1279px) {           /* Laptop */
-  :root {
-    --fs-hero: 40px;      --lh-hero: 52px;
-    --fs-hero-lead: 17px; --lh-hero-lead: 28px;
-    --fs-h2: 28px;        --lh-h2: 38px;
-    --section-py: 56px;
-    --section-px: 48px;
-    --hero-pt: 104px;
-  }
-}
-
 @media (max-width: 1023px) {           /* Tablet */
   :root {
     --fs-hero: 34px;      --lh-hero: 44px;

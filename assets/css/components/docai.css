@@ -13,26 +13,32 @@
 /* Hero + sub-nav tabs ------------------------------------------------------ */
 .docai-hero {
   position: relative;
-  background: linear-gradient(146deg, #7FBEE4 0%, #CBEAFF 97%);
-  padding: var(--section-py) var(--section-px-fluid);
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 32px;
-  overflow: hidden;
   height: calc(100vh - 92px);
   min-height: 460px;
   max-height: 575px;
+  padding: 0 var(--section-px);
+  background: #0B3454 url('../../images/content/docai-hero-bg.jpg') center/cover no-repeat;
+  isolation: isolate;
 }
-.docai-hero__content { display: flex; flex-direction: column; gap: 24px; flex: 0 1 700px; min-width: 0; position: relative; z-index: 1; }
+.docai-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%);
+}
+.docai-hero__inner { width: 100%; max-width: var(--content-max); margin-inline: auto; }
+.docai-hero__content { display: flex; flex-direction: column; gap: 24px; max-width: 700px; }
 .docai-hero__breadcrumb { display: flex; align-items: center; gap: 9px; }
-.docai-hero__breadcrumb a { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #58595B; text-decoration: none; }
-.docai-hero__breadcrumb span { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #020202; }
+.docai-hero__breadcrumb a { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #AFAFAF; text-decoration: none; }
+.docai-hero__breadcrumb span { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: #FFFFFF; }
 .docai-hero__breadcrumb svg { flex-shrink: 0; }
 .docai-hero__body { display: flex; flex-direction: column; gap: 24px; }
-.docai-hero__title { font-family: var(--font-display); font-weight: var(--fw-hero); font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: -0.5px; margin: 0; color: #020202; }
-.docai-hero__lead { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-hero-lead); line-height: var(--lh-hero-lead); color: #58595B; margin: 0; }
-.docai-hero__media { flex: 1 1 0; min-width: 0; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
-.docai-hero__media img { max-width: 340px; width: 100%; height: auto; display: block; }
+.docai-hero__title { font-family: var(--font-display); font-weight: var(--fw-hero); font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: -0.5px; margin: 0; color: #FFFFFF; }
+.docai-hero__lead { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-hero-lead); line-height: var(--lh-hero-lead); color: #FFFFFF; margin: 0; }
 
 .docai-tabs { position: sticky; top: var(--navbar-h, 93px); z-index: 10; background: #FCFCFC; display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 16px; }
 .docai-tabs__link { display: inline-flex; align-items: center; gap: 8px; padding: 8px; font-family: var(--font-primary); font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 0.1px; color: #020202; text-decoration: none; border-bottom: 2px solid transparent; }
@@ -120,10 +126,7 @@
   .docai-impact-card { flex-basis: calc(50% - 8px); }
 }
 @media (max-width: 1023px) {
-  .docai-hero { flex-direction: column; height: auto; max-height: none; min-height: 0; gap: 20px; text-align: left; }
-  .docai-hero__content { flex-basis: auto; }
-  .docai-hero__media { flex-basis: 200px; }
-  .docai-hero__media img { max-width: 200px; }
+  .docai-hero { height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
   .docai-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
   .docai-overview__stats-icon { display: none; }
   .docai-challenge__row { flex-direction: column; }
@@ -131,10 +134,7 @@
   .docai-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 }
 @media (max-width: 767px) {
-  .docai-hero { gap: 16px; }
   .docai-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
-  .docai-hero__media { flex-basis: 160px; }
-  .docai-hero__media img { max-width: 160px; }
   .docai-tabs { flex-wrap: wrap; padding-inline: 12px; }
   .docai-overview { gap: 32px; }
   .docai-overview__text { padding: 16px; }
