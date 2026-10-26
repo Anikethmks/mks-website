@@ -162,9 +162,9 @@
 }
 
 .trust-stats__col--left .trust-stats__track,
-.trust-stats__col--left .trust-stats__group { gap: 32px; }
+.trust-stats__col--left .trust-stats__group { gap: 20px; }
 .trust-stats__col--right .trust-stats__track,
-.trust-stats__col--right .trust-stats__group { gap: 48px; }
+.trust-stats__col--right .trust-stats__group { gap: 20px; }
 
 @keyframes trust-stats-scroll-v {
   from { transform: translateY(0); }
@@ -216,6 +216,7 @@
   font-size: 20px;
   line-height: 30px;
   color: #58595B;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 1023px) {
