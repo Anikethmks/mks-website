@@ -33,9 +33,9 @@
   to   { transform: scale(1.06) translate(-1.5%, -1%); }
 }
 
-.hero__bg[data-slide="0"] { background-image: url('../../images/content/slide1.jpg'); }
-.hero__bg[data-slide="1"] { background-image: url('../../images/content/slide2.jpg'); }
-.hero__bg[data-slide="2"] { background-image: url('../../images/content/slide3.jpg'); }
+.hero__bg[data-slide="0"] { background-image: url('../../images/content/hero-slide1-new.jpg'); }
+.hero__bg[data-slide="1"] { background-image: url('../../images/content/hero-slide2-new.jpg'); }
+.hero__bg[data-slide="2"] { background-image: url('../../images/content/hero-slide3-new.jpg'); }
 .hero__bg[data-slide="3"] { background-image: url('../../images/content/fig-hero4-bg.png'); }
 
 /* Figma's own overlay rect (node 1971:7885): a flat navy tint over the
