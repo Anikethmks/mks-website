@@ -108,20 +108,23 @@
      = 870px subtracted from the row's own width. */
   flex: 0 0 calc(100% - 870px);
   min-width: 200px;
-  margin-right: calc(50% - 50vw);
+  margin-right: calc(50% - var(--half-vw, 50vw));
   align-self: stretch;
   border-radius: 16px;
   object-fit: cover;
   object-position: left center;
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .retail-stack__inner { gap: 48px; }
 }
+
 @media (max-width: 1023px) {
   .retail-stack__inner { flex-direction: column; }
   .retail-stack__image { margin-right: 0; width: 100%; max-width: 100%; min-width: 0; aspect-ratio: 4/3; flex: none; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-stack__grid { grid-template-columns: 1fr; }
 }

@@ -123,20 +123,31 @@
 /* Laptop: original stack + 3→2 col breakpoint was 1100px; remapped to the
    1279px tier so the 3-column grid never sits cramped in a 1024–1279px
    range before reducing. */
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .pva-objective__row { flex-direction: column; }
   .pva-objective__media { width: 100%; aspect-ratio: 900 / 600; }
   .pva-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width: 1023px) {
   .pva-objective { gap: 40px; }
   .pva-objective__row { gap: 24px; }
-  .pva-objective__grid { gap: 24px; }
+  .pva-objective__grid { gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pva-objective__row { flex-direction: column; }
+  .pva-objective__media { flex: none; width: 100%; height: 320px; }
 }
 /* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
    767px tier (transitions earlier, no coverage gap). */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .pva-objective { gap: 24px; }
   .pva-objective__grid { grid-template-columns: 1fr; gap: 16px; }
   .pva-objective-card { min-height: auto; padding: var(--card-pad-compact); }
+}
+
+/* Stacked layouts: show the cards first and the photo after, so two photos never sit back to back
+   (the previous section already ends with an image). */
+@media (max-width: 1023px) {
+  .pva-objective__media { order: 2; }
 }

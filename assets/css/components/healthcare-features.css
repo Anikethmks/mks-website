@@ -257,11 +257,10 @@
    here (not stacked to 1 column), just smaller; the image below drops its
    fixed height for an explicit aspect-ratio so it scales cleanly at any
    mobile width. */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .healthcare-features__inner { gap: 32px; }
   .healthcare-features__header { gap: 24px; }
   .healthcare-features__titles { gap: 12px; }
-  .healthcare-features__title { font-weight: 600; }
   .healthcare-features__body { gap: 32px; }
   .healthcare-features__cards { gap: 16px; }
   .feature-card { padding: 8px; gap: 16px; }

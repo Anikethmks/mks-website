@@ -92,17 +92,24 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
                 <div class="mega-menu__panel" data-panel="products-platform">
@@ -138,19 +145,15 @@
 
   <main>
     <!-- Hero (2532:4697) -->
-    <section class="hc-hero">
+    <section class="hc-hero hero-std">
       <div class="hc-hero__bg" aria-hidden="true">
         <img src="assets/images/content/healthcare-hero-bg.jpg" alt="" loading="eager" />
       </div>
-      <div class="hc-hero__inner">
-        <nav class="hc-breadcrumb" aria-label="Breadcrumb" data-reveal>
-          <a href="index.html">Home</a>
-          <span aria-hidden="true"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M1 1L6 6L1 11" stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span aria-current="page">Healthcare</span>
-        </nav>
-        <div data-reveal>
-          <h1 class="hc-hero__title">Technology That Puts Care First</h1>
-          <p class="hc-hero__lead">We help healthcare organisations deliver more connected, safer, and more accessible care — powered by deep domain expertise and AI-driven innovation.</p>
+      <div class="hc-hero__inner hero-stack">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="industries.html">Industries</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">Healthcare</span></nav>
+        <div class="hero-stack" data-reveal>
+          <h1 class="hc-hero__title hero-title">Technology That Puts Care First</h1>
+          <p class="hc-hero__lead hero-lead">We help healthcare organisations deliver more connected, safer, and more accessible care — powered by deep domain expertise and AI-driven innovation.</p>
         </div>
       </div>
     </section>
@@ -319,6 +322,18 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    function fit() {
+      var w = document.documentElement.clientWidth;
+      var z = (w >= 1024 && w < 1200);
+      document.body.style.zoom = z ? (w / 1200) : '';
+      document.documentElement.style.setProperty('--half-vw', z ? '600px' : '50vw');
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 
 </html>

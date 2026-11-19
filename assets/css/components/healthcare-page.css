@@ -11,7 +11,7 @@
   align-items: center;
   height: calc(100vh - 92px);
   min-height: 460px;
-  max-height: 645px;
+  max-height: 575px;
   background: #090a36;
 }
 .hc-hero__bg {
@@ -24,7 +24,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%);
 }
 .hc-hero__inner {
   position: relative;
@@ -89,12 +89,12 @@
 }
 .hc-eyebrow--onbrand { background: transparent; color: #93C5FD; padding: 0; }
 .hc-section-title {
-  font-family: var(--font-primary);
+  font-family: var(--font-display);
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
   letter-spacing: -0.025em;
-  color: #111827;
+  color: #020202;
   margin: 0;
 }
 .hc-section-title--light { color: #FFFFFF; }
@@ -285,7 +285,9 @@
 .hc-closing__cta:hover { transform: scale(1.03); box-shadow: 0 12px 24px rgba(31, 115, 180, 0.3); }
 
 /* Responsive ----------------------------------------------------------------- */
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .hc-cards, .hc-diff-cards, .hc-stats { flex-wrap: wrap; }
   .hc-card, .hc-diff-card, .hc-stat-card { flex-basis: calc(50% - 24px); }
 }
@@ -298,8 +300,26 @@
   .hc-closing__media { width: 100%; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .hc-cards, .hc-diff-cards, .hc-stats { flex-direction: column; }
   .hc-card, .hc-diff-card, .hc-stat-card { flex-basis: auto; }
   .hc-quote p { font-size: 22px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .hc-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .hc-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Phone hero: image anchored on its subject, stronger even overlay, tighter spacing */
+@media (max-width: 599px) {
+  .hc-hero { padding: 48px 0; }
+  .hc-hero__bg img { object-position: 68% center; }
+  .hc-hero__bg::after { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
+  .hc-hero__lead { margin-top: 16px; }
 }

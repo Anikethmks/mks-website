@@ -129,6 +129,6 @@
   .retail-channels__row { flex-direction: column; }
   .retail-channels__img { width: 100%; max-width: 100%; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-channels__col-list li { white-space: normal; }
 }

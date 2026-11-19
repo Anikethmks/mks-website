@@ -13,10 +13,12 @@
 @import url('components/industries-accordion.css');
 @import url('components/outcomes.css');
 @import url('components/trust-stats.css');
+@import url('components/global-reach.css');
 @import url('components/testimonials.css');
 @import url('components/healthcare-features.css');
 @import url('components/cta-banner.css');
 @import url('components/fintech-features.css');
+@import url('components/engineering-features.css');
 @import url('components/footer.css');
 @import url('components/capabilities-hero.css');
 @import url('components/case-studies.css');
@@ -74,6 +76,7 @@
 @import url('components/seo-digital-analytics-page.css');
 @import url('components/seo-page.css');
 @import url('components/gallery-page.css');
+@import url('components/gallery-all.css');
 @import url('components/rpa-page.css');
 @import url('components/it-services-page.css');
 @import url('components/voice-ai.css');
@@ -83,6 +86,11 @@
 @import url('components/si-page.css');
 @import url('components/modals.css');
 @import url('components/animations.css');
+@import url('components/digital-infrastructure-page.css');
+@import url('components/vertical-pages.css');
+@import url('components/case-study-page.css');
+@import url('components/section-rhythm.css');
+@import url('components/hero-standard.css');
 
 .container {
   max-width: var(--container-max);

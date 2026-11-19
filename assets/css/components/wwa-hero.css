@@ -99,10 +99,20 @@
   .wwa-hero__inner { gap: 24px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .wwa-hero { height: auto; max-height: none; min-height: 489px; }
   .wwa-hero::before { width: 100%; opacity: 0.35; }
   .wwa-hero__inner { gap: 20px; }
   .wwa-hero__content { gap: 16px; }
   .wwa-hero__title { letter-spacing: -0.3px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .wwa-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .wwa-hero { height: auto; min-height: 489px; max-height: none; }
 }

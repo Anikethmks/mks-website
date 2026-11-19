@@ -86,3 +86,13 @@
   .retail-hero { height: auto; max-height: none; min-height: 0; }
   .retail-hero__title { letter-spacing: -0.5px; }
 }
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .retail-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .retail-hero { height: auto; min-height: 489px; max-height: none; }
+}

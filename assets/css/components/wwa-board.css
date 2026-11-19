@@ -70,13 +70,13 @@
   justify-content: center;
   align-items: stretch;
   gap: 48px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
 }
 
 .wwa-director-card {
-  width: 321px;
-  max-width: 100%;
+  flex: 0 1 321px;
+  min-width: 0;
   padding: var(--card-pad);
   display: flex;
   flex-direction: column;
@@ -202,7 +202,9 @@
   z-index: 1;
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .wwa-board__inner { gap: 40px; }
   .wwa-board__grid { gap: 32px; }
 }
@@ -215,11 +217,17 @@
   .wwa-director-card { width: 100%; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .wwa-board__inner { gap: 24px; }
   .wwa-board__grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
 @media (max-width: 479px) {
   .wwa-director-card { padding: var(--card-pad); }
+}
+
+/* Tablet: 2 per row, last (odd) card centered */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .wwa-board__grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .wwa-director-card { width: auto; flex: 0 0 calc(50% - 12px); }
 }

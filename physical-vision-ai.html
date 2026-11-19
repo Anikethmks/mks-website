@@ -92,17 +92,24 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
                 <div class="mega-menu__panel" data-panel="products-platform">
@@ -138,19 +145,13 @@
 
   <main>
     <!-- Hero (702:17328) -->
-    <section class="pva-hero">
-      <div class="pva-hero__inner">
-        <div class="pva-hero__content" data-reveal>
-          <div class="pva-hero__breadcrumb" data-reveal>
-            <a href="index.html">Home</a>
-            <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <a href="#">What we do</a>
-            <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span aria-current="page">Physical &amp; Vision AI</span>
-          </div>
-          <div class="pva-hero__body">
-            <h1 class="pva-hero__title">Physical AI on the Shop Floor : Automated Pallet Dimensioning for Freight Compliance</h1>
-            <p class="pva-hero__lead">MKS deployed an edge computer vision system on existing packaging equipment eliminating manual pallet measurement, reducing freight disputes, and ensuring compliance documentation on every outbound shipment.</p>
+    <section class="pva-hero hero-std">
+      <div class="pva-hero__inner hero-wrap">
+        <div class="pva-hero__content hero-stack" data-reveal>
+          <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="ai-solutions.html">AI Solutions</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">Physical &amp; Vision AI</span></nav>
+          <div class="pva-hero__body hero-stack">
+            <h1 class="pva-hero__title hero-title">Physical AI on the Shop Floor : Automated Pallet Dimensioning for Freight Compliance</h1>
+            <p class="pva-hero__lead hero-lead">MKS deployed an edge computer vision system on existing packaging equipment eliminating manual pallet measurement, reducing freight disputes, and ensuring compliance documentation on every outbound shipment.</p>
           </div>
         </div>
       </div>
@@ -366,6 +367,16 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    function fit() {
+      var w = document.documentElement.clientWidth;
+      document.body.style.zoom = (w >= 1024 && w < 1200) ? (w / 1200) : '';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 
 </html>

@@ -68,6 +68,18 @@
   transform: scale(1.05);
   opacity: 1;
 }
+/* Image placeholder — replace the span with an <img class="industry-panel__img"> later */
+.industry-panel__bg--placeholder {
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 28px;
+  background:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(135deg, #1B4F7E, #0F2A44);
+}
+.industry-panel__ph {
+  font-family: var(--font-primary); font-size: 12px; letter-spacing: 0.06em; color: rgba(255,255,255,0.7);
+  padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.12);
+}
 
 .industry-panel__scrim {
   position: absolute;
@@ -285,7 +297,7 @@
    (not pinned to the bottom like the larger layouts), and the collapsed
    bars go back to justify-content:space-between (num / label / plus each
    pushed to their own position) instead of a fixed gap. */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .industries__accordion { gap: 24px; }
   .industry-panel.is-active { flex-basis: 276px; border-radius: 8px; }
   .industry-panel__collapsed { justify-content: space-between; padding: 8px 18px; gap: 0; }
@@ -312,3 +324,4 @@
   .industry-panel__content,
   .industry-panel__progress { transition: none; }
 }
+@media (max-width: 599px) { .industry-panel__ph { display: none; } }

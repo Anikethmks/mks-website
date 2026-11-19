@@ -121,15 +121,18 @@
   color: #020202;
 }
 
-@media (max-width: 1279px) {
-  .pva-challenge { gap: 40px; }
-}
+
 /* Tablet: original stack breakpoint was 900px; remapped to the standard
    1023px tier (transitions earlier, no coverage gap). */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
+  .pva-challenge { gap: 40px; }
+}
+
 @media (max-width: 1023px) {
   .pva-challenge__row { flex-direction: column; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .pva-challenge { gap: 24px; }
   .pva-challenge__photo, .pva-challenge__caption, .pva-challenge__card { padding: 16px; }
   .pva-challenge__list { gap: 10px; }

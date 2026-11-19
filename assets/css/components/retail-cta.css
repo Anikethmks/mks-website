@@ -129,14 +129,17 @@
   margin: 0;
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .retail-cta__inner { gap: 48px; }
 }
+
 @media (max-width: 1023px) {
   .retail-cta__left { max-width: 100%; }
   .retail-cta__right { max-width: 100%; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-cta__grid { grid-template-columns: 1fr; }
   .retail-cta__right { min-width: 0; }
 }

@@ -182,9 +182,7 @@
    from the left, landing its left edge around -560px. Staying left-
    anchored but narrowing the panel to fit the viewport at this tier fixes
    it without cutting off content on either side. */
-@media (max-width: 1279px) {
-  .mega-menu { width: 760px; }
-}
+
 
 @media (max-width: 1023px) {
   .mega-menu {
@@ -197,4 +195,16 @@
   }
   .mega-menu__rail { width: auto; }
   .mega-menu__panel { flex-direction: column; }
+}
+
+/* Engineering panel — same plain text-link style and 24px rhythm as the other
+   menus, one under another: AI Data Infrastructure, Aerospace, then Industrial
+   Engineering with its seven services indented beneath it. */
+.mega-menu__panel--row.is-active { flex-direction: column; align-items: flex-start; gap: 24px; }
+.mega-menu__link--parent { font-weight: 600; color: #145C93; }
+.mega-menu__link--parent:hover { color: #020202; }
+.mega-menu__col--tree { gap: 16px; }
+.mega-menu__sub { display: grid; grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 14px 32px; margin-left: 4px; padding-left: 14px; border-left: 2px solid #DCE8F4; }
+@media (max-width: 1023px) {
+  .mega-menu__sub { grid-auto-flow: row; grid-template-rows: none; }
 }

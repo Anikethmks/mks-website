@@ -50,7 +50,7 @@
 }
 
 .pva-overview__media {
-  flex: 0 0 489px;
+  flex: 0 1 489px; min-width: 0;
   max-width: 100%;
 }
 .pva-overview__media img {
@@ -100,18 +100,21 @@
   margin: 0;
 }
 
-@media (max-width: 1279px) {
-  .pva-overview { gap: 40px; }
-}
+
 /* Tablet: original stack breakpoint was 1000px; remapped to the standard
    1023px tier (transitions slightly earlier, no coverage gap). */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
+  .pva-overview { gap: 40px; }
+}
+
 @media (max-width: 1023px) {
   .pva-overview__row { flex-direction: column; }
   .pva-overview__media { flex-basis: auto; width: 100%; }
   .pva-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
   .pva-overview__stats-icon { display: none; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .pva-overview { gap: 24px; }
   .pva-overview__text { padding: 16px; gap: 20px; }
   .pva-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; padding: 16px 0; }

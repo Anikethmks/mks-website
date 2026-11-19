@@ -43,7 +43,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%);
 }
 
 /* Caps and centers the whole hero frame (still keeping the exact Figma
@@ -109,24 +109,43 @@
 }
 
 .careers-hero__lead {
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-primary);
+  font-weight: 400;
   font-size: var(--fs-hero-lead);
   line-height: var(--lh-hero-lead);
-  color: #FFFFFF;
+  color: rgba(248, 251, 255, 0.9);
   margin: 0;
 }
 
 /* Laptop */
-@media (max-width: 1279px) {
+
+/* Tablet */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .careers-hero__inner { gap: 24px; }
 }
-/* Tablet */
+
 @media (max-width: 1023px) {
   .careers-hero__inner { gap: 20px; }
 }
 /* Mobile */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .careers-hero { height: auto; max-height: none; min-height: 489px; }
   .careers-hero__inner { gap: 16px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .careers-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .careers-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Phone hero: image anchored right, stronger even overlay so the text reads clearly */
+@media (max-width: 599px) {
+  .careers-hero__bg { object-position: 78% center; }
+  .careers-hero__scrim { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
 }

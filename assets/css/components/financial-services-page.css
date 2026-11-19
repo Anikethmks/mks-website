@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   height: calc(100vh - 92px);
-  min-height: 420px;
+  min-height: 460px;
   max-height: 575px;
   padding: 0 var(--section-px);
   background: #0B3454 url('../../images/content/fin-hero-bg.jpg') center/cover no-repeat;
@@ -41,7 +41,7 @@
 /* Case study ------------------------------------------------------------------ */
 .fin-case { padding: var(--section-py) var(--section-px); background: #F9FAFC; }
 .fin-case__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
-.fin-case__title { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1.25em; color: #111827; margin: 0; white-space: nowrap; }
+.fin-case__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2)em; color: #020202; margin: 0; white-space: nowrap; }
 .fin-case-card { background: linear-gradient(146deg, rgba(127, 190, 228, 0.15) 0%, rgba(203, 234, 255, 0.15) 97%); color: #1F2937; border-radius: 12px; overflow: hidden; }
 .fin-case-card__body { padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; }
 .fin-case-card__tags { font-family: var(--font-primary); font-size: 14px; color: #475569; margin: 0 0 14px; }
@@ -59,7 +59,7 @@
 /* Sectors grid ---------------------------------------------------------------- */
 .fin-sectors { padding: var(--section-py) var(--section-px); background: #FFFFFF; }
 .fin-sectors__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 32px; }
-.fin-sectors__title { font-family: var(--font-display); font-weight: 700; font-size: 36px; color: #111827; margin: 0; }
+.fin-sectors__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); color: #020202; margin: 0; }
 .fin-sectors__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .fin-sector {
   padding: var(--card-pad-compact, 24px);
@@ -82,7 +82,7 @@
 
 /* Responsive -------------------------------------------------------------------- */
 @media (max-width: 1023px) {
-  .fin-hero { height: auto; min-height: 0; max-height: none; padding: 48px 0; }
+  .fin-hero { height: auto; min-height: 0; max-height: none; padding: 48px var(--section-px); }
   .fin-pillars__inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .fin-pillar:nth-child(odd) { border-left: none; }
   .fin-pillar:nth-child(n+3) { border-top: 1px solid #E5E7EB; padding-top: 24px; }
@@ -90,10 +90,26 @@
   .fin-sectors__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .fin-pillars__inner { grid-template-columns: 1fr; }
   .fin-pillar { border-left: none !important; border-top: 1px solid #E5E7EB; padding-top: 16px; }
   .fin-pillar:first-child { border-top: none; }
   .fin-sectors__grid { grid-template-columns: 1fr; }
   .fin-case-card__foot { padding: 20px 24px; flex-direction: column; align-items: flex-start; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .fin-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding: 0 var(--section-px); }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .fin-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Phone hero: image anchored on its subject, stronger even overlay for readable text */
+@media (max-width: 599px) {
+  .fin-hero { padding: 48px var(--section-px); background-position: 68% center; }
+  .fin-hero::before { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
 }

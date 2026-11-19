@@ -122,7 +122,7 @@
 @media (max-width: 1023px) {
   .agentic-challenge__row { flex-direction: column; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .agentic-challenge { gap: 32px; }
   .agentic-challenge__card, .agentic-challenge__photo, .agentic-challenge__caption { padding: 16px; }
   .agentic-challenge__list { padding-left: 20px; }

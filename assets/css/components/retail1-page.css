@@ -9,7 +9,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
+  padding: 0 var(--section-px-fluid);
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   gap: 56px;
   background: linear-gradient(-62deg, #2784C5 17%, #145C93 100%);
   color: #FFFFFF;
@@ -65,7 +68,7 @@
 .retail1-btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 24px; border-radius: 6px;
-  font-family: var(--font-primary); font-weight: 600; font-size: 15px; line-height: 22px;
+  font-family: var(--font-primary); font-weight: 600; font-size: 14px; line-height: 20px;
   text-decoration: none; white-space: nowrap;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
@@ -330,7 +333,8 @@
 .retail1-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
 
 /* Responsive --------------------------------------------------------------- */
-@media (max-width: 1279px) {
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .retail1-services__grid, .retail1-advanced__grid, .retail1-projects__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .retail1-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .retail1-stack, .retail1-standards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -338,8 +342,9 @@
   .retail1-projects__grid > .retail1-project-card:last-child { grid-column: span 2; }
   .retail1-projects__grid > .retail1-project-card:last-child .retail1-project-card__media { aspect-ratio: 21 / 8; }
 }
+
 @media (max-width: 1023px) {
-  .retail1-hero { flex-direction: column; align-items: stretch; }
+  .retail1-hero { flex-direction: column; align-items: stretch; height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
   .retail1-hero__content { flex: none; }
   .retail1-hero__float--top { left: 12px; }
   .retail1-hero__float--bottom { right: 12px; }
@@ -353,7 +358,7 @@
   .retail1-platforms__panels { padding: 32px; }
   .retail1-cta__inner { flex-direction: column; align-items: flex-start; padding: 32px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail1-services__grid, .retail1-advanced__grid, .retail1-projects__grid, .retail1-steps { grid-template-columns: 1fr; }
   .retail1-solution-group { padding: 24px; }
   .retail1-solution-group__list { grid-template-columns: 1fr; }
@@ -368,4 +373,49 @@
   .retail1-hero__float--bottom { display: none; }
   .retail1-cta__inner { padding: 24px; }
   .retail1-btn { white-space: normal; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .retail1-hero { flex-direction: row; align-items: center; gap: 24px; height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+  .retail1-hero__content { flex: 1 1 0; }
+  .retail1-hero__media { flex: 1 1 0; }
+  .retail1-hero__float { font-size: 11px; line-height: 14px; padding: 6px 10px; gap: 6px; }
+  .retail1-hero__float svg { width: 14px; height: 14px; }
+  .retail1-hero__float--top { top: 10px; left: 8px; }
+  .retail1-hero__float--bottom { bottom: 10px; right: 8px; }
+}
+
+/* Tablet: compact hero so all content fits the fixed hero height */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .retail1-hero__content { gap: 14px; flex: 1.25 1 0; }
+  .retail1-hero__title { font-size: 28px; line-height: 36px; }
+  .retail1-hero__lead { font-size: 14px; line-height: 22px; }
+  .retail1-hero__chips { gap: 6px; }
+  .retail1-hero__chips li { font-size: 12px; line-height: 16px; padding: 4px 10px; }
+  .retail1-hero__media { flex: 1 1 0; }
+}
+
+/* Platform tabs: wrap into a grid on tablet (nothing hidden off-screen);
+   on mobile they scroll sideways, so show a visible scrollbar as the cue. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .retail1-platforms__tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; gap: 8px; padding: 12px; }
+  .retail1-platform-tab { width: auto; min-width: 0; flex-shrink: 1; }
+  .retail1-platform-tab__name { font-size: 13px; line-height: 18px; }
+}
+@media (max-width: 599px) {
+  .retail1-platforms__tabs { scrollbar-width: thin; scrollbar-color: rgba(127,190,228,0.7) rgba(255,255,255,0.1); padding-bottom: 8px; }
+  .retail1-platforms__tabs::-webkit-scrollbar { display: block; height: 6px; }
+  .retail1-platforms__tabs::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  .retail1-platforms__tabs::-webkit-scrollbar-thumb { background: rgba(127,190,228,0.7); border-radius: 3px; }
+}
+
+/* Tablet: hero visual same height as the SEO page so both heroes match */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .retail1-hero__media img { aspect-ratio: auto; height: 340px; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .retail1-hero { height: auto; min-height: 489px; max-height: none; }
 }

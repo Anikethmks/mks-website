@@ -44,7 +44,7 @@
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  color: #212121;
+  color: #020202;
   margin: 0;
 }
 .retail-engagement__title em {
@@ -92,7 +92,7 @@
   .retail-engagement__img { width: 100%; max-width: 100%; }
   .retail-engagement__content { padding: 0; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-engagement__strip { justify-content: flex-start; }
   .retail-engagement__strip span:not(:last-child) { border-right: none; padding-right: 0; }
 }

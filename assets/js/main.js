@@ -389,6 +389,28 @@
   // via IntersectionObserver rather than at page load — so a reader who
   // lingers on the hero above it doesn't scroll down to find it already
   // several panels in.
+  // Serving Clients Across the Globe — hovering/focusing a region row (or pin)
+  // highlights that region on the map and dims the others.
+  function initGlobalMap() {
+    var map = document.querySelector('[data-global-map]');
+    if (!map) return;
+    var layers = Array.from(map.querySelectorAll('.global-map__layer'));
+    var rows = Array.from(document.querySelectorAll('.global-region[data-region]'));
+    var pins = Array.from(map.querySelectorAll('.global-map__pin[data-region]'));
+    function set(id) {
+      map.classList.toggle('has-active', !!id);
+      layers.forEach(function (l) { l.classList.toggle('is-on', l.getAttribute('data-region') === id); });
+      rows.forEach(function (r) { r.classList.toggle('is-on', r.getAttribute('data-region') === id); });
+    }
+    rows.concat(pins).forEach(function (el) {
+      var id = el.getAttribute('data-region');
+      el.addEventListener('mouseenter', function () { set(id); });
+      el.addEventListener('mouseleave', function () { set(null); });
+      el.addEventListener('focus', function () { set(id); });
+      el.addEventListener('blur', function () { set(null); });
+    });
+  }
+
   function initIndustriesAccordion() {
     var root = document.querySelector('[data-accordion]');
     if (!root) return;
@@ -1246,6 +1268,7 @@
     initMagneticButtons();
     initTiltCards();
     initIndustriesAccordion();
+    initGlobalMap();
     initOutcomesStack();
     initCareersOpenings();
     initOutcomesScroll();

@@ -31,7 +31,7 @@
             </button>
             <div class="mega-menu">
               <div class="mega-menu__rail" role="tablist">
-                <a href="ai-solutions.html" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                <a href="ai-solutions.html" class="mega-menu__tab" data-tab="ai-solutions" role="tab" aria-selected="false">
                   <span class="mega-menu__tab-left">
                     <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" aria-hidden="true" />
                     <span class="mega-menu__tab-label">AI Solutions</span>
@@ -40,7 +40,7 @@
                     <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </a>
-                <a href="products-platform.html" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                <a href="products-platform.html" class="mega-menu__tab is-active" data-tab="products-platform" role="tab" aria-selected="true">
                   <span class="mega-menu__tab-left">
                     <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" aria-hidden="true" />
                     <span class="mega-menu__tab-label">Products and Platform</span>
@@ -70,7 +70,7 @@
                 
               </div>
               <div class="mega-menu__panels">
-                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                <div class="mega-menu__panel" data-panel="ai-solutions">
                   <div class="mega-menu__col">
                     <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
                     <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
@@ -92,20 +92,27 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="products-platform">
+                <div class="mega-menu__panel is-active" data-panel="products-platform">
                   <div class="mega-menu__col">
                     <a class="mega-menu__link" href="blue222.html">Blue 222 - Real Estate</a>
                     <a class="mega-menu__link" href="ecommerce-solution.html">eCommerce Solutions</a>
@@ -138,18 +145,12 @@
 
   <main>
     <!-- Hero (1622:28530) -->
-    <section class="rpa-hero">
-      <div class="rpa-hero__inner">
-        <div class="rpa-hero__left">
-          <nav class="rpa-hero__breadcrumb" aria-label="Breadcrumb" data-reveal>
-            <a href="index.html">Home</a>
-            <span>&gt;</span>
-            <span>What we do</span>
-            <span>&gt;</span>
-            <span class="is-current">Robotic Process Automation</span>
-          </nav>
-          <h1 class="rpa-hero__title"><span class="is-white">Transforming Businesses Through</span> <span class="is-grad">Intelligent Automation</span></h1>
-          <p class="rpa-hero__lead">MKS Vision provides end-to-end automation services across the complete automation lifecycle.</p>
+    <section class="rpa-hero hero-std hero-std--media">
+      <div class="rpa-hero__inner hero-row">
+        <div class="rpa-hero__left hero-stack">
+          <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="it-services.html">IT Services</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">RPA</span></nav>
+          <h1 class="rpa-hero__title hero-title"><span class="is-white">Transforming Businesses Through</span> <span class="is-grad">Intelligent Automation</span></h1>
+          <p class="rpa-hero__lead hero-lead">MKS Vision provides end-to-end automation services across the complete automation lifecycle.</p>
         </div>
         <div class="rpa-hero__media">
           <img src="assets/images/content/rpa-hero.png" alt="MKS Vision automation bot mascot" loading="lazy" />
@@ -394,6 +395,18 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    function fit() {
+      var w = document.documentElement.clientWidth;
+      var z = (w >= 1024 && w < 1200);
+      document.body.style.zoom = z ? (w / 1200) : '';
+      document.documentElement.style.setProperty('--half-vw', z ? '600px' : '50vw');
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 
 </html>

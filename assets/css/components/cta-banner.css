@@ -72,7 +72,7 @@
 /* Mobile (Figma node 1933:4935, 390px frame) — centered, not left-aligned,
    and the title/lead sizes already match the H3/Label tokens used here at
    every other tier, so nothing shrinks further at 479px. */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .cta-banner__inner { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
   .cta-banner__text { gap: 16px; align-items: center; }
 }

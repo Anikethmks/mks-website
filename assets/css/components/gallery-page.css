@@ -33,7 +33,12 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(34, 34, 34, 0.5);
+  /* The hero photo carries its own navy fade; this extends it under the text */
+  background: linear-gradient(90deg, rgba(10,36,64,0.8) 0%, rgba(10,36,64,0.6) 50%, rgba(10,36,64,0) 85%);
+}
+@media (max-width: 1023px) {
+  .gallery-hero__bg img { object-position: 72% center; }
+  .gallery-hero__bg::after { background: linear-gradient(90deg, rgba(10,36,64,0.85) 0%, rgba(10,36,64,0.55) 100%); }
 }
 .gallery-hero__inner {
   position: relative;
@@ -79,11 +84,11 @@
   color: var(--color-brand-pale);
 }
 .gallery-hero__lead {
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-primary);
+  font-weight: 400;
   font-size: var(--fs-hero-lead);
   line-height: var(--lh-hero-lead);
-  color: #FFFFFF;
+  color: rgba(248, 251, 255, 0.9);
   margin: 0;
 }
 
@@ -165,13 +170,23 @@
   .gallery-tiles { aspect-ratio: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .gallery-tile { position: static; width: auto; height: 220px; }
   .gallery-tile--1 { grid-column: span 2; height: 320px; }
-  .gallery-view-more { position: static; margin-top: 8px; align-self: center; }
+  .gallery-view-more { position: static; grid-column: 1 / -1; justify-self: center; margin-top: 8px; padding: 10px 24px; border-radius: 8px; font-size: 15px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .gallery-hero { height: auto; max-height: none; min-height: 489px; }
   .gallery-hero__inner { gap: 20px; }
   .gallery-grid-section { gap: 20px; }
   .gallery-tiles { grid-template-columns: 1fr; }
   .gallery-tile { height: 220px; }
   .gallery-tile--1 { grid-column: span 1; height: 240px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .gallery-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .gallery-hero { height: auto; min-height: 489px; max-height: none; }
 }

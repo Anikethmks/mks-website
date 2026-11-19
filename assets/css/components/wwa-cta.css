@@ -62,7 +62,9 @@
   box-shadow: var(--shadow-lift);
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .wwa-cta { gap: 28px; }
 }
 
@@ -70,7 +72,7 @@
   .wwa-cta { gap: 24px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .wwa-cta { gap: 20px; }
   .wwa-cta__actions { flex-wrap: wrap; gap: 16px; }
 }

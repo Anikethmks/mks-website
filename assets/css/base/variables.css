@@ -103,6 +103,8 @@
      edge lands on the same x at every breakpoint. Also rescaled below. */
   --section-py: 64px;
   --section-px: 64px;
+  --hero-top: 72px;      /* breadcrumb sits this far below the hero's top edge on every interior page */
+  --section-gap: 48px;   /* section heading block -> section content (see section-rhythm.css) */
   --hero-pt: 120px;       /* interior page heroes: breadcrumb + title */
 
   /* Horizontal padding for sections that hold their content directly (no
@@ -123,7 +125,7 @@
    * Use these exact values in every component's @media rules:
    *   Desktop  — default styles, no media query   (>= 1024px)
    *   Tablet   — @media (max-width: 1023px)        (768px – 1023px)
-   *   Mobile   — @media (max-width: 767px)         (<= 767px)
+   *   Mobile   — @media (max-width: 1023px)         (<= 1023px)
    *   (Small-phone fine-tuning only, nested inside Mobile: max-width: 479px)
    */
 
@@ -155,11 +157,13 @@
     --fs-lead: 15px;      --lh-lead: 25px;
     --section-py: 48px;
     --section-px: 24px;
+    --hero-top: 56px;
+    --section-gap: 40px;
     --hero-pt: 96px;
   }
 }
 
-@media (max-width: 767px) {            /* Mobile */
+@media (max-width: 599px) {            /* Mobile */
   :root {
     --fs-hero: 28px;      --lh-hero: 38px;
     --fs-hero-lead: 15px; --lh-hero-lead: 24px;
@@ -169,6 +173,8 @@
     --fs-lead: 15px;      --lh-lead: 24px;
     --section-py: 32px;
     --section-px: 16px;
+    --hero-top: 40px;
+    --section-gap: 32px;
     --hero-pt: 88px;
   }
 }

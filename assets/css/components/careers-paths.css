@@ -84,10 +84,13 @@
 }
 
 /* Laptop */
-@media (max-width: 1279px) {
+
+/* Tablet */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .careers-paths__col { width: 460px; }
 }
-/* Tablet */
+
 @media (max-width: 1023px) {
   .careers-paths__inner { flex-direction: column; gap: 32px; }
   .careers-paths__col { padding: 0; width: 100%; max-width: 100%; }

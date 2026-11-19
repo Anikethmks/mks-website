@@ -1,0 +1,37 @@
+/* Engineering Services — reuses the Healthcare (.healthcare-features) layout
+   as-is. Only what differs: inline-SVG icons (Healthcare paints its icons via
+   nth-child background images), an image placeholder, and an image that
+   stretches to the height of the three stacked cards. */
+.eng-hc .feature-card .feature-card__icon { background: #1F73B4; }
+.eng-hc .feature-card__icon svg { display: block; width: 24px; height: 24px; }
+
+.eng-hc .healthcare-features__image { position: relative; }
+/* Cards: two across, the third full width below (shorter column). The photo
+   keeps its own 16:9 shape so the whole picture shows, and sets the height. */
+.eng-hc .healthcare-features__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.eng-hc .healthcare-features__cards .feature-card:nth-child(3) { grid-column: 1 / -1; }
+.eng-hc .healthcare-features__image { height: auto; aspect-ratio: 16 / 9; }
+.eng-hc .healthcare-features__image img { object-fit: cover; }
+@media (min-width: 1024px) {
+  .eng-hc .healthcare-features__body { align-items: center; }
+}
+@media (max-width: 599px) {
+  .eng-hc .healthcare-features__cards { gap: 12px; }
+  .eng-hc .healthcare-features__image { aspect-ratio: 16 / 9; }
+}
+
+.eng-ph {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background:
+    linear-gradient(rgba(31,115,180,0.07) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(31,115,180,0.07) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(135deg, #EAF3FB, #D3E6F6);
+  border: 1px dashed #A9C9E6; border-radius: inherit; box-sizing: border-box;
+}
+.eng-ph span {
+  font-family: var(--font-primary); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; color: #5B87AD;
+  padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.7);
+}
+@media (max-width: 599px) {
+  .eng-hc .feature-card__icon svg { width: 20px; height: 20px; }
+}

@@ -40,7 +40,7 @@
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  color: #111827;
+  color: #020202;
 }
 
 .case-studies__lead {
@@ -380,17 +380,20 @@
   color: #020202;
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .case-studies__inner { gap: 40px; }
   .case-studies__grid { gap: 24px; }
   .case-studies-split__col { padding: 56px 48px; }
 }
+
 @media (max-width: 1023px) {
   .case-studies__grid { grid-template-columns: 1fr; }
   .case-studies-split { grid-template-columns: 1fr; }
   .case-studies-split__col { padding: 40px 24px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .case-studies__inner { gap: 32px; }
   .case-studies-split__col { padding: 32px 16px; gap: 24px; }
   .case-studies-split__col--rpa { gap: 32px; }

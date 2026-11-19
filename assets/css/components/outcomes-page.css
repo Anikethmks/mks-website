@@ -20,7 +20,7 @@
   color: #FFFFFF;
   /* Figma swapped both the photo (a target/standing-out visual) and the
      tint — a flat 25%-black scrim now, not the navy-blue diagonal wash. */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../images/content/outcomes-hero-bg-new.png');
+  background-image: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%), url('../../images/content/its-hero-bg.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -540,7 +540,8 @@
 }
 
 /* Responsive ------------------------------------------------------------- */
-@media (max-width: 1279px) {
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .op-section__split { flex-direction: column; gap: 32px; }
   .op-section__media,
   .op-panel { width: 100%; max-width: none; }
@@ -552,6 +553,7 @@
   .op-products__media,
   .op-products__text { border-radius: 8px; }
 }
+
 @media (max-width: 1023px) {
   .op-proofpoints { grid-template-columns: 1fr; }
   .op-stats-row { flex-direction: column; gap: 16px; }
@@ -560,7 +562,7 @@
   .op-products__row { flex-direction: column; }
   .op-products__divider { display: none; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .op-hero { height: auto; max-height: none; min-height: 489px; }
   .op-section { gap: 24px; }
   .op-tabs { flex-wrap: wrap; padding-inline: 12px; }
@@ -573,4 +575,54 @@
   .op-panel { align-items: stretch; }
   .op-capabilities,
   .op-stats-row { width: 100%; max-width: none; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .op-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .op-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* ---- Tablet & phone refinements (same patterns as the rest of the site) ---- */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .op-hero { background-position: 70% center; }
+  .op-proofpoints { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .op-stats-row { flex-direction: row; gap: 16px; }
+  .op-stats-banner { flex-direction: row; justify-content: space-around; gap: 16px 24px; padding: 20px 24px; }
+  .op-stats-banner__divider { display: none; }
+  .op-products__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px 24px; padding: 8px 0; }
+  .op-products__divider { display: none; }
+  .op-eng-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+  .op-service-pill { flex: 1 1 calc(33.333% - 16px); }
+}
+@media (max-width: 599px) {
+  .op-hero { padding: 48px var(--section-px); background-position: 75% center;
+    background-image: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%), url('../../images/content/its-hero-bg.png'); }
+  .op-stats-banner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 16px; }
+  .op-stats-banner__divider { display: none; }
+  .op-products__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 8px 0; }
+  .op-products__divider { display: none; }
+  .op-eng-grid { padding: 0; }
+  .op-proofpoints { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+
+/* ---- Phone fixes (599px and below) ---- */
+@media (max-width: 599px) {
+  /* AI panel: the three stats sit in one row, readable (light blue) over the dark image */
+  .op-stats-row { flex-direction: row; gap: 8px; align-items: flex-start; }
+  .op-stat { align-items: center; text-align: center; min-width: 0; }
+  .op-stat__value { font-size: 26px; line-height: 32px; color: #8ACFFF; }
+  .op-stat__label { font-size: 12px; line-height: 16px; }
+
+  /* service pills: compact two-per-row, last one centered */
+  .op-service-pills { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .op-service-pill { flex: 0 0 calc(50% - 6px); padding: 14px 8px; gap: 8px; }
+  .op-service-pill__label { font-size: 14px; line-height: 20px; text-align: center; }
+
+  /* stats banner: last (odd) item centered across both columns */
+  .op-stats-banner > .op-stats-banner__item:last-child { grid-column: 1 / -1; }
 }

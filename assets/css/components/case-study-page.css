@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Case study: Paid, Organic and AI Search Growth — "cs-" components.
+   Built on the shared vp- shell (vertical-pages.css) and the site spacing tokens.
+   ========================================================================== */
+.vp-cards--2 > .vp-card { flex: 0 0 calc((100% - 24px) / 2); }
+.cs-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.cs-kpi { display: flex; flex-direction: column; gap: 6px; padding: 24px; background: radial-gradient(160px 90px at 100% 100%, #EAF3FB 0, rgba(234,243,251,0) 70%), #fff; border: var(--card-border); border-radius: var(--card-radius); box-shadow: 0 6px 12px rgba(223,233,243,0.3); }
+.cs-kpi__value { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 48px; color: #1F73B4; }
+.cs-kpi__label { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h6); line-height: var(--lh-h6); color: #0F2A44; margin: 0; }
+.cs-kpi__desc { font-family: var(--font-primary); font-size: var(--fs-small); line-height: var(--lh-small); color: var(--color-text-muted); margin: 0; }
+.cs-glance { padding: 28px; background: #fff; border: 1px solid #E3EAF3; border-radius: 16px; box-shadow: 0 10px 30px rgba(31,115,180,0.07); display: flex; flex-direction: column; gap: 20px; }
+.cs-glance__title { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h4); line-height: var(--lh-h4); color: #0F2A44; margin: 0; }
+.cs-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; }
+.cs-fact { display: flex; flex-direction: column; gap: 6px; padding-left: 16px; border-left: 3px solid #DCE8F4; }
+.cs-fact dt { font-family: var(--font-primary); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F73B4; }
+.cs-fact dd { margin: 0; font-family: var(--font-primary); font-size: var(--fs-small); line-height: var(--lh-small); color: #1f2a37; }
+
+.cs-tablewrap { background: #fff; border: 1px solid #E3EAF3; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 12px rgba(223,233,243,0.3); }
+.cs-table { width: 100%; border-collapse: collapse; font-family: var(--font-primary); font-size: var(--fs-small); line-height: var(--lh-small); }
+.cs-table th, .cs-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-top: 1px solid #E3EAF3; color: #1f2a37; }
+.cs-table thead th { background: #F0F6FC; color: #0F2A44; font-weight: 700; border-top: 0; }
+.cs-table tbody th { font-weight: 600; color: #0F2A44; width: 26%; }
+.cs-table--audit tbody th { width: 24%; }
+.cs-table tbody strong { color: #1F73B4; }
+.cs-total th, .cs-total td { background: #F8FBFE; font-weight: 700; }
+
+.cs-stream__head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.cs-result { display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #fff; border: 1px solid #E3EAF3; border-radius: 16px; box-shadow: 0 10px 30px rgba(31,115,180,0.07); }
+.cs-result__title { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h4); line-height: var(--lh-h4); color: #0F2A44; margin: 0; }
+.cs-bars { display: flex; flex-direction: column; gap: 12px; padding: 8px 0; }
+.cs-bar { display: grid; grid-template-columns: 110px minmax(0, 1fr) 70px; align-items: center; gap: 14px; font-family: var(--font-primary); font-size: var(--fs-small); color: #0F2A44; }
+.cs-bar__track { height: 26px; border-radius: 8px; background: #EAF3FB; overflow: hidden; }
+.cs-bar__track i { display: block; height: 100%; border-radius: 8px; background: #A9CBE8; }
+.cs-bar--now .cs-bar__track i { background: linear-gradient(90deg, #2784C5, #145C93); }
+.cs-bar__value { font-weight: 700; text-align: right; }
+.cs-split { display: flex; height: 40px; border-radius: 10px; overflow: hidden; font-family: var(--font-primary); font-weight: 700; font-size: 13px; color: #fff; }
+.cs-split span { display: flex; align-items: center; padding-left: 14px; white-space: nowrap; }
+.cs-split__b2c { background: linear-gradient(90deg, #2784C5, #145C93); }
+.cs-split__b2b { background: #4D3D8A; }
+.cs-caption { margin: -8px 0 0; font-family: var(--font-primary); font-size: 12px; color: var(--color-text-muted); }
+.cs-notes { padding: 24px 28px; background: #F4F9FD; border: 1px solid #DCE8F4; border-radius: 12px; display: flex; flex-direction: column; gap: 12px; }
+.cs-notes__title { font-family: var(--font-display); font-weight: 700; font-size: 15px; line-height: 22px; color: #0F2A44; margin: 0; }
+.cs-notes__list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-primary); font-size: 13px; line-height: 20px; color: var(--color-text-muted); }
+.cs-notes__by { margin: 0; font-family: var(--font-primary); font-size: 12px; color: #6b7280; }
+
+/* Related-case-study card on the Agentic AI page */
+.cs-related { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 0; background: #fff; border: 1px solid #E3EAF3; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(31,115,180,0.07); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.cs-related:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(31,115,180,0.22); }
+.cs-related__media { position: relative; min-height: 280px; }
+.cs-related__media .vp-ph { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; border-radius: 0; border: 0; border-right: 1px dashed #A9C9E6; }
+.cs-related__body { display: flex; flex-direction: column; gap: 14px; padding: 32px; justify-content: center; }
+.cs-related__eyebrow { font-family: var(--font-primary); font-weight: var(--fw-eyebrow); font-size: var(--fs-eyebrow); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-eyebrow-blue); }
+.cs-related__title { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h3); line-height: var(--lh-h3); color: #0F2A44; margin: 0; }
+.cs-related__stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.cs-related__stat strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 34px; color: #1F73B4; }
+.cs-related__stat span { font-family: var(--font-primary); font-size: 13px; color: var(--color-text-muted); }
+.cs-related__more { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-primary); font-weight: 600; font-size: 15px; color: #1F73B4; }
+.cs-related__more svg { transition: transform 0.2s ease; }
+.cs-related:hover .cs-related__more svg { transform: translateX(4px); }
+
+@media (max-width: 1199px) {
+  .cs-kpis, .cs-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1023px) {
+  .vp-cards--2 > .vp-card { flex-basis: 100%; }
+  .cs-related { grid-template-columns: 1fr; }
+  .cs-related__media { min-height: 200px; }
+  .cs-related__media .vp-ph { border-right: 0; border-bottom: 1px dashed #A9C9E6; }
+}
+@media (max-width: 599px) {
+  .cs-kpis, .cs-facts { grid-template-columns: 1fr; }
+  .cs-kpi__value { font-size: 34px; line-height: 42px; }
+  .cs-glance, .cs-result, .cs-notes { padding: 20px; }
+  .cs-bar { grid-template-columns: 1fr 60px; row-gap: 6px; }
+  .cs-bar__label { grid-column: 1 / -1; }
+  .cs-related__body { padding: 22px; }
+  /* tables become stacked cards */
+  .cs-table thead { display: none; }
+  .cs-table, .cs-table tbody, .cs-table tr, .cs-table th, .cs-table td { display: block; width: 100%; }
+  .cs-table tbody th { width: 100%; padding: 14px 16px 4px; border-top: 1px solid #E3EAF3; background: #F8FBFE; }
+  .cs-table tr:first-child th { border-top: 0; }
+  .cs-table td { padding: 6px 16px; border-top: 0; display: flex; justify-content: space-between; gap: 16px; }
+  .cs-table td::before { content: attr(data-label); font-weight: 600; color: #0F2A44; flex: none; }
+  .cs-table--audit td { display: block; padding-bottom: 14px; }
+  .cs-table--audit td::before { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #1F73B4; margin-bottom: 2px; }
+  .cs-table td:last-child { padding-bottom: 14px; }
+}
+
+/* Photo in the related-case-study card */
+.cs-related__media .vp-ph--img { border: 0; }

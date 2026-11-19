@@ -181,7 +181,7 @@
   .testimonial-card { width: 280px; margin-left: -140px; }
 }
 /* Mobile (Figma node 1936:7659, 390px frame) */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .testimonials__header-text { gap: 8px; }
   .testimonials__wall { gap: 32px; }
   .testimonials__viewport { height: 380px; }

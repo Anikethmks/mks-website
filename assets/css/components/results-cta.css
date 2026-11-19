@@ -151,15 +151,18 @@
   color: var(--color-text-muted);
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .results-cta__inner { gap: 48px; }
 }
+
 @media (max-width: 1023px) {
   .results-cta__inner { flex-direction: column; align-items: stretch; gap: 32px; }
-  .results-cta__content { max-width: 100%; }
+  .results-cta__content { max-width: 100%; flex: 0 0 auto; }
   .results-cta__metrics { max-width: 100%; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .results-cta__inner { gap: 24px; }
   .results-cta__metrics { grid-template-columns: 1fr; gap: 16px; }
   .metric-card { padding: 20px 24px; }

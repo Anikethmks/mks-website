@@ -29,7 +29,7 @@
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  color: #0F172A;
+  color: #020202;
   margin: 0;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .careers-joinus__media {
-  flex: 0 0 626px;
+  flex: 0 1 626px; min-width: 0;
   max-width: 100%;
 }
 .careers-joinus__media img {
@@ -110,16 +110,19 @@
 }
 
 /* Laptop */
-@media (max-width: 1279px) {
+
+/* Tablet */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .careers-joinus__inner { gap: 48px; }
   .careers-joinus__media { flex: 0 0 460px; }
 }
-/* Tablet */
+
 @media (max-width: 1023px) {
   .careers-joinus__inner { flex-direction: column; gap: 40px; }
   .careers-joinus__media { flex-basis: auto; width: 100%; }
 }
 /* Mobile */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .careers-joinus__inner { gap: 32px; }
 }
