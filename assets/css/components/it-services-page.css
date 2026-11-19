@@ -26,7 +26,7 @@
 }
 .its-hero__bg { position: absolute; inset: 0; z-index: 0; }
 .its-hero__bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.its-hero__bg::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.25); }
+.its-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%); }
 .its-hero__inner {
   position: relative;
   z-index: 1;
@@ -100,9 +100,9 @@
 .its-heading-block { display: flex; flex-direction: column; gap: 16px; }
 .its-heading-block__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   color: #020202;
   margin: 0;
 }
@@ -329,7 +329,7 @@
 .its-iot { background: #FFFFFF; padding: var(--section-py) var(--section-px); }
 .its-iot__inner { max-width: var(--content-max); margin-inline: auto; display: flex; align-items: center; gap: 64px; }
 .its-iot__left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
-.its-iot__image { flex: 0 0 580px; max-width: 580px; height: 460px; object-fit: cover; border-radius: 16px; display: block; }
+.its-iot__image { flex: 0 1 580px; min-width: 0; max-width: 580px; height: 460px; object-fit: cover; border-radius: 16px; display: block; }
 
 /* RPA & Technology Modernization ----------------------------------------------- */
 .its-rpa-mod { background: #FBFEFF; padding: var(--section-py) var(--section-px); }
@@ -396,7 +396,7 @@
 }
 .its-collab-card__title { font-family: var(--font-display); font-weight: var(--fw-card-title); font-size: var(--fs-h5); color: #020202; margin: 0; line-height: var(--lh-h5); }
 .its-collab-card__desc { font-family: var(--font-primary); font-weight: 400; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--color-text-muted); margin: 0; }
-.its-collab__image { flex: 0 0 533px; max-width: 533px; height: 399px; object-fit: cover; border-radius: 16px; display: block; }
+.its-collab__image { flex: 0 1 533px; min-width: 0; max-width: 533px; height: 399px; object-fit: cover; border-radius: 16px; display: block; }
 
 /* Cloud pull-quote --------------------------------------------------------- */
 .its-cloud__quote {
@@ -449,7 +449,7 @@
 }
 .its-split__inner--single { display: block; }
 .its-split__image {
-  flex: 0 0 440px;
+  flex: 0 1 440px; min-width: 0;
   width: 440px;
   height: 376px;
   object-fit: cover;
@@ -544,24 +544,19 @@
    ~224px total — each stat card down to ~100px, breaking mid-word.
    Scoped 1px past the shared ≤1023 stack breakpoint below so only this
    section stacks early; other its-cta rules there still apply at ≤1023. */
-@media (max-width: 1024px) {
-  .its-cta__inner { flex-direction: column; align-items: stretch; }
-  .its-cta__left { flex-basis: auto; max-width: 100%; }
-}
 
 /* Responsive ---------------------------------------------------------------------- */
-@media (max-width: 1279px) {
-  .its-service-grid { grid-template-columns: 1fr; }
-}
+
 /* .its-mobile specifically stacks 1px earlier than the rest of this tier:
    at exactly 1024px the left/right columns still sit side by side, which
    squeezes .its-mobile__right's 2-col tile grid down to ~160px per tile —
    too tight to fit a logo pair on one line without overflowing. Full width
    at this pinch point (matching the ≤1023 stack below) fixes it. */
-@media (max-width: 1024px) {
-  .its-mobile__inner { flex-direction: column; }
-  .its-mobile__left, .its-mobile__right { flex-basis: auto; width: 100%; }
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
+  .its-service-grid { grid-template-columns: 1fr; }
 }
+
 @media (max-width: 1023px) {
 
   .its-fin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
@@ -591,8 +586,8 @@
   .its-cta__inner { flex-direction: column; align-items: stretch; }
   .its-cta__left { flex-basis: auto; max-width: 100%; }
 }
-@media (max-width: 767px) {
-  .its-heading-block__title { font-size: 28px; line-height: 36px; }
+@media (max-width: 599px) {
+  .its-heading-block__title { font-size: var(--fs-h2); line-height: var(--lh-h2); }
   .its-fin-grid { grid-template-columns: 1fr; }
   .its-hero { height: auto; max-height: none; min-height: 520px; }
   .its-subnav { padding: 12px 16px 0; gap: 8px; top: 0; }
@@ -612,4 +607,49 @@
   .its-rpa-grid, .its-cta__stats, .its-managed__grid { grid-template-columns: 1fr; }
   .its-stats-row { flex-direction: column; }
   .its-cta__buttons { flex-direction: column; align-items: stretch; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .its-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Tablet: compact card grids; heading/copy first, cards after */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .its-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .its-service-card, .its-rpa-card, .its-cloud-card { padding: 16px 18px; gap: 6px; }
+  .its-cloud__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .its-managed__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .its-managed__right { order: -1; }
+  .its-split__inner > .its-split__grid { order: 2; }
+}
+@media (max-width: 599px) {
+  .its-managed__right { order: -1; }
+  .its-split__inner > .its-split__grid { order: 2; }
+  .its-service-card, .its-rpa-card, .its-cloud-card { padding: 14px 16px; gap: 6px; }
+}
+
+/* Technology Modernisation cards: compact on tablet, three across */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .its-mod-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .its-mod-card { padding: 16px 18px; gap: 6px; }
+}
+@media (max-width: 599px) {
+  .its-mod-card { padding: 14px 16px; gap: 6px; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .its-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Phone: three compact stat boxes side by side instead of three tall stacked cards */
+@media (max-width: 599px) {
+  .its-stats-row { flex-direction: row; gap: 8px; }
+  .its-stat-box { min-width: 0; padding: 12px 10px; gap: 4px; }
+  .its-stat-box__value { font-size: 20px; line-height: 26px; }
+  .its-stat-box__label { font-size: 11px; line-height: 15px; }
+  /* hero: image anchored right, stronger overlay for readable text */
+  .its-hero__bg img { object-position: 70% center; }
+  .its-hero { padding: 48px var(--section-px); }
 }

@@ -52,7 +52,7 @@
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  color: #11162A;
+  color: #020202;
   margin: 0;
 }
 
@@ -102,7 +102,7 @@
      margin below. */
   flex: 0 0 calc(100% - 900px);
   min-width: 200px;
-  margin-right: calc(50% - 50vw);
+  margin-right: calc(50% - var(--half-vw, 50vw));
   align-self: stretch;
   border-radius: 16px;
   object-fit: cover;
@@ -111,6 +111,6 @@
   .retail-payments__inner { flex-direction: column; }
   .retail-payments__img { flex: none; margin-right: 0; width: 100%; max-width: 100%; align-self: auto; aspect-ratio: 16/9; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-payments__label { width: 100%; }
 }

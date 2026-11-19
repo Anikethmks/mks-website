@@ -9,7 +9,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: var(--hero-pt) var(--section-px-fluid) var(--section-py);
+  padding: 0 var(--section-px-fluid);
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
   gap: 56px;
   background: linear-gradient(-62deg, #2784C5 17%, #145C93 100%);
   color: #FFFFFF;
@@ -65,7 +68,7 @@
 .seoa-btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 24px; border-radius: 6px;
-  font-family: var(--font-primary); font-weight: 600; font-size: 15px; line-height: 22px;
+  font-family: var(--font-primary); font-weight: 600; font-size: 14px; line-height: 20px;
   text-decoration: none; white-space: nowrap;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
@@ -330,7 +333,8 @@
 .seoa-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
 
 /* Responsive --------------------------------------------------------------- */
-@media (max-width: 1279px) {
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .seoa-services__grid, .seoa-advanced__grid, .seoa-projects__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .seoa-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .seoa-stack, .seoa-standards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -338,8 +342,9 @@
   .seoa-projects__grid > .seoa-project-card:last-child { grid-column: span 2; }
   .seoa-projects__grid > .seoa-project-card:last-child .seoa-project-card__media { aspect-ratio: 21 / 8; }
 }
+
 @media (max-width: 1023px) {
-  .seoa-hero { flex-direction: column; align-items: stretch; }
+  .seoa-hero { flex-direction: column; align-items: stretch; height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
   .seoa-hero__content { flex: none; }
   .seoa-hero__float--top { left: 12px; }
   .seoa-hero__float--bottom { right: 12px; }
@@ -353,7 +358,7 @@
   .seoa-platforms__panels { padding: 32px; }
   .seoa-cta__inner { flex-direction: column; align-items: flex-start; padding: 32px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .seoa-services__grid, .seoa-advanced__grid, .seoa-projects__grid, .seoa-steps { grid-template-columns: 1fr; }
   .seoa-solution-group { padding: 24px; }
   .seoa-solution-group__list { grid-template-columns: 1fr; }
@@ -368,4 +373,38 @@
   .seoa-hero__float--bottom { display: none; }
   .seoa-cta__inner { padding: 24px; }
   .seoa-btn { white-space: normal; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .seoa-hero { flex-direction: row; align-items: center; gap: 24px; height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+  .seoa-hero__content { flex: 1 1 0; }
+  .seoa-hero__media { flex: 1 1 0; }
+  .seoa-hero__float { font-size: 11px; line-height: 14px; padding: 6px 10px; gap: 6px; }
+  .seoa-hero__float svg { width: 14px; height: 14px; }
+  .seo-visual .seoa-hero__float--top { top: 10px; left: 8px; }
+  .seo-visual .seoa-hero__float--bottom { bottom: 10px; right: 8px; }
+}
+
+/* Tablet: compact hero so all content fits the fixed hero height */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .seoa-hero__content { gap: 14px; flex: 1.25 1 0; }
+  .seoa-hero__title { font-size: 28px; line-height: 36px; }
+  .seoa-hero__lead { font-size: 14px; line-height: 22px; }
+  .seoa-hero__chips { gap: 6px; }
+  .seoa-hero__chips li { font-size: 12px; line-height: 16px; padding: 4px 10px; }
+}
+
+/* Tablet: hero visual same height as the eCommerce page so both heroes match */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .seoa-hero__title { font-size: 28px !important; line-height: 36px !important; }
+  .seoa-hero .seo-visual__body { padding: 16px; gap: 12px; }
+  .seoa-hero .seo-visual__chart { height: 110px; }
+  .seoa-hero .seo-visual__tile { font-size: 11px; padding: 8px; gap: 4px; }
+  .seoa-hero .seo-visual__up { width: 14px; height: 14px; background-size: 8px; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .seoa-hero { height: auto; min-height: 489px; max-height: none; }
 }

@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Interior-page hero — ONE standard for every page, taken from the
+   Who We Are / Industries / Capabilities / Careers heroes.
+
+   Pages mark their hero .hero-std; the text column(s) .hero-stack; and the
+   breadcrumb / h1 / subtitle .hero-breadcrumb / .hero-title / .hero-lead.
+   Loaded last so it wins over per-page CSS.
+
+   - The text block is vertically CENTRED in the hero (as on the four
+     reference pages), not pinned to the top.
+   - Gaps:  breadcrumb -> title, title -> subtitle
+            desktop 32 / 24   tablet 24 / 20   mobile 20 / 16
+   - Height: desktop calc(100vh - 92px) clamped 460-575px; tablet 600-1023px
+     calc(100vh - 92px) clamped 400-500px; mobile min 489px.
+   - Heroes that stack a picture under the text on small screens
+     (.hero-std--media) keep their own padding and grow with the picture.
+   ========================================================================== */
+
+:root { --hero-gap-1: 32px; --hero-gap-2: 24px; }
+@media (max-width: 1023px) { :root { --hero-gap-1: 24px; --hero-gap-2: 20px; } }
+@media (max-width: 599px)  { :root { --hero-gap-1: 20px; --hero-gap-2: 16px; } }
+
+.hero-std {
+  box-sizing: border-box;
+  position: relative;
+  height: calc(100vh - 92px);
+  min-height: 460px;
+  max-height: 575px;
+}
+
+/* Text column(s): breadcrumb, title and subtitle stack with fixed margins */
+.hero-std .hero-stack {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  gap: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;
+}
+
+.hero-std .hero-breadcrumb {
+  --bc: rgba(255, 255, 255, 0.75);
+  --bc-on: #FFFFFF;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 9px;
+  margin: 0 0 var(--hero-gap-1); padding: 0;
+  font-family: var(--font-primary);
+}
+.hero-std--light .hero-breadcrumb { --bc: #58595B; --bc-on: #020202; }
+.hero-breadcrumb a { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: var(--bc); text-decoration: none; transition: color 0.2s ease; }
+.hero-breadcrumb a:hover { color: var(--bc-on); }
+.hero-breadcrumb [aria-current] { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.3px; color: var(--bc-on); }
+.hero-breadcrumb svg { flex: none; color: var(--bc); opacity: 0.8; }
+
+.hero-std .hero-title { margin: 0 0 var(--hero-gap-2); }
+.hero-std .hero-title:last-child { margin-bottom: 0; }
+.hero-std .hero-lead { margin: 0; }
+.hero-std .hero-lead + * { margin-top: 32px; }
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .hero-std { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; }
+  .hero-std:not(.hero-std--media) { padding-block: 0; }
+}
+/* Pages that stack a picture under the text */
+@media (max-width: 1023px) {
+  .hero-std.hero-std--media { height: auto; max-height: none; min-height: 400px; }
+}
+/* Phone */
+@media (max-width: 599px) {
+  .hero-std { height: auto; max-height: none; min-height: 489px; }
+}
+
+/* Per-family corrections */
+.hc-hero.hero-std { padding-inline: var(--section-px); }
+.hc-hero.hero-std .hc-hero__inner { padding-inline: 0; }
+.rpasc-hero.hero-std .rpasc-hero__content,
+.si-hero.hero-std .si-hero__content { transform: none; }
+.rpa-hero.hero-std .rpa-hero__inner { height: auto; min-height: 0; max-height: none; }
+@media (max-width: 599px) {
+  .privacy-hero.hero-std, .sitemap-hero.hero-std { padding-inline: var(--section-px); }
+}
+/* Sitemap hero: text starts on the same content edge as every other page (it was pinned to the viewport edge on wide screens) */
+.sitemap-hero.hero-std { padding-inline: var(--section-px-fluid); }

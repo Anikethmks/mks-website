@@ -104,7 +104,7 @@
   .fsv2-case-body { grid-template-columns: 1fr; padding: 32px; }
   .fsv2-case-foot, .fsv2-more-inner { padding-left: 24px; padding-right: 24px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .fsv2-areas, .fsv2-shared ul { grid-template-columns: 1fr; }
   .fsv2-case-foot { flex-direction: column; align-items: flex-start; }
 }

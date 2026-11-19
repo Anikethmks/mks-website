@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Section rhythm — ONE spacing standard for every page.
+
+   --section-py   top/bottom padding of a content section   64 / 48 / 32px
+   --section-gap  heading block -> section content          48 / 40 / 32px
+                  (desktop / tablet <=1023 / mobile <=599; set in
+                  base/variables.css)
+
+   Imported last so it wins over each page's own component CSS. A section's
+   heading block is the first child of the containers below, so setting the
+   container's row-gap sets the heading -> content distance (and the spacing
+   between the content blocks that follow, keeping the column even).
+   Not covered on purpose: gaps INSIDE a heading block (title -> lead), the
+   side-by-side split sections, hero bands and the slim stat/CTA strips.
+   ========================================================================== */
+
+.industries__inner,
+.outcomes__inner,
+.trust-stats__left,
+.global-reach__inner,
+.healthcare-features__inner,
+.fintech-features__inner,
+.b222-intro__inner,
+.b222-value__inner,
+.careers-benefits__inner,
+.careers-testimonials__inner,
+.engsvc-engage__inner,
+.engsvc-deepdive__inner,
+.fin-case__inner,
+.fin-sectors__inner,
+.gallery-grid-section,
+.hc-services__inner,
+.hc-diff__inner,
+.hc-impact__inner,
+.industries-case-section__inner,
+.industries-projects__header,
+.its-software__inner,
+.its-cloud__right,
+.its-rpa-mod__col,
+.its-managed__right,
+.its-iot__left,
+.its-collab__inner,
+.retail-platforms__inner,
+.retail-stack__content,
+.retail-payments__content,
+.retail-sync__inner,
+.retail-engagement__content,
+.rpasc-overview__inner,
+.rpasc-challenge__inner,
+.rpasc-solution__inner,
+.rpasc-objective__inner,
+.rpasc-impact__inner,
+.si-overview__inner,
+.si-challenge__inner,
+.si-objective__inner,
+.si-solution__inner,
+.si-impact__inner,
+.rpa-capabilities__inner,
+.rpa-platforms__inner,
+.wwa-vision__inner,
+.wwa-ethics,
+.op-narrative,
+.agentic-overview,
+.agentic-challenge,
+.agentic-objective,
+.agentic-solution__inner,
+.agentic-impact__inner,
+.pva-overview,
+.pva-challenge,
+.pva-objective,
+.pva-solution__inner,
+.pva-impact__inner,
+.voice-overview,
+.voice-challenge,
+.voice-objective,
+.voice-solution__inner,
+.voice-impact__inner,
+.docai-overview,
+.docai-challenge,
+.docai-objective,
+.docai-solution__inner,
+.docai-impact__inner,
+.ais-grid__inner,
+.pp-grid__inner,
+.case-studies__inner,
+.capabilities-trust__inner,
+.retail1-section__inner,
+.seoa-section__inner { row-gap: var(--section-gap); }
+
+/* Headings that carry a rule underneath: text -> rule is half the gap, rule -> content is the other half. */
+.retail1-split-header, .seoa-split-header { padding-bottom: calc(var(--section-gap) / 2); margin-bottom: calc(var(--section-gap) / -2); }
+
+/* Header with a bottom margin instead of a row-gap */
+.industries-automotive__header { margin-bottom: var(--section-gap); }
+
+/* Section padding outliers -> the shared token */
+.b222-value { padding-block: var(--section-py); }
+.cta-banner { padding-block: var(--section-py); }
+.industries-case-section, .industries-automotive, .sitemap-grid { padding-block: var(--section-py); }

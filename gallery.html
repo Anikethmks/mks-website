@@ -92,17 +92,24 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
                 <div class="mega-menu__panel" data-panel="products-platform">
@@ -138,19 +145,15 @@
 
   <main>
     <!-- Hero (907:5263) -->
-    <section class="gallery-hero">
+    <section class="gallery-hero hero-std">
       <div class="gallery-hero__bg">
-        <img src="assets/images/content/gallery-hero-bg.png" alt="" />
+        <img src="assets/images/content/gallery-hero.jpg" alt="" style="object-position: center 82%;" />
       </div>
-      <div class="gallery-hero__inner">
-        <nav class="gallery-hero__breadcrumb" aria-label="Breadcrumb" data-reveal>
-          <a href="index.html">Home</a>
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <a href="careers.html">Careers</a>
-        </nav>
-        <div class="gallery-hero__text">
-          <h1 class="gallery-hero__title">Empowering Business Through Technology</h1>
-          <p class="gallery-hero__lead">We deliver innovative IT solutions that drive growth, streamline operations, and transform the way businesses connect with the digital world.</p>
+      <div class="gallery-hero__inner hero-stack">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">Gallery</span></nav>
+        <div class="gallery-hero__text hero-stack">
+          <h1 class="gallery-hero__title hero-title">Moments That Define MKS Vision</h1>
+          <p class="gallery-hero__lead hero-lead">A glimpse into our team, celebrations, learning and milestones - the people and moments behind the technology.</p>
         </div>
       </div>
     </section>
@@ -180,7 +183,7 @@
         <div class="gallery-tile gallery-tile--7" data-reveal="zoom" style="--reveal-delay: 0.36s">
           <img src="assets/images/content/gallery-tile-07.png" alt="Team members posing together at a company event" loading="lazy" />
         </div>
-        <a href="careers.html" class="gallery-view-more">
+        <a href="gallery-all.html" class="gallery-view-more">
           <span>View more</span>
           <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
         </a>
@@ -215,6 +218,18 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    function fit() {
+      var w = document.documentElement.clientWidth;
+      var z = (w >= 1024 && w < 1200);
+      document.body.style.zoom = z ? (w / 1200) : '';
+      document.documentElement.style.setProperty('--half-vw', z ? '600px' : '50vw');
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 
 </html>

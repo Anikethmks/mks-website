@@ -108,11 +108,14 @@
   color: var(--color-brand);
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .agentic-impact__grid { flex-wrap: wrap; }
   .agentic-impact-card { flex-basis: calc(50% - 8px); }
 }
-@media (max-width: 767px) {
+
+@media (max-width: 599px) {
   .agentic-impact__inner { gap: 32px; }
   .agentic-impact-card { flex-basis: 100%; }
   .agentic-impact__tags { gap: 12px 8px; }

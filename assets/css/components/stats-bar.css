@@ -54,20 +54,26 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .stats-bar__item { width: 180px; }
 }
+
 @media (max-width: 1023px) {
   .stats-bar__inner { flex-wrap: wrap; gap: 24px; justify-content: center; }
   .stats-bar__divider { display: none; }
   .stats-bar__item { width: auto; flex: 1 1 30%; }
   .stats-bar__number { font-size: 32px; line-height: 40px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .stats-bar__inner { gap: 20px; }
   .stats-bar__item { flex: 1 1 45%; }
   .stats-bar__number { font-size: 28px; line-height: 36px; }
 }
 @media (max-width: 479px) {
-  .stats-bar__item { flex: 1 1 100%; }
+  .stats-bar__inner { gap: 20px 12px; }
+  .stats-bar__item { flex: 0 0 calc(50% - 6px); min-width: 0; }
+  .stats-bar__number { font-size: 24px; line-height: 32px; }
+  .stats-bar__label { font-size: 13px; line-height: 18px; }
 }

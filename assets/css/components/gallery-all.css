@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Gallery - All Photos page (life at MKS Vision)
+   Hero reuses .gallery-hero from gallery-page.css.
+   ========================================================================== */
+
+.gallery-all { padding: var(--section-py) var(--section-px); background: #FFFFFF; }
+.gallery-all__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 32px; }
+.gallery-all [hidden] { display: none !important; }
+
+/* Category filter chips */
+.gallery-all__filters { display: flex; flex-wrap: wrap; gap: 10px; }
+.gallery-all__chip {
+  font-family: var(--font-primary); font-weight: 500; font-size: 14px; line-height: 20px;
+  padding: 8px 18px; border-radius: 999px; cursor: pointer;
+  background: #F4F8FB; color: #3D3D3D; border: 1px solid #E3EAF3;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.gallery-all__chip:hover { background: #EAF4FB; border-color: #BFD9EC; }
+.gallery-all__chip:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+.gallery-all__chip.is-active { background: var(--color-brand); border-color: var(--color-brand); color: #FFFFFF; font-weight: 600; }
+
+.gallery-all__empty { margin: 0; text-align: center; font-family: var(--font-primary); font-size: 16px; color: var(--color-text-muted); padding: 48px 0; }
+
+/* Masonry-style grid: photos keep their own proportions */
+.gallery-all__grid { column-count: 3; column-gap: 20px; }
+.gallery-all__item { margin: 0 0 20px; break-inside: avoid; }
+.gallery-all__open {
+  position: relative; display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in;
+  background: #EAF4FB; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+.gallery-all__open img { display: block; width: 100%; height: auto; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.gallery-all__item--tall img { aspect-ratio: 4 / 5; object-fit: cover; }
+.gallery-all__item--wide img { aspect-ratio: 16 / 10; object-fit: cover; }
+.gallery-all__open:hover img { transform: scale(1.04); }
+.gallery-all__open:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
+.gallery-all__open figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 28px 16px 14px; text-align: left;
+  background: linear-gradient(180deg, rgba(11, 52, 84, 0) 0%, rgba(11, 52, 84, 0.78) 100%);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.gallery-all__open figcaption span { font-family: var(--font-primary); font-weight: 600; font-size: 14px; color: #FFFFFF; }
+.gallery-all__open:hover figcaption, .gallery-all__open:focus-visible figcaption { opacity: 1; }
+
+.gallery-all__back {
+  align-self: center; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: 8px; background: #ECF7FF; text-decoration: none;
+  font-family: var(--font-primary); font-weight: 600; font-size: 15px; color: var(--color-brand);
+}
+.gallery-all__back svg { width: 18px; height: 18px; color: #145C93; }
+.gallery-all__back:hover { background: #DDEFFC; }
+
+/* Lightbox */
+.gallery-lightbox {
+  position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+  background: rgba(5, 18, 30, 0.92); padding: 24px;
+}
+.gallery-lightbox[hidden] { display: none; }
+.gallery-lightbox__figure { margin: 0; max-width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.gallery-lightbox__figure img { max-width: 100%; max-height: calc(100vh - 120px); object-fit: contain; border-radius: 8px; }
+.gallery-lightbox__figure figcaption { font-family: var(--font-primary); font-size: 15px; color: #FFFFFF; text-align: center; }
+.gallery-lightbox__close, .gallery-lightbox__nav {
+  position: absolute; width: 44px; height: 44px; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(255, 255, 255, 0.14); color: #FFFFFF; font-size: 28px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-lightbox__close:hover, .gallery-lightbox__nav:hover { background: rgba(255, 255, 255, 0.28); }
+.gallery-lightbox__close { top: 16px; right: 16px; }
+.gallery-lightbox__nav { top: 50%; transform: translateY(-50%); }
+.gallery-lightbox__nav--prev { left: 16px; }
+.gallery-lightbox__nav--next { right: 16px; }
+
+@media (max-width: 1023px) {
+  .gallery-all__grid { column-count: 2; column-gap: 16px; }
+  .gallery-all__item { margin-bottom: 16px; }
+}
+@media (max-width: 599px) {
+  .gallery-all__inner { gap: 24px; }
+  /* chips: one swipeable row instead of wrapping over several lines */
+  .gallery-all__filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--section-px)); padding: 0 var(--section-px) 8px; scrollbar-width: thin; }
+  .gallery-all__chip { flex: 0 0 auto; }
+  .gallery-all__grid { column-count: 1; }
+  .gallery-all__open figcaption { opacity: 1; }
+  .gallery-lightbox { padding: 12px; }
+  .gallery-lightbox__nav { top: auto; bottom: 16px; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .gallery-all__open img { transition: none; } }
+
+.gallery-all__more {
+  align-self: center; padding: 12px 32px; border-radius: 8px; cursor: pointer; border: 1px solid var(--color-brand);
+  background: #FFFFFF; color: var(--color-brand); font-family: var(--font-primary); font-weight: 600; font-size: 15px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gallery-all__more:hover { background: var(--color-brand); color: #FFFFFF; }
+.gallery-all__more:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+/* Breadcrumb: current page label in white, like the other pages */
+.gallery-hero__breadcrumb [aria-current] { font-family: var(--font-primary); font-weight: 600; font-size: 16px; line-height: 24px; color: #FFFFFF; }

@@ -31,7 +31,7 @@
             </button>
             <div class="mega-menu">
               <div class="mega-menu__rail" role="tablist">
-                <a href="ai-solutions.html" class="mega-menu__tab is-active" data-tab="ai-solutions" role="tab" aria-selected="true">
+                <a href="ai-solutions.html" class="mega-menu__tab" data-tab="ai-solutions" role="tab" aria-selected="false">
                   <span class="mega-menu__tab-left">
                     <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-ai-automation.svg" alt="" aria-hidden="true" />
                     <span class="mega-menu__tab-label">AI Solutions</span>
@@ -40,7 +40,7 @@
                     <svg viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="#145C93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </a>
-                <a href="products-platform.html" class="mega-menu__tab" data-tab="products-platform" role="tab" aria-selected="false">
+                <a href="products-platform.html" class="mega-menu__tab is-active" data-tab="products-platform" role="tab" aria-selected="true">
                   <span class="mega-menu__tab-left">
                     <img class="mega-menu__tab-icon" src="assets/images/icons/menu-icon-managed-services.svg" alt="" aria-hidden="true" />
                     <span class="mega-menu__tab-label">Products and Platform</span>
@@ -70,7 +70,7 @@
                 
               </div>
               <div class="mega-menu__panels">
-                <div class="mega-menu__panel is-active" data-panel="ai-solutions">
+                <div class="mega-menu__panel" data-panel="ai-solutions">
                   <div class="mega-menu__col">
                     <a class="mega-menu__link" href="physical-vision-ai.html">Physical &amp; Vision AI</a>
                     <a class="mega-menu__link" href="agentic-ai-development.html">Agentic AI</a>
@@ -92,20 +92,27 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="products-platform">
+                <div class="mega-menu__panel is-active" data-panel="products-platform">
                   <div class="mega-menu__col">
                     <a class="mega-menu__link" href="blue222.html">Blue 222 - Real Estate</a>
                     <a class="mega-menu__link" href="ecommerce-solution.html">eCommerce Solutions</a>
@@ -138,22 +145,11 @@
 
   <main>
     <!-- Hero -->
-    <section class="retail1-hero">
-      <div class="retail1-hero__content">
-        <nav class="retail1-breadcrumb" aria-label="Breadcrumb" data-reveal>
-          <a href="index.html">Home</a>
-          <span aria-hidden="true"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span aria-current="page">eCommerce Solutions</span>
-        </nav>
-        <h1 class="retail1-hero__title" data-reveal>Ecommerce that sells — on systems that keep up</h1>
-        <p class="retail1-hero__lead" data-reveal style="--reveal-delay: 0.1s">MKS designs, builds, and runs ecommerce platforms that are fast, intuitive, and built to scale — connecting your storefront to inventory, orders, payments, and ERP so every visit has a better chance of becoming a sale.</p>
-        <div class="retail1-hero__actions" data-reveal style="--reveal-delay: 0.18s">
-          <a href="contact.html" class="retail1-btn retail1-btn--light">
-            Talk to an ecommerce expert
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
-          </a>
-          <a href="#services" class="retail1-btn retail1-btn--ghost">Explore our services</a>
-        </div>
+    <section class="retail1-hero hero-std hero-std--media">
+      <div class="retail1-hero__content hero-stack">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="products-platform.html">Products and Platform</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">eCommerce Solutions</span></nav>
+        <h1 class="retail1-hero__title hero-title" data-reveal>Ecommerce that sells — on systems that keep up</h1>
+        <p class="retail1-hero__lead hero-lead" data-reveal style="--reveal-delay: 0.1s">MKS designs, builds, and runs ecommerce platforms that are fast, intuitive, and built to scale — connecting your storefront to inventory, orders, payments, and ERP so every visit has a better chance of becoming a sale.</p>
         <ul class="retail1-hero__chips" aria-label="Platforms we work with" data-reveal style="--reveal-delay: 0.26s">
           <li>Shopify</li>
           <li>BigCommerce</li>
@@ -730,108 +726,6 @@
         <p class="retail1-standards__note" data-reveal>Compliance certifications such as PCI DSS are assessed for each merchant. We build and document your platform so those assessments are as simple as possible.</p>
       </div>
     </section>
-
-    <!-- Technologies we use for ecommerce development -->
-    <section class="retail1-section retail1-section--tint" id="tech-stack">
-      <div class="retail1-section__inner">
-        <div class="retail1-split-header" data-reveal>
-          <div class="retail1-split-header__main">
-            <p class="retail1-section__eyebrow">Our stack</p>
-            <h2 class="retail1-section__title">The technology behind the stores we build</h2>
-          </div>
-          <div class="retail1-split-header__aside">
-            <p class="retail1-section__lead">A modern, proven toolset across every layer of commerce. We choose the right tools for your platform, scale, and team, never a one-size-fits-all stack.</p>
-          </div>
-        </div>
-        <div class="retail1-stack">
-          <article class="retail1-stack-card retail1-stack-card--feature" data-reveal="zoom" style="--reveal-delay: 0s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Storefront &amp; frontend</h3>
-                <p class="retail1-stack-card__desc">Fast, SEO-friendly shopping experiences with server-side rendering and edge delivery.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>React</li><li>Next.js</li><li>Vue.js / Nuxt</li><li>Angular</li><li>TypeScript</li><li>Shopify Hydrogen</li><li>Tailwind CSS</li><li>PWA</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.06s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Backend &amp; APIs</h3>
-                <p class="retail1-stack-card__desc">Scalable services and integrations.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>Node.js</li><li>PHP</li><li>Java</li><li>Python</li><li>.NET</li><li>GraphQL</li><li>REST</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.12s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Mobile commerce</h3>
-                <p class="retail1-stack-card__desc">Native and cross-platform shopping apps.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>Swift</li><li>Kotlin</li><li>React Native</li><li>Flutter</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.18s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Payments &amp; commerce services</h3>
-                <p class="retail1-stack-card__desc">Checkout, search, content, and messaging.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>Stripe</li><li>PayPal</li><li>Adyen</li><li>Algolia</li><li>Contentful</li><li>Klaviyo</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.24s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Cloud &amp; DevOps</h3>
-                <p class="retail1-stack-card__desc">Elastic hosting built for peak season.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>AWS</li><li>Microsoft Azure</li><li>Google Cloud</li><li>Cloudflare</li><li>Vercel</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.3s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Data, ERP &amp; analytics</h3>
-                <p class="retail1-stack-card__desc">One view of customers, stock, and sales.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>Microsoft Dynamics 365</li><li>SAP S/4HANA</li><li>Salesforce CRM</li><li>Google Analytics 4</li><li>Power BI</li><li>Tableau</li>
-            </ul>
-          </article>
-          <article class="retail1-stack-card" data-reveal="zoom" style="--reveal-delay: 0.36s">
-            <div class="retail1-stack-card__head">
-              <span class="retail1-stack-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <div>
-                <h3 class="retail1-stack-card__title">Quality &amp; performance</h3>
-                <p class="retail1-stack-card__desc">Automated testing on every release.</p>
-              </div>
-            </div>
-            <ul class="retail1-stack-card__tags">
-              <li>Playwright</li><li>Cypress</li><li>Jest</li><li>Lighthouse</li><li>k6 load testing</li><li>axe accessibility</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Closing CTA -->
     <section class="retail1-cta">
       <div class="retail1-cta__inner" data-reveal>
@@ -878,6 +772,18 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    function fit() {
+      var w = document.documentElement.clientWidth;
+      var z = (w >= 1024 && w < 1200);
+      document.body.style.zoom = z ? (w / 1200) : '';
+      document.documentElement.style.setProperty('--half-vw', z ? '600px' : '50vw');
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 
 </html>

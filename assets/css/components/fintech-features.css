@@ -110,7 +110,7 @@
 
 .fintech-features__services {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -191,23 +191,22 @@
 
 @media (max-width: 1023px) {
   .fintech-features__body { grid-template-columns: 1fr; gap: 32px; }
-  .fintech-features__services { grid-template-columns: repeat(2, 1fr); }
+  .fintech-features__services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fintech-features__footer { flex-wrap: wrap; }
 }
 /* Mobile (Figma node 1936:7795, 390px frame) — services stay a 3-column
    grid (not stacked to 1), each card center-aligned instead of
    left-aligned, and the footer tags stack vertically instead of wrapping
    in a centered row. */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .fintech-features__inner { gap: 32px; }
   .fintech-features__header { gap: 24px; }
   .fintech-features__titles { gap: 12px; }
-  .fintech-features__title { font-weight: 600; }
   .fintech-features__body { gap: 32px; }
-  .fintech-features__services { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .fintech-service { padding: 8px; gap: 16px; align-items: center; text-align: center; }
+  .fintech-features__services { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .fintech-service { padding: 12px 8px; gap: 12px; align-items: center; text-align: center; min-width: 0; overflow-wrap: anywhere; }
   .fintech-service__icon { width: 32px; height: 32px; padding: 4px; border-radius: 4px; }
   .fintech-service__body { align-items: center; gap: 6px; }
-  .fintech-features__footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .fintech-features__footer { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 8px; }
   .fintech-features__image { height: auto; aspect-ratio: 497 / 425; }
 }

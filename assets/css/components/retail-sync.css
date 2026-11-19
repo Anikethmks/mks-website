@@ -41,7 +41,7 @@
   font-weight: var(--fw-h2);
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  color: #11162A;
+  color: #020202;
   margin: 0;
 }
 .retail-sync__title em {
@@ -161,6 +161,6 @@
   .retail-sync__features { flex-wrap: wrap; }
   .retail-sync__feature { min-width: 220px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .retail-sync__diagram { padding: 24px; }
 }

@@ -92,17 +92,24 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
                 <div class="mega-menu__panel" data-panel="products-platform">
@@ -138,17 +145,12 @@
 
   <main>
     <!-- Capabilities hero (572:6408) -->
-    <section class="capabilities-hero">
-      <div class="capabilities-hero__inner">
-        <div class="capabilities-hero__breadcrumb" data-reveal>
-          <a href="index.html">Home</a>
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span aria-current="page">Capabilities</span>
-        </div>
-        <div class="capabilities-hero__content" data-reveal>
-          <span class="capabilities-hero__eyebrow">Capabilities</span>
-          <h1 class="capabilities-hero__title">Real Results. Proven<br />Impact.</h1>
-          <p class="capabilities-hero__lead">AI Solutions, Robotic Process Automation, and Engineering<br />platforms proven outcomes across industries.</p>
+    <section class="capabilities-hero hero-std">
+      <div class="capabilities-hero__inner hero-stack">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">Capabilities</span></nav>
+        <div class="capabilities-hero__content hero-stack" data-reveal>
+          <h1 class="capabilities-hero__title hero-title">Real Results. Proven<br />Impact.</h1>
+          <p class="capabilities-hero__lead hero-lead">AI Solutions, Robotic Process Automation, and Engineering<br />platforms proven outcomes across industries.</p>
         </div>
       </div>
     </section>
@@ -284,7 +286,8 @@
         </article>
 
         <article class="case-study-card" id="case-fintech" data-reveal="zoom" style="--reveal-delay: 0.32s">
-          <div class="case-study-card__media" style="background: linear-gradient(135deg, #E2E8F0, #CBD5E1);">
+          <div class="case-study-card__media">
+            <img src="assets/images/content/capabilities-case-point-of-sale.jpg" alt="Customer holding a phone and a payment card to complete a purchase" loading="lazy" />
             <div class="case-study-card__overlay">
               <span class="case-study-card__eyebrow-row"><span>CONSUMER LENDING &amp; FINTECH</span></span>
               <h3 class="case-study-card__heading">Powering Point-of-Sale Lending From Application to Payoff</h3>
@@ -313,7 +316,8 @@
         </article>
 
         <article class="case-study-card" id="case-pawn" data-reveal="zoom" style="--reveal-delay: 0.4s">
-          <div class="case-study-card__media" style="background: linear-gradient(135deg, #E2E8F0, #CBD5E1);">
+          <div class="case-study-card__media">
+            <img src="assets/images/content/capabilities-case-pawn-retail.jpg" alt="Two customers meeting with a staff member across a table" loading="lazy" />
             <div class="case-study-card__overlay">
               <span class="case-study-card__eyebrow-row"><span>PAWN &amp; RETAIL LENDING</span></span>
               <h3 class="case-study-card__heading">Running Pawn &amp; Retail Operations From Appraisal to Resale</h3>
@@ -563,5 +567,15 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      function fit() {
+        var w = document.documentElement.clientWidth;
+        document.body.style.zoom = (w >= 1024 && w < 1200) ? (w / 1200) : '';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
 </body>
 </html>

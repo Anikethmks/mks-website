@@ -125,11 +125,28 @@
 @media (max-width: 1023px) {
   .agentic-hero { height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .agentic-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
   .agentic-tabs { flex-wrap: wrap; padding-inline: 12px; }
 }
 @media (max-width: 479px) {
   .agentic-tabs { gap: 8px; }
   .agentic-tabs__link { font-size: 13px; padding: 6px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .agentic-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the other heroes, image anchored on its subject,
+   stronger overlay so the text stays readable over the photo. */
+@media (max-width: 599px) {
+  .agentic-hero { height: auto; min-height: 489px; max-height: none; padding: 48px var(--section-px); background-position: 72% center; }
+  .agentic-hero::before { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .agentic-hero { height: auto; min-height: 489px; max-height: none; }
 }

@@ -194,9 +194,12 @@
   box-shadow: var(--shadow-card);
 }
 
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .co-panel__grid { gap: 32px; }
 }
+
 @media (max-width: 1023px) {
   .co-tabs { flex-direction: column; }
   .co-tab { max-width: none; border-radius: 8px; }
@@ -204,7 +207,7 @@
   .co-tab.is-active { box-shadow: none; border: 1px solid rgba(39, 132, 197, 0.3); }
   .co-panel__grid { grid-template-columns: 1fr; gap: 24px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .co-openings { gap: 20px; }
   .co-openings__container { gap: 32px; }
   .co-job-card { flex-direction: column; align-items: stretch; }

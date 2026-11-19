@@ -92,17 +92,24 @@
                     <a class="mega-menu__link" href="it-services.html#iot">IoT</a>
                   </div>
                 </div>
-                <div class="mega-menu__panel" data-panel="engineering">
+                <div class="mega-menu__panel mega-menu__panel--row" data-panel="engineering">
                   <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#new-product-development">New Product Development</a>
-                    <a class="mega-menu__link" href="engineering.html#product-sustenance">Product Sustenance</a>
-                    <a class="mega-menu__link" href="engineering.html#predictive-engineering">Predictive Engineering</a>
-                    <a class="mega-menu__link" href="engineering.html#digital-scanning">Digital Scanning</a>
-                    <a class="mega-menu__link" href="engineering.html#warranty-data-analytics">Warranty Data Analytics</a>
+                    <a class="mega-menu__link mega-menu__link--parent" href="ai-data-infrastructure.html">AI Data Infrastructure</a>
+                  </div>
+                  <div class="mega-menu__col">
+                    <a class="mega-menu__link mega-menu__link--parent" href="aerospace.html">Aerospace</a>
+                  </div>
+                  <div class="mega-menu__col mega-menu__col--tree">
+                    <a class="mega-menu__link mega-menu__link--parent" href="industrial-engineering.html">Industrial Engineering</a>
+                    <div class="mega-menu__sub">
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#new-product-development">New Product Development</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#product-sustenance">Product Sustenance</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#predictive-engineering">Predictive Engineering</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#digital-scanning">Digital Scanning</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#warranty-data-analytics">Warranty Data Analytics</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
+                        <a class="mega-menu__link" href="industrial-engineering-capabilities.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                     </div>
-                    <div class="mega-menu__col">
-                    <a class="mega-menu__link" href="engineering.html#asset-tracking-mttr">Asset Tracking &amp; MTTR</a>
-                    <a class="mega-menu__link" href="engineering.html#supplier-quality-engineering">Supplier Quality Engineering</a>
                   </div>
                 </div>
                 <div class="mega-menu__panel" data-panel="products-platform">
@@ -138,17 +145,12 @@
 
   <main>
     <!-- Hero (671:452) -->
-    <section class="industries-hero">
-      <div class="industries-hero__inner">
-        <div class="industries-hero__breadcrumb" data-reveal>
-          <a href="index.html">Home</a>
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span aria-current="page">Industries</span>
-        </div>
-        <div class="industries-hero__content" data-reveal>
-          <p class="industries-hero__eyebrow">CLIENT OUTCOMES</p>
-          <h1 class="industries-hero__title">Proven Results. Transformative Impact.</h1>
-          <p class="industries-hero__lead">Intelligent automation, AI-driven workflows, and enterprise engineering platforms delivering measurable outcomes for organisations across every sector.</p>
+    <section class="industries-hero hero-std">
+      <div class="industries-hero__inner hero-stack">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1L6 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span aria-current="page">Industries</span></nav>
+        <div class="industries-hero__content hero-stack" data-reveal>
+          <h1 class="industries-hero__title hero-title">Proven Results. Transformative Impact.</h1>
+          <p class="industries-hero__lead hero-lead">Intelligent automation, AI-driven workflows, and enterprise engineering platforms delivering measurable outcomes for organisations across every sector.</p>
         </div>
       </div>
     </section>
@@ -513,6 +515,16 @@
     </div>
   </footer>
   <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      function fit() {
+        var w = document.documentElement.clientWidth;
+        document.body.style.zoom = (w >= 1024 && w < 1200) ? (w / 1200) : '';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
 </body>
 
 </html>

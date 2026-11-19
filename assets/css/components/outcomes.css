@@ -440,10 +440,9 @@
      prev/next arrows in one compact row. Non-active items are hidden
      rather than removed, so the existing click-to-jump JS/DOM keeps
      working unchanged; there's just nothing extra to click at this size. */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .outcomes__inner { gap: 32px; }
   .outcomes__header { gap: 16px; }
-  .outcomes__title { font-weight: 600; }
 
   .outcomes__body { order: 2; grid-template-columns: 1fr; gap: 16px; }
   .outcomes__impact { order: 1; gap: 6px; }

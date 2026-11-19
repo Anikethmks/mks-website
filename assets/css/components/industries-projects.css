@@ -188,7 +188,10 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1279px) {
+
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .industries-projects__header { padding: 28px 0; }
   .industries-projects__grid-section { padding: 40px 48px 56px; }
   .industries-projects__grid { column-gap: 40px; row-gap: 28px; }
@@ -202,7 +205,7 @@
   .industries-projects__tab { padding: 10px 20px; font-size: 15px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .industries-projects__header { padding: 24px 0; gap: 20px; }
   .industries-projects__title-group { gap: 12px; padding-inline: 16px; }
   .industries-projects__grid-section { padding: 32px 16px 40px; }

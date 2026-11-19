@@ -48,7 +48,7 @@
 .docai-overview { padding: var(--section-py) var(--section-px); display: flex; flex-direction: column; gap: 48px; align-items: center; max-width: var(--frame-max); margin-inline: auto; }
 .docai-overview__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: #020202; margin: 0; width: 100%; }
 .docai-overview__row { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; }
-.docai-overview__media { flex: 0 0 590px; max-width: 100%; }
+.docai-overview__media { flex: 0 1 590px; min-width: 0; max-width: 100%; }
 .docai-overview__media img { width: 100%; height: auto; display: block; object-fit: cover; }
 .docai-overview__text { background: #F9FBFB; padding: 24px; display: flex; flex-direction: column; gap: 32px; flex: 1 1 0; min-width: 0; }
 .docai-overview__text p { font-family: var(--font-primary); font-weight: 400; font-size: 16px; line-height: 26px; color: #020202; margin: 0; }
@@ -86,7 +86,7 @@
 .docai-objective-card__text { font-family: var(--font-primary); font-weight: 400; font-size: 15px; line-height: 24px; color: #FFFFFF; margin: 0; position: relative; z-index: 1; max-width: 75%; }
 .docai-objective-card__icon { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
 .docai-objective-card__icon svg { max-width: 100%; max-height: 100%; width: auto; height: auto; }
-.docai-objective__media { flex: 0 0 461px; max-width: 100%; border-radius: 16px; overflow: hidden; }
+.docai-objective__media { flex: 0 1 461px; min-width: 0; max-width: 100%; border-radius: 16px; overflow: hidden; }
 .docai-objective__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* The Solution ------------------------------------------------------------------ */
@@ -117,7 +117,9 @@
 .docai-impact__tag span { font-family: var(--font-primary); font-weight: 600; font-size: 14px; line-height: 20px; letter-spacing: 0.3px; white-space: nowrap; color: var(--color-brand); }
 
 /* Responsive ------------------------------------------------------------------------ */
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .docai-overview__row { flex-direction: column; }
   .docai-overview__media { flex-basis: auto; width: 100%; }
   .docai-objective__row { flex-direction: column; }
@@ -125,6 +127,7 @@
   .docai-impact__grid { flex-wrap: wrap; }
   .docai-impact-card { flex-basis: calc(50% - 8px); }
 }
+
 @media (max-width: 1023px) {
   .docai-hero { height: auto; max-height: none; min-height: 0; padding: 48px var(--section-px); }
   .docai-overview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
@@ -133,7 +136,7 @@
   .docai-objective__media { height: 260px; }
   .docai-objective__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 }
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .docai-hero__breadcrumb { flex-wrap: wrap; row-gap: 4px; }
   .docai-tabs { flex-wrap: wrap; padding-inline: 12px; }
   .docai-overview { gap: 32px; }
@@ -158,4 +161,27 @@
 @media (max-width: 479px) {
   .docai-tabs { gap: 8px; }
   .docai-tabs__link { font-size: 13px; padding: 6px; }
+}
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .docai-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Phone hero: same minimum height as the other heroes, image anchored on its subject,
+   stronger overlay so the text stays readable over the photo. */
+@media (max-width: 599px) {
+  .docai-hero { height: auto; min-height: 489px; max-height: none; padding: 48px var(--section-px); background-position: 72% center; }
+  .docai-hero::before { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .docai-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Stacked layouts: show the cards first and the photo after, so two photos never sit back to back
+   (the previous section already ends with an image). */
+@media (max-width: 1023px) {
+  .docai-objective__media { order: 2; }
 }

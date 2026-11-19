@@ -25,9 +25,9 @@
 
 .careers-testimonials__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: var(--fw-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
   letter-spacing: -0.0063em;
   color: #020202;
   margin: 0;
@@ -152,14 +152,36 @@
 .careers-testimonial-card__quote-text { font-family: var(--font-primary); font-weight: 400; font-size: 14px; line-height: 1.6em; color: #4E5868; margin: 0; }
 
 /* Laptop */
-@media (max-width: 1279px) {
+/* Tablet */
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .careers-testimonial-card { flex-basis: 340px; }
 }
-/* Tablet */
+
 @media (max-width: 1023px) {
   .careers-testimonial-card { flex-basis: 300px; padding: 24px; }
 }
 /* Mobile */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .careers-testimonial-card { flex-basis: 270px; }
+}
+
+/* Tablet/mobile: tighter, evenly spaced card header so name and role don't spread over many lines */
+@media (max-width: 1023px) {
+  .careers-testimonial-card { flex-basis: 340px; padding: 24px; gap: 18px; }
+  .careers-testimonial-card__who { flex: 1 1 0; min-width: 0; gap: 12px; }
+  .careers-testimonial-card__avatar { flex: 0 0 48px; width: 48px; height: 48px; }
+  .careers-testimonial-card__name { font-size: 16px; line-height: 22px; }
+  .careers-testimonial-card__role { font-size: 12.5px; line-height: 18px; margin-top: 2px; }
+  .careers-testimonial-card__quote-icon { flex-basis: 28px; width: 28px; height: 28px; }
+  .careers-testimonial-card__quote-title { line-height: 22px; }
+  .careers-testimonial-card__quote-text { line-height: 24px; }
+}
+@media (max-width: 599px) {
+  .careers-testimonial-card { flex-basis: 290px; }
+}
+
+/* Phone: cards size to their own content (no empty space under shorter quotes) */
+@media (max-width: 599px) {
+  .careers-testimonials__track { align-items: flex-start; }
 }

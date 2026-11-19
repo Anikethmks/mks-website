@@ -44,8 +44,7 @@
 }
 
 /* Mobile (Figma node 1936:7346, 390px frame) */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .industries__inner { gap: 32px; }
   .industries__header { gap: 16px; }
-  .industries__title { font-weight: 600; }
 }

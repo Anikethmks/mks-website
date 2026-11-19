@@ -45,6 +45,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: linear-gradient(90deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.55) 55%, rgba(11, 52, 84, 0.25) 100%);
   pointer-events: none;
 }
 
@@ -294,7 +295,7 @@
    of a fixed px so 4 of them plus gaps never overflows a 375px-wide
    screen (Figma's own 390px frame leaves only ~7px of margin at a literal
    80px-per-tab width, which tips into overflow at 375px). */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   /* min-height, not height — some slides' subtitles run to 3 lines, and a
      fixed height at the 2-line figure clipped the tabs row off the bottom
      (.hero has overflow:hidden for the Ken Burns background). min-height
@@ -307,13 +308,29 @@
   .hero__subtitle {
     margin-top: 24px;
   }
-  .hero__cta-row { margin-top: 48px; gap: 24px; }
-  .hero__controls { margin-top: 48px; gap: 48px; }
+  .hero__cta-row { margin-top: 32px; gap: 24px; }
+  .hero__controls { margin-top: 32px; gap: 32px; }
   .hero__tabs { gap: 10px; }
   .hero__tab { width: auto; }
   .hero__tab-label { font-size: 11px; line-height: 16px; letter-spacing: 1.5px; }
 }
 @media (max-width: 479px) {
   .hero { height: auto; min-height: 489px; }
-  .hero__content { min-height: 370px; }
+  .hero__content { min-height: 300px; }
+}
+
+/* Smaller screens: the subject of every slide sits on the right of the photo
+   (the left is empty dark space for text), so anchor to the right instead of
+   the centre - otherwise the portrait crop shows mostly dark nothing. */
+@media (max-width: 1023px) {
+  .hero__bg[data-slide="0"] { background-position: 78% center; }
+  .hero__bg[data-slide="1"] { background-position: 80% center; }
+  .hero__bg[data-slide="2"] { background-position: 72% center; }
+  .hero__bg[data-slide="3"] { background-position: 72% center; }
+}
+@media (max-width: 599px) {
+  .hero__bg[data-slide="0"] { background-position: 85% center; }
+  .hero__bg[data-slide="1"] { background-position: 88% center; }
+  .hero__bg[data-slide="2"] { background-position: 76% center; }
+  .hero__bg[data-slide="3"] { background-position: 76% center; }
 }

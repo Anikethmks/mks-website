@@ -8,8 +8,8 @@
   display: flex;
   align-items: center;
   height: calc(100vh - 92px);
-  min-height: 400px;
-  max-height: 584px;
+  min-height: 460px;
+  max-height: 575px;
   padding: 0 var(--section-px);
   background: #0B3454 url('../../images/content/b222-hero.jpg') center/cover no-repeat;
   isolation: isolate;
@@ -41,9 +41,9 @@
 /* Intro (2620:4293) --------------------------------------------------------- */
 .b222-intro { padding: var(--section-py) var(--section-px); background: #FFFFFF; }
 .b222-intro__inner { max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
-.b222-intro__title { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 46px; color: var(--color-brand); margin: 0; }
+.b222-intro__title { font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); color: var(--color-brand); margin: 0; }
 .b222-intro__split { display: flex; justify-content: space-between; gap: 32px; align-items: center; }
-.b222-intro__img { flex: 0 0 431px; width: 431px; height: 277px; border-radius: 0; object-fit: cover; }
+.b222-intro__img { flex: 0 1 431px; min-width: 0; width: 431px; max-width: 100%; height: 277px; border-radius: 0; object-fit: cover; }
 .b222-intro__text { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
 .b222-intro__text p { margin: 0; font-family: var(--font-primary); font-size: 16px; line-height: 26px; color: #58595B; }
 
@@ -106,7 +106,7 @@
 .b222-value__inner { position: relative; max-width: var(--content-max); margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
 .b222-value__header { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
 .b222-value__eyebrow { font-family: var(--font-primary); font-weight: var(--fw-eyebrow); font-size: var(--fs-eyebrow); letter-spacing: 0.1667em; text-transform: uppercase; color: #2784C5; }
-.b222-value__title { max-width: 960px; font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 42px; letter-spacing: -0.0063em; color: #4D4FA4; margin: 0; }
+.b222-value__title { max-width: 960px; font-family: var(--font-display); font-weight: var(--fw-h2); font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -0.0063em; color: #4D4FA4; margin: 0; }
 
 .b222-value-cards { display: flex; gap: 24px; }
 .b222-value-card {
@@ -145,11 +145,11 @@
 .b222-results__lead h4 { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 28px; color: #FFFFFF; margin: 0; }
 .b222-results__lead p { font-family: var(--font-primary); font-size: 16px; line-height: 26px; color: #FFFFFF; margin: 0; }
 
-.b222-steps { display: flex; gap: 32px; }
+.b222-steps { display: flex; gap: 20px; align-items: stretch; }
 .b222-step {
   flex: 1 1 0;
   min-width: 0;
-  height: 220px;
+  min-height: 220px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -174,8 +174,8 @@
   font-size: 18px;
   color: #2784C5;
 }
-.b222-step__head span { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: #1B313F; }
-.b222-step p { margin: 0; font-family: var(--font-primary); font-size: 13px; line-height: 18px; color: #475569; }
+.b222-step__head span { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: #1B313F;  min-width: 0; line-height: 24px; }
+.b222-step p { margin: 0; font-family: var(--font-primary); font-size: 14px; line-height: 22px; color: #475569; }
 
 .b222-results__cta { display: flex; justify-content: center; }
 .b222-results__cta a {
@@ -214,8 +214,45 @@
   .b222-card { flex-basis: calc(50% - 16px); max-width: calc(50% - 16px); }
 }
 
-@media (max-width: 767px) {
-  .b222-value__title { font-size: 26px; }
+@media (max-width: 599px) {
   .b222-step { height: auto; }
   .b222-card { flex-basis: 100%; max-width: 100%; }
+}
+
+/* Business Impact: content block sits in a column, so cancel its row-based flex-basis (was adding a 420px-tall gap) */
+.b222-results__inner .results-cta__content { flex: 0 0 auto; }
+.b222-step { min-height: 260px; padding: 28px 24px; gap: 20px; }
+.b222-step__head { align-items: flex-start; }
+.b222-step__head span:not(.b222-step__num) { flex: 1 1 0; min-width: 0; overflow-wrap: break-word; }
+.b222-step p { font-size: 15px; line-height: 24px; }
+
+/* Tablet hero: same fixed height as the home page hero */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .b222-hero { height: calc(100vh - 92px); min-height: 400px; max-height: 500px; padding-block: 0; }
+}
+
+/* Tablet: compact cards - 3 on the first row, 2 on the second */
+@media (max-width: 1023px) {
+  .b222-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+  .b222-step { grid-column: span 2; min-height: 0; height: auto; padding: 20px; gap: 12px; }
+  .b222-step:nth-child(n+4) { grid-column: span 3; }
+}
+@media (max-width: 599px) {
+  .b222-steps { display: flex; flex-direction: column; gap: 12px; }
+  .b222-step { grid-column: auto; padding: 18px 20px; }
+}
+
+/* Phone hero: same minimum height as the home page hero */
+@media (max-width: 599px) {
+  .b222-hero { height: auto; min-height: 489px; max-height: none; }
+}
+
+/* Phone: stacked cards must size to their content (desktop flex-basis:0 collapsed them in a column) */
+@media (max-width: 1023px) {
+  .b222-steps { align-items: stretch; }
+}
+@media (max-width: 599px) {
+  .b222-steps .b222-step { flex: none; height: auto; min-height: 0; width: 100%; }
+  .b222-hero { background-position: 70% center; padding: 48px var(--section-px); }
+  .b222-hero::before { background: linear-gradient(180deg, rgba(11, 52, 84, 0.88) 0%, rgba(11, 52, 84, 0.72) 100%); }
 }

@@ -90,16 +90,20 @@
 /* Laptop: the unwrapped 6-across row gets cramped well before 1024px, so
    the original 1100px wrap breakpoint is remapped to the 1279px tier (with
    a graduated 3-column step instead of jumping straight to 2). */
-@media (max-width: 1279px) {
+
+/* Tablet: layout rules carried over from the former 1279px tier */
+@media (max-width: 1023px) {
   .pva-impact__grid { flex-wrap: wrap; }
   .pva-impact-card { flex-basis: calc((100% - 32px) / 3); }
 }
+
 @media (max-width: 1023px) {
+  .pva-impact__grid { flex-wrap: wrap; }
   .pva-impact-card { flex-basis: calc(50% - 8px); }
 }
 /* Mobile: original 2→1 col breakpoint was 600px; remapped to the standard
    767px tier (transitions earlier, no coverage gap). */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .pva-impact__inner { gap: 24px; }
   .pva-impact-card { flex-basis: 100%; }
 }
